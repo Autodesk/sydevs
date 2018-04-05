@@ -1,3 +1,7 @@
+---
+title: SyDEVS
+---
+
 # SyDEVS
 
 Multiscale Simulation and Systems Modeling Library
@@ -11,17 +15,17 @@ This library provides a framework for implementating complex systems analysis an
 #### Building on Windows (Visual Studio)
 * You will need [CMake](http://www.cmake.org/)
 * Make sure you have [Visual Studio 2015](https://www.visualstudio.com) or [Visual Studio 2017](https://www.visualstudio.com)
-* `git clone https://github.com/Autodesk/sydevs sydevs
+* `git clone https://github.com/Autodesk/sydevs sydevs`
 * `cd sydevs`
 * `mkdir bin`
 * `cd bin/`
 * `cmake -G "Visual Studio 14 2015 Win64" ..` or `cmake -G "Visual Studio 15 2017 Win64" ..`
-* Open 'bin/SyDEVS.sln' in Visual Studio
+* Open `bin/SyDEVS.sln` in Visual Studio
 * Recommendation: In `Tools->Options->Text Editor->C/C++->Tabs`, select `Insert spaces` with a `Tab size` and `Indent size` of `4`
 
 #### Building on Mac OS
 * You will need [CMake](http://www.cmake.org/)
-* `git clone https://github.com/Autodesk/sydevs sydevs
+* `git clone https://github.com/Autodesk/sydevs sydevs`
 * `cd sydevs`
 * `mkdir bin`
 * `cd bin/`
