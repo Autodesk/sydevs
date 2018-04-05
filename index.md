@@ -4,13 +4,15 @@ Multiscale Simulation and Systems Modeling Library
 
 ## About
 
-This library provides a framework for implementating complex systems analysis and simulation code in a modular/hierarchical fashion. It was originally developed to serve as a backend for the visual programming interfaces described by [Maleki et al. (2005)](https://www.autodeskresearch.com/publications/designingdevs), but the same functionality can be achieved without a GUI by defining C++ classes that derive from one of the system node base classes ([`atomic_node`](src/sydevs/systems/atomic_node.h), [`composite_node`](src/sydevs/systems/composite_node.h), [`collection_node`](src/sydevs/systems/collection_node.h), [`function_node`](src/sydevs/systems/function_node.h)). The framework combines two programming paradigms: [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) as exemplified by Autodesk's [Dynamo](http://dynamobim.org/) tool, and the [DEVS](https://en.wikipedia.org/wiki/DEVS) message-passing paradigm implemented in tools such as DesignDEVS (see [software](http://simaud.com/resources.php#software), [conference paper](https://www.autodeskresearch.com/designdevs), [journal paper](https://www.autodeskresearch.com/publications/practical-aspects-designdevs-simulation-environment)). These foundations give the framework the generality neeeded to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
+This library provides a framework for implementating complex systems analysis and simulation code in a modular/hierarchical fashion. It was originally developed to serve as a backend for the visual programming interfaces described by [Maleki et al. (2015)](https://www.autodeskresearch.com/publications/designingdevs), but the same functionality can be achieved without a GUI by defining C++ classes that derive from one of the system node base classes (`atomic_node`, `composite_node`, `collection_node`, `function_node`). The framework combines two programming paradigms: [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) as exemplified by Autodesk's [Dynamo](http://dynamobim.org/) tool, and the [DEVS](https://en.wikipedia.org/wiki/DEVS) message-passing paradigm implemented in tools such as DesignDEVS (see [software](http://simaud.com/resources.php#software), [conference paper](https://www.autodeskresearch.com/designdevs), [journal paper](https://www.autodeskresearch.com/publications/practical-aspects-designdevs-simulation-environment)). These foundations give the framework the generality neeeded to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
 
 ## Building
 
 #### Building on Windows (Visual Studio)
 * You will need [CMake](http://www.cmake.org/)
 * Make sure you have [Visual Studio 2015](https://www.visualstudio.com) or [Visual Studio 2017](https://www.visualstudio.com)
+* `git clone https://github.com/Autodesk/sydevs sydevs
+* `cd sydevs`
 * `mkdir bin`
 * `cd bin/`
 * `cmake -G "Visual Studio 14 2015 Win64" ..` or `cmake -G "Visual Studio 15 2017 Win64" ..`
@@ -19,6 +21,8 @@ This library provides a framework for implementating complex systems analysis an
 
 #### Building on Mac OS
 * You will need [CMake](http://www.cmake.org/)
+* `git clone https://github.com/Autodesk/sydevs sydevs
+* `cd sydevs`
 * `mkdir bin`
 * `cd bin/`
 * `cmake -G "Xcode" ..`
@@ -40,10 +44,6 @@ There are two PowerPoint documents located in the [`doc`](doc) folder:
 - [SyDEVS_Tutorial.pptx](doc/SyDEVS_Tutorial.pptx): A tutorial that challenges developers to enhance the building7m example.
 
 
-## Contributing
-
-Review the [contributing guidelines](CONTRIBUTING.md) before you consider working on SyDEVS and proposing contributions.
-
 ## License
 
-SPDX-License-Identifier: [Apache-2.0](LICENSE.md)
+[Apache-2.0](LICENSE.md)
