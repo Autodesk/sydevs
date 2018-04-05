@@ -1,0 +1,2333 @@
+1|0|$time:time_point() + 41_s + 915_ms + 746_us
+1|9|top.source#item_output:{1000, 2000, 0}
+1|81|top.kiosk_queue#item_output:{2000, 3010, 0}
+2|0|$time:time_point() + 44_s + 864_ms + 269_us
+2|9|top.source#item_output:{1000, 2000, 1}
+2|80|top.kiosk_queue#item_output:{2000, 3009, 1}
+3|0|$time:time_point() + 47_s + 992_ms + 374_us
+3|9|top.source#item_output:{1000, 2000, 2}
+3|79|top.kiosk_queue#item_output:{2000, 3004, 2}
+4|0|$time:time_point() + 55_s + 470_ms + 229_us
+4|9|top.source#item_output:{1000, 2000, 3}
+4|78|top.kiosk_queue#item_output:{2000, 3003, 3}
+5|0|$time:time_point() + 59_s + 929_ms + 117_us
+5|9|top.source#item_output:{1000, 2000, 4}
+5|77|top.kiosk_queue#item_output:{2000, 3008, 4}
+6|0|$time:time_point() + 78_s + 736_ms + 737_us
+6|9|top.source#item_output:{1000, 2000, 5}
+6|76|top.kiosk_queue#item_output:{2000, 3001, 5}
+7|0|$time:time_point() + 80_s + 665_ms + 251_us
+7|9|top.source#item_output:{1000, 2000, 6}
+7|75|top.kiosk_queue#item_output:{2000, 3006, 6}
+8|0|$time:time_point() + 102_s + 875_ms + 694_us
+8|9|top.source#item_output:{1000, 2000, 7}
+8|74|top.kiosk_queue#item_output:{2000, 3005, 7}
+9|0|$time:time_point() + 111_s + 178_ms + 356_us
+9|9|top.source#item_output:{1000, 2000, 8}
+9|73|top.kiosk_queue#item_output:{2000, 3002, 8}
+10|0|$time:time_point() + 132_s + 811_ms + 852_us
+10|9|top.source#item_output:{1000, 2000, 9}
+10|72|top.kiosk_queue#item_output:{2000, 3007, 9}
+11|0|$time:time_point() + 134_s + 161_ms + 231_us
+11|9|top.source#item_output:{1000, 2000, 10}
+12|0|$time:time_point() + 143_s + 977_ms + 308_us
+12|9|top.source#item_output:{1000, 2000, 11}
+13|0|$time:time_point() + 149_s + 258_ms + 13_us
+13|9|top.source#item_output:{1000, 2000, 12}
+14|0|$time:time_point() + 161_s + 856_ms + 20_us
+14|9|top.source#item_output:{1000, 2000, 13}
+15|0|$time:time_point() + 161_s + 915_ms + 746_us
+15|70|top.kiosk_array.3010#item_output:{3010, 4001, 0}
+15|82|top.kiosk_queue#item_output:{2000, 3010, 10}
+16|0|$time:time_point() + 164_s + 864_ms + 269_us
+16|66|top.kiosk_array.3009#item_output:{3009, 4001, 1}
+16|82|top.kiosk_queue#item_output:{2000, 3009, 11}
+17|0|$time:time_point() + 167_s + 992_ms + 374_us
+17|46|top.kiosk_array.3004#item_output:{3004, 4002, 2}
+17|82|top.kiosk_queue#item_output:{2000, 3004, 12}
+18|0|$time:time_point() + 175_s + 470_ms + 229_us
+18|42|top.kiosk_array.3003#item_output:{3003, 4002, 3}
+18|82|top.kiosk_queue#item_output:{2000, 3003, 13}
+19|0|$time:time_point() + 179_s + 929_ms + 117_us
+19|62|top.kiosk_array.3008#item_output:{3008, 4001, 4}
+20|0|$time:time_point() + 188_s + 986_ms + 143_us
+20|9|top.source#item_output:{1000, 2000, 14}
+20|72|top.kiosk_queue#item_output:{2000, 3008, 14}
+21|0|$time:time_point() + 193_s + 190_ms + 56_us
+21|9|top.source#item_output:{1000, 2000, 15}
+22|0|$time:time_point() + 198_s + 736_ms + 737_us
+22|34|top.kiosk_array.3001#item_output:{3001, 4002, 5}
+22|82|top.kiosk_queue#item_output:{2000, 3001, 15}
+23|0|$time:time_point() + 200_s + 665_ms + 251_us
+23|54|top.kiosk_array.3006#item_output:{3006, 4001, 6}
+24|0|$time:time_point() + 222_s + 875_ms + 694_us
+24|50|top.kiosk_array.3005#item_output:{3005, 4001, 7}
+25|0|$time:time_point() + 231_s + 178_ms + 356_us
+25|38|top.kiosk_array.3002#item_output:{3002, 4002, 8}
+26|0|$time:time_point() + 247_s + 666_ms + 26_us
+26|9|top.source#item_output:{1000, 2000, 16}
+26|74|top.kiosk_queue#item_output:{2000, 3002, 16}
+27|0|$time:time_point() + 251_s + 553_ms + 845_us
+27|9|top.source#item_output:{1000, 2000, 17}
+27|73|top.kiosk_queue#item_output:{2000, 3006, 17}
+28|0|$time:time_point() + 252_s + 811_ms + 852_us
+28|58|top.kiosk_array.3007#item_output:{3007, 4002, 9}
+29|0|$time:time_point() + 263_s + 679_ms + 561_us
+29|9|top.source#item_output:{1000, 2000, 18}
+29|73|top.kiosk_queue#item_output:{2000, 3007, 18}
+30|0|$time:time_point() + 275_s + 173_ms + 321_us
+30|9|top.source#item_output:{1000, 2000, 19}
+30|72|top.kiosk_queue#item_output:{2000, 3005, 19}
+31|0|$time:time_point() + 281_s + 915_ms + 746_us
+31|70|top.kiosk_array.3010#item_output:{3010, 4001, 10}
+32|0|$time:time_point() + 283_s + 238_ms + 805_us
+32|9|top.source#item_output:{1000, 2000, 20}
+32|72|top.kiosk_queue#item_output:{2000, 3010, 20}
+33|0|$time:time_point() + 283_s + 341_ms + 546_us
+33|9|top.source#item_output:{1000, 2000, 21}
+34|0|$time:time_point() + 284_s + 864_ms + 269_us
+34|66|top.kiosk_array.3009#item_output:{3009, 4002, 11}
+34|82|top.kiosk_queue#item_output:{2000, 3009, 21}
+35|0|$time:time_point() + 287_s + 992_ms + 374_us
+35|46|top.kiosk_array.3004#item_output:{3004, 4001, 12}
+36|0|$time:time_point() + 288_s + 95_ms + 150_us
+36|9|top.source#item_output:{1000, 2000, 22}
+36|72|top.kiosk_queue#item_output:{2000, 3004, 22}
+37|0|$time:time_point() + 289_s + 210_ms + 639_us
+37|9|top.source#item_output:{1000, 2000, 23}
+38|0|$time:time_point() + 295_s + 470_ms + 229_us
+38|42|top.kiosk_array.3003#item_output:{3003, 4002, 13}
+38|82|top.kiosk_queue#item_output:{2000, 3003, 23}
+39|0|$time:time_point() + 308_s + 986_ms + 143_us
+39|62|top.kiosk_array.3008#item_output:{3008, 4002, 14}
+40|0|$time:time_point() + 318_s + 736_ms + 737_us
+40|34|top.kiosk_array.3001#item_output:{3001, 4001, 15}
+41|0|$time:time_point() + 332_s + 654_ms + 863_us
+41|9|top.source#item_output:{1000, 2000, 24}
+41|73|top.kiosk_queue#item_output:{2000, 3008, 24}
+42|0|$time:time_point() + 335_s + 845_ms + 836_us
+42|9|top.source#item_output:{1000, 2000, 25}
+42|72|top.kiosk_queue#item_output:{2000, 3001, 25}
+43|0|$time:time_point() + 341_s + 915_ms + 746_us
+43|8|top.booths#lane_creation_output:5001
+43|29|top.central_queue.4002#item_output:{4002, 5001, 2}
+43|57|top.booths.5001.queue#item_output:{5001, 5001, 2}
+43|79|top.central_queue.4002#item_output:{4002, 5001, 3}
+43|111|top.central_queue.4001#item_output:{4001, 5001, 0}
+43|140|top.central_queue.4001#item_output:{4001, 5001, 1}
+43|169|top.central_queue.4001#item_output:{4001, 5001, 4}
+43|198|top.central_queue.4001#item_output:{4001, 5001, 6}
+44|0|$time:time_point() + 347_s + 861_ms + 45_us
+44|9|top.source#item_output:{1000, 2000, 26}
+45|0|$time:time_point() + 354_s + 983_ms + 602_us
+45|9|top.source#item_output:{1000, 2000, 27}
+46|0|$time:time_point() + 362_s + 435_ms + 195_us
+46|9|top.source#item_output:{1000, 2000, 28}
+47|0|$time:time_point() + 363_s + 890_ms + 363_us
+47|9|top.source#item_output:{1000, 2000, 29}
+48|0|$time:time_point() + 367_s + 666_ms + 26_us
+48|38|top.kiosk_array.3002#item_output:{3002, 4002, 16}
+48|82|top.kiosk_queue#item_output:{2000, 3002, 26}
+49|0|$time:time_point() + 371_s + 553_ms + 845_us
+49|54|top.kiosk_array.3006#item_output:{3006, 4001, 17}
+49|82|top.kiosk_queue#item_output:{2000, 3006, 27}
+50|0|$time:time_point() + 383_s + 679_ms + 561_us
+50|58|top.kiosk_array.3007#item_output:{3007, 4001, 18}
+50|82|top.kiosk_queue#item_output:{2000, 3007, 28}
+51|0|$time:time_point() + 386_s + 847_ms + 304_us
+51|9|top.source#item_output:{1000, 2000, 30}
+52|0|$time:time_point() + 389_s + 914_ms + 413_us
+52|9|top.source#item_output:{1000, 2000, 31}
+53|0|$time:time_point() + 395_s + 173_ms + 321_us
+53|50|top.kiosk_array.3005#item_output:{3005, 4002, 19}
+53|82|top.kiosk_queue#item_output:{2000, 3005, 29}
+54|0|$time:time_point() + 403_s + 238_ms + 805_us
+54|70|top.kiosk_array.3010#item_output:{3010, 4001, 20}
+54|82|top.kiosk_queue#item_output:{2000, 3010, 30}
+55|0|$time:time_point() + 404_s + 864_ms + 269_us
+55|66|top.kiosk_array.3009#item_output:{3009, 4001, 21}
+55|82|top.kiosk_queue#item_output:{2000, 3009, 31}
+56|0|$time:time_point() + 408_s + 95_ms + 150_us
+56|46|top.kiosk_array.3004#item_output:{3004, 4001, 22}
+57|0|$time:time_point() + 415_s + 470_ms + 229_us
+57|42|top.kiosk_array.3003#item_output:{3003, 4002, 23}
+58|0|$time:time_point() + 417_s + 893_ms + 865_us
+58|9|top.source#item_output:{1000, 2000, 32}
+58|73|top.kiosk_queue#item_output:{2000, 3004, 32}
+59|0|$time:time_point() + 429_s + 793_ms + 904_us
+59|9|top.source#item_output:{1000, 2000, 33}
+59|72|top.kiosk_queue#item_output:{2000, 3003, 33}
+60|0|$time:time_point() + 444_s + 735_ms + 439_us
+60|17|top.booths.5001.server#item_output:{5001, 6000, 2}
+60|26|top.booths.5001.queue#item_output:{5001, 5001, 3}
+60|50|top.central_queue.4002#item_output:{4002, 5001, 5}
+60|67|top.sink#item_output:2
+61|0|$time:time_point() + 452_s + 654_ms + 863_us
+61|62|top.kiosk_array.3008#item_output:{3008, 4002, 24}
+62|0|$time:time_point() + 455_s + 845_ms + 836_us
+62|34|top.kiosk_array.3001#item_output:{3001, 4002, 25}
+63|0|$time:time_point() + 463_s + 98_ms + 76_us
+63|9|top.source#item_output:{1000, 2000, 34}
+63|73|top.kiosk_queue#item_output:{2000, 3008, 34}
+64|0|$time:time_point() + 468_s + 737_ms + 217_us
+64|9|top.source#item_output:{1000, 2000, 35}
+64|72|top.kiosk_queue#item_output:{2000, 3001, 35}
+65|0|$time:time_point() + 481_s + 704_ms + 94_us
+65|9|top.source#item_output:{1000, 2000, 36}
+66|0|$time:time_point() + 487_s + 666_ms + 26_us
+66|38|top.kiosk_array.3002#item_output:{3002, 4002, 26}
+66|82|top.kiosk_queue#item_output:{2000, 3002, 36}
+67|0|$time:time_point() + 491_s + 553_ms + 845_us
+67|54|top.kiosk_array.3006#item_output:{3006, 4001, 27}
+68|0|$time:time_point() + 503_s + 679_ms + 561_us
+68|58|top.kiosk_array.3007#item_output:{3007, 4001, 28}
+69|0|$time:time_point() + 514_s + 643_ms + 911_us
+69|9|top.source#item_output:{1000, 2000, 37}
+69|73|top.kiosk_queue#item_output:{2000, 3007, 37}
+70|0|$time:time_point() + 515_s + 173_ms + 321_us
+70|50|top.kiosk_array.3005#item_output:{3005, 4001, 29}
+71|0|$time:time_point() + 521_s + 915_ms + 746_us
+71|8|top.booths#lane_creation_output:5002
+71|25|top.central_queue.4001#item_output:{4001, 5002, 7}
+71|67|top.booths.5002.queue#item_output:{5002, 5002, 7}
+71|89|top.central_queue.4002#item_output:{4002, 5002, 8}
+71|131|top.central_queue.4001#item_output:{4001, 5002, 10}
+71|170|top.central_queue.4001#item_output:{4001, 5002, 12}
+71|213|top.central_queue.4002#item_output:{4002, 5002, 9}
+71|252|top.central_queue.4002#item_output:{4002, 5002, 11}
+72|0|$time:time_point() + 523_s + 238_ms + 805_us
+72|70|top.kiosk_array.3010#item_output:{3010, 4001, 30}
+73|0|$time:time_point() + 524_s + 864_ms + 269_us
+73|66|top.kiosk_array.3009#item_output:{3009, 4001, 31}
+74|0|$time:time_point() + 529_s + 617_ms + 117_us
+74|9|top.source#item_output:{1000, 2000, 38}
+74|75|top.kiosk_queue#item_output:{2000, 3006, 38}
+75|0|$time:time_point() + 534_s + 993_ms + 796_us
+75|9|top.source#item_output:{1000, 2000, 39}
+75|74|top.kiosk_queue#item_output:{2000, 3010, 39}
+76|0|$time:time_point() + 535_s + 784_ms + 490_us
+76|9|top.source#item_output:{1000, 2000, 40}
+76|73|top.kiosk_queue#item_output:{2000, 3009, 40}
+77|0|$time:time_point() + 537_s + 893_ms + 865_us
+77|46|top.kiosk_array.3004#item_output:{3004, 4001, 32}
+78|0|$time:time_point() + 541_s + 625_ms + 783_us
+78|9|top.source#item_output:{1000, 2000, 41}
+78|73|top.kiosk_queue#item_output:{2000, 3005, 41}
+79|0|$time:time_point() + 546_s + 787_ms + 554_us
+79|9|top.source#item_output:{1000, 2000, 42}
+79|72|top.kiosk_queue#item_output:{2000, 3004, 42}
+80|0|$time:time_point() + 549_s + 793_ms + 904_us
+80|42|top.kiosk_array.3003#item_output:{3003, 4001, 33}
+81|0|$time:time_point() + 560_s + 525_ms + 987_us
+81|9|top.source#item_output:{1000, 2000, 43}
+81|72|top.kiosk_queue#item_output:{2000, 3003, 43}
+82|0|$time:time_point() + 573_s + 180_ms + 292_us
+82|25|top.booths.5002.server#item_output:{5002, 6000, 7}
+82|34|top.booths.5002.queue#item_output:{5002, 5002, 8}
+82|54|top.central_queue.4001#item_output:{4001, 5002, 15}
+82|85|top.sink#item_output:7
+83|0|$time:time_point() + 581_s + 815_ms + 483_us
+83|19|top.booths.5001.server#item_output:{5001, 6000, 3}
+83|28|top.booths.5001.queue#item_output:{5001, 5001, 0}
+83|54|top.central_queue.4001#item_output:{4001, 5001, 17}
+83|85|top.sink#item_output:3
+84|0|$time:time_point() + 583_s + 98_ms + 76_us
+84|62|top.kiosk_array.3008#item_output:{3008, 4001, 34}
+85|0|$time:time_point() + 588_s + 737_ms + 217_us
+85|34|top.kiosk_array.3001#item_output:{3001, 4001, 35}
+86|0|$time:time_point() + 599_s + 341_ms + 849_us
+86|9|top.source#item_output:{1000, 2000, 44}
+86|73|top.kiosk_queue#item_output:{2000, 3008, 44}
+87|0|$time:time_point() + 601_s + 944_ms + 471_us
+87|9|top.source#item_output:{1000, 2000, 45}
+87|72|top.kiosk_queue#item_output:{2000, 3001, 45}
+88|0|$time:time_point() + 605_s + 22_ms + 834_us
+88|9|top.source#item_output:{1000, 2000, 46}
+89|0|$time:time_point() + 607_s + 666_ms + 26_us
+89|38|top.kiosk_array.3002#item_output:{3002, 4002, 36}
+89|82|top.kiosk_queue#item_output:{2000, 3002, 46}
+90|0|$time:time_point() + 626_s + 476_ms + 575_us
+90|9|top.source#item_output:{1000, 2000, 47}
+91|0|$time:time_point() + 634_s + 643_ms + 911_us
+91|58|top.kiosk_array.3007#item_output:{3007, 4001, 37}
+91|82|top.kiosk_queue#item_output:{2000, 3007, 47}
+92|0|$time:time_point() + 635_s + 612_ms + 726_us
+92|9|top.source#item_output:{1000, 2000, 48}
+93|0|$time:time_point() + 637_s + 723_ms + 556_us
+93|25|top.booths.5002.server#item_output:{5002, 6000, 8}
+93|34|top.booths.5002.queue#item_output:{5002, 5002, 10}
+93|54|top.central_queue.4001#item_output:{4001, 5002, 18}
+93|85|top.sink#item_output:8
+94|0|$time:time_point() + 644_s + 857_ms + 450_us
+94|9|top.source#item_output:{1000, 2000, 49}
+95|0|$time:time_point() + 648_s + 535_ms + 751_us
+95|9|top.source#item_output:{1000, 2000, 50}
+96|0|$time:time_point() + 649_s + 617_ms + 117_us
+96|54|top.kiosk_array.3006#item_output:{3006, 4002, 38}
+96|82|top.kiosk_queue#item_output:{2000, 3006, 48}
+97|0|$time:time_point() + 654_s + 993_ms + 796_us
+97|70|top.kiosk_array.3010#item_output:{3010, 4002, 39}
+97|82|top.kiosk_queue#item_output:{2000, 3010, 49}
+98|0|$time:time_point() + 655_s + 784_ms + 490_us
+98|66|top.kiosk_array.3009#item_output:{3009, 4002, 40}
+98|82|top.kiosk_queue#item_output:{2000, 3009, 50}
+99|0|$time:time_point() + 657_s + 548_ms + 222_us
+99|9|top.source#item_output:{1000, 2000, 51}
+100|0|$time:time_point() + 661_s + 625_ms + 783_us
+100|50|top.kiosk_array.3005#item_output:{3005, 4002, 41}
+100|82|top.kiosk_queue#item_output:{2000, 3005, 51}
+101|0|$time:time_point() + 666_s + 787_ms + 554_us
+101|46|top.kiosk_array.3004#item_output:{3004, 4001, 42}
+102|0|$time:time_point() + 680_s + 525_ms + 987_us
+102|42|top.kiosk_array.3003#item_output:{3003, 4001, 43}
+103|0|$time:time_point() + 691_s + 205_ms + 319_us
+103|19|top.booths.5001.server#item_output:{5001, 6000, 0}
+103|28|top.booths.5001.queue#item_output:{5001, 5001, 1}
+103|58|top.central_queue.4002#item_output:{4002, 5001, 13}
+103|85|top.sink#item_output:0
+104|0|$time:time_point() + 691_s + 304_ms + 462_us
+104|9|top.source#item_output:{1000, 2000, 52}
+104|73|top.kiosk_queue#item_output:{2000, 3004, 52}
+105|0|$time:time_point() + 692_s + 118_ms + 936_us
+105|9|top.source#item_output:{1000, 2000, 53}
+105|72|top.kiosk_queue#item_output:{2000, 3003, 53}
+106|0|$time:time_point() + 697_s + 646_ms + 968_us
+106|9|top.source#item_output:{1000, 2000, 54}
+107|0|$time:time_point() + 701_s + 915_ms + 746_us
+107|8|top.booths#lane_creation_output:5003
+107|25|top.central_queue.4001#item_output:{4001, 5003, 20}
+107|77|top.booths.5003.queue#item_output:{5003, 5003, 20}
+107|99|top.central_queue.4002#item_output:{4002, 5003, 14}
+107|151|top.central_queue.4001#item_output:{4001, 5003, 21}
+107|200|top.central_queue.4001#item_output:{4001, 5003, 22}
+107|253|top.central_queue.4002#item_output:{4002, 5003, 16}
+107|298|top.central_queue.4001#item_output:{4001, 5003, 27}
+108|0|$time:time_point() + 706_s + 166_ms + 921_us
+108|9|top.source#item_output:{1000, 2000, 55}
+109|0|$time:time_point() + 712_s + 415_ms + 860_us
+109|9|top.source#item_output:{1000, 2000, 56}
+110|0|$time:time_point() + 715_s + 196_ms + 592_us
+110|9|top.source#item_output:{1000, 2000, 57}
+111|0|$time:time_point() + 719_s + 341_ms + 849_us
+111|62|top.kiosk_array.3008#item_output:{3008, 4002, 44}
+111|82|top.kiosk_queue#item_output:{2000, 3008, 54}
+112|0|$time:time_point() + 721_s + 944_ms + 471_us
+112|34|top.kiosk_array.3001#item_output:{3001, 4002, 45}
+112|82|top.kiosk_queue#item_output:{2000, 3001, 55}
+113|0|$time:time_point() + 725_s + 421_ms + 540_us
+113|9|top.source#item_output:{1000, 2000, 58}
+114|0|$time:time_point() + 727_s + 666_ms + 26_us
+114|38|top.kiosk_array.3002#item_output:{3002, 4002, 46}
+114|82|top.kiosk_queue#item_output:{2000, 3002, 56}
+115|0|$time:time_point() + 737_s + 992_ms + 625_us
+115|9|top.source#item_output:{1000, 2000, 59}
+116|0|$time:time_point() + 754_s + 643_ms + 911_us
+116|58|top.kiosk_array.3007#item_output:{3007, 4001, 47}
+116|82|top.kiosk_queue#item_output:{2000, 3007, 57}
+117|0|$time:time_point() + 765_s + 277_ms + 261_us
+117|9|top.source#item_output:{1000, 2000, 60}
+118|0|$time:time_point() + 768_s + 459_ms + 473_us
+118|9|top.source#item_output:{1000, 2000, 61}
+119|0|$time:time_point() + 769_s + 617_ms + 117_us
+119|54|top.kiosk_array.3006#item_output:{3006, 4001, 48}
+119|82|top.kiosk_queue#item_output:{2000, 3006, 58}
+120|0|$time:time_point() + 770_s + 386_ms + 967_us
+120|9|top.source#item_output:{1000, 2000, 62}
+121|0|$time:time_point() + 773_s + 804_ms + 516_us
+121|9|top.source#item_output:{1000, 2000, 63}
+122|0|$time:time_point() + 774_s + 993_ms + 796_us
+122|70|top.kiosk_array.3010#item_output:{3010, 4001, 49}
+122|82|top.kiosk_queue#item_output:{2000, 3010, 59}
+123|0|$time:time_point() + 775_s + 784_ms + 490_us
+123|66|top.kiosk_array.3009#item_output:{3009, 4001, 50}
+123|82|top.kiosk_queue#item_output:{2000, 3009, 60}
+124|0|$time:time_point() + 778_s + 318_ms + 668_us
+124|27|top.booths.5002.server#item_output:{5002, 6000, 10}
+124|36|top.booths.5002.queue#item_output:{5002, 5002, 12}
+124|66|top.central_queue.4002#item_output:{4002, 5002, 19}
+124|103|top.sink#item_output:10
+125|0|$time:time_point() + 781_s + 625_ms + 783_us
+125|50|top.kiosk_array.3005#item_output:{3005, 4001, 51}
+125|82|top.kiosk_queue#item_output:{2000, 3005, 61}
+126|0|$time:time_point() + 792_s + 779_ms + 939_us
+126|9|top.source#item_output:{1000, 2000, 64}
+127|0|$time:time_point() + 807_s + 975_ms + 359_us
+127|21|top.booths.5001.server#item_output:{5001, 6000, 1}
+127|30|top.booths.5001.queue#item_output:{5001, 5001, 4}
+127|62|top.central_queue.4001#item_output:{4001, 5001, 28}
+127|103|top.sink#item_output:1
+128|0|$time:time_point() + 808_s + 1_ms + 209_us
+128|9|top.source#item_output:{1000, 2000, 65}
+129|0|$time:time_point() + 811_s + 304_ms + 462_us
+129|46|top.kiosk_array.3004#item_output:{3004, 4001, 52}
+129|82|top.kiosk_queue#item_output:{2000, 3004, 62}
+130|0|$time:time_point() + 812_s + 118_ms + 936_us
+130|42|top.kiosk_array.3003#item_output:{3003, 4002, 53}
+130|82|top.kiosk_queue#item_output:{2000, 3003, 63}
+131|0|$time:time_point() + 816_s + 412_ms + 377_us
+131|33|top.booths.5003.server#item_output:{5003, 6000, 20}
+131|42|top.booths.5003.queue#item_output:{5003, 5003, 14}
+131|62|top.central_queue.4001#item_output:{4001, 5003, 29}
+131|103|top.sink#item_output:20
+132|0|$time:time_point() + 839_s + 216_ms + 737_us
+132|9|top.source#item_output:{1000, 2000, 66}
+133|0|$time:time_point() + 839_s + 341_ms + 849_us
+133|62|top.kiosk_array.3008#item_output:{3008, 4002, 54}
+133|82|top.kiosk_queue#item_output:{2000, 3008, 64}
+134|0|$time:time_point() + 841_s + 944_ms + 471_us
+134|34|top.kiosk_array.3001#item_output:{3001, 4002, 55}
+134|82|top.kiosk_queue#item_output:{2000, 3001, 65}
+135|0|$time:time_point() + 847_s + 666_ms + 26_us
+135|38|top.kiosk_array.3002#item_output:{3002, 4002, 56}
+135|82|top.kiosk_queue#item_output:{2000, 3002, 66}
+136|0|$time:time_point() + 858_s + 725_ms + 270_us
+136|9|top.source#item_output:{1000, 2000, 67}
+137|0|$time:time_point() + 863_s + 353_ms + 782_us
+137|21|top.booths.5001.server#item_output:{5001, 6000, 4}
+137|30|top.booths.5001.queue#item_output:{5001, 5001, 6}
+137|66|top.central_queue.4002#item_output:{4002, 5001, 23}
+137|103|top.sink#item_output:4
+138|0|$time:time_point() + 865_s + 662_ms + 89_us
+138|9|top.source#item_output:{1000, 2000, 68}
+139|0|$time:time_point() + 872_s + 627_ms + 650_us
+139|27|top.booths.5002.server#item_output:{5002, 6000, 12}
+139|36|top.booths.5002.queue#item_output:{5002, 5002, 9}
+139|66|top.central_queue.4002#item_output:{4002, 5002, 24}
+139|103|top.sink#item_output:12
+140|0|$time:time_point() + 874_s + 643_ms + 911_us
+140|58|top.kiosk_array.3007#item_output:{3007, 4001, 57}
+140|82|top.kiosk_queue#item_output:{2000, 3007, 67}
+141|0|$time:time_point() + 878_s + 508_ms + 214_us
+141|9|top.source#item_output:{1000, 2000, 69}
+142|0|$time:time_point() + 881_s + 696_ms + 560_us
+142|9|top.source#item_output:{1000, 2000, 70}
+143|0|$time:time_point() + 881_s + 915_ms + 746_us
+143|8|top.booths#lane_creation_output:5004
+143|25|top.central_queue.4001#item_output:{4001, 5004, 30}
+143|87|top.booths.5004.queue#item_output:{5004, 5004, 30}
+143|109|top.central_queue.4002#item_output:{4002, 5004, 25}
+143|175|top.central_queue.4002#item_output:{4002, 5004, 26}
+143|230|top.central_queue.4001#item_output:{4001, 5004, 31}
+143|293|top.central_queue.4002#item_output:{4002, 5004, 36}
+143|352|top.central_queue.4002#item_output:{4002, 5004, 38}
+144|0|$time:time_point() + 888_s + 124_ms + 450_us
+144|9|top.source#item_output:{1000, 2000, 71}
+145|0|$time:time_point() + 889_s + 617_ms + 117_us
+145|54|top.kiosk_array.3006#item_output:{3006, 4002, 58}
+145|82|top.kiosk_queue#item_output:{2000, 3006, 68}
+146|0|$time:time_point() + 890_s + 685_ms + 902_us
+146|35|top.booths.5003.server#item_output:{5003, 6000, 14}
+146|44|top.booths.5003.queue#item_output:{5003, 5003, 21}
+146|70|top.central_queue.4001#item_output:{4001, 5003, 32}
+146|121|top.sink#item_output:14
+147|0|$time:time_point() + 894_s + 993_ms + 796_us
+147|70|top.kiosk_array.3010#item_output:{3010, 4001, 59}
+147|82|top.kiosk_queue#item_output:{2000, 3010, 69}
+148|0|$time:time_point() + 895_s + 784_ms + 490_us
+148|66|top.kiosk_array.3009#item_output:{3009, 4002, 60}
+148|82|top.kiosk_queue#item_output:{2000, 3009, 70}
+149|0|$time:time_point() + 901_s + 625_ms + 783_us
+149|50|top.kiosk_array.3005#item_output:{3005, 4002, 61}
+149|82|top.kiosk_queue#item_output:{2000, 3005, 71}
+150|0|$time:time_point() + 901_s + 915_ms + 402_us
+150|9|top.source#item_output:{1000, 2000, 72}
+151|0|$time:time_point() + 916_s + 795_ms + 448_us
+151|9|top.source#item_output:{1000, 2000, 73}
+152|0|$time:time_point() + 923_s + 69_ms + 265_us
+152|9|top.source#item_output:{1000, 2000, 74}
+153|0|$time:time_point() + 924_s + 667_ms + 983_us
+153|9|top.source#item_output:{1000, 2000, 75}
+154|0|$time:time_point() + 931_s + 304_ms + 462_us
+154|46|top.kiosk_array.3004#item_output:{3004, 4001, 62}
+154|82|top.kiosk_queue#item_output:{2000, 3004, 72}
+155|0|$time:time_point() + 932_s + 118_ms + 936_us
+155|42|top.kiosk_array.3003#item_output:{3003, 4001, 63}
+155|82|top.kiosk_queue#item_output:{2000, 3003, 73}
+156|0|$time:time_point() + 947_s + 441_ms + 120_us
+156|9|top.source#item_output:{1000, 2000, 76}
+157|0|$time:time_point() + 957_s + 56_ms + 824_us
+157|41|top.booths.5004.server#item_output:{5004, 6000, 30}
+157|50|top.booths.5004.queue#item_output:{5004, 5004, 25}
+157|74|top.central_queue.4002#item_output:{4002, 5004, 39}
+157|121|top.sink#item_output:30
+158|0|$time:time_point() + 959_s + 341_ms + 849_us
+158|62|top.kiosk_array.3008#item_output:{3008, 4002, 64}
+158|82|top.kiosk_queue#item_output:{2000, 3008, 74}
+159|0|$time:time_point() + 961_s + 944_ms + 471_us
+159|34|top.kiosk_array.3001#item_output:{3001, 4001, 65}
+159|82|top.kiosk_queue#item_output:{2000, 3001, 75}
+160|0|$time:time_point() + 967_s + 666_ms + 26_us
+160|38|top.kiosk_array.3002#item_output:{3002, 4001, 66}
+160|82|top.kiosk_queue#item_output:{2000, 3002, 76}
+161|0|$time:time_point() + 994_s + 643_ms + 911_us
+161|58|top.kiosk_array.3007#item_output:{3007, 4001, 67}
+162|0|$time:time_point() + 994_s + 891_ms + 606_us
+162|9|top.source#item_output:{1000, 2000, 77}
+162|72|top.kiosk_queue#item_output:{2000, 3007, 77}
+163|0|$time:time_point() + 997_s + 454_ms + 894_us
+163|23|top.booths.5001.server#item_output:{5001, 6000, 6}
+163|32|top.booths.5001.queue#item_output:{5001, 5001, 5}
+163|74|top.central_queue.4002#item_output:{4002, 5001, 40}
+163|121|top.sink#item_output:6
+164|0|$time:time_point() + 999_s + 296_ms + 783_us
+164|35|top.booths.5003.server#item_output:{5003, 6000, 21}
+164|44|top.booths.5003.queue#item_output:{5003, 5003, 22}
+164|70|top.central_queue.4001#item_output:{4001, 5003, 33}
+164|121|top.sink#item_output:21
+165|0|$time:time_point() + 1_ks + 0_s + 962_ms + 53_us
+165|9|top.source#item_output:{1000, 2000, 78}
+166|0|$time:time_point() + 1_ks + 9_s + 617_ms + 117_us
+166|54|top.kiosk_array.3006#item_output:{3006, 4001, 68}
+166|82|top.kiosk_queue#item_output:{2000, 3006, 78}
+167|0|$time:time_point() + 1_ks + 14_s + 993_ms + 796_us
+167|70|top.kiosk_array.3010#item_output:{3010, 4001, 69}
+168|0|$time:time_point() + 1_ks + 15_s + 784_ms + 490_us
+168|66|top.kiosk_array.3009#item_output:{3009, 4002, 70}
+169|0|$time:time_point() + 1_ks + 16_s + 337_ms + 236_us
+169|9|top.source#item_output:{1000, 2000, 79}
+169|73|top.kiosk_queue#item_output:{2000, 3009, 79}
+170|0|$time:time_point() + 1_ks + 18_s + 795_ms + 438_us
+170|29|top.booths.5002.server#item_output:{5002, 6000, 9}
+170|38|top.booths.5002.queue#item_output:{5002, 5002, 11}
+170|74|top.central_queue.4002#item_output:{4002, 5002, 41}
+170|121|top.sink#item_output:9
+171|0|$time:time_point() + 1_ks + 21_s + 625_ms + 783_us
+171|50|top.kiosk_array.3005#item_output:{3005, 4002, 71}
+172|0|$time:time_point() + 1_ks + 47_s + 380_ms + 572_us
+172|9|top.source#item_output:{1000, 2000, 80}
+172|73|top.kiosk_queue#item_output:{2000, 3010, 80}
+173|0|$time:time_point() + 1_ks + 51_s + 304_ms + 462_us
+173|46|top.kiosk_array.3004#item_output:{3004, 4001, 72}
+174|0|$time:time_point() + 1_ks + 52_s + 118_ms + 936_us
+174|42|top.kiosk_array.3003#item_output:{3003, 4002, 73}
+175|0|$time:time_point() + 1_ks + 58_s + 356_ms + 698_us
+175|35|top.booths.5003.server#item_output:{5003, 6000, 22}
+175|44|top.booths.5003.queue#item_output:{5003, 5003, 16}
+175|70|top.central_queue.4001#item_output:{4001, 5003, 34}
+175|121|top.sink#item_output:22
+176|0|$time:time_point() + 1_ks + 60_s + 915_ms + 762_us
+176|9|top.source#item_output:{1000, 2000, 81}
+176|74|top.kiosk_queue#item_output:{2000, 3004, 81}
+177|0|$time:time_point() + 1_ks + 61_s + 915_ms + 746_us
+177|8|top.booths#lane_creation_output:5005
+177|25|top.central_queue.4001#item_output:{4001, 5005, 35}
+177|97|top.booths.5005.queue#item_output:{5005, 5005, 35}
+177|115|top.central_queue.4001#item_output:{4001, 5005, 37}
+177|191|top.central_queue.4001#item_output:{4001, 5005, 42}
+177|260|top.central_queue.4001#item_output:{4001, 5005, 43}
+177|333|top.central_queue.4002#item_output:{4002, 5005, 44}
+177|402|top.central_queue.4002#item_output:{4002, 5005, 45}
+178|0|$time:time_point() + 1_ks + 71_s + 14_ms + 811_us
+178|31|top.booths.5002.server#item_output:{5002, 6000, 11}
+178|40|top.booths.5002.queue#item_output:{5002, 5002, 15}
+178|78|top.central_queue.4001#item_output:{4001, 5002, 47}
+178|139|top.sink#item_output:11
+179|0|$time:time_point() + 1_ks + 71_s + 381_ms + 212_us
+179|43|top.booths.5004.server#item_output:{5004, 6000, 25}
+179|52|top.booths.5004.queue#item_output:{5004, 5004, 26}
+179|78|top.central_queue.4001#item_output:{4001, 5004, 48}
+179|139|top.sink#item_output:25
+180|0|$time:time_point() + 1_ks + 77_s + 616_ms + 699_us
+180|9|top.source#item_output:{1000, 2000, 82}
+180|73|top.kiosk_queue#item_output:{2000, 3003, 82}
+181|0|$time:time_point() + 1_ks + 78_s + 701_ms + 255_us
+181|9|top.source#item_output:{1000, 2000, 83}
+181|72|top.kiosk_queue#item_output:{2000, 3005, 83}
+182|0|$time:time_point() + 1_ks + 79_s + 341_ms + 849_us
+182|62|top.kiosk_array.3008#item_output:{3008, 4001, 74}
+183|0|$time:time_point() + 1_ks + 81_s + 944_ms + 471_us
+183|34|top.kiosk_array.3001#item_output:{3001, 4001, 75}
+184|0|$time:time_point() + 1_ks + 87_s + 666_ms + 26_us
+184|38|top.kiosk_array.3002#item_output:{3002, 4002, 76}
+185|0|$time:time_point() + 1_ks + 91_s + 365_ms + 958_us
+185|31|top.booths.5002.server#item_output:{5002, 6000, 15}
+185|40|top.booths.5002.queue#item_output:{5002, 5002, 18}
+185|82|top.central_queue.4002#item_output:{4002, 5002, 46}
+185|139|top.sink#item_output:15
+186|0|$time:time_point() + 1_ks + 99_s + 454_ms + 636_us
+186|9|top.source#item_output:{1000, 2000, 84}
+186|74|top.kiosk_queue#item_output:{2000, 3008, 84}
+187|0|$time:time_point() + 1_ks + 105_s + 186_ms + 838_us
+187|37|top.booths.5003.server#item_output:{5003, 6000, 16}
+187|46|top.booths.5003.queue#item_output:{5003, 5003, 27}
+187|78|top.central_queue.4001#item_output:{4001, 5003, 49}
+187|139|top.sink#item_output:16
+188|0|$time:time_point() + 1_ks + 113_s + 41_ms + 75_us
+188|9|top.source#item_output:{1000, 2000, 85}
+188|73|top.kiosk_queue#item_output:{2000, 3002, 85}
+189|0|$time:time_point() + 1_ks + 113_s + 402_ms + 802_us
+189|31|top.booths.5002.server#item_output:{5002, 6000, 18}
+189|40|top.booths.5002.queue#item_output:{5002, 5002, 19}
+189|82|top.central_queue.4002#item_output:{4002, 5002, 53}
+189|139|top.sink#item_output:18
+190|0|$time:time_point() + 1_ks + 114_s + 891_ms + 606_us
+190|58|top.kiosk_array.3007#item_output:{3007, 4002, 77}
+191|0|$time:time_point() + 1_ks + 122_s + 260_ms + 621_us
+191|49|top.booths.5005.server#item_output:{5005, 6000, 35}
+191|58|top.booths.5005.queue#item_output:{5005, 5005, 37}
+191|78|top.central_queue.4001#item_output:{4001, 5005, 50}
+191|139|top.sink#item_output:35
+192|0|$time:time_point() + 1_ks + 124_s + 430_ms + 400_us
+192|37|top.booths.5003.server#item_output:{5003, 6000, 27}
+192|46|top.booths.5003.queue#item_output:{5003, 5003, 29}
+192|82|top.central_queue.4002#item_output:{4002, 5003, 54}
+192|139|top.sink#item_output:27
+193|0|$time:time_point() + 1_ks + 129_s + 617_ms + 117_us
+193|54|top.kiosk_array.3006#item_output:{3006, 4002, 78}
+194|0|$time:time_point() + 1_ks + 134_s + 131_ms + 492_us
+194|31|top.booths.5002.server#item_output:{5002, 6000, 19}
+194|40|top.booths.5002.queue#item_output:{5002, 5002, 24}
+194|82|top.central_queue.4002#item_output:{4002, 5002, 55}
+194|139|top.sink#item_output:19
+195|0|$time:time_point() + 1_ks + 136_s + 337_ms + 236_us
+195|66|top.kiosk_array.3009#item_output:{3009, 4002, 79}
+196|0|$time:time_point() + 1_ks + 167_s + 380_ms + 572_us
+196|70|top.kiosk_array.3010#item_output:{3010, 4001, 80}
+197|0|$time:time_point() + 1_ks + 180_s + 915_ms + 762_us
+197|46|top.kiosk_array.3004#item_output:{3004, 4001, 81}
+198|0|$time:time_point() + 1_ks + 196_s + 174_ms + 793_us
+198|9|top.source#item_output:{1000, 2000, 86}
+198|77|top.kiosk_queue#item_output:{2000, 3006, 86}
+199|0|$time:time_point() + 1_ks + 197_s + 455_ms + 210_us
+199|25|top.booths.5001.server#item_output:{5001, 6000, 5}
+199|34|top.booths.5001.queue#item_output:{5001, 5001, 17}
+199|82|top.central_queue.4002#item_output:{4002, 5001, 56}
+199|139|top.sink#item_output:5
+200|0|$time:time_point() + 1_ks + 197_s + 616_ms + 699_us
+200|42|top.kiosk_array.3003#item_output:{3003, 4001, 82}
+201|0|$time:time_point() + 1_ks + 198_s + 701_ms + 255_us
+201|50|top.kiosk_array.3005#item_output:{3005, 4002, 83}
+202|0|$time:time_point() + 1_ks + 209_s + 646_ms + 656_us
+202|9|top.source#item_output:{1000, 2000, 87}
+202|78|top.kiosk_queue#item_output:{2000, 3009, 87}
+203|0|$time:time_point() + 1_ks + 214_s + 214_ms + 409_us
+203|37|top.booths.5003.server#item_output:{5003, 6000, 29}
+203|46|top.booths.5003.queue#item_output:{5003, 5003, 32}
+203|82|top.central_queue.4002#item_output:{4002, 5003, 58}
+203|139|top.sink#item_output:29
+204|0|$time:time_point() + 1_ks + 219_s + 454_ms + 636_us
+204|62|top.kiosk_array.3008#item_output:{3008, 4001, 84}
+205|0|$time:time_point() + 1_ks + 233_s + 41_ms + 75_us
+205|38|top.kiosk_array.3002#item_output:{3002, 4002, 85}
+206|0|$time:time_point() + 1_ks + 241_s + 915_ms + 746_us
+206|8|top.booths#lane_creation_output:5006
+206|29|top.central_queue.4002#item_output:{4002, 5006, 60}
+206|107|top.booths.5006.queue#item_output:{5006, 5006, 60}
+206|129|top.central_queue.4002#item_output:{4002, 5006, 61}
+206|215|top.central_queue.4002#item_output:{4002, 5006, 64}
+206|290|top.central_queue.4001#item_output:{4001, 5006, 51}
+206|373|top.central_queue.4002#item_output:{4002, 5006, 70}
+206|448|top.central_queue.4001#item_output:{4001, 5006, 52}
+207|0|$time:time_point() + 1_ks + 253_s + 595_ms + 716_us
+207|9|top.source#item_output:{1000, 2000, 88}
+207|79|top.kiosk_queue#item_output:{2000, 3010, 88}
+208|0|$time:time_point() + 1_ks + 263_s + 818_ms + 947_us
+208|9|top.source#item_output:{1000, 2000, 89}
+208|78|top.kiosk_queue#item_output:{2000, 3005, 89}
+209|0|$time:time_point() + 1_ks + 266_s + 737_ms + 705_us
+209|9|top.source#item_output:{1000, 2000, 90}
+209|77|top.kiosk_queue#item_output:{2000, 3007, 90}
+210|0|$time:time_point() + 1_ks + 268_s + 149_ms + 610_us
+210|45|top.booths.5004.server#item_output:{5004, 6000, 26}
+210|54|top.booths.5004.queue#item_output:{5004, 5004, 31}
+210|90|top.central_queue.4002#item_output:{4002, 5004, 71}
+210|157|top.sink#item_output:26
+211|0|$time:time_point() + 1_ks + 272_s + 757_ms + 263_us
+211|51|top.booths.5005.server#item_output:{5005, 6000, 37}
+211|60|top.booths.5005.queue#item_output:{5005, 5005, 42}
+211|86|top.central_queue.4001#item_output:{4001, 5005, 57}
+211|157|top.sink#item_output:37
+212|0|$time:time_point() + 1_ks + 275_s + 833_ms + 173_us
+212|9|top.source#item_output:{1000, 2000, 91}
+212|76|top.kiosk_queue#item_output:{2000, 3004, 91}
+213|0|$time:time_point() + 1_ks + 301_s + 454_ms + 571_us
+213|33|top.booths.5002.server#item_output:{5002, 6000, 24}
+213|42|top.booths.5002.queue#item_output:{5002, 5002, 41}
+213|86|top.central_queue.4001#item_output:{4001, 5002, 59}
+213|157|top.sink#item_output:24
+214|0|$time:time_point() + 1_ks + 307_s + 365_ms + 128_us
+214|9|top.source#item_output:{1000, 2000, 92}
+214|75|top.kiosk_queue#item_output:{2000, 3001, 92}
+215|0|$time:time_point() + 1_ks + 310_s + 811_ms + 316_us
+215|9|top.source#item_output:{1000, 2000, 93}
+215|74|top.kiosk_queue#item_output:{2000, 3008, 93}
+216|0|$time:time_point() + 1_ks + 316_s + 174_ms + 793_us
+216|54|top.kiosk_array.3006#item_output:{3006, 4002, 86}
+217|0|$time:time_point() + 1_ks + 329_s + 646_ms + 656_us
+217|66|top.kiosk_array.3009#item_output:{3009, 4001, 87}
+218|0|$time:time_point() + 1_ks + 330_s + 0_ms + 198_us
+218|9|top.source#item_output:{1000, 2000, 94}
+218|75|top.kiosk_queue#item_output:{2000, 3006, 94}
+219|0|$time:time_point() + 1_ks + 331_s + 318_ms + 795_us
+219|9|top.source#item_output:{1000, 2000, 95}
+219|74|top.kiosk_queue#item_output:{2000, 3009, 95}
+220|0|$time:time_point() + 1_ks + 331_s + 538_ms + 452_us
+220|9|top.source#item_output:{1000, 2000, 96}
+220|73|top.kiosk_queue#item_output:{2000, 3002, 96}
+221|0|$time:time_point() + 1_ks + 343_s + 893_ms + 544_us
+221|39|top.booths.5003.server#item_output:{5003, 6000, 32}
+221|48|top.booths.5003.queue#item_output:{5003, 5003, 33}
+221|90|top.central_queue.4002#item_output:{4002, 5003, 73}
+221|157|top.sink#item_output:32
+222|0|$time:time_point() + 1_ks + 351_s + 511_ms + 56_us
+222|9|top.source#item_output:{1000, 2000, 97}
+222|72|top.kiosk_queue#item_output:{2000, 3003, 97}
+223|0|$time:time_point() + 1_ks + 361_s + 835_ms + 427_us
+223|9|top.source#item_output:{1000, 2000, 98}
+224|0|$time:time_point() + 1_ks + 363_s + 633_ms + 50_us
+224|45|top.booths.5004.server#item_output:{5004, 6000, 31}
+224|54|top.booths.5004.queue#item_output:{5004, 5004, 36}
+224|86|top.central_queue.4001#item_output:{4001, 5004, 62}
+224|157|top.sink#item_output:31
+225|0|$time:time_point() + 1_ks + 370_s + 347_ms + 205_us
+225|57|top.booths.5006.server#item_output:{5006, 6000, 60}
+225|66|top.booths.5006.queue#item_output:{5006, 5006, 61}
+225|86|top.central_queue.4001#item_output:{4001, 5006, 63}
+225|157|top.sink#item_output:60
+226|0|$time:time_point() + 1_ks + 373_s + 595_ms + 716_us
+226|70|top.kiosk_array.3010#item_output:{3010, 4002, 88}
+226|82|top.kiosk_queue#item_output:{2000, 3010, 98}
+227|0|$time:time_point() + 1_ks + 378_s + 597_ms + 819_us
+227|27|top.booths.5001.server#item_output:{5001, 6000, 17}
+227|36|top.booths.5001.queue#item_output:{5001, 5001, 13}
+227|90|top.central_queue.4002#item_output:{4002, 5001, 76}
+227|157|top.sink#item_output:17
+228|0|$time:time_point() + 1_ks + 383_s + 494_ms + 219_us
+228|9|top.source#item_output:{1000, 2000, 99}
+229|0|$time:time_point() + 1_ks + 383_s + 818_ms + 947_us
+229|50|top.kiosk_array.3005#item_output:{3005, 4001, 89}
+229|82|top.kiosk_queue#item_output:{2000, 3005, 99}
+230|0|$time:time_point() + 1_ks + 386_s + 737_ms + 705_us
+230|58|top.kiosk_array.3007#item_output:{3007, 4001, 90}
+231|0|$time:time_point() + 1_ks + 395_s + 833_ms + 173_us
+231|46|top.kiosk_array.3004#item_output:{3004, 4002, 91}
+232|0|$time:time_point() + 1_ks + 406_s + 903_ms + 817_us
+232|33|top.booths.5002.server#item_output:{5002, 6000, 41}
+232|42|top.booths.5002.queue#item_output:{5002, 5002, 47}
+232|86|top.central_queue.4001#item_output:{4001, 5002, 65}
+232|157|top.sink#item_output:41
+233|0|$time:time_point() + 1_ks + 418_s + 327_ms + 601_us
+233|39|top.booths.5003.server#item_output:{5003, 6000, 33}
+233|48|top.booths.5003.queue#item_output:{5003, 5003, 34}
+233|90|top.central_queue.4002#item_output:{4002, 5003, 77}
+233|157|top.sink#item_output:33
+234|0|$time:time_point() + 1_ks + 419_s + 836_ms + 746_us
+234|45|top.booths.5004.server#item_output:{5004, 6000, 36}
+234|54|top.booths.5004.queue#item_output:{5004, 5004, 38}
+234|86|top.central_queue.4001#item_output:{4001, 5004, 66}
+234|157|top.sink#item_output:36
+235|0|$time:time_point() + 1_ks + 421_s + 915_ms + 746_us
+235|8|top.booths#lane_creation_output:5007
+235|29|top.central_queue.4002#item_output:{4002, 5007, 78}
+235|117|top.booths.5007.queue#item_output:{5007, 5007, 78}
+235|135|top.central_queue.4001#item_output:{4001, 5007, 67}
+235|231|top.central_queue.4001#item_output:{4001, 5007, 68}
+235|320|top.central_queue.4001#item_output:{4001, 5007, 69}
+235|413|top.central_queue.4002#item_output:{4002, 5007, 79}
+235|498|top.central_queue.4001#item_output:{4001, 5007, 72}
+236|0|$time:time_point() + 1_ks + 427_s + 365_ms + 128_us
+236|34|top.kiosk_array.3001#item_output:{3001, 4002, 92}
+237|0|$time:time_point() + 1_ks + 430_s + 811_ms + 316_us
+237|62|top.kiosk_array.3008#item_output:{3008, 4002, 93}
+238|0|$time:time_point() + 1_ks + 450_s + 0_ms + 198_us
+238|54|top.kiosk_array.3006#item_output:{3006, 4001, 94}
+239|0|$time:time_point() + 1_ks + 451_s + 318_ms + 795_us
+239|66|top.kiosk_array.3009#item_output:{3009, 4001, 95}
+240|0|$time:time_point() + 1_ks + 451_s + 538_ms + 452_us
+240|38|top.kiosk_array.3002#item_output:{3002, 4001, 96}
+241|0|$time:time_point() + 1_ks + 453_s + 518_ms + 981_us
+241|53|top.booths.5005.server#item_output:{5005, 6000, 42}
+241|62|top.booths.5005.queue#item_output:{5005, 5005, 43}
+241|98|top.central_queue.4002#item_output:{4002, 5005, 83}
+241|175|top.sink#item_output:42
+242|0|$time:time_point() + 1_ks + 456_s + 923_ms + 694_us
+242|9|top.source#item_output:{1000, 2000, 100}
+242|78|top.kiosk_queue#item_output:{2000, 3006, 100}
+243|0|$time:time_point() + 1_ks + 464_s + 369_ms + 365_us
+243|41|top.booths.5003.server#item_output:{5003, 6000, 34}
+243|50|top.booths.5003.queue#item_output:{5003, 5003, 49}
+243|94|top.central_queue.4001#item_output:{4001, 5003, 74}
+243|175|top.sink#item_output:34
+244|0|$time:time_point() + 1_ks + 468_s + 637_ms + 153_us
+244|65|top.booths.5007.server#item_output:{5007, 6000, 78}
+244|74|top.booths.5007.queue#item_output:{5007, 5007, 67}
+244|94|top.central_queue.4001#item_output:{4001, 5007, 75}
+244|175|top.sink#item_output:78
+245|0|$time:time_point() + 1_ks + 471_s + 511_ms + 56_us
+245|42|top.kiosk_array.3003#item_output:{3003, 4001, 97}
+246|0|$time:time_point() + 1_ks + 471_s + 752_ms + 989_us
+246|35|top.booths.5002.server#item_output:{5002, 6000, 47}
+246|44|top.booths.5002.queue#item_output:{5002, 5002, 46}
+246|98|top.central_queue.4002#item_output:{4002, 5002, 85}
+246|175|top.sink#item_output:47
+247|0|$time:time_point() + 1_ks + 487_s + 413_ms + 345_us
+247|35|top.booths.5002.server#item_output:{5002, 6000, 46}
+247|44|top.booths.5002.queue#item_output:{5002, 5002, 53}
+247|94|top.central_queue.4001#item_output:{4001, 5002, 80}
+247|175|top.sink#item_output:46
+248|0|$time:time_point() + 1_ks + 493_s + 595_ms + 716_us
+248|70|top.kiosk_array.3010#item_output:{3010, 4002, 98}
+249|0|$time:time_point() + 1_ks + 496_s + 306_ms + 807_us
+249|9|top.source#item_output:{1000, 2000, 101}
+249|79|top.kiosk_queue#item_output:{2000, 3002, 101}
+250|0|$time:time_point() + 1_ks + 503_s + 818_ms + 947_us
+250|50|top.kiosk_array.3005#item_output:{3005, 4001, 99}
+251|0|$time:time_point() + 1_ks + 507_s + 839_ms + 394_us
+251|47|top.booths.5004.server#item_output:{5004, 6000, 38}
+251|56|top.booths.5004.queue#item_output:{5004, 5004, 39}
+251|94|top.central_queue.4001#item_output:{4001, 5004, 81}
+251|175|top.sink#item_output:38
+252|0|$time:time_point() + 1_ks + 515_s + 421_ms + 483_us
+252|29|top.booths.5001.server#item_output:{5001, 6000, 13}
+252|38|top.booths.5001.queue#item_output:{5001, 5001, 28}
+252|94|top.central_queue.4001#item_output:{4001, 5001, 82}
+252|175|top.sink#item_output:13
+253|0|$time:time_point() + 1_ks + 520_s + 164_ms + 926_us
+253|9|top.source#item_output:{1000, 2000, 102}
+253|79|top.kiosk_queue#item_output:{2000, 3005, 102}
+254|0|$time:time_point() + 1_ks + 527_s + 305_ms + 849_us
+254|53|top.booths.5005.server#item_output:{5005, 6000, 43}
+254|62|top.booths.5005.queue#item_output:{5005, 5005, 44}
+254|94|top.central_queue.4001#item_output:{4001, 5005, 84}
+254|175|top.sink#item_output:43
+255|0|$time:time_point() + 1_ks + 529_s + 877_ms + 652_us
+255|9|top.source#item_output:{1000, 2000, 103}
+255|78|top.kiosk_queue#item_output:{2000, 3007, 103}
+256|0|$time:time_point() + 1_ks + 536_s + 167_ms + 864_us
+256|59|top.booths.5006.server#item_output:{5006, 6000, 61}
+256|68|top.booths.5006.queue#item_output:{5006, 5006, 64}
+256|98|top.central_queue.4002#item_output:{4002, 5006, 86}
+256|175|top.sink#item_output:61
+257|0|$time:time_point() + 1_ks + 538_s + 300_ms + 275_us
+257|9|top.source#item_output:{1000, 2000, 104}
+257|77|top.kiosk_queue#item_output:{2000, 3010, 104}
+258|0|$time:time_point() + 1_ks + 540_s + 56_ms + 968_us
+258|9|top.source#item_output:{1000, 2000, 105}
+258|76|top.kiosk_queue#item_output:{2000, 3003, 105}
+259|0|$time:time_point() + 1_ks + 542_s + 77_ms + 685_us
+259|9|top.source#item_output:{1000, 2000, 106}
+259|75|top.kiosk_queue#item_output:{2000, 3004, 106}
+260|0|$time:time_point() + 1_ks + 553_s + 280_ms + 619_us
+260|41|top.booths.5003.server#item_output:{5003, 6000, 49}
+260|50|top.booths.5003.queue#item_output:{5003, 5003, 54}
+260|94|top.central_queue.4001#item_output:{4001, 5003, 87}
+260|175|top.sink#item_output:49
+261|0|$time:time_point() + 1_ks + 566_s + 877_ms + 597_us
+261|35|top.booths.5002.server#item_output:{5002, 6000, 53}
+261|44|top.booths.5002.queue#item_output:{5002, 5002, 55}
+261|94|top.central_queue.4001#item_output:{4001, 5002, 89}
+261|175|top.sink#item_output:53
+262|0|$time:time_point() + 1_ks + 571_s + 537_ms + 210_us
+262|9|top.source#item_output:{1000, 2000, 107}
+262|74|top.kiosk_queue#item_output:{2000, 3009, 107}
+263|0|$time:time_point() + 1_ks + 576_s + 923_ms + 694_us
+263|54|top.kiosk_array.3006#item_output:{3006, 4002, 100}
+264|0|$time:time_point() + 1_ks + 580_s + 534_ms + 913_us
+264|47|top.booths.5004.server#item_output:{5004, 6000, 39}
+264|56|top.booths.5004.queue#item_output:{5004, 5004, 48}
+264|94|top.central_queue.4001#item_output:{4001, 5004, 90}
+264|175|top.sink#item_output:39
+265|0|$time:time_point() + 1_ks + 581_s + 298_ms + 32_us
+265|9|top.source#item_output:{1000, 2000, 108}
+265|74|top.kiosk_queue#item_output:{2000, 3006, 108}
+266|0|$time:time_point() + 1_ks + 587_s + 381_ms + 994_us
+266|29|top.booths.5001.server#item_output:{5001, 6000, 28}
+266|38|top.booths.5001.queue#item_output:{5001, 5001, 23}
+266|94|top.central_queue.4001#item_output:{4001, 5001, 94}
+266|175|top.sink#item_output:28
+267|0|$time:time_point() + 1_ks + 597_s + 553_ms + 748_us
+267|59|top.booths.5006.server#item_output:{5006, 6000, 64}
+267|68|top.booths.5006.queue#item_output:{5006, 5006, 51}
+267|98|top.central_queue.4002#item_output:{4002, 5006, 88}
+267|175|top.sink#item_output:64
+268|0|$time:time_point() + 1_ks + 601_s + 915_ms + 746_us
+268|8|top.booths#lane_creation_output:5008
+268|25|top.central_queue.4001#item_output:{4001, 5008, 95}
+268|127|top.booths.5008.queue#item_output:{5008, 5008, 95}
+268|149|top.central_queue.4002#item_output:{4002, 5008, 91}
+268|255|top.central_queue.4002#item_output:{4002, 5008, 92}
+268|354|top.central_queue.4002#item_output:{4002, 5008, 93}
+268|449|top.central_queue.4001#item_output:{4001, 5008, 96}
+268|552|top.central_queue.4002#item_output:{4002, 5008, 98}
+269|0|$time:time_point() + 1_ks + 616_s + 306_ms + 807_us
+269|38|top.kiosk_array.3002#item_output:{3002, 4001, 101}
+270|0|$time:time_point() + 1_ks + 624_s + 489_ms + 758_us
+270|67|top.booths.5007.server#item_output:{5007, 6000, 67}
+270|76|top.booths.5007.queue#item_output:{5007, 5007, 68}
+270|102|top.central_queue.4001#item_output:{4001, 5007, 97}
+270|193|top.sink#item_output:67
+271|0|$time:time_point() + 1_ks + 640_s + 164_ms + 926_us
+271|50|top.kiosk_array.3005#item_output:{3005, 4001, 102}
+272|0|$time:time_point() + 1_ks + 649_s + 877_ms + 652_us
+272|58|top.kiosk_array.3007#item_output:{3007, 4002, 103}
+273|0|$time:time_point() + 1_ks + 651_s + 678_ms + 172_us
+273|9|top.source#item_output:{1000, 2000, 109}
+273|76|top.kiosk_queue#item_output:{2000, 3002, 109}
+274|0|$time:time_point() + 1_ks + 658_s + 300_ms + 275_us
+274|70|top.kiosk_array.3010#item_output:{3010, 4001, 104}
+275|0|$time:time_point() + 1_ks + 660_s + 56_ms + 968_us
+275|42|top.kiosk_array.3003#item_output:{3003, 4001, 105}
+276|0|$time:time_point() + 1_ks + 662_s + 77_ms + 685_us
+276|46|top.kiosk_array.3004#item_output:{3004, 4002, 106}
+277|0|$time:time_point() + 1_ks + 666_s + 541_ms + 438_us
+277|9|top.source#item_output:{1000, 2000, 110}
+277|78|top.kiosk_queue#item_output:{2000, 3004, 110}
+278|0|$time:time_point() + 1_ks + 667_s + 69_ms + 923_us
+278|9|top.source#item_output:{1000, 2000, 111}
+278|77|top.kiosk_queue#item_output:{2000, 3010, 111}
+279|0|$time:time_point() + 1_ks + 675_s + 996_ms + 626_us
+279|61|top.booths.5006.server#item_output:{5006, 6000, 51}
+279|70|top.booths.5006.queue#item_output:{5006, 5006, 70}
+279|102|top.central_queue.4001#item_output:{4001, 5006, 99}
+279|193|top.sink#item_output:51
+280|0|$time:time_point() + 1_ks + 683_s + 988_ms + 359_us
+280|9|top.source#item_output:{1000, 2000, 112}
+280|76|top.kiosk_queue#item_output:{2000, 3008, 112}
+281|0|$time:time_point() + 1_ks + 686_s + 457_ms + 323_us
+281|9|top.source#item_output:{1000, 2000, 113}
+281|75|top.kiosk_queue#item_output:{2000, 3005, 113}
+282|0|$time:time_point() + 1_ks + 688_s + 324_ms + 570_us
+282|49|top.booths.5004.server#item_output:{5004, 6000, 48}
+282|58|top.booths.5004.queue#item_output:{5004, 5004, 71}
+282|106|top.central_queue.4002#item_output:{4002, 5004, 100}
+282|193|top.sink#item_output:48
+283|0|$time:time_point() + 1_ks + 691_s + 537_ms + 210_us
+283|66|top.kiosk_array.3009#item_output:{3009, 4001, 107}
+284|0|$time:time_point() + 1_ks + 691_s + 852_ms + 591_us
+284|73|top.booths.5008.server#item_output:{5008, 6000, 95}
+284|82|top.booths.5008.queue#item_output:{5008, 5008, 91}
+284|106|top.central_queue.4002#item_output:{4002, 5008, 103}
+284|193|top.sink#item_output:95
+285|0|$time:time_point() + 1_ks + 695_s + 405_ms + 559_us
+285|43|top.booths.5003.server#item_output:{5003, 6000, 54}
+285|52|top.booths.5003.queue#item_output:{5003, 5003, 58}
+285|102|top.central_queue.4001#item_output:{4001, 5003, 101}
+285|193|top.sink#item_output:54
+286|0|$time:time_point() + 1_ks + 698_s + 810_ms + 762_us
+286|9|top.source#item_output:{1000, 2000, 114}
+286|75|top.kiosk_queue#item_output:{2000, 3007, 114}
+287|0|$time:time_point() + 1_ks + 698_s + 952_ms + 357_us
+287|37|top.booths.5002.server#item_output:{5002, 6000, 55}
+287|46|top.booths.5002.queue#item_output:{5002, 5002, 59}
+287|106|top.central_queue.4002#item_output:{4002, 5002, 106}
+287|175|top.sink#item_output:55
+288|0|$time:time_point() + 1_ks + 701_s + 298_ms + 32_us
+288|54|top.kiosk_array.3006#item_output:{3006, 4001, 108}
+289|0|$time:time_point() + 1_ks + 704_s + 948_ms + 848_us
+289|55|top.booths.5005.server#item_output:{5005, 6000, 44}
+289|64|top.booths.5005.queue#item_output:{5005, 5005, 45}
+289|102|top.central_queue.4001#item_output:{4001, 5005, 102}
+289|193|top.sink#item_output:44
+290|0|$time:time_point() + 1_ks + 717_s + 763_ms + 553_us
+290|9|top.source#item_output:{1000, 2000, 115}
+290|75|top.kiosk_queue#item_output:{2000, 3001, 115}
+291|0|$time:time_point() + 1_ks + 736_s + 433_ms + 692_us
+291|55|top.booths.5005.server#item_output:{5005, 6000, 45}
+291|64|top.booths.5005.queue#item_output:{5005, 5005, 50}
+291|102|top.central_queue.4001#item_output:{4001, 5005, 104}
+291|193|top.sink#item_output:45
+292|0|$time:time_point() + 1_ks + 736_s + 734_ms + 40_us
+292|31|top.booths.5001.server#item_output:{5001, 6000, 23}
+292|40|top.booths.5001.queue#item_output:{5001, 5001, 40}
+292|102|top.central_queue.4001#item_output:{4001, 5001, 105}
+292|193|top.sink#item_output:23
+293|0|$time:time_point() + 1_ks + 737_s + 257_ms + 253_us
+293|49|top.booths.5004.server#item_output:{5004, 6000, 71}
+293|58|top.booths.5004.queue#item_output:{5004, 5004, 62}
+293|102|top.central_queue.4001#item_output:{4001, 5004, 107}
+293|193|top.sink#item_output:71
+294|0|$time:time_point() + 1_ks + 756_s + 842_ms + 72_us
+294|31|top.booths.5001.server#item_output:{5001, 6000, 40}
+294|40|top.booths.5001.queue#item_output:{5001, 5001, 56}
+294|102|top.central_queue.4001#item_output:{4001, 5001, 108}
+294|175|top.sink#item_output:40
+295|0|$time:time_point() + 1_ks + 760_s + 245_ms + 212_us
+295|9|top.source#item_output:{1000, 2000, 116}
+295|74|top.kiosk_queue#item_output:{2000, 3006, 116}
+296|0|$time:time_point() + 1_ks + 762_s + 922_ms + 424_us
+296|73|top.booths.5008.server#item_output:{5008, 6000, 91}
+296|82|top.booths.5008.queue#item_output:{5008, 5008, 92}
+296|94|top.sink#item_output:91
+297|0|$time:time_point() + 1_ks + 763_s + 583_ms + 850_us
+297|9|top.source#item_output:{1000, 2000, 117}
+297|73|top.kiosk_queue#item_output:{2000, 3003, 117}
+298|0|$time:time_point() + 1_ks + 766_s + 294_ms + 906_us
+298|9|top.source#item_output:{1000, 2000, 118}
+298|72|top.kiosk_queue#item_output:{2000, 3009, 118}
+299|0|$time:time_point() + 1_ks + 771_s + 678_ms + 172_us
+299|38|top.kiosk_array.3002#item_output:{3002, 4001, 109}
+299|159|top.central_queue.4001#item_output:{4001, 5008, 109}
+300|0|$time:time_point() + 1_ks + 781_s + 708_ms + 935_us
+300|31|top.booths.5001.server#item_output:{5001, 6000, 56}
+300|40|top.booths.5001.queue#item_output:{5001, 5001, 76}
+300|94|top.sink#item_output:56
+301|0|$time:time_point() + 1_ks + 781_s + 915_ms + 746_us
+301|4|top.booths#lane_creation_output:5009
+302|0|$time:time_point() + 1_ks + 784_s + 278_ms + 630_us
+302|9|top.source#item_output:{1000, 2000, 119}
+302|72|top.kiosk_queue#item_output:{2000, 3002, 119}
+303|0|$time:time_point() + 1_ks + 785_s + 858_ms + 185_us
+303|9|top.source#item_output:{1000, 2000, 120}
+304|0|$time:time_point() + 1_ks + 786_s + 455_ms + 642_us
+304|45|top.booths.5003.server#item_output:{5003, 6000, 58}
+304|54|top.booths.5003.queue#item_output:{5003, 5003, 73}
+304|102|top.sink#item_output:58
+305|0|$time:time_point() + 1_ks + 786_s + 541_ms + 438_us
+305|46|top.kiosk_array.3004#item_output:{3004, 4002, 110}
+305|82|top.kiosk_queue#item_output:{2000, 3004, 120}
+305|232|top.central_queue.4002#item_output:{4002, 5009, 110}
+305|319|top.booths.5009.queue#item_output:{5009, 5009, 110}
+306|0|$time:time_point() + 1_ks + 787_s + 69_ms + 923_us
+306|70|top.kiosk_array.3010#item_output:{3010, 4002, 111}
+306|173|top.central_queue.4002#item_output:{4002, 5003, 111}
+307|0|$time:time_point() + 1_ks + 796_s + 473_ms + 849_us
+307|9|top.source#item_output:{1000, 2000, 121}
+307|72|top.kiosk_queue#item_output:{2000, 3010, 121}
+308|0|$time:time_point() + 1_ks + 798_s + 872_ms + 833_us
+308|51|top.booths.5004.server#item_output:{5004, 6000, 62}
+308|60|top.booths.5004.queue#item_output:{5004, 5004, 66}
+308|102|top.sink#item_output:62
+309|0|$time:time_point() + 1_ks + 799_s + 710_ms + 684_us
+309|63|top.booths.5006.server#item_output:{5006, 6000, 70}
+309|72|top.booths.5006.queue#item_output:{5006, 5006, 52}
+309|102|top.sink#item_output:70
+310|0|$time:time_point() + 1_ks + 803_s + 988_ms + 359_us
+310|62|top.kiosk_array.3008#item_output:{3008, 4002, 112}
+310|174|top.central_queue.4002#item_output:{4002, 5009, 112}
+311|0|$time:time_point() + 1_ks + 806_s + 298_ms + 585_us
+311|39|top.booths.5002.server#item_output:{5002, 6000, 59}
+311|48|top.booths.5002.queue#item_output:{5002, 5002, 65}
+311|102|top.sink#item_output:59
+312|0|$time:time_point() + 1_ks + 806_s + 457_ms + 323_us
+312|50|top.kiosk_array.3005#item_output:{3005, 4002, 113}
+312|175|top.central_queue.4002#item_output:{4002, 5001, 113}
+313|0|$time:time_point() + 1_ks + 815_s + 804_ms + 211_us
+313|9|top.source#item_output:{1000, 2000, 122}
+313|73|top.kiosk_queue#item_output:{2000, 3005, 122}
+314|0|$time:time_point() + 1_ks + 817_s + 684_ms + 837_us
+314|57|top.booths.5005.server#item_output:{5005, 6000, 50}
+314|66|top.booths.5005.queue#item_output:{5005, 5005, 57}
+314|102|top.sink#item_output:50
+315|0|$time:time_point() + 1_ks + 818_s + 810_ms + 762_us
+315|58|top.kiosk_array.3007#item_output:{3007, 4002, 114}
+315|175|top.central_queue.4002#item_output:{4002, 5009, 114}
+316|0|$time:time_point() + 1_ks + 824_s + 508_ms + 970_us
+316|51|top.booths.5004.server#item_output:{5004, 6000, 66}
+316|60|top.booths.5004.queue#item_output:{5004, 5004, 81}
+316|102|top.sink#item_output:66
+317|0|$time:time_point() + 1_ks + 825_s + 971_ms + 761_us
+317|9|top.source#item_output:{1000, 2000, 123}
+317|73|top.kiosk_queue#item_output:{2000, 3008, 123}
+318|0|$time:time_point() + 1_ks + 833_s + 983_ms + 864_us
+318|75|top.booths.5008.server#item_output:{5008, 6000, 92}
+318|84|top.booths.5008.queue#item_output:{5008, 5008, 93}
+318|102|top.sink#item_output:92
+319|0|$time:time_point() + 1_ks + 836_s + 121_ms + 128_us
+319|9|top.source#item_output:{1000, 2000, 124}
+319|72|top.kiosk_queue#item_output:{2000, 3007, 124}
+320|0|$time:time_point() + 1_ks + 837_s + 763_ms + 553_us
+320|34|top.kiosk_array.3001#item_output:{3001, 4002, 115}
+320|176|top.central_queue.4002#item_output:{4002, 5005, 115}
+321|0|$time:time_point() + 1_ks + 844_s + 109_ms + 985_us
+321|9|top.source#item_output:{1000, 2000, 125}
+321|72|top.kiosk_queue#item_output:{2000, 3001, 125}
+322|0|$time:time_point() + 1_ks + 861_s + 273_ms + 633_us
+322|39|top.booths.5002.server#item_output:{5002, 6000, 65}
+322|48|top.booths.5002.queue#item_output:{5002, 5002, 85}
+322|102|top.sink#item_output:65
+323|0|$time:time_point() + 1_ks + 867_s + 62_ms + 937_us
+323|81|top.booths.5009.server#item_output:{5009, 6000, 110}
+323|90|top.booths.5009.queue#item_output:{5009, 5009, 112}
+323|102|top.sink#item_output:110
+324|0|$time:time_point() + 1_ks + 870_s + 614_ms + 647_us
+324|9|top.source#item_output:{1000, 2000, 126}
+325|0|$time:time_point() + 1_ks + 871_s + 918_ms + 168_us
+325|9|top.source#item_output:{1000, 2000, 127}
+326|0|$time:time_point() + 1_ks + 880_s + 245_ms + 212_us
+326|54|top.kiosk_array.3006#item_output:{3006, 4002, 116}
+326|82|top.kiosk_queue#item_output:{2000, 3006, 126}
+326|245|top.central_queue.4002#item_output:{4002, 5006, 116}
+327|0|$time:time_point() + 1_ks + 880_s + 558_ms + 503_us
+327|63|top.booths.5006.server#item_output:{5006, 6000, 52}
+327|72|top.booths.5006.queue#item_output:{5006, 5006, 63}
+327|102|top.sink#item_output:52
+328|0|$time:time_point() + 1_ks + 883_s + 297_ms + 863_us
+328|9|top.source#item_output:{1000, 2000, 128}
+329|0|$time:time_point() + 1_ks + 883_s + 583_ms + 850_us
+329|42|top.kiosk_array.3003#item_output:{3003, 4002, 117}
+329|82|top.kiosk_queue#item_output:{2000, 3003, 127}
+329|245|top.central_queue.4002#item_output:{4002, 5006, 117}
+330|0|$time:time_point() + 1_ks + 883_s + 767_ms + 647_us
+330|69|top.booths.5007.server#item_output:{5007, 6000, 68}
+330|78|top.booths.5007.queue#item_output:{5007, 5007, 69}
+330|102|top.sink#item_output:68
+331|0|$time:time_point() + 1_ks + 886_s + 294_ms + 906_us
+331|66|top.kiosk_array.3009#item_output:{3009, 4001, 118}
+331|82|top.kiosk_queue#item_output:{2000, 3009, 128}
+331|230|top.central_queue.4001#item_output:{4001, 5002, 118}
+332|0|$time:time_point() + 1_ks + 896_s + 632_ms + 688_us
+332|33|top.booths.5001.server#item_output:{5001, 6000, 76}
+332|42|top.booths.5001.queue#item_output:{5001, 5001, 82}
+332|102|top.sink#item_output:76
+333|0|$time:time_point() + 1_ks + 896_s + 912_ms + 122_us
+333|9|top.source#item_output:{1000, 2000, 129}
+334|0|$time:time_point() + 1_ks + 904_s + 278_ms + 630_us
+334|38|top.kiosk_array.3002#item_output:{3002, 4001, 119}
+334|82|top.kiosk_queue#item_output:{2000, 3002, 129}
+334|231|top.central_queue.4001#item_output:{4001, 5004, 119}
+335|0|$time:time_point() + 1_ks + 905_s + 903_ms + 493_us
+335|39|top.booths.5002.server#item_output:{5002, 6000, 85}
+335|48|top.booths.5002.queue#item_output:{5002, 5002, 80}
+335|102|top.sink#item_output:85
+336|0|$time:time_point() + 1_ks + 906_s + 541_ms + 438_us
+336|46|top.kiosk_array.3004#item_output:{3004, 4002, 120}
+336|176|top.central_queue.4002#item_output:{4002, 5007, 120}
+337|0|$time:time_point() + 1_ks + 908_s + 249_ms + 763_us
+337|51|top.booths.5004.server#item_output:{5004, 6000, 81}
+337|60|top.booths.5004.queue#item_output:{5004, 5004, 90}
+337|102|top.sink#item_output:81
+338|0|$time:time_point() + 1_ks + 911_s + 297_ms + 269_us
+338|57|top.booths.5005.server#item_output:{5005, 6000, 57}
+338|66|top.booths.5005.queue#item_output:{5005, 5005, 83}
+338|102|top.sink#item_output:57
+339|0|$time:time_point() + 1_ks + 916_s + 473_ms + 849_us
+339|70|top.kiosk_array.3010#item_output:{3010, 4001, 121}
+339|172|top.central_queue.4001#item_output:{4001, 5009, 121}
+340|0|$time:time_point() + 1_ks + 922_s + 587_ms + 915_us
+340|9|top.source#item_output:{1000, 2000, 130}
+340|73|top.kiosk_queue#item_output:{2000, 3010, 130}
+341|0|$time:time_point() + 1_ks + 930_s + 425_ms + 482_us
+341|9|top.source#item_output:{1000, 2000, 131}
+341|72|top.kiosk_queue#item_output:{2000, 3004, 131}
+342|0|$time:time_point() + 1_ks + 935_s + 804_ms + 211_us
+342|50|top.kiosk_array.3005#item_output:{3005, 4002, 122}
+342|176|top.central_queue.4002#item_output:{4002, 5004, 122}
+343|0|$time:time_point() + 1_ks + 944_s + 37_ms + 762_us
+343|69|top.booths.5007.server#item_output:{5007, 6000, 69}
+343|78|top.booths.5007.queue#item_output:{5007, 5007, 79}
+343|102|top.sink#item_output:69
+344|0|$time:time_point() + 1_ks + 945_s + 971_ms + 761_us
+344|62|top.kiosk_array.3008#item_output:{3008, 4002, 123}
+344|177|top.central_queue.4002#item_output:{4002, 5005, 123}
+345|0|$time:time_point() + 1_ks + 948_s + 261_ms + 497_us
+345|45|top.booths.5003.server#item_output:{5003, 6000, 73}
+345|54|top.booths.5003.queue#item_output:{5003, 5003, 77}
+345|102|top.sink#item_output:73
+346|0|$time:time_point() + 1_ks + 951_s + 457_ms + 225_us
+346|81|top.booths.5009.server#item_output:{5009, 6000, 112}
+346|90|top.booths.5009.queue#item_output:{5009, 5009, 114}
+346|102|top.sink#item_output:112
+347|0|$time:time_point() + 1_ks + 956_s + 121_ms + 128_us
+347|58|top.kiosk_array.3007#item_output:{3007, 4001, 124}
+347|173|top.central_queue.4001#item_output:{4001, 5007, 124}
+348|0|$time:time_point() + 1_ks + 962_s + 368_ms + 738_us
+348|63|top.booths.5006.server#item_output:{5006, 6000, 63}
+348|72|top.booths.5006.queue#item_output:{5006, 5006, 86}
+348|102|top.sink#item_output:63
+349|0|$time:time_point() + 1_ks + 964_s + 109_ms + 985_us
+349|34|top.kiosk_array.3001#item_output:{3001, 4002, 125}
+349|177|top.central_queue.4002#item_output:{4002, 5008, 125}
+350|0|$time:time_point() + 1_ks + 972_s + 647_ms + 533_us
+350|69|top.booths.5007.server#item_output:{5007, 6000, 79}
+350|78|top.booths.5007.queue#item_output:{5007, 5007, 72}
+350|102|top.sink#item_output:79
+351|0|$time:time_point() + 1_ks + 974_s + 952_ms + 876_us
+351|9|top.source#item_output:{1000, 2000, 132}
+351|75|top.kiosk_queue#item_output:{2000, 3008, 132}
+352|0|$time:time_point() + 1_ks + 982_s + 304_ms + 60_us
+352|33|top.booths.5001.server#item_output:{5001, 6000, 82}
+352|42|top.booths.5001.queue#item_output:{5001, 5001, 94}
+352|102|top.sink#item_output:82
+353|0|$time:time_point() + 1_ks + 983_s + 125_ms + 591_us
+353|75|top.booths.5008.server#item_output:{5008, 6000, 93}
+353|84|top.booths.5008.queue#item_output:{5008, 5008, 96}
+353|102|top.sink#item_output:93
+354|0|$time:time_point() + 1_ks + 983_s + 840_ms + 659_us
+354|9|top.source#item_output:{1000, 2000, 133}
+354|74|top.kiosk_queue#item_output:{2000, 3007, 133}
+355|0|$time:time_point() + 1_ks + 984_s + 232_ms + 624_us
+355|57|top.booths.5005.server#item_output:{5005, 6000, 83}
+355|66|top.booths.5005.queue#item_output:{5005, 5005, 84}
+355|102|top.sink#item_output:83
+356|0|$time:time_point() + 1_ks + 990_s + 273_ms + 877_us
+356|9|top.source#item_output:{1000, 2000, 134}
+356|73|top.kiosk_queue#item_output:{2000, 3005, 134}
+357|0|$time:time_point() + 1_ks + 999_s + 996_ms + 318_us
+357|51|top.booths.5004.server#item_output:{5004, 6000, 90}
+357|60|top.booths.5004.queue#item_output:{5004, 5004, 100}
+357|102|top.sink#item_output:90
+358|0|$time:time_point() + 2_ks + 0_s + 245_ms + 212_us
+358|54|top.kiosk_array.3006#item_output:{3006, 4001, 126}
+358|175|top.central_queue.4001#item_output:{4001, 5009, 126}
+359|0|$time:time_point() + 2_ks + 0_s + 879_ms + 406_us
+359|9|top.source#item_output:{1000, 2000, 135}
+359|73|top.kiosk_queue#item_output:{2000, 3006, 135}
+360|0|$time:time_point() + 2_ks + 3_s + 583_ms + 850_us
+360|42|top.kiosk_array.3003#item_output:{3003, 4002, 127}
+360|179|top.central_queue.4002#item_output:{4002, 5003, 127}
+361|0|$time:time_point() + 2_ks + 6_s + 294_ms + 906_us
+361|66|top.kiosk_array.3009#item_output:{3009, 4001, 128}
+361|174|top.central_queue.4001#item_output:{4001, 5004, 128}
+362|0|$time:time_point() + 2_ks + 15_s + 264_ms + 61_us
+362|9|top.source#item_output:{1000, 2000, 136}
+362|74|top.kiosk_queue#item_output:{2000, 3009, 136}
+363|0|$time:time_point() + 2_ks + 24_s + 278_ms + 630_us
+363|38|top.kiosk_array.3002#item_output:{3002, 4001, 129}
+363|174|top.central_queue.4001#item_output:{4001, 5001, 129}
+364|0|$time:time_point() + 2_ks + 26_s + 201_ms + 778_us
+364|81|top.booths.5009.server#item_output:{5009, 6000, 114}
+364|90|top.booths.5009.queue#item_output:{5009, 5009, 121}
+364|102|top.sink#item_output:114
+365|0|$time:time_point() + 2_ks + 42_s + 587_ms + 915_us
+365|70|top.kiosk_array.3010#item_output:{3010, 4002, 130}
+365|178|top.central_queue.4002#item_output:{4002, 5005, 130}
+366|0|$time:time_point() + 2_ks + 47_s + 862_ms + 772_us
+366|33|top.booths.5001.server#item_output:{5001, 6000, 94}
+366|42|top.booths.5001.queue#item_output:{5001, 5001, 105}
+366|102|top.sink#item_output:94
+367|0|$time:time_point() + 2_ks + 50_s + 72_ms + 283_us
+367|9|top.source#item_output:{1000, 2000, 137}
+367|75|top.kiosk_queue#item_output:{2000, 3002, 137}
+368|0|$time:time_point() + 2_ks + 50_s + 425_ms + 482_us
+368|46|top.kiosk_array.3004#item_output:{3004, 4001, 131}
+368|173|top.central_queue.4001#item_output:{4001, 5001, 131}
+369|0|$time:time_point() + 2_ks + 57_s + 457_ms + 148_us
+369|63|top.booths.5006.server#item_output:{5006, 6000, 86}
+369|72|top.booths.5006.queue#item_output:{5006, 5006, 88}
+369|102|top.sink#item_output:86
+370|0|$time:time_point() + 2_ks + 70_s + 443_ms + 191_us
+370|57|top.booths.5005.server#item_output:{5005, 6000, 84}
+370|66|top.booths.5005.queue#item_output:{5005, 5005, 102}
+370|102|top.sink#item_output:84
+371|0|$time:time_point() + 2_ks + 72_s + 900_ms + 916_us
+371|39|top.booths.5002.server#item_output:{5002, 6000, 80}
+371|48|top.booths.5002.queue#item_output:{5002, 5002, 89}
+371|102|top.sink#item_output:80
+372|0|$time:time_point() + 2_ks + 88_s + 97_ms + 988_us
+372|63|top.booths.5006.server#item_output:{5006, 6000, 88}
+372|72|top.booths.5006.queue#item_output:{5006, 5006, 99}
+372|102|top.sink#item_output:88
+373|0|$time:time_point() + 2_ks + 93_s + 62_ms + 893_us
+373|9|top.source#item_output:{1000, 2000, 138}
+373|75|top.kiosk_queue#item_output:{2000, 3010, 138}
+374|0|$time:time_point() + 2_ks + 94_s + 290_ms + 814_us
+374|33|top.booths.5001.server#item_output:{5001, 6000, 105}
+374|42|top.booths.5001.queue#item_output:{5001, 5001, 108}
+374|102|top.sink#item_output:105
+375|0|$time:time_point() + 2_ks + 94_s + 952_ms + 876_us
+375|62|top.kiosk_array.3008#item_output:{3008, 4002, 132}
+375|178|top.central_queue.4002#item_output:{4002, 5002, 132}
+376|0|$time:time_point() + 2_ks + 99_s + 90_ms + 769_us
+376|45|top.booths.5003.server#item_output:{5003, 6000, 77}
+376|54|top.booths.5003.queue#item_output:{5003, 5003, 74}
+376|102|top.sink#item_output:77
+377|0|$time:time_point() + 2_ks + 101_s + 303_ms + 847_us
+377|69|top.booths.5007.server#item_output:{5007, 6000, 72}
+377|78|top.booths.5007.queue#item_output:{5007, 5007, 75}
+377|102|top.sink#item_output:72
+378|0|$time:time_point() + 2_ks + 103_s + 803_ms + 70_us
+378|9|top.source#item_output:{1000, 2000, 139}
+378|75|top.kiosk_queue#item_output:{2000, 3004, 139}
+379|0|$time:time_point() + 2_ks + 103_s + 840_ms + 659_us
+379|58|top.kiosk_array.3007#item_output:{3007, 4001, 133}
+379|175|top.central_queue.4001#item_output:{4001, 5002, 133}
+380|0|$time:time_point() + 2_ks + 110_s + 273_ms + 877_us
+380|50|top.kiosk_array.3005#item_output:{3005, 4002, 134}
+380|179|top.central_queue.4002#item_output:{4002, 5006, 134}
+381|0|$time:time_point() + 2_ks + 110_s + 299_ms + 632_us
+381|51|top.booths.5004.server#item_output:{5004, 6000, 100}
+381|60|top.booths.5004.queue#item_output:{5004, 5004, 107}
+381|102|top.sink#item_output:100
+382|0|$time:time_point() + 2_ks + 112_s + 944_ms + 130_us
+382|9|top.source#item_output:{1000, 2000, 140}
+382|76|top.kiosk_queue#item_output:{2000, 3003, 140}
+383|0|$time:time_point() + 2_ks + 113_s + 249_ms + 901_us
+383|57|top.booths.5005.server#item_output:{5005, 6000, 102}
+383|66|top.booths.5005.queue#item_output:{5005, 5005, 104}
+383|102|top.sink#item_output:102
+384|0|$time:time_point() + 2_ks + 120_s + 879_ms + 406_us
+384|54|top.kiosk_array.3006#item_output:{3006, 4001, 135}
+384|175|top.central_queue.4001#item_output:{4001, 5008, 135}
+385|0|$time:time_point() + 2_ks + 128_s + 283_ms + 392_us
+385|75|top.booths.5008.server#item_output:{5008, 6000, 96}
+385|84|top.booths.5008.queue#item_output:{5008, 5008, 98}
+385|102|top.sink#item_output:96
+386|0|$time:time_point() + 2_ks + 132_s + 312_ms + 454_us
+386|9|top.source#item_output:{1000, 2000, 141}
+386|76|top.kiosk_queue#item_output:{2000, 3007, 141}
+387|0|$time:time_point() + 2_ks + 133_s + 712_ms + 554_us
+387|9|top.source#item_output:{1000, 2000, 142}
+387|75|top.kiosk_queue#item_output:{2000, 3005, 142}
+388|0|$time:time_point() + 2_ks + 135_s + 264_ms + 61_us
+388|66|top.kiosk_array.3009#item_output:{3009, 4001, 136}
+388|175|top.central_queue.4001#item_output:{4001, 5008, 136}
+389|0|$time:time_point() + 2_ks + 136_s + 45_ms + 804_us
+389|9|top.source#item_output:{1000, 2000, 143}
+389|75|top.kiosk_queue#item_output:{2000, 3009, 143}
+390|0|$time:time_point() + 2_ks + 154_s + 278_ms + 643_us
+390|51|top.booths.5004.server#item_output:{5004, 6000, 107}
+390|60|top.booths.5004.queue#item_output:{5004, 5004, 119}
+390|102|top.sink#item_output:107
+391|0|$time:time_point() + 2_ks + 158_s + 597_ms + 178_us
+391|9|top.source#item_output:{1000, 2000, 144}
+391|74|top.kiosk_queue#item_output:{2000, 3001, 144}
+392|0|$time:time_point() + 2_ks + 170_s + 72_ms + 283_us
+392|38|top.kiosk_array.3002#item_output:{3002, 4001, 137}
+392|174|top.central_queue.4001#item_output:{4001, 5001, 137}
+393|0|$time:time_point() + 2_ks + 172_s + 387_ms + 776_us
+393|75|top.booths.5008.server#item_output:{5008, 6000, 98}
+393|84|top.booths.5008.queue#item_output:{5008, 5008, 103}
+393|102|top.sink#item_output:98
+394|0|$time:time_point() + 2_ks + 172_s + 934_ms + 717_us
+394|57|top.booths.5005.server#item_output:{5005, 6000, 104}
+394|66|top.booths.5005.queue#item_output:{5005, 5005, 115}
+394|102|top.sink#item_output:104
+395|0|$time:time_point() + 2_ks + 173_s + 941_ms + 326_us
+395|9|top.source#item_output:{1000, 2000, 145}
+395|74|top.kiosk_queue#item_output:{2000, 3008, 145}
+396|0|$time:time_point() + 2_ks + 180_s + 14_ms + 888_us
+396|33|top.booths.5001.server#item_output:{5001, 6000, 108}
+396|42|top.booths.5001.queue#item_output:{5001, 5001, 113}
+396|102|top.sink#item_output:108
+397|0|$time:time_point() + 2_ks + 187_s + 418_ms + 660_us
+397|9|top.source#item_output:{1000, 2000, 146}
+397|73|top.kiosk_queue#item_output:{2000, 3006, 146}
+398|0|$time:time_point() + 2_ks + 193_s + 327_ms + 511_us
+398|39|top.booths.5002.server#item_output:{5002, 6000, 89}
+398|48|top.booths.5002.queue#item_output:{5002, 5002, 106}
+398|102|top.sink#item_output:89
+399|0|$time:time_point() + 2_ks + 195_s + 55_ms + 304_us
+399|45|top.booths.5003.server#item_output:{5003, 6000, 74}
+399|54|top.booths.5003.queue#item_output:{5003, 5003, 87}
+399|102|top.sink#item_output:74
+400|0|$time:time_point() + 2_ks + 196_s + 389_ms + 46_us
+400|9|top.source#item_output:{1000, 2000, 147}
+400|72|top.kiosk_queue#item_output:{2000, 3002, 147}
+401|0|$time:time_point() + 2_ks + 204_s + 3_ms + 803_us
+401|9|top.source#item_output:{1000, 2000, 148}
+402|0|$time:time_point() + 2_ks + 213_s + 62_ms + 893_us
+402|70|top.kiosk_array.3010#item_output:{3010, 4001, 138}
+402|82|top.kiosk_queue#item_output:{2000, 3010, 148}
+402|234|top.central_queue.4001#item_output:{4001, 5001, 138}
+403|0|$time:time_point() + 2_ks + 213_s + 800_ms + 627_us
+403|9|top.source#item_output:{1000, 2000, 149}
+404|0|$time:time_point() + 2_ks + 221_s + 787_ms + 9_us
+404|81|top.booths.5009.server#item_output:{5009, 6000, 121}
+404|90|top.booths.5009.queue#item_output:{5009, 5009, 126}
+404|101|top.sink#item_output:121
+405|0|$time:time_point() + 2_ks + 221_s + 926_ms + 716_us
+405|63|top.booths.5006.server#item_output:{5006, 6000, 99}
+405|72|top.booths.5006.queue#item_output:{5006, 5006, 116}
+405|102|top.sink#item_output:99
+406|0|$time:time_point() + 2_ks + 223_s + 803_ms + 70_us
+406|46|top.kiosk_array.3004#item_output:{3004, 4001, 139}
+406|82|top.kiosk_queue#item_output:{2000, 3004, 149}
+406|234|top.central_queue.4001#item_output:{4001, 5005, 139}
+407|0|$time:time_point() + 2_ks + 231_s + 763_ms + 294_us
+407|45|top.booths.5003.server#item_output:{5003, 6000, 87}
+407|54|top.booths.5003.queue#item_output:{5003, 5003, 101}
+407|102|top.sink#item_output:87
+408|0|$time:time_point() + 2_ks + 232_s + 944_ms + 130_us
+408|42|top.kiosk_array.3003#item_output:{3003, 4002, 140}
+408|179|top.central_queue.4002#item_output:{4002, 5008, 140}
+409|0|$time:time_point() + 2_ks + 233_s + 662_ms + 785_us
+409|9|top.source#item_output:{1000, 2000, 150}
+409|72|top.kiosk_queue#item_output:{2000, 3003, 150}
+410|0|$time:time_point() + 2_ks + 246_s + 216_ms + 741_us
+410|9|top.source#item_output:{1000, 2000, 151}
+411|0|$time:time_point() + 2_ks + 252_s + 312_ms + 454_us
+411|58|top.kiosk_array.3007#item_output:{3007, 4001, 141}
+411|82|top.kiosk_queue#item_output:{2000, 3007, 151}
+411|233|top.central_queue.4001#item_output:{4001, 5002, 141}
+412|0|$time:time_point() + 2_ks + 252_s + 861_ms + 680_us
+412|63|top.booths.5006.server#item_output:{5006, 6000, 116}
+412|72|top.booths.5006.queue#item_output:{5006, 5006, 117}
+412|102|top.sink#item_output:116
+413|0|$time:time_point() + 2_ks + 253_s + 712_ms + 554_us
+413|50|top.kiosk_array.3005#item_output:{3005, 4002, 142}
+413|178|top.central_queue.4002#item_output:{4002, 5001, 142}
+414|0|$time:time_point() + 2_ks + 256_s + 45_ms + 804_us
+414|66|top.kiosk_array.3009#item_output:{3009, 4001, 143}
+414|173|top.central_queue.4001#item_output:{4001, 5009, 143}
+415|0|$time:time_point() + 2_ks + 269_s + 384_ms + 20_us
+415|57|top.booths.5005.server#item_output:{5005, 6000, 115}
+415|66|top.booths.5005.queue#item_output:{5005, 5005, 123}
+415|102|top.sink#item_output:115
+416|0|$time:time_point() + 2_ks + 274_s + 249_ms + 89_us
+416|45|top.booths.5003.server#item_output:{5003, 6000, 101}
+416|54|top.booths.5003.queue#item_output:{5003, 5003, 111}
+416|102|top.sink#item_output:101
+417|0|$time:time_point() + 2_ks + 276_s + 563_ms + 697_us
+417|9|top.source#item_output:{1000, 2000, 152}
+417|73|top.kiosk_queue#item_output:{2000, 3009, 152}
+418|0|$time:time_point() + 2_ks + 278_s + 597_ms + 178_us
+418|34|top.kiosk_array.3001#item_output:{3001, 4001, 144}
+418|173|top.central_queue.4001#item_output:{4001, 5004, 144}
+419|0|$time:time_point() + 2_ks + 286_s + 953_ms + 906_us
+419|51|top.booths.5004.server#item_output:{5004, 6000, 119}
+419|60|top.booths.5004.queue#item_output:{5004, 5004, 122}
+419|102|top.sink#item_output:119
+420|0|$time:time_point() + 2_ks + 293_s + 941_ms + 326_us
+420|62|top.kiosk_array.3008#item_output:{3008, 4002, 145}
+420|177|top.central_queue.4002#item_output:{4002, 5005, 145}
+421|0|$time:time_point() + 2_ks + 307_s + 418_ms + 660_us
+421|54|top.kiosk_array.3006#item_output:{3006, 4002, 146}
+421|177|top.central_queue.4002#item_output:{4002, 5009, 146}
+422|0|$time:time_point() + 2_ks + 308_s + 905_ms + 866_us
+422|9|top.source#item_output:{1000, 2000, 153}
+422|75|top.kiosk_queue#item_output:{2000, 3006, 153}
+423|0|$time:time_point() + 2_ks + 311_s + 444_ms + 579_us
+423|63|top.booths.5006.server#item_output:{5006, 6000, 117}
+423|72|top.booths.5006.queue#item_output:{5006, 5006, 134}
+423|101|top.sink#item_output:117
+424|0|$time:time_point() + 2_ks + 312_s + 727_ms + 649_us
+424|33|top.booths.5001.server#item_output:{5001, 6000, 113}
+424|42|top.booths.5001.queue#item_output:{5001, 5001, 129}
+424|102|top.sink#item_output:113
+425|0|$time:time_point() + 2_ks + 316_s + 389_ms + 46_us
+425|38|top.kiosk_array.3002#item_output:{3002, 4001, 147}
+425|174|top.central_queue.4001#item_output:{4001, 5009, 147}
+426|0|$time:time_point() + 2_ks + 333_s + 62_ms + 893_us
+426|70|top.kiosk_array.3010#item_output:{3010, 4001, 148}
+426|174|top.central_queue.4001#item_output:{4001, 5007, 148}
+427|0|$time:time_point() + 2_ks + 339_s + 834_ms + 232_us
+427|45|top.booths.5003.server#item_output:{5003, 6000, 111}
+427|54|top.booths.5003.queue#item_output:{5003, 5003, 127}
+427|101|top.sink#item_output:111
+428|0|$time:time_point() + 2_ks + 341_s + 789_ms + 152_us
+428|39|top.booths.5002.server#item_output:{5002, 6000, 106}
+428|48|top.booths.5002.queue#item_output:{5002, 5002, 118}
+428|102|top.sink#item_output:106
+429|0|$time:time_point() + 2_ks + 343_s + 803_ms + 70_us
+429|46|top.kiosk_array.3004#item_output:{3004, 4001, 149}
+429|174|top.central_queue.4001#item_output:{4001, 5006, 149}
+430|0|$time:time_point() + 2_ks + 350_s + 722_ms + 531_us
+430|75|top.booths.5008.server#item_output:{5008, 6000, 103}
+430|84|top.booths.5008.queue#item_output:{5008, 5008, 109}
+430|102|top.sink#item_output:103
+431|0|$time:time_point() + 2_ks + 352_s + 205_ms + 18_us
+431|81|top.booths.5009.server#item_output:{5009, 6000, 126}
+431|90|top.booths.5009.queue#item_output:{5009, 5009, 143}
+431|102|top.sink#item_output:126
+432|0|$time:time_point() + 2_ks + 353_s + 662_ms + 785_us
+432|42|top.kiosk_array.3003#item_output:{3003, 4001, 150}
+432|175|top.central_queue.4001#item_output:{4001, 5002, 150}
+433|0|$time:time_point() + 2_ks + 362_s + 187_ms + 886_us
+433|9|top.source#item_output:{1000, 2000, 154}
+433|78|top.kiosk_queue#item_output:{2000, 3001, 154}
+434|0|$time:time_point() + 2_ks + 372_s + 312_ms + 454_us
+434|58|top.kiosk_array.3007#item_output:{3007, 4002, 151}
+434|179|top.central_queue.4002#item_output:{4002, 5005, 151}
+435|0|$time:time_point() + 2_ks + 373_s + 227_ms + 861_us
+435|69|top.booths.5007.server#item_output:{5007, 6000, 75}
+435|78|top.booths.5007.queue#item_output:{5007, 5007, 97}
+435|102|top.sink#item_output:75
+436|0|$time:time_point() + 2_ks + 378_s + 911_ms + 975_us
+436|57|top.booths.5005.server#item_output:{5005, 6000, 123}
+436|66|top.booths.5005.queue#item_output:{5005, 5005, 130}
+436|102|top.sink#item_output:123
+437|0|$time:time_point() + 2_ks + 389_s + 290_ms + 123_us
+437|33|top.booths.5001.server#item_output:{5001, 6000, 129}
+437|42|top.booths.5001.queue#item_output:{5001, 5001, 131}
+437|102|top.sink#item_output:129
+438|0|$time:time_point() + 2_ks + 390_s + 702_ms + 226_us
+438|51|top.booths.5004.server#item_output:{5004, 6000, 122}
+438|60|top.booths.5004.queue#item_output:{5004, 5004, 128}
+438|102|top.sink#item_output:122
+439|0|$time:time_point() + 2_ks + 396_s + 563_ms + 697_us
+439|66|top.kiosk_array.3009#item_output:{3009, 4001, 152}
+439|175|top.central_queue.4001#item_output:{4001, 5003, 152}
+440|0|$time:time_point() + 2_ks + 397_s + 66_ms + 281_us
+440|39|top.booths.5002.server#item_output:{5002, 6000, 118}
+440|48|top.booths.5002.queue#item_output:{5002, 5002, 132}
+440|102|top.sink#item_output:118
+441|0|$time:time_point() + 2_ks + 408_s + 803_ms + 696_us
+441|81|top.booths.5009.server#item_output:{5009, 6000, 143}
+441|90|top.booths.5009.queue#item_output:{5009, 5009, 146}
+441|102|top.sink#item_output:143
+442|0|$time:time_point() + 2_ks + 410_s + 772_ms + 724_us
+442|51|top.booths.5004.server#item_output:{5004, 6000, 128}
+442|60|top.booths.5004.queue#item_output:{5004, 5004, 144}
+442|101|top.sink#item_output:128
+443|0|$time:time_point() + 2_ks + 411_s + 212_ms + 196_us
+443|63|top.booths.5006.server#item_output:{5006, 6000, 134}
+443|72|top.booths.5006.queue#item_output:{5006, 5006, 149}
+443|101|top.sink#item_output:134
+444|0|$time:time_point() + 2_ks + 419_s + 988_ms + 51_us
+444|45|top.booths.5003.server#item_output:{5003, 6000, 127}
+444|54|top.booths.5003.queue#item_output:{5003, 5003, 152}
+444|101|top.sink#item_output:127
+445|0|$time:time_point() + 2_ks + 420_s + 46_ms + 58_us
+445|9|top.source#item_output:{1000, 2000, 155}
+445|79|top.kiosk_queue#item_output:{2000, 3003, 155}
+446|0|$time:time_point() + 2_ks + 428_s + 905_ms + 866_us
+446|54|top.kiosk_array.3006#item_output:{3006, 4002, 153}
+446|179|top.central_queue.4002#item_output:{4002, 5002, 153}
+447|0|$time:time_point() + 2_ks + 443_s + 945_ms + 282_us
+447|9|top.source#item_output:{1000, 2000, 156}
+447|79|top.kiosk_queue#item_output:{2000, 3008, 156}
+448|0|$time:time_point() + 2_ks + 446_s + 819_ms + 140_us
+448|75|top.booths.5008.server#item_output:{5008, 6000, 109}
+448|84|top.booths.5008.queue#item_output:{5008, 5008, 125}
+448|102|top.sink#item_output:109
+449|0|$time:time_point() + 2_ks + 450_s + 635_ms + 691_us
+449|45|top.booths.5003.server#item_output:{5003, 6000, 152}
+449|51|top.booths#lane_removal_output:5003
+449|91|top.sink#item_output:152
+450|0|$time:time_point() + 2_ks + 458_s + 186_ms + 611_us
+450|73|top.booths.5009.server#item_output:{5009, 6000, 146}
+450|82|top.booths.5009.queue#item_output:{5009, 5009, 147}
+450|93|top.sink#item_output:146
+451|0|$time:time_point() + 2_ks + 462_s + 681_ms + 217_us
+451|9|top.source#item_output:{1000, 2000, 157}
+451|78|top.kiosk_queue#item_output:{2000, 3007, 157}
+452|0|$time:time_point() + 2_ks + 465_s + 75_ms + 53_us
+452|9|top.source#item_output:{1000, 2000, 158}
+452|77|top.kiosk_queue#item_output:{2000, 3009, 158}
+453|0|$time:time_point() + 2_ks + 465_s + 868_ms + 83_us
+453|9|top.source#item_output:{1000, 2000, 159}
+453|76|top.kiosk_queue#item_output:{2000, 3004, 159}
+454|0|$time:time_point() + 2_ks + 465_s + 873_ms + 533_us
+454|9|top.source#item_output:{1000, 2000, 160}
+454|75|top.kiosk_queue#item_output:{2000, 3005, 160}
+455|0|$time:time_point() + 2_ks + 482_s + 187_ms + 886_us
+455|34|top.kiosk_array.3001#item_output:{3001, 4001, 154}
+455|166|top.central_queue.4001#item_output:{4001, 5004, 154}
+456|0|$time:time_point() + 2_ks + 488_s + 336_ms + 41_us
+456|55|top.booths.5006.server#item_output:{5006, 6000, 149}
+456|61|top.booths#lane_removal_output:5006
+456|83|top.sink#item_output:149
+457|0|$time:time_point() + 2_ks + 492_s + 212_ms + 127_us
+457|29|top.booths.5001.server#item_output:{5001, 6000, 131}
+457|38|top.booths.5001.queue#item_output:{5001, 5001, 137}
+457|86|top.sink#item_output:131
+458|0|$time:time_point() + 2_ks + 497_s + 663_ms + 920_us
+458|9|top.source#item_output:{1000, 2000, 161}
+458|75|top.kiosk_queue#item_output:{2000, 3006, 161}
+459|0|$time:time_point() + 2_ks + 500_s + 729_ms + 282_us
+459|35|top.booths.5002.server#item_output:{5002, 6000, 132}
+459|44|top.booths.5002.queue#item_output:{5002, 5002, 133}
+459|86|top.sink#item_output:132
+460|0|$time:time_point() + 2_ks + 502_s + 137_ms + 485_us
+460|53|top.booths.5007.server#item_output:{5007, 6000, 97}
+460|62|top.booths.5007.queue#item_output:{5007, 5007, 120}
+460|86|top.sink#item_output:97
+461|0|$time:time_point() + 2_ks + 511_s + 774_ms + 322_us
+461|9|top.source#item_output:{1000, 2000, 162}
+461|74|top.kiosk_queue#item_output:{2000, 3010, 162}
+462|0|$time:time_point() + 2_ks + 512_s + 814_ms + 834_us
+462|41|top.booths.5004.server#item_output:{5004, 6000, 144}
+462|50|top.booths.5004.queue#item_output:{5004, 5004, 154}
+462|85|top.sink#item_output:144
+463|0|$time:time_point() + 2_ks + 517_s + 96_ms + 282_us
+463|9|top.source#item_output:{1000, 2000, 163}
+463|73|top.kiosk_queue#item_output:{2000, 3002, 163}
+464|0|$time:time_point() + 2_ks + 525_s + 193_ms + 561_us
+464|47|top.booths.5005.server#item_output:{5005, 6000, 130}
+464|56|top.booths.5005.queue#item_output:{5005, 5005, 139}
+464|86|top.sink#item_output:130
+465|0|$time:time_point() + 2_ks + 540_s + 46_ms + 58_us
+465|42|top.kiosk_array.3003#item_output:{3003, 4001, 155}
+465|157|top.central_queue.4001#item_output:{4001, 5008, 155}
+466|0|$time:time_point() + 2_ks + 558_s + 976_ms + 500_us
+466|47|top.booths.5005.server#item_output:{5005, 6000, 139}
+466|56|top.booths.5005.queue#item_output:{5005, 5005, 145}
+466|86|top.sink#item_output:139
+467|0|$time:time_point() + 2_ks + 561_s + 995_ms + 612_us
+467|41|top.booths.5004.server#item_output:{5004, 6000, 154}
+467|47|top.booths#lane_removal_output:5004
+467|75|top.sink#item_output:154
+468|0|$time:time_point() + 2_ks + 563_s + 945_ms + 282_us
+468|62|top.kiosk_array.3008#item_output:{3008, 4001, 156}
+468|148|top.central_queue.4001#item_output:{4001, 5008, 156}
+469|0|$time:time_point() + 2_ks + 570_s + 407_ms + 841_us
+469|45|top.booths.5007.server#item_output:{5007, 6000, 120}
+469|54|top.booths.5007.queue#item_output:{5007, 5007, 124}
+469|78|top.sink#item_output:120
+470|0|$time:time_point() + 2_ks + 582_s + 681_ms + 217_us
+470|58|top.kiosk_array.3007#item_output:{3007, 4001, 157}
+470|147|top.central_queue.4001#item_output:{4001, 5009, 157}
+471|0|$time:time_point() + 2_ks + 585_s + 75_ms + 53_us
+471|66|top.kiosk_array.3009#item_output:{3009, 4002, 158}
+471|151|top.central_queue.4002#item_output:{4002, 5001, 158}
+472|0|$time:time_point() + 2_ks + 585_s + 868_ms + 83_us
+472|46|top.kiosk_array.3004#item_output:{3004, 4002, 159}
+472|151|top.central_queue.4002#item_output:{4002, 5007, 159}
+473|0|$time:time_point() + 2_ks + 585_s + 873_ms + 533_us
+473|50|top.kiosk_array.3005#item_output:{3005, 4001, 160}
+473|147|top.central_queue.4001#item_output:{4001, 5009, 160}
+474|0|$time:time_point() + 2_ks + 588_s + 434_ms + 58_us
+474|9|top.source#item_output:{1000, 2000, 164}
+474|78|top.kiosk_queue#item_output:{2000, 3009, 164}
+475|0|$time:time_point() + 2_ks + 589_s + 68_ms + 570_us
+475|9|top.source#item_output:{1000, 2000, 165}
+475|77|top.kiosk_queue#item_output:{2000, 3001, 165}
+476|0|$time:time_point() + 2_ks + 596_s + 191_ms + 803_us
+476|45|top.booths.5007.server#item_output:{5007, 6000, 124}
+476|54|top.booths.5007.queue#item_output:{5007, 5007, 148}
+476|78|top.sink#item_output:124
+477|0|$time:time_point() + 2_ks + 602_s + 804_ms + 967_us
+477|9|top.source#item_output:{1000, 2000, 166}
+477|76|top.kiosk_queue#item_output:{2000, 3003, 166}
+478|0|$time:time_point() + 2_ks + 603_s + 752_ms + 619_us
+478|57|top.booths.5009.server#item_output:{5009, 6000, 147}
+478|66|top.booths.5009.queue#item_output:{5009, 5009, 157}
+478|78|top.sink#item_output:147
+479|0|$time:time_point() + 2_ks + 605_s + 428_ms + 137_us
+479|39|top.booths.5005.server#item_output:{5005, 6000, 145}
+479|48|top.booths.5005.queue#item_output:{5005, 5005, 151}
+479|77|top.sink#item_output:145
+480|0|$time:time_point() + 2_ks + 610_s + 752_ms + 432_us
+480|27|top.booths.5001.server#item_output:{5001, 6000, 137}
+480|36|top.booths.5001.queue#item_output:{5001, 5001, 138}
+480|78|top.sink#item_output:137
+481|0|$time:time_point() + 2_ks + 617_s + 663_ms + 920_us
+481|54|top.kiosk_array.3006#item_output:{3006, 4001, 161}
+481|147|top.central_queue.4001#item_output:{4001, 5005, 161}
+482|0|$time:time_point() + 2_ks + 620_s + 136_ms + 452_us
+482|51|top.booths.5008.server#item_output:{5008, 6000, 125}
+482|60|top.booths.5008.queue#item_output:{5008, 5008, 135}
+482|78|top.sink#item_output:125
+483|0|$time:time_point() + 2_ks + 631_s + 694_ms + 622_us
+483|9|top.source#item_output:{1000, 2000, 167}
+483|76|top.kiosk_queue#item_output:{2000, 3004, 167}
+484|0|$time:time_point() + 2_ks + 631_s + 774_ms + 322_us
+484|70|top.kiosk_array.3010#item_output:{3010, 4002, 162}
+484|152|top.central_queue.4002#item_output:{4002, 5002, 162}
+485|0|$time:time_point() + 2_ks + 637_s + 96_ms + 282_us
+485|38|top.kiosk_array.3002#item_output:{3002, 4002, 163}
+485|152|top.central_queue.4002#item_output:{4002, 5002, 163}
+486|0|$time:time_point() + 2_ks + 641_s + 8_ms + 365_us
+486|9|top.source#item_output:{1000, 2000, 168}
+486|77|top.kiosk_queue#item_output:{2000, 3008, 168}
+487|0|$time:time_point() + 2_ks + 642_s + 70_ms + 255_us
+487|9|top.source#item_output:{1000, 2000, 169}
+487|76|top.kiosk_queue#item_output:{2000, 3010, 169}
+488|0|$time:time_point() + 2_ks + 653_s + 99_ms + 16_us
+488|45|top.booths.5007.server#item_output:{5007, 6000, 148}
+488|54|top.booths.5007.queue#item_output:{5007, 5007, 159}
+488|77|top.sink#item_output:148
+489|0|$time:time_point() + 2_ks + 666_s + 952_ms + 369_us
+489|33|top.booths.5002.server#item_output:{5002, 6000, 133}
+489|42|top.booths.5002.queue#item_output:{5002, 5002, 141}
+489|78|top.sink#item_output:133
+490|0|$time:time_point() + 2_ks + 667_s + 449_ms + 318_us
+490|9|top.source#item_output:{1000, 2000, 170}
+490|75|top.kiosk_queue#item_output:{2000, 3002, 170}
+491|0|$time:time_point() + 2_ks + 674_s + 429_ms + 130_us
+491|27|top.booths.5001.server#item_output:{5001, 6000, 138}
+491|36|top.booths.5001.queue#item_output:{5001, 5001, 142}
+491|78|top.sink#item_output:138
+492|0|$time:time_point() + 2_ks + 675_s + 925_ms + 559_us
+492|9|top.source#item_output:{1000, 2000, 171}
+492|74|top.kiosk_queue#item_output:{2000, 3007, 171}
+493|0|$time:time_point() + 2_ks + 694_s + 252_ms + 705_us
+493|57|top.booths.5009.server#item_output:{5009, 6000, 157}
+493|66|top.booths.5009.queue#item_output:{5009, 5009, 160}
+493|77|top.sink#item_output:157
+494|0|$time:time_point() + 2_ks + 708_s + 434_ms + 58_us
+494|66|top.kiosk_array.3009#item_output:{3009, 4002, 164}
+494|152|top.central_queue.4002#item_output:{4002, 5009, 164}
+495|0|$time:time_point() + 2_ks + 709_s + 68_ms + 570_us
+495|34|top.kiosk_array.3001#item_output:{3001, 4001, 165}
+495|148|top.central_queue.4001#item_output:{4001, 5002, 165}
+496|0|$time:time_point() + 2_ks + 709_s + 957_ms + 492_us
+496|27|top.booths.5001.server#item_output:{5001, 6000, 142}
+496|36|top.booths.5001.queue#item_output:{5001, 5001, 158}
+496|77|top.sink#item_output:142
+497|0|$time:time_point() + 2_ks + 712_s + 292_ms + 59_us
+497|9|top.source#item_output:{1000, 2000, 172}
+497|75|top.kiosk_queue#item_output:{2000, 3005, 172}
+498|0|$time:time_point() + 2_ks + 722_s + 804_ms + 967_us
+498|42|top.kiosk_array.3003#item_output:{3003, 4002, 166}
+498|151|top.central_queue.4002#item_output:{4002, 5007, 166}
+499|0|$time:time_point() + 2_ks + 730_s + 901_ms + 512_us
+499|9|top.source#item_output:{1000, 2000, 173}
+499|75|top.kiosk_queue#item_output:{2000, 3003, 173}
+500|0|$time:time_point() + 2_ks + 733_s + 298_ms + 153_us
+500|51|top.booths.5008.server#item_output:{5008, 6000, 135}
+500|60|top.booths.5008.queue#item_output:{5008, 5008, 136}
+500|78|top.sink#item_output:135
+501|0|$time:time_point() + 2_ks + 744_s + 306_ms + 981_us
+501|9|top.source#item_output:{1000, 2000, 174}
+501|74|top.kiosk_queue#item_output:{2000, 3009, 174}
+502|0|$time:time_point() + 2_ks + 751_s + 694_ms + 622_us
+502|46|top.kiosk_array.3004#item_output:{3004, 4001, 167}
+502|147|top.central_queue.4001#item_output:{4001, 5008, 167}
+503|0|$time:time_point() + 2_ks + 752_s + 648_ms + 129_us
+503|45|top.booths.5007.server#item_output:{5007, 6000, 159}
+503|54|top.booths.5007.queue#item_output:{5007, 5007, 166}
+503|77|top.sink#item_output:159
+504|0|$time:time_point() + 2_ks + 755_s + 283_ms + 588_us
+504|9|top.source#item_output:{1000, 2000, 175}
+504|74|top.kiosk_queue#item_output:{2000, 3004, 175}
+505|0|$time:time_point() + 2_ks + 761_s + 8_ms + 365_us
+505|62|top.kiosk_array.3008#item_output:{3008, 4001, 168}
+505|147|top.central_queue.4001#item_output:{4001, 5009, 168}
+506|0|$time:time_point() + 2_ks + 762_s + 70_ms + 255_us
+506|70|top.kiosk_array.3010#item_output:{3010, 4002, 169}
+506|151|top.central_queue.4002#item_output:{4002, 5005, 169}
+507|0|$time:time_point() + 2_ks + 771_s + 796_ms + 682_us
+507|51|top.booths.5008.server#item_output:{5008, 6000, 136}
+507|60|top.booths.5008.queue#item_output:{5008, 5008, 140}
+507|78|top.sink#item_output:136
+508|0|$time:time_point() + 2_ks + 774_s + 111_ms + 381_us
+508|9|top.source#item_output:{1000, 2000, 176}
+508|75|top.kiosk_queue#item_output:{2000, 3001, 176}
+509|0|$time:time_point() + 2_ks + 786_s + 923_ms + 327_us
+509|9|top.source#item_output:{1000, 2000, 177}
+509|74|top.kiosk_queue#item_output:{2000, 3010, 177}
+510|0|$time:time_point() + 2_ks + 787_s + 449_ms + 318_us
+510|38|top.kiosk_array.3002#item_output:{3002, 4001, 170}
+510|147|top.central_queue.4001#item_output:{4001, 5005, 170}
+511|0|$time:time_point() + 2_ks + 789_s + 936_ms + 941_us
+511|27|top.booths.5001.server#item_output:{5001, 6000, 158}
+511|33|top.booths#lane_removal_output:5001
+511|67|top.sink#item_output:158
+512|0|$time:time_point() + 2_ks + 790_s + 524_ms + 316_us
+512|25|top.booths.5002.server#item_output:{5002, 6000, 141}
+512|34|top.booths.5002.queue#item_output:{5002, 5002, 150}
+512|70|top.sink#item_output:141
+513|0|$time:time_point() + 2_ks + 795_s + 925_ms + 559_us
+513|58|top.kiosk_array.3007#item_output:{3007, 4002, 171}
+513|143|top.central_queue.4002#item_output:{4002, 5005, 171}
+514|0|$time:time_point() + 2_ks + 817_s + 145_ms + 464_us
+514|49|top.booths.5009.server#item_output:{5009, 6000, 160}
+514|58|top.booths.5009.queue#item_output:{5009, 5009, 164}
+514|70|top.sink#item_output:160
+515|0|$time:time_point() + 2_ks + 819_s + 580_ms + 271_us
+515|9|top.source#item_output:{1000, 2000, 178}
+515|75|top.kiosk_queue#item_output:{2000, 3008, 178}
+516|0|$time:time_point() + 2_ks + 819_s + 617_ms + 973_us
+516|31|top.booths.5005.server#item_output:{5005, 6000, 151}
+516|40|top.booths.5005.queue#item_output:{5005, 5005, 161}
+516|70|top.sink#item_output:151
+517|0|$time:time_point() + 2_ks + 820_s + 568_ms + 1_us
+517|9|top.source#item_output:{1000, 2000, 179}
+517|74|top.kiosk_queue#item_output:{2000, 3006, 179}
+518|0|$time:time_point() + 2_ks + 826_s + 964_ms + 827_us
+518|25|top.booths.5002.server#item_output:{5002, 6000, 150}
+518|34|top.booths.5002.queue#item_output:{5002, 5002, 153}
+518|70|top.sink#item_output:150
+519|0|$time:time_point() + 2_ks + 831_s + 8_ms + 32_us
+519|37|top.booths.5007.server#item_output:{5007, 6000, 166}
+519|43|top.booths#lane_removal_output:5007
+519|59|top.sink#item_output:166
+520|0|$time:time_point() + 2_ks + 832_s + 292_ms + 59_us
+520|50|top.kiosk_array.3005#item_output:{3005, 4001, 172}
+520|130|top.central_queue.4001#item_output:{4001, 5008, 172}
+521|0|$time:time_point() + 2_ks + 850_s + 901_ms + 512_us
+521|42|top.kiosk_array.3003#item_output:{3003, 4002, 173}
+521|134|top.central_queue.4002#item_output:{4002, 5009, 173}
+522|0|$time:time_point() + 2_ks + 853_s + 436_ms + 372_us
+522|29|top.booths.5005.server#item_output:{5005, 6000, 161}
+522|38|top.booths.5005.queue#item_output:{5005, 5005, 169}
+522|62|top.sink#item_output:161
+523|0|$time:time_point() + 2_ks + 858_s + 900_ms + 995_us
+523|9|top.source#item_output:{1000, 2000, 180}
+523|75|top.kiosk_queue#item_output:{2000, 3007, 180}
+524|0|$time:time_point() + 2_ks + 864_s + 306_ms + 981_us
+524|66|top.kiosk_array.3009#item_output:{3009, 4002, 174}
+524|134|top.central_queue.4002#item_output:{4002, 5002, 174}
+525|0|$time:time_point() + 2_ks + 875_s + 283_ms + 588_us
+525|46|top.kiosk_array.3004#item_output:{3004, 4002, 175}
+525|134|top.central_queue.4002#item_output:{4002, 5005, 175}
+526|0|$time:time_point() + 2_ks + 881_s + 541_ms + 98_us
+526|9|top.source#item_output:{1000, 2000, 181}
+526|76|top.kiosk_queue#item_output:{2000, 3009, 181}
+527|0|$time:time_point() + 2_ks + 884_s + 792_ms + 548_us
+527|35|top.booths.5008.server#item_output:{5008, 6000, 140}
+527|44|top.booths.5008.queue#item_output:{5008, 5008, 155}
+527|62|top.sink#item_output:140
+528|0|$time:time_point() + 2_ks + 894_s + 111_ms + 381_us
+528|34|top.kiosk_array.3001#item_output:{3001, 4002, 176}
+528|134|top.central_queue.4002#item_output:{4002, 5009, 176}
+529|0|$time:time_point() + 2_ks + 895_s + 500_ms + 776_us
+529|9|top.source#item_output:{1000, 2000, 182}
+529|76|top.kiosk_queue#item_output:{2000, 3003, 182}
+530|0|$time:time_point() + 2_ks + 906_s + 594_ms + 797_us
+530|9|top.source#item_output:{1000, 2000, 183}
+530|75|top.kiosk_queue#item_output:{2000, 3004, 183}
+531|0|$time:time_point() + 2_ks + 906_s + 923_ms + 327_us
+531|70|top.kiosk_array.3010#item_output:{3010, 4002, 177}
+531|134|top.central_queue.4002#item_output:{4002, 5002, 177}
+532|0|$time:time_point() + 2_ks + 908_s + 346_ms + 212_us
+532|9|top.source#item_output:{1000, 2000, 184}
+532|75|top.kiosk_queue#item_output:{2000, 3001, 184}
+533|0|$time:time_point() + 2_ks + 924_s + 203_ms + 184_us
+533|23|top.booths.5002.server#item_output:{5002, 6000, 153}
+533|32|top.booths.5002.queue#item_output:{5002, 5002, 162}
+533|62|top.sink#item_output:153
+534|0|$time:time_point() + 2_ks + 929_s + 513_ms + 628_us
+534|9|top.source#item_output:{1000, 2000, 185}
+534|74|top.kiosk_queue#item_output:{2000, 3010, 185}
+535|0|$time:time_point() + 2_ks + 929_s + 701_ms + 506_us
+535|35|top.booths.5008.server#item_output:{5008, 6000, 155}
+535|44|top.booths.5008.queue#item_output:{5008, 5008, 156}
+535|62|top.sink#item_output:155
+536|0|$time:time_point() + 2_ks + 939_s + 580_ms + 271_us
+536|62|top.kiosk_array.3008#item_output:{3008, 4001, 178}
+536|130|top.central_queue.4001#item_output:{4001, 5008, 178}
+537|0|$time:time_point() + 2_ks + 940_s + 568_ms + 1_us
+537|54|top.kiosk_array.3006#item_output:{3006, 4001, 179}
+537|130|top.central_queue.4001#item_output:{4001, 5009, 179}
+538|0|$time:time_point() + 2_ks + 951_s + 470_ms + 586_us
+538|9|top.source#item_output:{1000, 2000, 186}
+538|75|top.kiosk_queue#item_output:{2000, 3002, 186}
+539|0|$time:time_point() + 2_ks + 952_s + 376_ms + 4_us
+539|9|top.source#item_output:{1000, 2000, 187}
+539|74|top.kiosk_queue#item_output:{2000, 3005, 187}
+540|0|$time:time_point() + 2_ks + 953_s + 631_ms + 877_us
+540|9|top.source#item_output:{1000, 2000, 188}
+540|73|top.kiosk_queue#item_output:{2000, 3006, 188}
+541|0|$time:time_point() + 2_ks + 960_s + 293_ms + 930_us
+541|9|top.source#item_output:{1000, 2000, 189}
+541|72|top.kiosk_queue#item_output:{2000, 3008, 189}
+542|0|$time:time_point() + 2_ks + 965_s + 920_ms + 947_us
+542|9|top.source#item_output:{1000, 2000, 190}
+543|0|$time:time_point() + 2_ks + 978_s + 900_ms + 995_us
+543|58|top.kiosk_array.3007#item_output:{3007, 4002, 180}
+543|82|top.kiosk_queue#item_output:{2000, 3007, 190}
+543|193|top.central_queue.4002#item_output:{4002, 5009, 180}
+544|0|$time:time_point() + 2_ks + 992_s + 743_ms + 445_us
+544|23|top.booths.5002.server#item_output:{5002, 6000, 162}
+544|32|top.booths.5002.queue#item_output:{5002, 5002, 163}
+544|62|top.sink#item_output:162
+545|0|$time:time_point() + 2_ks + 996_s + 772_ms + 960_us
+545|41|top.booths.5009.server#item_output:{5009, 6000, 164}
+545|50|top.booths.5009.queue#item_output:{5009, 5009, 168}
+545|62|top.sink#item_output:164
+546|0|$time:time_point() + 3_ks + 1_s + 541_ms + 98_us
+546|66|top.kiosk_array.3009#item_output:{3009, 4001, 181}
+546|130|top.central_queue.4001#item_output:{4001, 5008, 181}
+547|0|$time:time_point() + 3_ks + 6_s + 150_ms + 471_us
+547|35|top.booths.5008.server#item_output:{5008, 6000, 156}
+547|44|top.booths.5008.queue#item_output:{5008, 5008, 167}
+547|62|top.sink#item_output:156
+548|0|$time:time_point() + 3_ks + 15_s + 500_ms + 776_us
+548|42|top.kiosk_array.3003#item_output:{3003, 4001, 182}
+548|130|top.central_queue.4001#item_output:{4001, 5005, 182}
+549|0|$time:time_point() + 3_ks + 23_s + 953_ms + 557_us
+549|9|top.source#item_output:{1000, 2000, 191}
+549|73|top.kiosk_queue#item_output:{2000, 3003, 191}
+550|0|$time:time_point() + 3_ks + 26_s + 594_ms + 797_us
+550|46|top.kiosk_array.3004#item_output:{3004, 4002, 183}
+550|134|top.central_queue.4002#item_output:{4002, 5008, 183}
+551|0|$time:time_point() + 3_ks + 27_s + 174_ms + 628_us
+551|9|top.source#item_output:{1000, 2000, 192}
+551|73|top.kiosk_queue#item_output:{2000, 3004, 192}
+552|0|$time:time_point() + 3_ks + 28_s + 346_ms + 212_us
+552|34|top.kiosk_array.3001#item_output:{3001, 4001, 184}
+552|130|top.central_queue.4001#item_output:{4001, 5005, 184}
+553|0|$time:time_point() + 3_ks + 29_s + 682_ms + 612_us
+553|9|top.source#item_output:{1000, 2000, 193}
+553|73|top.kiosk_queue#item_output:{2000, 3001, 193}
+554|0|$time:time_point() + 3_ks + 31_s + 200_ms + 245_us
+554|29|top.booths.5005.server#item_output:{5005, 6000, 169}
+554|38|top.booths.5005.queue#item_output:{5005, 5005, 170}
+554|62|top.sink#item_output:169
+555|0|$time:time_point() + 3_ks + 41_s + 489_ms + 825_us
+555|9|top.source#item_output:{1000, 2000, 194}
+555|72|top.kiosk_queue#item_output:{2000, 3009, 194}
+556|0|$time:time_point() + 3_ks + 49_s + 513_ms + 628_us
+556|70|top.kiosk_array.3010#item_output:{3010, 4002, 185}
+556|134|top.central_queue.4002#item_output:{4002, 5002, 185}
+557|0|$time:time_point() + 3_ks + 52_s + 923_ms + 192_us
+557|9|top.source#item_output:{1000, 2000, 195}
+557|72|top.kiosk_queue#item_output:{2000, 3010, 195}
+558|0|$time:time_point() + 3_ks + 53_s + 121_ms + 972_us
+558|9|top.source#item_output:{1000, 2000, 196}
+559|0|$time:time_point() + 3_ks + 55_s + 152_ms + 42_us
+559|41|top.booths.5009.server#item_output:{5009, 6000, 168}
+559|50|top.booths.5009.queue#item_output:{5009, 5009, 173}
+559|62|top.sink#item_output:168
+560|0|$time:time_point() + 3_ks + 70_s + 766_ms + 463_us
+560|9|top.source#item_output:{1000, 2000, 197}
+561|0|$time:time_point() + 3_ks + 71_s + 470_ms + 586_us
+561|38|top.kiosk_array.3002#item_output:{3002, 4001, 186}
+561|82|top.kiosk_queue#item_output:{2000, 3002, 196}
+561|200|top.central_queue.4001#item_output:{4001, 5009, 186}
+562|0|$time:time_point() + 3_ks + 72_s + 376_ms + 4_us
+562|50|top.kiosk_array.3005#item_output:{3005, 4001, 187}
+562|82|top.kiosk_queue#item_output:{2000, 3005, 197}
+562|189|top.central_queue.4001#item_output:{4001, 5009, 187}
+563|0|$time:time_point() + 3_ks + 73_s + 631_ms + 877_us
+563|54|top.kiosk_array.3006#item_output:{3006, 4002, 188}
+563|133|top.central_queue.4002#item_output:{4002, 5005, 188}
+564|0|$time:time_point() + 3_ks + 80_s + 293_ms + 930_us
+564|62|top.kiosk_array.3008#item_output:{3008, 4001, 189}
+564|128|top.central_queue.4001#item_output:{4001, 5002, 189}
+565|0|$time:time_point() + 3_ks + 86_s + 561_ms + 217_us
+565|35|top.booths.5008.server#item_output:{5008, 6000, 167}
+565|44|top.booths.5008.queue#item_output:{5008, 5008, 172}
+565|62|top.sink#item_output:167
+566|0|$time:time_point() + 3_ks + 97_s + 859_ms + 199_us
+566|29|top.booths.5005.server#item_output:{5005, 6000, 170}
+566|38|top.booths.5005.queue#item_output:{5005, 5005, 171}
+566|62|top.sink#item_output:170
+567|0|$time:time_point() + 3_ks + 98_s + 900_ms + 995_us
+567|58|top.kiosk_array.3007#item_output:{3007, 4002, 190}
+567|132|top.central_queue.4002#item_output:{4002, 5005, 190}
+568|0|$time:time_point() + 3_ks + 115_s + 552_ms + 498_us
+568|9|top.source#item_output:{1000, 2000, 198}
+568|74|top.kiosk_queue#item_output:{2000, 3008, 198}
+569|0|$time:time_point() + 3_ks + 120_s + 149_ms + 659_us
+569|9|top.source#item_output:{1000, 2000, 199}
+569|73|top.kiosk_queue#item_output:{2000, 3006, 199}
+570|0|$time:time_point() + 3_ks + 125_s + 614_ms + 52_us
+570|35|top.booths.5008.server#item_output:{5008, 6000, 172}
+570|44|top.booths.5008.queue#item_output:{5008, 5008, 178}
+570|62|top.sink#item_output:172
+571|0|$time:time_point() + 3_ks + 136_s + 487_ms + 591_us
+571|41|top.booths.5009.server#item_output:{5009, 6000, 173}
+571|50|top.booths.5009.queue#item_output:{5009, 5009, 176}
+571|62|top.sink#item_output:173
+572|0|$time:time_point() + 3_ks + 143_s + 953_ms + 557_us
+572|42|top.kiosk_array.3003#item_output:{3003, 4001, 191}
+572|128|top.central_queue.4001#item_output:{4001, 5008, 191}
+573|0|$time:time_point() + 3_ks + 147_s + 174_ms + 628_us
+573|46|top.kiosk_array.3004#item_output:{3004, 4001, 192}
+573|128|top.central_queue.4001#item_output:{4001, 5009, 192}
+574|0|$time:time_point() + 3_ks + 149_s + 682_ms + 612_us
+574|34|top.kiosk_array.3001#item_output:{3001, 4001, 193}
+574|127|top.central_queue.4001#item_output:{4001, 5008, 193}
+575|0|$time:time_point() + 3_ks + 149_s + 736_ms + 763_us
+575|9|top.source#item_output:{1000, 2000, 200}
+575|75|top.kiosk_queue#item_output:{2000, 3001, 200}
+576|0|$time:time_point() + 3_ks + 150_s + 382_ms + 984_us
+576|9|top.source#item_output:{1000, 2000, 201}
+576|74|top.kiosk_queue#item_output:{2000, 3003, 201}
+577|0|$time:time_point() + 3_ks + 161_s + 489_ms + 825_us
+577|66|top.kiosk_array.3009#item_output:{3009, 4001, 194}
+577|127|top.central_queue.4001#item_output:{4001, 5008, 194}
+578|0|$time:time_point() + 3_ks + 172_s + 923_ms + 192_us
+578|70|top.kiosk_array.3010#item_output:{3010, 4002, 195}
+579|0|$time:time_point() + 3_ks + 172_s + 924_ms + 403_us
+579|9|top.source#item_output:{1000, 2000, 202}
+579|75|top.kiosk_queue#item_output:{2000, 3010, 202}
+580|0|$time:time_point() + 3_ks + 176_s + 122_ms + 864_us
+580|9|top.source#item_output:{1000, 2000, 203}
+580|74|top.kiosk_queue#item_output:{2000, 3009, 203}
+581|0|$time:time_point() + 3_ks + 178_s + 366_ms + 76_us
+581|23|top.booths.5002.server#item_output:{5002, 6000, 163}
+581|32|top.booths.5002.queue#item_output:{5002, 5002, 165}
+581|74|top.central_queue.4002#item_output:{4002, 5002, 195}
+581|111|top.sink#item_output:163
+582|0|$time:time_point() + 3_ks + 178_s + 483_ms + 846_us
+582|9|top.source#item_output:{1000, 2000, 204}
+582|73|top.kiosk_queue#item_output:{2000, 3004, 204}
+583|0|$time:time_point() + 3_ks + 188_s + 181_ms + 121_us
+583|29|top.booths.5005.server#item_output:{5005, 6000, 171}
+583|38|top.booths.5005.queue#item_output:{5005, 5005, 175}
+583|62|top.sink#item_output:171
+584|0|$time:time_point() + 3_ks + 189_s + 643_ms + 616_us
+584|9|top.source#item_output:{1000, 2000, 205}
+584|72|top.kiosk_queue#item_output:{2000, 3007, 205}
+585|0|$time:time_point() + 3_ks + 189_s + 665_ms + 91_us
+585|9|top.source#item_output:{1000, 2000, 206}
+586|0|$time:time_point() + 3_ks + 189_s + 729_ms + 851_us
+586|9|top.source#item_output:{1000, 2000, 207}
+587|0|$time:time_point() + 3_ks + 191_s + 470_ms + 586_us
+587|38|top.kiosk_array.3002#item_output:{3002, 4001, 196}
+587|82|top.kiosk_queue#item_output:{2000, 3002, 206}
+587|197|top.central_queue.4001#item_output:{4001, 5005, 196}
+588|0|$time:time_point() + 3_ks + 192_s + 376_ms + 4_us
+588|50|top.kiosk_array.3005#item_output:{3005, 4002, 197}
+588|82|top.kiosk_queue#item_output:{2000, 3005, 207}
+589|0|$time:time_point() + 3_ks + 222_s + 887_ms + 707_us
+589|9|top.source#item_output:{1000, 2000, 208}
+590|0|$time:time_point() + 3_ks + 232_s + 255_ms + 422_us
+590|9|top.source#item_output:{1000, 2000, 209}
+591|0|$time:time_point() + 3_ks + 235_s + 552_ms + 498_us
+591|62|top.kiosk_array.3008#item_output:{3008, 4002, 198}
+591|82|top.kiosk_queue#item_output:{2000, 3008, 208}
+592|0|$time:time_point() + 3_ks + 236_s + 736_ms + 425_us
+592|9|top.source#item_output:{1000, 2000, 210}
+593|0|$time:time_point() + 3_ks + 240_s + 149_ms + 659_us
+593|54|top.kiosk_array.3006#item_output:{3006, 4001, 199}
+593|82|top.kiosk_queue#item_output:{2000, 3006, 209}
+594|0|$time:time_point() + 3_ks + 256_s + 776_ms + 280_us
+594|35|top.booths.5008.server#item_output:{5008, 6000, 178}
+594|44|top.booths.5008.queue#item_output:{5008, 5008, 181}
+594|70|top.central_queue.4001#item_output:{4001, 5008, 199}
+594|111|top.sink#item_output:178
+595|0|$time:time_point() + 3_ks + 265_s + 484_ms + 858_us
+595|9|top.source#item_output:{1000, 2000, 211}
+596|0|$time:time_point() + 3_ks + 269_s + 736_ms + 763_us
+596|34|top.kiosk_array.3001#item_output:{3001, 4001, 200}
+596|82|top.kiosk_queue#item_output:{2000, 3001, 210}
+597|0|$time:time_point() + 3_ks + 270_s + 382_ms + 984_us
+597|42|top.kiosk_array.3003#item_output:{3003, 4002, 201}
+597|82|top.kiosk_queue#item_output:{2000, 3003, 211}
+598|0|$time:time_point() + 3_ks + 285_s + 487_ms + 878_us
+598|9|top.source#item_output:{1000, 2000, 212}
+599|0|$time:time_point() + 3_ks + 292_s + 924_ms + 403_us
+599|70|top.kiosk_array.3010#item_output:{3010, 4002, 202}
+599|82|top.kiosk_queue#item_output:{2000, 3010, 212}
+600|0|$time:time_point() + 3_ks + 296_s + 122_ms + 864_us
+600|66|top.kiosk_array.3009#item_output:{3009, 4002, 203}
+601|0|$time:time_point() + 3_ks + 298_s + 483_ms + 846_us
+601|46|top.kiosk_array.3004#item_output:{3004, 4001, 204}
+602|0|$time:time_point() + 3_ks + 298_s + 742_ms + 117_us
+602|9|top.source#item_output:{1000, 2000, 213}
+602|73|top.kiosk_queue#item_output:{2000, 3009, 213}
+603|0|$time:time_point() + 3_ks + 301_s + 560_ms + 900_us
+603|41|top.booths.5009.server#item_output:{5009, 6000, 176}
+603|50|top.booths.5009.queue#item_output:{5009, 5009, 179}
+603|74|top.central_queue.4002#item_output:{4002, 5009, 197}
+603|121|top.sink#item_output:176
+604|0|$time:time_point() + 3_ks + 303_s + 889_ms + 711_us
+604|35|top.booths.5008.server#item_output:{5008, 6000, 181}
+604|44|top.booths.5008.queue#item_output:{5008, 5008, 183}
+604|70|top.central_queue.4001#item_output:{4001, 5008, 200}
+604|121|top.sink#item_output:181
+605|0|$time:time_point() + 3_ks + 307_s + 293_ms + 497_us
+605|9|top.source#item_output:{1000, 2000, 214}
+605|72|top.kiosk_queue#item_output:{2000, 3004, 214}
+606|0|$time:time_point() + 3_ks + 309_s + 643_ms + 616_us
+606|58|top.kiosk_array.3007#item_output:{3007, 4002, 205}
+607|0|$time:time_point() + 3_ks + 311_s + 470_ms + 586_us
+607|38|top.kiosk_array.3002#item_output:{3002, 4001, 206}
+608|0|$time:time_point() + 3_ks + 312_s + 376_ms + 4_us
+608|50|top.kiosk_array.3005#item_output:{3005, 4001, 207}
+609|0|$time:time_point() + 3_ks + 320_s + 207_ms + 411_us
+609|9|top.source#item_output:{1000, 2000, 215}
+609|74|top.kiosk_queue#item_output:{2000, 3002, 215}
+610|0|$time:time_point() + 3_ks + 337_s + 361_ms + 715_us
+610|41|top.booths.5009.server#item_output:{5009, 6000, 179}
+610|50|top.booths.5009.queue#item_output:{5009, 5009, 180}
+610|74|top.central_queue.4002#item_output:{4002, 5009, 198}
+610|121|top.sink#item_output:179
+611|0|$time:time_point() + 3_ks + 340_s + 233_ms + 147_us
+611|29|top.booths.5005.server#item_output:{5005, 6000, 175}
+611|38|top.booths.5005.queue#item_output:{5005, 5005, 182}
+611|74|top.central_queue.4002#item_output:{4002, 5005, 201}
+611|121|top.sink#item_output:175
+612|0|$time:time_point() + 3_ks + 343_s + 847_ms + 964_us
+612|23|top.booths.5002.server#item_output:{5002, 6000, 165}
+612|32|top.booths.5002.queue#item_output:{5002, 5002, 174}
+612|70|top.central_queue.4001#item_output:{4001, 5002, 204}
+612|121|top.sink#item_output:165
+613|0|$time:time_point() + 3_ks + 352_s + 839_ms + 436_us
+613|9|top.source#item_output:{1000, 2000, 216}
+613|73|top.kiosk_queue#item_output:{2000, 3005, 216}
+614|0|$time:time_point() + 3_ks + 352_s + 923_ms + 192_us
+614|8|top.booths#lane_creation_output:5001
+614|29|top.central_queue.4002#item_output:{4002, 5001, 202}
+614|97|top.booths.5001.queue#item_output:{5001, 5001, 202}
+614|115|top.central_queue.4001#item_output:{4001, 5001, 206}
+614|195|top.central_queue.4002#item_output:{4002, 5001, 203}
+614|264|top.central_queue.4002#item_output:{4002, 5001, 205}
+614|317|top.central_queue.4001#item_output:{4001, 5001, 207}
+615|0|$time:time_point() + 3_ks + 355_s + 552_ms + 498_us
+615|62|top.kiosk_array.3008#item_output:{3008, 4001, 208}
+615|135|top.central_queue.4001#item_output:{4001, 5001, 208}
+616|0|$time:time_point() + 3_ks + 357_s + 967_ms + 994_us
+616|37|top.booths.5008.server#item_output:{5008, 6000, 183}
+616|46|top.booths.5008.queue#item_output:{5008, 5008, 191}
+616|70|top.sink#item_output:183
+617|0|$time:time_point() + 3_ks + 359_s + 741_ms + 113_us
+617|9|top.source#item_output:{1000, 2000, 217}
+617|73|top.kiosk_queue#item_output:{2000, 3007, 217}
+618|0|$time:time_point() + 3_ks + 360_s + 149_ms + 659_us
+618|54|top.kiosk_array.3006#item_output:{3006, 4001, 209}
+618|135|top.central_queue.4001#item_output:{4001, 5008, 209}
+619|0|$time:time_point() + 3_ks + 389_s + 736_ms + 763_us
+619|34|top.kiosk_array.3001#item_output:{3001, 4002, 210}
+620|0|$time:time_point() + 3_ks + 390_s + 382_ms + 984_us
+620|42|top.kiosk_array.3003#item_output:{3003, 4001, 211}
+621|0|$time:time_point() + 3_ks + 412_s + 924_ms + 403_us
+621|70|top.kiosk_array.3010#item_output:{3010, 4001, 212}
+622|0|$time:time_point() + 3_ks + 414_s + 3_ms + 881_us
+622|9|top.source#item_output:{1000, 2000, 218}
+622|76|top.kiosk_queue#item_output:{2000, 3010, 218}
+623|0|$time:time_point() + 3_ks + 418_s + 742_ms + 117_us
+623|66|top.kiosk_array.3009#item_output:{3009, 4001, 213}
+624|0|$time:time_point() + 3_ks + 419_s + 865_ms + 514_us
+624|9|top.source#item_output:{1000, 2000, 219}
+624|76|top.kiosk_queue#item_output:{2000, 3001, 219}
+625|0|$time:time_point() + 3_ks + 423_s + 169_ms + 584_us
+625|9|top.source#item_output:{1000, 2000, 220}
+625|75|top.kiosk_queue#item_output:{2000, 3006, 220}
+626|0|$time:time_point() + 3_ks + 424_s + 791_ms + 148_us
+626|43|top.booths.5009.server#item_output:{5009, 6000, 180}
+626|52|top.booths.5009.queue#item_output:{5009, 5009, 186}
+626|82|top.central_queue.4002#item_output:{4002, 5009, 210}
+626|127|top.sink#item_output:180
+627|0|$time:time_point() + 3_ks + 427_s + 265_ms + 298_us
+627|49|top.booths.5001.server#item_output:{5001, 6000, 202}
+627|58|top.booths.5001.queue#item_output:{5001, 5001, 206}
+627|78|top.central_queue.4001#item_output:{4001, 5001, 211}
+627|139|top.sink#item_output:202
+628|0|$time:time_point() + 3_ks + 427_s + 293_ms + 497_us
+628|46|top.kiosk_array.3004#item_output:{3004, 4001, 214}
+629|0|$time:time_point() + 3_ks + 440_s + 207_ms + 411_us
+629|38|top.kiosk_array.3002#item_output:{3002, 4001, 215}
+630|0|$time:time_point() + 3_ks + 441_s + 597_ms + 908_us
+630|31|top.booths.5005.server#item_output:{5005, 6000, 182}
+630|40|top.booths.5005.queue#item_output:{5005, 5005, 184}
+630|78|top.central_queue.4001#item_output:{4001, 5005, 212}
+630|139|top.sink#item_output:182
+631|0|$time:time_point() + 3_ks + 446_s + 615_ms + 156_us
+631|25|top.booths.5002.server#item_output:{5002, 6000, 174}
+631|34|top.booths.5002.queue#item_output:{5002, 5002, 177}
+631|78|top.central_queue.4001#item_output:{4001, 5002, 213}
+631|139|top.sink#item_output:174
+632|0|$time:time_point() + 3_ks + 472_s + 839_ms + 436_us
+632|50|top.kiosk_array.3005#item_output:{3005, 4001, 216}
+633|0|$time:time_point() + 3_ks + 476_s + 550_ms + 212_us
+633|49|top.booths.5001.server#item_output:{5001, 6000, 206}
+633|58|top.booths.5001.queue#item_output:{5001, 5001, 203}
+633|78|top.central_queue.4001#item_output:{4001, 5001, 214}
+633|139|top.sink#item_output:206
+634|0|$time:time_point() + 3_ks + 477_s + 669_ms + 244_us
+634|9|top.source#item_output:{1000, 2000, 221}
+634|77|top.kiosk_queue#item_output:{2000, 3003, 221}
+635|0|$time:time_point() + 3_ks + 479_s + 741_ms + 113_us
+635|58|top.kiosk_array.3007#item_output:{3007, 4001, 217}
+636|0|$time:time_point() + 3_ks + 483_s + 355_ms + 787_us
+636|9|top.source#item_output:{1000, 2000, 222}
+636|77|top.kiosk_queue#item_output:{2000, 3004, 222}
+637|0|$time:time_point() + 3_ks + 488_s + 237_ms + 608_us
+637|9|top.source#item_output:{1000, 2000, 223}
+637|76|top.kiosk_queue#item_output:{2000, 3008, 223}
+638|0|$time:time_point() + 3_ks + 496_s + 518_ms + 36_us
+638|9|top.source#item_output:{1000, 2000, 224}
+638|75|top.kiosk_queue#item_output:{2000, 3007, 224}
+639|0|$time:time_point() + 3_ks + 499_s + 429_ms + 373_us
+639|25|top.booths.5002.server#item_output:{5002, 6000, 177}
+639|34|top.booths.5002.queue#item_output:{5002, 5002, 185}
+639|78|top.central_queue.4001#item_output:{4001, 5002, 215}
+639|139|top.sink#item_output:177
+640|0|$time:time_point() + 3_ks + 507_s + 813_ms + 741_us
+640|9|top.source#item_output:{1000, 2000, 225}
+640|74|top.kiosk_queue#item_output:{2000, 3002, 225}
+641|0|$time:time_point() + 3_ks + 520_s + 902_ms + 739_us
+641|9|top.source#item_output:{1000, 2000, 226}
+641|73|top.kiosk_queue#item_output:{2000, 3005, 226}
+642|0|$time:time_point() + 3_ks + 522_s + 222_ms + 945_us
+642|31|top.booths.5005.server#item_output:{5005, 6000, 184}
+642|40|top.booths.5005.queue#item_output:{5005, 5005, 188}
+642|78|top.central_queue.4001#item_output:{4001, 5005, 216}
+642|139|top.sink#item_output:184
+643|0|$time:time_point() + 3_ks + 528_s + 718_ms + 22_us
+643|9|top.source#item_output:{1000, 2000, 227}
+643|72|top.kiosk_queue#item_output:{2000, 3009, 227}
+644|0|$time:time_point() + 3_ks + 532_s + 235_ms + 723_us
+644|43|top.booths.5009.server#item_output:{5009, 6000, 186}
+644|52|top.booths.5009.queue#item_output:{5009, 5009, 187}
+644|78|top.central_queue.4001#item_output:{4001, 5009, 217}
+644|127|top.sink#item_output:186
+645|0|$time:time_point() + 3_ks + 534_s + 3_ms + 881_us
+645|70|top.kiosk_array.3010#item_output:{3010, 4002, 218}
+646|0|$time:time_point() + 3_ks + 539_s + 865_ms + 514_us
+646|34|top.kiosk_array.3001#item_output:{3001, 4002, 219}
+647|0|$time:time_point() + 3_ks + 543_s + 169_ms + 584_us
+647|54|top.kiosk_array.3006#item_output:{3006, 4001, 220}
+648|0|$time:time_point() + 3_ks + 564_s + 956_ms + 774_us
+648|37|top.booths.5008.server#item_output:{5008, 6000, 191}
+648|46|top.booths.5008.queue#item_output:{5008, 5008, 193}
+648|82|top.central_queue.4002#item_output:{4002, 5008, 218}
+648|139|top.sink#item_output:191
+649|0|$time:time_point() + 3_ks + 569_s + 736_ms + 763_us
+649|8|top.booths#lane_creation_output:5003
+649|25|top.central_queue.4001#item_output:{4001, 5003, 220}
+649|93|top.booths.5003.queue#item_output:{5003, 5003, 220}
+649|115|top.central_queue.4002#item_output:{4002, 5003, 219}
+650|0|$time:time_point() + 3_ks + 576_s + 466_ms + 966_us
+650|27|top.booths.5002.server#item_output:{5002, 6000, 185}
+650|36|top.booths.5002.queue#item_output:{5002, 5002, 189}
+650|78|top.sink#item_output:185
+651|0|$time:time_point() + 3_ks + 579_s + 954_ms + 68_us
+651|9|top.source#item_output:{1000, 2000, 228}
+651|74|top.kiosk_queue#item_output:{2000, 3010, 228}
+652|0|$time:time_point() + 3_ks + 580_s + 741_ms + 490_us
+652|51|top.booths.5001.server#item_output:{5001, 6000, 203}
+652|60|top.booths.5001.queue#item_output:{5001, 5001, 205}
+652|78|top.sink#item_output:203
+653|0|$time:time_point() + 3_ks + 597_s + 669_ms + 244_us
+653|42|top.kiosk_array.3003#item_output:{3003, 4001, 221}
+653|145|top.central_queue.4001#item_output:{4001, 5002, 221}
+654|0|$time:time_point() + 3_ks + 598_s + 654_ms + 501_us
+654|9|top.source#item_output:{1000, 2000, 229}
+654|74|top.kiosk_queue#item_output:{2000, 3001, 229}
+655|0|$time:time_point() + 3_ks + 603_s + 355_ms + 787_us
+655|46|top.kiosk_array.3004#item_output:{3004, 4001, 222}
+655|144|top.central_queue.4001#item_output:{4001, 5001, 222}
+656|0|$time:time_point() + 3_ks + 608_s + 237_ms + 608_us
+656|62|top.kiosk_array.3008#item_output:{3008, 4001, 223}
+656|143|top.central_queue.4001#item_output:{4001, 5003, 223}
+657|0|$time:time_point() + 3_ks + 616_s + 518_ms + 36_us
+657|58|top.kiosk_array.3007#item_output:{3007, 4001, 224}
+657|143|top.central_queue.4001#item_output:{4001, 5003, 224}
+658|0|$time:time_point() + 3_ks + 627_s + 813_ms + 741_us
+658|38|top.kiosk_array.3002#item_output:{3002, 4002, 225}
+658|147|top.central_queue.4002#item_output:{4002, 5003, 225}
+659|0|$time:time_point() + 3_ks + 633_s + 224_ms + 775_us
+659|33|top.booths.5005.server#item_output:{5005, 6000, 188}
+659|42|top.booths.5005.queue#item_output:{5005, 5005, 190}
+659|78|top.sink#item_output:188
+660|0|$time:time_point() + 3_ks + 638_s + 262_ms + 704_us
+660|39|top.booths.5008.server#item_output:{5008, 6000, 193}
+660|48|top.booths.5008.queue#item_output:{5008, 5008, 194}
+660|78|top.sink#item_output:193
+661|0|$time:time_point() + 3_ks + 640_s + 902_ms + 739_us
+661|50|top.kiosk_array.3005#item_output:{3005, 4001, 226}
+661|145|top.central_queue.4001#item_output:{4001, 5008, 226}
+662|0|$time:time_point() + 3_ks + 648_s + 718_ms + 22_us
+662|66|top.kiosk_array.3009#item_output:{3009, 4001, 227}
+662|144|top.central_queue.4001#item_output:{4001, 5003, 227}
+663|0|$time:time_point() + 3_ks + 658_s + 746_ms + 461_us
+663|57|top.booths.5003.server#item_output:{5003, 6000, 220}
+663|66|top.booths.5003.queue#item_output:{5003, 5003, 219}
+663|78|top.sink#item_output:220
+664|0|$time:time_point() + 3_ks + 671_s + 121_ms + 599_us
+664|51|top.booths.5001.server#item_output:{5001, 6000, 205}
+664|60|top.booths.5001.queue#item_output:{5001, 5001, 207}
+664|78|top.sink#item_output:205
+665|0|$time:time_point() + 3_ks + 680_s + 766_ms + 630_us
+665|45|top.booths.5009.server#item_output:{5009, 6000, 187}
+665|54|top.booths.5009.queue#item_output:{5009, 5009, 192}
+665|78|top.sink#item_output:187
+666|0|$time:time_point() + 3_ks + 690_s + 40_ms + 838_us
+666|39|top.booths.5008.server#item_output:{5008, 6000, 194}
+666|48|top.booths.5008.queue#item_output:{5008, 5008, 199}
+666|78|top.sink#item_output:194
+667|0|$time:time_point() + 3_ks + 699_s + 954_ms + 68_us
+667|70|top.kiosk_array.3010#item_output:{3010, 4002, 228}
+667|151|top.central_queue.4002#item_output:{4002, 5009, 228}
+668|0|$time:time_point() + 3_ks + 718_s + 654_ms + 501_us
+668|34|top.kiosk_array.3001#item_output:{3001, 4002, 229}
+668|150|top.central_queue.4002#item_output:{4002, 5003, 229}
+669|0|$time:time_point() + 3_ks + 740_s + 951_ms + 453_us
+669|33|top.booths.5005.server#item_output:{5005, 6000, 190}
+669|42|top.booths.5005.queue#item_output:{5005, 5005, 196}
+669|78|top.sink#item_output:190
+670|0|$time:time_point() + 3_ks + 742_s + 421_ms + 949_us
+670|45|top.booths.5009.server#item_output:{5009, 6000, 192}
+670|54|top.booths.5009.queue#item_output:{5009, 5009, 197}
+670|78|top.sink#item_output:192
+671|0|$time:time_point() + 3_ks + 743_s + 243_ms + 192_us
+671|27|top.booths.5002.server#item_output:{5002, 6000, 189}
+671|36|top.booths.5002.queue#item_output:{5002, 5002, 195}
+671|78|top.sink#item_output:189
+672|0|$time:time_point() + 3_ks + 743_s + 664_ms + 238_us
+672|57|top.booths.5003.server#item_output:{5003, 6000, 219}
+672|66|top.booths.5003.queue#item_output:{5003, 5003, 223}
+672|78|top.sink#item_output:219
+673|0|$time:time_point() + 3_ks + 775_s + 419_ms + 176_us
+673|39|top.booths.5008.server#item_output:{5008, 6000, 199}
+673|48|top.booths.5008.queue#item_output:{5008, 5008, 200}
+673|78|top.sink#item_output:199
+674|0|$time:time_point() + 3_ks + 781_s + 589_ms + 21_us
+674|27|top.booths.5002.server#item_output:{5002, 6000, 195}
+674|36|top.booths.5002.queue#item_output:{5002, 5002, 204}
+674|78|top.sink#item_output:195
+675|0|$time:time_point() + 3_ks + 784_s + 321_ms + 452_us
+675|57|top.booths.5003.server#item_output:{5003, 6000, 223}
+675|66|top.booths.5003.queue#item_output:{5003, 5003, 224}
+675|78|top.sink#item_output:223
+676|0|$time:time_point() + 3_ks + 812_s + 211_ms + 70_us
+676|39|top.booths.5008.server#item_output:{5008, 6000, 200}
+676|48|top.booths.5008.queue#item_output:{5008, 5008, 209}
+676|78|top.sink#item_output:200
+677|0|$time:time_point() + 3_ks + 815_s + 896_ms + 676_us
+677|45|top.booths.5009.server#item_output:{5009, 6000, 197}
+677|54|top.booths.5009.queue#item_output:{5009, 5009, 198}
+677|78|top.sink#item_output:197
+678|0|$time:time_point() + 3_ks + 847_s + 55_ms + 997_us
+678|57|top.booths.5003.server#item_output:{5003, 6000, 224}
+678|66|top.booths.5003.queue#item_output:{5003, 5003, 225}
+678|78|top.sink#item_output:224
+679|0|$time:time_point() + 3_ks + 860_s + 84_ms + 832_us
+679|33|top.booths.5005.server#item_output:{5005, 6000, 196}
+679|42|top.booths.5005.queue#item_output:{5005, 5005, 201}
+679|78|top.sink#item_output:196
+680|0|$time:time_point() + 3_ks + 871_s + 804_ms + 601_us
+680|27|top.booths.5002.server#item_output:{5002, 6000, 204}
+680|36|top.booths.5002.queue#item_output:{5002, 5002, 213}
+680|78|top.sink#item_output:204
+681|0|$time:time_point() + 3_ks + 883_s + 997_ms + 6_us
+681|51|top.booths.5001.server#item_output:{5001, 6000, 207}
+681|60|top.booths.5001.queue#item_output:{5001, 5001, 208}
+681|78|top.sink#item_output:207
+682|0|$time:time_point() + 3_ks + 926_s + 341_ms + 195_us
+682|57|top.booths.5003.server#item_output:{5003, 6000, 225}
+682|66|top.booths.5003.queue#item_output:{5003, 5003, 227}
+682|78|top.sink#item_output:225
+683|0|$time:time_point() + 3_ks + 946_s + 223_ms + 249_us
+683|27|top.booths.5002.server#item_output:{5002, 6000, 213}
+683|36|top.booths.5002.queue#item_output:{5002, 5002, 215}
+683|78|top.sink#item_output:213
+684|0|$time:time_point() + 3_ks + 950_s + 15_ms + 256_us
+684|39|top.booths.5008.server#item_output:{5008, 6000, 209}
+684|48|top.booths.5008.queue#item_output:{5008, 5008, 218}
+684|78|top.sink#item_output:209
+685|0|$time:time_point() + 3_ks + 953_s + 975_ms + 561_us
+685|33|top.booths.5005.server#item_output:{5005, 6000, 201}
+685|42|top.booths.5005.queue#item_output:{5005, 5005, 212}
+685|78|top.sink#item_output:201
+686|0|$time:time_point() + 3_ks + 960_s + 795_ms + 491_us
+686|45|top.booths.5009.server#item_output:{5009, 6000, 198}
+686|54|top.booths.5009.queue#item_output:{5009, 5009, 210}
+686|78|top.sink#item_output:198
+687|0|$time:time_point() + 3_ks + 979_s + 856_ms + 686_us
+687|27|top.booths.5002.server#item_output:{5002, 6000, 215}
+687|36|top.booths.5002.queue#item_output:{5002, 5002, 221}
+687|77|top.sink#item_output:215
+688|0|$time:time_point() + 3_ks + 988_s + 123_ms + 808_us
+688|39|top.booths.5008.server#item_output:{5008, 6000, 218}
+688|48|top.booths.5008.queue#item_output:{5008, 5008, 226}
+688|77|top.sink#item_output:218
+689|0|$time:time_point() + 4_ks + 1_s + 387_ms + 169_us
+689|57|top.booths.5003.server#item_output:{5003, 6000, 227}
+689|66|top.booths.5003.queue#item_output:{5003, 5003, 229}
+689|77|top.sink#item_output:227
+690|0|$time:time_point() + 4_ks + 2_s + 866_ms + 698_us
+690|33|top.booths.5005.server#item_output:{5005, 6000, 212}
+690|42|top.booths.5005.queue#item_output:{5005, 5005, 216}
+690|77|top.sink#item_output:212
+691|0|$time:time_point() + 4_ks + 8_s + 485_ms + 636_us
+691|39|top.booths.5008.server#item_output:{5008, 6000, 226}
+691|45|top.booths#lane_removal_output:5008
+691|67|top.sink#item_output:226
+692|0|$time:time_point() + 4_ks + 30_s + 746_ms + 911_us
+692|43|top.booths.5001.server#item_output:{5001, 6000, 208}
+692|52|top.booths.5001.queue#item_output:{5001, 5001, 211}
+692|70|top.sink#item_output:208
+693|0|$time:time_point() + 4_ks + 35_s + 291_ms + 468_us
+693|31|top.booths.5005.server#item_output:{5005, 6000, 216}
+693|37|top.booths#lane_removal_output:5005
+693|59|top.sink#item_output:216
+694|0|$time:time_point() + 4_ks + 45_s + 130_ms + 139_us
+694|29|top.booths.5009.server#item_output:{5009, 6000, 210}
+694|38|top.booths.5009.queue#item_output:{5009, 5009, 217}
+694|62|top.sink#item_output:210
+695|0|$time:time_point() + 4_ks + 85_s + 351_ms + 47_us
+695|35|top.booths.5001.server#item_output:{5001, 6000, 211}
+695|44|top.booths.5001.queue#item_output:{5001, 5001, 214}
+695|62|top.sink#item_output:211
+696|0|$time:time_point() + 4_ks + 88_s + 965_ms + 515_us
+696|23|top.booths.5002.server#item_output:{5002, 6000, 221}
+696|29|top.booths#lane_removal_output:5002
+696|51|top.sink#item_output:221
+697|0|$time:time_point() + 4_ks + 103_s + 134_ms + 384_us
+697|33|top.booths.5003.server#item_output:{5003, 6000, 229}
+697|39|top.booths#lane_removal_output:5003
+697|43|top.sink#item_output:229
+698|0|$time:time_point() + 4_ks + 124_s + 759_ms + 96_us
+698|19|top.booths.5009.server#item_output:{5009, 6000, 217}
+698|28|top.booths.5009.queue#item_output:{5009, 5009, 228}
+698|45|top.sink#item_output:217
+699|0|$time:time_point() + 4_ks + 174_s + 835_ms + 410_us
+699|25|top.booths.5001.server#item_output:{5001, 6000, 214}
+699|34|top.booths.5001.queue#item_output:{5001, 5001, 222}
+699|45|top.sink#item_output:214
+700|0|$time:time_point() + 4_ks + 256_s + 488_ms + 561_us
+700|19|top.booths.5009.server#item_output:{5009, 6000, 228}
+700|25|top.booths#lane_removal_output:5009
+700|35|top.sink#item_output:228
+701|0|$time:time_point() + 4_ks + 269_s + 381_ms + 52_us
+701|17|top.booths.5001.server#item_output:{5001, 6000, 222}
+701|23|top.booths#lane_removal_output:5001
+701|27|top.sink#item_output:222

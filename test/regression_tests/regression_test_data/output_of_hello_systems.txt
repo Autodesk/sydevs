@@ -1,0 +1,105 @@
+hello_at_init_node
+0|0|$time:time_point()
+0|0|top$initialization
+0|0|top$print:Hello
+1|0|$time:time_point() + 10_s
+1|0|top$finalization
+
+hello_at_planned_node
+0|0|$time:time_point()
+0|0|top$initialization
+0|1|top$planned
+0|1|top$print:Hello
+1|0|$time:time_point() + 1_s
+1|0|top$planned
+1|0|top$print:Hello
+2|0|$time:time_point() + 2_s
+2|0|top$planned
+2|0|top$print:Hello
+3|0|$time:time_point() + 3_s
+3|0|top$planned
+3|0|top$print:Hello
+4|0|$time:time_point() + 4_s
+4|0|top$planned
+4|0|top$print:Hello
+5|0|$time:time_point() + 5_s
+5|0|top$planned
+5|0|top$print:Hello
+6|0|$time:time_point() + 6_s
+6|0|top$planned
+6|0|top$print:Hello
+7|0|$time:time_point() + 7_s
+7|0|top$planned
+7|0|top$print:Hello
+8|0|$time:time_point() + 8_s
+8|0|top$planned
+8|0|top$print:Hello
+9|0|$time:time_point() + 9_s
+9|0|top$planned
+9|0|top$print:Hello
+10|0|$time:time_point() + 10_s
+10|0|top$finalization
+
+hello_count_node
+0|0|$time:time_point()
+0|0|top$initialization
+0|1|top$planned
+0|1|top$print:Hello 1
+1|0|$time:time_point() + 1_s
+1|0|top$planned
+1|0|top$print:Hello 2
+2|0|$time:time_point() + 2_s
+2|0|top$planned
+2|0|top$print:Hello 3
+3|0|$time:time_point() + 3_s
+3|0|top$planned
+3|0|top$print:Hello 4
+4|0|$time:time_point() + 4_s
+4|0|top$planned
+4|0|top$print:Hello 5
+5|0|$time:time_point() + 5_s
+5|0|top$planned
+5|0|top$print:Hello 6
+6|0|$time:time_point() + 6_s
+6|0|top$planned
+6|0|top$print:Hello 7
+7|0|$time:time_point() + 7_s
+7|0|top$planned
+7|0|top$print:Hello 8
+8|0|$time:time_point() + 8_s
+8|0|top$planned
+8|0|top$print:Hello 9
+9|0|$time:time_point() + 9_s
+9|0|top$planned
+9|0|top$print:Hello 10
+10|0|$time:time_point() + 10_s
+10|0|top$finalization
+
+hello_poisson_node
+0|0|$time:time_point()
+0|0|top$initialization
+0|1|top$planned
+0|1|top$print:Hello 1
+1|0|$time:time_point() + 2_s + 794_ms + 383_us
+1|0|top$planned
+1|0|top$print:Hello 2
+2|0|$time:time_point() + 2_s + 990_ms + 951_us
+2|0|top$planned
+2|0|top$print:Hello 3
+3|0|$time:time_point() + 4_s + 187_ms + 908_us
+3|0|top$planned
+3|0|top$print:Hello 4
+4|0|$time:time_point() + 5_s + 983_ms + 589_us
+4|0|top$planned
+4|0|top$print:Hello 5
+5|0|$time:time_point() + 6_s + 482_ms + 112_us
+5|0|top$planned
+5|0|top$print:Hello 6
+6|0|$time:time_point() + 8_s + 263_ms + 710_us
+6|0|top$planned
+6|0|top$print:Hello 7
+7|0|$time:time_point() + 9_s + 398_ms + 446_us
+7|0|top$planned
+7|0|top$print:Hello 8
+8|0|$time:time_point() + 10_s
+8|0|top$finalization

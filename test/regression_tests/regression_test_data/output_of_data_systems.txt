@@ -1,0 +1,294 @@
+data_primitives_composite_node
+0|0|$time:time_point()
+0|0|top$initialization
+0|11|top.A$initialization
+0|11|top.A$planned_dt:0_us
+0|12|top.B$initialization
+0|12|top.B$planned_dt:0_us
+0|13|top$planned
+0|14|top.A$planned
+0|14|top.A$elapsed_dt:0_us
+0|14|top.A$print:sv_string = five;planned
+0|14|top.A$planned_dt:duration::inf()
+0|14|top.A#mo_bool:true
+0|14|top.A#mo_int64:5
+0|14|top.A#mo_float64:5
+0|14|top.A#mo_duration:5_s
+0|14|top.A#mo_string:"five"
+0|15|top.B$unplanned
+0|15|top.B$elapsed_dt:0_us
+0|15|top.B$print:sv_string = ten;unplanned
+0|15|top.B$planned_dt:0_us
+0|16|top.B$unplanned
+0|16|top.B$elapsed_dt:0_us
+0|16|top.B$print:sv_string = ten;unplanned;unplanned
+0|16|top.B$planned_dt:0_us
+0|17|top.B$unplanned
+0|17|top.B$elapsed_dt:0_us
+0|17|top.B$print:sv_string = ten;unplanned;unplanned;unplanned
+0|17|top.B$planned_dt:0_us
+0|18|top.B$unplanned
+0|18|top.B$elapsed_dt:0_us
+0|18|top.B$print:sv_string = ten;unplanned;unplanned;unplanned;unplanned
+0|18|top.B$planned_dt:0_us
+0|19|top.B$unplanned
+0|19|top.B$elapsed_dt:0_us
+0|19|top.B$print:sv_string = five;unplanned
+0|19|top.B$planned_dt:0_us
+0|21|top$planned
+0|22|top.B$planned
+0|22|top.B$elapsed_dt:0_us
+0|22|top.B$print:sv_string = five;unplanned;planned
+0|22|top.B$planned_dt:duration::inf()
+0|22|top.B#mo_bool:true
+0|22|top.B#mo_int64:5
+0|22|top.B#mo_float64:5
+0|22|top.B#mo_duration:5_s
+0|22|top.B#mo_string:"five;unplanned"
+1|0|$time:time_point() + 10_s
+1|0|top$finalization
+1|1|top.A$finalization
+1|1|top.A$elapsed_dt:10000000_us
+1|1|top.A#fo_bool:true
+1|1|top.A#fo_int64:5
+1|1|top.A#fo_float64:5
+1|1|top.A#fo_duration:5_s
+1|1|top.A#fo_string:"five;planned"
+1|2|top.B$finalization
+1|2|top.B$elapsed_dt:10000000_us
+1|2|top.B#fo_bool:true
+1|2|top.B#fo_int64:5
+1|2|top.B#fo_float64:5
+1|2|top.B#fo_duration:5_s
+1|2|top.B#fo_string:"five;unplanned;planned"
+
+data_structures_composite_node
+0|0|$time:time_point()
+0|0|top$initialization
+0|17|top.A$initialization
+0|17|top.A$print:ostringstream_var.str() = 5 created;initialized;
+0|17|top.A$print:vector_array_var.size() = 2
+0|17|top.A$planned_dt:0_us
+0|18|top.B$initialization
+0|18|top.B$print:ostringstream_var.str() = 10 created;initialized;
+0|18|top.B$print:vector_array_var.size() = 2
+0|18|top.B$planned_dt:0_us
+0|19|top$planned
+0|20|top.A$planned
+0|20|top.A$elapsed_dt:0_us
+0|20|top.A$print:ostringstream_var.str() = 5 created;initialized;sent;
+0|20|top.A$print:vector_array_var.size() = 2
+0|20|top.A$planned_dt:duration::inf()
+0|20|top.A#mo_vector_bool:{true, true, false, true, true, true, true, false}
+0|20|top.A#mo_vector_int64:{5, 5, 5, 5, 5, 100}
+0|20|top.A#mo_vector_vector_duration:{{15_us, 5_ms}, {5_s}, {5_ks, 5_Ms, duration::inf()}}
+0|20|top.A#mo_map_duration_float64:{{-duration::inf(), -555555}, {5_ms, 0.005}, {5_s, 5}, {5_ks, 5000}, {123456789_s, 10}, {duration::inf(), 555555}}
+0|20|top.A#mo_set_pair_float64_string:{{0, "five"}, {5, "five"}, {5, "zero"}}
+0|20|top.A#mo_rate_ptr:(shared_ptr:quantity<decltype(_1/_s)>(2, unit))
+0|20|top.A#mo_ostringstream_ptr:(shared_ptr:...)
+0|20|top.A#mo_vector_array_ptr:(pointer:...)
+0|21|top.B$unplanned
+0|21|top.B$elapsed_dt:0_us
+0|21|top.B$print:ostringstream_var.str() = 10 created;initialized;received;
+0|21|top.B$print:vector_array_var.size() = 2
+0|21|top.B$planned_dt:0_us
+0|22|top.B$unplanned
+0|22|top.B$elapsed_dt:0_us
+0|22|top.B$print:ostringstream_var.str() = 10 created;initialized;received;received;
+0|22|top.B$print:vector_array_var.size() = 2
+0|22|top.B$planned_dt:0_us
+0|23|top.B$unplanned
+0|23|top.B$elapsed_dt:0_us
+0|23|top.B$print:ostringstream_var.str() = 10 created;initialized;received;received;received;
+0|23|top.B$print:vector_array_var.size() = 2
+0|23|top.B$planned_dt:0_us
+0|24|top.B$unplanned
+0|24|top.B$elapsed_dt:0_us
+0|24|top.B$print:ostringstream_var.str() = 10 created;initialized;received;received;received;received;
+0|24|top.B$print:vector_array_var.size() = 2
+0|24|top.B$planned_dt:0_us
+0|25|top.B$unplanned
+0|25|top.B$elapsed_dt:0_us
+0|25|top.B$print:ostringstream_var.str() = 10 created;initialized;received;received;received;received;received;
+0|25|top.B$print:vector_array_var.size() = 2
+0|25|top.B$planned_dt:0_us
+0|26|top.B$unplanned
+0|26|top.B$elapsed_dt:0_us
+0|26|top.B$print:ostringstream_var.str() = 10 created;initialized;received;received;received;received;received;received;
+0|26|top.B$print:vector_array_var.size() = 2
+0|26|top.B$planned_dt:0_us
+0|27|top.B$unplanned
+0|27|top.B$elapsed_dt:0_us
+0|27|top.B$print:ostringstream_var.str() = 5 created;initialized;sent;received;
+0|27|top.B$print:vector_array_var.size() = 2
+0|27|top.B$planned_dt:0_us
+0|28|top.B$unplanned
+0|28|top.B$elapsed_dt:0_us
+0|28|top.B$print:ostringstream_var.str() = 5 created;initialized;sent;received;received;
+0|28|top.B$print:vector_array_var.size() = 2
+0|28|top.B$planned_dt:0_us
+0|30|top$planned
+0|31|top.B$planned
+0|31|top.B$elapsed_dt:0_us
+0|31|top.B$print:ostringstream_var.str() = 5 created;initialized;sent;received;received;sent;
+0|31|top.B$print:vector_array_var.size() = 2
+0|31|top.B$planned_dt:duration::inf()
+0|31|top.B#mo_vector_bool:{true, true, true, true, true, true, true, false}
+0|31|top.B#mo_vector_int64:{5, 5, 5, 5, 5, 107, 100}
+0|31|top.B#mo_vector_vector_duration:{{79720245000000_as, 5_ms}, {5_s}, {5_ks, 5_Ms, duration::inf()}}
+0|31|top.B#mo_map_duration_float64:{{-duration::inf(), -555555}, {5_ms, 0.005}, {5_s, 5}, {5_ks, 5000}, {123456789_s, 10}, {987654321_s, -10}, {duration::inf(), 555555}}
+0|31|top.B#mo_set_pair_float64_string:{{0, "five"}, {5, "five"}, {5, "zero"}, {9.7, "nine point seven"}}
+0|31|top.B#mo_rate_ptr:(shared_ptr:quantity<decltype(_1/_s)>::inf())
+0|31|top.B#mo_ostringstream_ptr:(shared_ptr:...)
+0|31|top.B#mo_vector_array_ptr:(pointer:...)
+1|0|$time:time_point() + 10_s
+1|0|top$finalization
+1|1|top.A$finalization
+1|1|top.A$elapsed_dt:10000000_us
+1|1|top.A$print:ostringstream_var.str() = 5 created;initialized;sent;received;received;sent;finalized;
+1|1|top.A$print:vector_array_var.size() = 3
+1|1|top.A#fo_vector_bool:{true, true, false, false, true, true, true, false}
+1|1|top.A#fo_vector_int64:{}
+1|1|top.A#fo_vector_vector_duration:{{15_us, 5_ms}, {5_s}, {5_ks, 5_Ms, duration::inf()}}
+1|1|top.A#fo_map_duration_float64:{{-duration::inf(), -555555}, {5_ms, 0.005}, {5_s, 5}, {5_ks, 5000}, {123456789_s, 10}, {duration::inf(), 555555}}
+1|1|top.A#fo_set_pair_float64_string:{{0, "five"}, {5, "five"}, {5, "zero"}}
+1|1|top.A#fo_rate_ptr:(shared_ptr:quantity<decltype(_1/_s)>::inf())
+1|1|top.A#fo_ostringstream_ptr:(shared_ptr:...)
+1|1|top.A#fo_vector_array_ptr:(pointer:...)
+1|2|top.B$finalization
+1|2|top.B$elapsed_dt:10000000_us
+1|2|top.B$print:ostringstream_var.str() = 5 created;initialized;sent;received;received;sent;finalized;finalized;
+1|2|top.B$print:vector_array_var.size() = 4
+1|2|top.B#fo_vector_bool:{true, true, true, false, true, true, true, false}
+1|2|top.B#fo_vector_int64:{}
+1|2|top.B#fo_vector_vector_duration:{{79720245000000_as, 5_ms}, {5_s}, {5_ks, 5_Ms, duration::inf()}}
+1|2|top.B#fo_map_duration_float64:{{-duration::inf(), -555555}, {5_ms, 0.005}, {5_s, 5}, {5_ks, 5000}, {123456789_s, 10}, {987654321_s, -10}, {duration::inf(), 555555}}
+1|2|top.B#fo_set_pair_float64_string:{{0, "five"}, {5, "five"}, {5, "zero"}, {9.7, "nine point seven"}}
+1|2|top.B#fo_rate_ptr:(shared_ptr:quantity<decltype(_1/_s)>::inf())
+1|2|top.B#fo_ostringstream_ptr:(shared_ptr:...)
+1|2|top.B#fo_vector_array_ptr:(pointer:...)
+
+data_arraynds_composite_node
+0|0|$time:time_point()
+0|0|top$initialization
+0|9|top.A$initialization
+0|9|top.A$print:sv_a2d  = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}, {9, 10, 11}}
+0|9|top.A$print:sv_s1d  = {0, 3, 6, 9}
+0|9|top.A$print:a2d_var = {{0, 1, 2}, {3, 4, 5}, {6, 7, 8}, {9, 10, 11}}
+0|9|top.A$print:s1d_var = {0, 3, 6, 9}
+0|9|top.A$planned_dt:0_us
+0|10|top.B$initialization
+0|10|top.B$print:sv_a2d  = {{0, -1, -2}, {-3, -4, -5}, {-6, -7, -8}, {-9, -10, -11}}
+0|10|top.B$print:sv_s1d  = {0, -3, -6, -9}
+0|10|top.B$print:a2d_var = {{0, -1, -2}, {-3, -4, -5}, {-6, -7, -8}, {-9, -10, -11}}
+0|10|top.B$print:s1d_var = {0, -3, -6, -9}
+0|10|top.B$planned_dt:0_us
+0|11|top$planned
+0|12|top.A$planned
+0|12|top.A$elapsed_dt:0_us
+0|12|top.A$print:a2d_var = {{100, 1, 2}, {3, 4, 5}, {6, 7, 8}, {9, 10, 11}}
+0|12|top.A$print:s1d_var = {100, 3, 6, 9}
+0|12|top.A$planned_dt:duration::inf()
+0|12|top.A#mo_a2d:{{100, 1, 2}, {3, 4, 5}, {6, 7, 8}, {9, 10, 11}}
+0|12|top.A#mo_s1d:{1, 4, 7, 10}
+0|12|top.A#mo_a2d_ptr:(pointer:...)
+0|12|top.A#mo_s1d_ptr:(pointer:...)
+0|13|top.B$unplanned
+0|13|top.B$elapsed_dt:0_us
+0|13|top.B$print:sv_a2d  = {{100, 1, 2}, {3, 200, 5}, {6, 7, 8}, {9, 10, 11}}
+0|13|top.B$print:sv_s1d  = {0, -3, -6, -9}
+0|13|top.B$print:a2d_var = {{100, -1, -2}, {-3, -4, -5}, {-6, -7, -8}, {-9, -10, -11}}
+0|13|top.B$print:s1d_var = {100, -3, -6, -9}
+0|13|top.B$planned_dt:0_us
+0|14|top.B$unplanned
+0|14|top.B$elapsed_dt:0_us
+0|14|top.B$print:sv_a2d  = {{100, 1, 2}, {3, 200, 5}, {6, 7, 8}, {9, 10, 11}}
+0|14|top.B$print:sv_s1d  = {1, 4, 300, 10}
+0|14|top.B$print:a2d_var = {{100, -1, -2}, {-3, -4, -5}, {-6, -7, -8}, {-9, -10, -11}}
+0|14|top.B$print:s1d_var = {100, -3, -6, -9}
+0|14|top.B$planned_dt:0_us
+0|15|top.B$unplanned
+0|15|top.B$elapsed_dt:0_us
+0|15|top.B$print:sv_a2d  = {{100, 1, 2}, {3, 200, 5}, {6, 7, 8}, {9, 10, 11}}
+0|15|top.B$print:sv_s1d  = {1, 4, 300, 10}
+0|15|top.B$print:a2d_var = {{100, 1, 2}, {3, 200, 5}, {6, 7, 8}, {9, 10, 11}}
+0|15|top.B$print:s1d_var = {100, -3, -6, -9}
+0|15|top.B$planned_dt:0_us
+0|16|top.B$unplanned
+0|16|top.B$elapsed_dt:0_us
+0|16|top.B$print:sv_a2d  = {{100, 1, 2}, {3, 200, 5}, {6, 7, 8}, {9, 10, 11}}
+0|16|top.B$print:sv_s1d  = {1, 4, 300, 10}
+0|16|top.B$print:a2d_var = {{100, 1, 2}, {3, 200, 5}, {6, 300, 8}, {9, 10, 11}}
+0|16|top.B$print:s1d_var = {1, 200, 300, 10}
+0|16|top.B$planned_dt:0_us
+0|18|top$planned
+0|19|top.B$planned
+0|19|top.B$elapsed_dt:0_us
+0|19|top.B$print:a2d_var = {{100, 1, 2}, {3, 200, 5}, {6, 300, 8}, {9, 10, 11}}
+0|19|top.B$print:s1d_var = {1, 200, 300, 10}
+0|19|top.B$planned_dt:duration::inf()
+0|19|top.B#mo_a2d:{{100, 1, 2}, {3, 200, 5}, {6, 7, 8}, {9, 10, 11}}
+0|19|top.B#mo_s1d:{1, 200, 7, 10}
+0|19|top.B#mo_a2d_ptr:(pointer:...)
+0|19|top.B#mo_s1d_ptr:(pointer:...)
+1|0|$time:time_point() + 10_s
+1|0|top$finalization
+1|1|top.A$finalization
+1|1|top.A$elapsed_dt:10000000_us
+1|1|top.A$print:a2d_var = {{100, 1, 2}, {3, 200, 5}, {6, 300, 8}, {9, 10, 11}}
+1|1|top.A$print:s1d_var = {100, 3, 6, 9}
+1|1|top.A#fo_a2d:{{100, 1, 2}, {3, 4, 5}, {6, 7, 8}, {9, 10, 11}}
+1|1|top.A#fo_s1d:{0, 3, 6, 9}
+1|1|top.A#fo_a2d_ptr:(pointer:...)
+1|1|top.A#fo_s1d_ptr:(pointer:...)
+1|2|top.B$finalization
+1|2|top.B$elapsed_dt:10000000_us
+1|2|top.B$print:a2d_var = {{100, 1, 2}, {3, 200, 5}, {6, 300, 8}, {9, 10, 11}}
+1|2|top.B$print:s1d_var = {1, 200, 300, 10}
+1|2|top.B#fo_a2d:{{100, 1, 2}, {3, 200, 5}, {6, 7, 8}, {9, 10, 11}}
+1|2|top.B#fo_s1d:{1, 4, 300, 10}
+1|2|top.B#fo_a2d_ptr:(pointer:...)
+1|2|top.B#fo_s1d_ptr:(pointer:...)
+
+data_tuples_composite_node
+0|0|$time:time_point()
+0|0|top$initialization
+0|7|top.A$initialization
+0|7|top.A$planned_dt:0_us
+0|8|top.B$initialization
+0|8|top.B$planned_dt:0_us
+0|9|top$planned
+0|10|top.A$planned
+0|10|top.A$elapsed_dt:0_us
+0|10|top.A$planned_dt:duration::inf()
+0|10|top.A#mo_tuple_int64:{1007}
+0|10|top.A#mo_tuple_string_bool_float64:{"a string within tuple A", false, 3.14159}
+0|10|top.A#mo_tuple_mass_speed_pair_bool_bool:{1_Mg, {quantity<decltype(_m/_s)>(15, unit), {true, false}}}
+0|11|top.B$unplanned
+0|11|top.B$elapsed_dt:0_us
+0|11|top.B$planned_dt:0_us
+0|12|top.B$unplanned
+0|12|top.B$elapsed_dt:0_us
+0|12|top.B$planned_dt:0_us
+0|13|top.B$unplanned
+0|13|top.B$elapsed_dt:0_us
+0|13|top.B$planned_dt:0_us
+0|15|top$planned
+0|16|top.B$planned
+0|16|top.B$elapsed_dt:0_us
+0|16|top.B$planned_dt:duration::inf()
+0|16|top.B#mo_tuple_int64:{2010}
+0|16|top.B#mo_tuple_string_bool_float64:{"a string within tuple A;unplanned;unplanned", false, 3.14159}
+0|16|top.B#mo_tuple_mass_speed_pair_bool_bool:{1_Mg, {quantity<decltype(_m/_s)>(299792458, unit), {true, false}}}
+1|0|$time:time_point() + 10_s
+1|0|top$finalization
+1|1|top.A$finalization
+1|1|top.A$elapsed_dt:10000000_us
+1|1|top.A#fo_tuple_int64:{2001007}
+1|1|top.A#fo_tuple_string_bool_float64:{"a string within tuple A", true, 3.14159}
+1|1|top.A#fo_tuple_mass_speed_pair_bool_bool:{1_Mg, {quantity<decltype(_m/_s)>(15, unit), {true, true}}}
+1|2|top.B$finalization
+1|2|top.B$elapsed_dt:10000000_us
+1|2|top.B#fo_tuple_int64:{2002010}
+1|2|top.B#fo_tuple_string_bool_float64:{"a string within tuple A;unplanned;unplanned", true, 3.14159}
+1|2|top.B#fo_tuple_mass_speed_pair_bool_bool:{1_Mg, {quantity<decltype(_m/_s)>(299792458, unit), {true, true}}}

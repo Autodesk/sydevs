@@ -1,0 +1,43 @@
+building_simulation_node
+0|0|$time:time_point()
+0|1|top.initial_temperature#parameter:293150_mK
+0|9|top.building_dynamics.occupant$print:quantity<decltype(_s*_K)>(0, unit)
+0|9|top.building_dynamics.occupant$print:0_us
+165|0|$time:time_point() + 15_s
+165|2|top.building_dynamics.weather#outdoor_temperature_output:296150_mK
+330|0|$time:time_point() + 30_s
+330|2|top.building_dynamics.weather#outdoor_temperature_output:298854_mK
+495|0|$time:time_point() + 45_s
+495|2|top.building_dynamics.weather#outdoor_temperature_output:300995_mK
+660|0|$time:time_point() + 60_s
+660|2|top.building_dynamics.weather#outdoor_temperature_output:302362_mK
+825|0|$time:time_point() + 75_s
+825|2|top.building_dynamics.weather#outdoor_temperature_output:302819_mK
+990|0|$time:time_point() + 90_s
+990|2|top.building_dynamics.weather#outdoor_temperature_output:302322_mK
+1155|0|$time:time_point() + 105_s
+1155|2|top.building_dynamics.weather#outdoor_temperature_output:300920_mK
+1320|0|$time:time_point() + 120_s
+1320|2|top.building_dynamics.weather#outdoor_temperature_output:298751_mK
+1485|0|$time:time_point() + 135_s
+1485|2|top.building_dynamics.weather#outdoor_temperature_output:296029_mK
+1650|0|$time:time_point() + 150_s
+1650|2|top.building_dynamics.weather#outdoor_temperature_output:293023_mK
+1815|0|$time:time_point() + 165_s
+1815|2|top.building_dynamics.weather#outdoor_temperature_output:290030_mK
+1980|0|$time:time_point() + 180_s
+1980|2|top.building_dynamics.weather#outdoor_temperature_output:287345_mK
+2145|0|$time:time_point() + 195_s
+2145|2|top.building_dynamics.weather#outdoor_temperature_output:285233_mK
+2310|0|$time:time_point() + 210_s
+2310|2|top.building_dynamics.weather#outdoor_temperature_output:283902_mK
+2475|0|$time:time_point() + 225_s
+2475|2|top.building_dynamics.weather#outdoor_temperature_output:283484_mK
+2640|0|$time:time_point() + 240_s
+2640|2|top.building_dynamics.weather#outdoor_temperature_output:284020_mK
+2805|0|$time:time_point() + 255_s
+2805|2|top.building_dynamics.weather#outdoor_temperature_output:285457_mK
+2970|0|$time:time_point() + 270_s
+2970|2|top.building_dynamics.weather#outdoor_temperature_output:287653_mK
+3135|0|$time:time_point() + 285_s
+3135|2|top.building_dynamics.weather#outdoor_temperature_output:290392_mK

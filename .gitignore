@@ -1,0 +1,131 @@
+# Folders
+bin
+build
+doc/html
+docs
+ipch
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
+# Environment Variables
+.env
+
+# OS Files
+.DS_Store
+
+# CMake Files
+CMakeCache.txt
+CMakeFiles
+CMakeScripts
+cmake_install.cmake
+install_manifest.txt
+
+# Xcode Files
+*.xcodeproj
+#mscale.xcodeproj/project.xcworkspace/xcuserdata
+#mscale.xcodeproj/xcuserdata
+
+# Visual Studio Files
+*.sln
+*.vcxproj
+*.vcxproj.filters
+.vs/
+.vscode/
+
+# Visual C++ Cache Files
+ipch/
+*.aps
+*.ncb
+*.opendb
+*.opensdf
+*.sdf
+*.cachefile
+
+# Visual Studio Profiler
+*.psess
+*.vsp
+*.vspx
+*.sap
+
+# Build results
+[Dd]ebug/
+[Dd]ebugPublic/
+[Rr]elease/
+[Rr]eleases/
+x64/
+x86/
+bin/
+build/
+bld/
+[Bb]in/
+[Oo]bj/
+
+# User-Specific Files
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# MSTest Test Results
+[Tt]est[Rr]esult*/
+[Bb]uild[Ll]og.*
+
+# ATL Project Build Results
+[Dd]ebugPS/
+[Rr]eleasePS/
+dlldata.c
+
+# NUNIT
+*.VisualState.xml
+TestResult.xml
+
+# DNX
+project.lock.json
+artifacts/
+
+# Others
+~$*
+*~
+*_i.c
+*_p.c
+*_i.h
+*.ilk
+*.meta
+*.pch
+*.pdb
+*.pgc
+*.pgd
+*.rsp
+*.sbr
+*.tlb
+*.tli
+*.tlh
+*.tmp
+*.tmp_proj
+*.log
+*.vspscc
+*.vssscc
+.builds
+*.pidb
+*.svclog
+*.scc
