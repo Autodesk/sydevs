@@ -265,7 +265,7 @@ const T& port<flow, input, T>::value() const
                                "of inactive node (" + full_node_name + ")");
     }
     const auto& val = const_cast<node_interface&>(this->external_interface()).flow_input_port_value(this->port_index());
-    return const_cast<const T&>(val.dereference<T>());
+    return const_cast<const T&>(val.template dereference<T>());
 }
 
 
@@ -318,7 +318,7 @@ const T& port<message, input, T>::value() const
                                "of node (" + full_node_name + ") outside of unplanned event");
     }
     const auto& val = const_cast<node_interface&>(this->external_interface()).message_input_port_value(this->port_index());
-    return const_cast<const T&>(val.dereference<T>());
+    return const_cast<const T&>(val.template dereference<T>());
 }
 
 
