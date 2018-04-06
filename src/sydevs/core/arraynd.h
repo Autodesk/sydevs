@@ -457,7 +457,7 @@ template<typename T, int64 ndims>
 const arraynd<T, ndims> arraynd<T, ndims>::view_transposed() const
 {
     auto arr = view();
-    transpose(arr);
+    this->transpose(arr);
     return arr;
 }
 
@@ -466,7 +466,7 @@ template<typename T, int64 ndims>
 arraynd<T, ndims> arraynd<T, ndims>::view_transposed()
 {
     auto arr = view();
-    transpose(arr);
+    this->transpose(arr);
     return arr;
 }
 
@@ -475,7 +475,7 @@ template<typename T, int64 ndims>
 arraynd<T, ndims> arraynd<T, ndims>::copy_transposed() const
 {
     auto arr = view();
-    transpose(arr);
+    this->transpose(arr);
     return arr.copy();
 }
 
@@ -484,7 +484,7 @@ template<typename T, int64 ndims>
 const arraynd<T, ndims> arraynd<T, ndims>::view_swapped_axes(int64 idim0, int64 idim1) const
 {
     auto arr = view();
-    swap_axes(arr, idim0, idim1);
+    this->swap_axes(arr, idim0, idim1);
     return arr;
 }
 
@@ -493,7 +493,7 @@ template<typename T, int64 ndims>
 arraynd<T, ndims> arraynd<T, ndims>::view_swapped_axes(int64 idim0, int64 idim1)
 {
     auto arr = view();
-    swap_axes(arr, idim0, idim1);
+    this->swap_axes(arr, idim0, idim1);
     return arr;
 }
 
@@ -502,7 +502,7 @@ template<typename T, int64 ndims>
 arraynd<T, ndims> arraynd<T, ndims>::copy_swapped_axes(int64 idim0, int64 idim1) const
 {
     auto arr = view();
-    swap_axes(arr, idim0, idim1);
+    this->swap_axes(arr, idim0, idim1);
     return arr.copy();
 }
 
@@ -511,7 +511,7 @@ template<typename T, int64 ndims>
 const arraynd<T, ndims + 1> arraynd<T, ndims>::view_subdivided_axis(int64 idim, const std::array<int64, 2>& dims) const
 {
     auto arr = arraynd<T, ndims + 1>();
-    subdivide_axis(*this, arr, idim, dims);
+    this->subdivide_axis(*this, arr, idim, dims);
     return arr;
 }
 
@@ -520,7 +520,7 @@ template<typename T, int64 ndims>
 arraynd<T, ndims + 1> arraynd<T, ndims>::view_subdivided_axis(int64 idim, const std::array<int64, 2>& dims)
 {
     auto arr = arraynd<T, ndims + 1>();
-    subdivide_axis(*this, arr, idim, dims);
+    this->subdivide_axis(*this, arr, idim, dims);
     return arr;
 }
 
@@ -537,7 +537,7 @@ template<typename T, int64 ndims>
 const arraynd<T, ndims - 1> arraynd<T, ndims>::view_absorbed_axis(int64 idim) const
 {
     auto arr = arraynd<T, ndims - 1>(std::array<int64, ndims - 1>(), std::vector<T>());
-    absorb_axis(*this, arr, idim);
+    this->absorb_axis(*this, arr, idim);
     return arr;
 }
 
@@ -546,7 +546,7 @@ template<typename T, int64 ndims>
 arraynd<T, ndims - 1> arraynd<T, ndims>::view_absorbed_axis(int64 idim)
 {
     auto arr = arraynd<T, ndims - 1>(std::array<int64, ndims - 1>(), std::vector<T>());
-    absorb_axis(*this, arr, idim);
+    this->absorb_axis(*this, arr, idim);
     return arr;
 }
 
@@ -664,7 +664,7 @@ template<typename T>
 const arraynd<T, 2> arraynd<T, 1>::view_subdivided_axis(int64 idim, const std::array<int64, 2>& dims) const
 {
     auto arr = arraynd<T, 2>();
-    subdivide_axis(*this, arr, idim, dims);
+    this->subdivide_axis(*this, arr, idim, dims);
     return arr;
 }
 
@@ -673,7 +673,7 @@ template<typename T>
 arraynd<T, 2> arraynd<T, 1>::view_subdivided_axis(int64 idim, const std::array<int64, 2>& dims)
 {
     auto arr = arraynd<T, 2>();
-    subdivide_axis(*this, arr, idim, dims);
+    this->subdivide_axis(*this, arr, idim, dims);
     return arr;
 }
 
