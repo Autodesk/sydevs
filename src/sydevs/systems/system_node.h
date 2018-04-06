@@ -244,8 +244,8 @@ inline void system_node::process_finalization_event(duration elapsed_dt)
 
 
 inline system_node::system_node(const std::string& node_name, const node_context& external_context)
-    : external_interface_(node_name, this, external_context)
-    , rng(const_cast<node_context&>(external_context).rng())
+    : rng(const_cast<node_context&>(external_context).rng())
+    , external_interface_(node_name, this, external_context)
 {
 }
 
