@@ -4,8 +4,10 @@ environment:
   matrix:
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
       MY_VS_VERSION: Visual Studio 14 2015 Win64
+      MY_VS_SHORT: vs2015
     - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
       MY_VS_VERSION: Visual Studio 15 2017 Win64
+      MY_VS_SHORT: vs2017
 
 branches:
   except:
@@ -22,4 +24,14 @@ before_build:
     - cmake -G "%MY_VS_VERSION%" .
 
 build:
-  project: $(APPVEYOR_BUILD_FOLDER)\SyDEVS.sln
+  project: $(APPVEYOR_BUILD_FOLDER)\SyDEVS.sln     # path to Visual Studio solution or project
+  parallel: true                                   # enable MSBuild parallel builds
+  verbosity: normal                                # MSBuild verbosity level {quiet|minimal|normal|detailed}
+
+after_build:
+  - 7z a SyDEVS_Win64_%MY_VS_SHORT%_%CONFIGURATION%_%APPVEYOR_REPO_COMMIT%.zip %APPVEYOR_BUILD_FOLDER%\*.dll
+  - 7z a SyDEVS_Win64_%MY_VS_SHORT%_%CONFIGURATION%_%APPVEYOR_REPO_COMMIT%.zip %APPVEYOR_BUILD_FOLDER%\*.lib
+
+artifacts:
+  - path: SyDEVS_Win64_$(MY_VS_SHORT)_$(CONFIGURATION)_$(APPVEYOR_REPO_COMMIT).zip
+    name: SyDEVS_Win64_$(MY_VS_SHORT)_$(CONFIGURATION)_$(APPVEYOR_REPO_COMMIT)
