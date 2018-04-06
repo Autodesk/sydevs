@@ -12,7 +12,7 @@ environment:
 branches:
   except:
     - gh-pages
-
+ 
 platform:
   - x64
  
