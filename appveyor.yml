@@ -19,7 +19,7 @@ configuration:
   - Debug
 
 before_build:
-    - cmake -G $(MY_VS_VERSION) .
+    - cmake -G %MY_VS_VERSION% .
 
 build:
   project: $(APPVEYOR_BUILD_FOLDER)\SyDEVS.sln
