@@ -259,12 +259,12 @@ port<flow, input, T>::port(const std::string& port_name, const node_interface& e
 template<typename T>
 const T& port<flow, input, T>::value() const
 {
-    if (!external_interface().active()) {
-        const auto& full_node_name = const_cast<node_interface&>(external_interface()).full_name();
-        throw std::logic_error("Attempt to get value on flow input port (" + port_name() + ") " +
+    if (!this->external_interface().active()) {
+        const auto& full_node_name = const_cast<node_interface&>(this->external_interface()).full_name();
+        throw std::logic_error("Attempt to get value on flow input port (" + this->port_name() + ") " +
                                "of inactive node (" + full_node_name + ")");
     }
-    auto& val = const_cast<node_interface&>(external_interface()).flow_input_port_value(port_index());
+    const auto& val = const_cast<node_interface&>(this->external_interface()).flow_input_port_value(this->port_index());
     return const_cast<const T&>(val.dereference<T>());
 }
 
@@ -273,7 +273,7 @@ template<typename T>
 void port<flow, input, T>::print_on_use(bool flag) const
 {
     auto tostring_func = flag ? core_type<T>::tostring_func() : nullptr;
-    const_cast<node_interface&>(external_interface()).set_flow_input_printable(port_index(), tostring_func);
+    const_cast<node_interface&>(this->external_interface()).set_flow_input_printable(this->port_index(), tostring_func);
 }
 
     
@@ -290,34 +290,34 @@ port<message, input, T>::port(const std::string& port_name, const node_interface
 template<typename T>
 bool port<message, input, T>::received() const
 {
-    if (!external_interface().active()) {
-        const auto& full_node_name = const_cast<node_interface&>(external_interface()).full_name();
-        throw std::logic_error("Attempt to check message input port (" + port_name() + ") " +
+    if (!this->external_interface().active()) {
+        const auto& full_node_name = const_cast<node_interface&>(this->external_interface()).full_name();
+        throw std::logic_error("Attempt to check message input port (" + this->port_name() + ") " +
                                "of inactive node (" + full_node_name + ")");
     }
-    if (external_interface().dmode() != message || external_interface().dgoal() != input) {
-        const auto& full_node_name = const_cast<node_interface&>(external_interface()).full_name();
-        throw std::logic_error("Attempt to check message input port (" + port_name() + ") " +
+    if (this->external_interface().dmode() != message || this->external_interface().dgoal() != input) {
+        const auto& full_node_name = const_cast<node_interface&>(this->external_interface()).full_name();
+        throw std::logic_error("Attempt to check message input port (" + this->port_name() + ") " +
                                "of node (" + full_node_name + ") outside of unplanned event");
     }
-    return const_cast<node_interface&>(external_interface()).message_input_port_index() == port_index();
+    return const_cast<node_interface&>(this->external_interface()).message_input_port_index() == this->port_index();
 }
 
 
 template<typename T>
 const T& port<message, input, T>::value() const
 {
-    if (!external_interface().active()) {
-        const auto& full_node_name = const_cast<node_interface&>(external_interface()).full_name();
-        throw std::logic_error("Attempt to get value on message input port (" + port_name() + ") " +
+    if (!this->external_interface().active()) {
+        const auto& full_node_name = const_cast<node_interface&>(this->external_interface()).full_name();
+        throw std::logic_error("Attempt to get value on message input port (" + this->port_name() + ") " +
                                "of inactive node (" + full_node_name + ")");
     }
-    if (external_interface().dmode() != message || external_interface().dgoal() != input) {
-        const auto& full_node_name = const_cast<node_interface&>(external_interface()).full_name();
-        throw std::logic_error("Attempt to get value on message input port (" + port_name() + ") " +
+    if (this->external_interface().dmode() != message || this->external_interface().dgoal() != input) {
+        const auto& full_node_name = const_cast<node_interface&>(this->external_interface()).full_name();
+        throw std::logic_error("Attempt to get value on message input port (" + this->port_name() + ") " +
                                "of node (" + full_node_name + ") outside of unplanned event");
     }
-    auto& val = const_cast<node_interface&>(external_interface()).message_input_port_value(port_index());
+    const auto& val = const_cast<node_interface&>(this->external_interface()).message_input_port_value(this->port_index());
     return const_cast<const T&>(val.dereference<T>());
 }
 
@@ -326,7 +326,7 @@ template<typename T>
 void port<message, input, T>::print_on_use(bool flag) const
 {
     auto tostring_func = flag ? core_type<T>::tostring_func() : nullptr;
-    const_cast<node_interface&>(external_interface()).set_message_input_printable(port_index(), tostring_func);
+    const_cast<node_interface&>(this->external_interface()).set_message_input_printable(this->port_index(), tostring_func);
 }
 
     
@@ -343,17 +343,17 @@ port<message, output, T>::port(const std::string& port_name, const node_interfac
 template<typename T>
 void port<message, output, T>::send(const T& val)
 {
-    if (!external_interface().active()) {
-        const auto& full_node_name = const_cast<node_interface&>(external_interface()).full_name();
-        throw std::logic_error("Attempt to send value on message output port (" + port_name() + ") " +
+    if (!this->external_interface().active()) {
+        const auto& full_node_name = const_cast<node_interface&>(this->external_interface()).full_name();
+        throw std::logic_error("Attempt to send value on message output port (" + this->port_name() + ") " +
                                "of inactive node (" + full_node_name + ")");
     }
-    if (external_interface().dmode() != message || external_interface().dgoal() != output) {
-        const auto& full_node_name = const_cast<node_interface&>(external_interface()).full_name();
-        throw std::logic_error("Attempt to send value on message output port (" + port_name() + ") " +
+    if (this->external_interface().dmode() != message || this->external_interface().dgoal() != output) {
+        const auto& full_node_name = const_cast<node_interface&>(this->external_interface()).full_name();
+        throw std::logic_error("Attempt to send value on message output port (" + this->port_name() + ") " +
                                "of node (" + full_node_name + ") outside of planned event");
     }
-    const_cast<node_interface&>(external_interface()).append_message_output(port_index(), core_type<T>::copy(val));
+    const_cast<node_interface&>(this->external_interface()).append_message_output(this->port_index(), core_type<T>::copy(val));
 }
 
 
@@ -361,7 +361,7 @@ template<typename T>
 void port<message, output, T>::print_on_use(bool flag) const
 {
     auto tostring_func = flag ? core_type<T>::tostring_func() : nullptr;
-    const_cast<node_interface&>(external_interface()).set_message_output_printable(port_index(), tostring_func);
+    const_cast<node_interface&>(this->external_interface()).set_message_output_printable(this->port_index(), tostring_func);
 }
 
     
@@ -378,17 +378,17 @@ port<flow, output, T>::port(const std::string& port_name, const node_interface& 
 template<typename T>
 void port<flow, output, T>::assign(const T& val)
 {
-    if (!external_interface().active()) {
-        const auto& full_node_name = const_cast<node_interface&>(external_interface()).full_name();
-        throw std::logic_error("Attempt to assign value on flow output port (" + port_name() + ") " +
+    if (!this->external_interface().active()) {
+        const auto& full_node_name = const_cast<node_interface&>(this->external_interface()).full_name();
+        throw std::logic_error("Attempt to assign value on flow output port (" + this->port_name() + ") " +
                                "of inactive node (" + full_node_name + ")");
     }
-    if (external_interface().dmode() != flow) {
-        const auto& full_node_name = const_cast<node_interface&>(external_interface()).full_name();
-        throw std::logic_error("Attempt to assign value on flow output port (" + port_name() + ") " +
+    if (this->external_interface().dmode() != flow) {
+        const auto& full_node_name = const_cast<node_interface&>(this->external_interface()).full_name();
+        throw std::logic_error("Attempt to assign value on flow output port (" + this->port_name() + ") " +
                                "of node (" + full_node_name + ") outside of initialization or finalization event");
     }
-    const_cast<node_interface&>(external_interface()).assign_flow_output(port_index(), core_type<T>::copy(val));
+    const_cast<node_interface&>(this->external_interface()).assign_flow_output(this->port_index(), core_type<T>::copy(val));
 }
 
 
@@ -396,7 +396,7 @@ template<typename T>
 void port<flow, output, T>::print_on_use(bool flag) const
 {
     auto tostring_func = flag ? core_type<T>::tostring_func() : nullptr;
-    const_cast<node_interface&>(external_interface()).set_flow_output_printable(port_index(), tostring_func);
+    const_cast<node_interface&>(this->external_interface()).set_flow_output_printable(this->port_index(), tostring_func);
 }
 
     

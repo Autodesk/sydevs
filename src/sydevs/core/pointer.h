@@ -10,8 +10,8 @@ namespace sydevs {
 class pointer
 {
 public:
-    constexpr pointer() noexcept;
-    constexpr pointer(std::nullptr_t X) noexcept;
+    pointer() noexcept;
+    explicit pointer(std::nullptr_t X) noexcept;
 
     template<typename T> 
     explicit pointer(T* ptr);
@@ -37,13 +37,13 @@ private:
 };
 
 
-inline constexpr pointer::pointer() noexcept
+inline pointer::pointer() noexcept
     : ptr_()
 {
 }
 
 
-inline constexpr pointer::pointer(std::nullptr_t X) noexcept
+inline pointer::pointer(std::nullptr_t X) noexcept
     : ptr_(X)
 {
 }

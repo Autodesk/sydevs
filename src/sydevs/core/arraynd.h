@@ -414,7 +414,7 @@ const arraynd<T, ndims-1> arraynd<T, ndims>::operator[](int64 index) const
 template<typename T, int64 ndims>
 arraynd<T, ndims-1> arraynd<T, ndims>::operator[](int64 index)
 {
-    return arraynd<T, ndims-1>(*this, index, is_readonly());
+    return arraynd<T, ndims-1>(*this, index, this->is_readonly());
 }
 
 
@@ -428,7 +428,7 @@ const arraynd<T, ndims> arraynd<T, ndims>::operator[](range r) const
 template<typename T, int64 ndims>
 arraynd<T, ndims> arraynd<T, ndims>::operator[](range r)
 {
-    return arraynd<T, ndims>(*this, r, is_readonly());
+    return arraynd<T, ndims>(*this, r, this->is_readonly());
 }
 
 
@@ -442,7 +442,7 @@ const arraynd<T, ndims> arraynd<T, ndims>::view() const
 template<typename T, int64 ndims>
 arraynd<T, ndims> arraynd<T, ndims>::view()
 {
-    return arraynd<T, ndims>(*this, true, is_readonly());
+    return arraynd<T, ndims>(*this, true, this->is_readonly());
 }
 
 
@@ -620,7 +620,7 @@ const T& arraynd<T, 1>::operator[](int64 index) const
 template<typename T>
 T& arraynd<T, 1>::operator[](int64 index)
 {
-    if (is_readonly()) throw std::logic_error("Attempt to obtain a non-const reference to readonly multidimensional array data");
+    if (this->is_readonly()) throw std::logic_error("Attempt to obtain a non-const reference to readonly multidimensional array data");
     return arraynd_base<T, 1>::data()[arraynd_base<T, 1>::offset() + index*arraynd_base<T, 1>::strides()[0]];
 }
 
@@ -635,7 +635,7 @@ const arraynd<T, 1> arraynd<T, 1>::operator[](range r) const
 template<typename T>
 arraynd<T, 1> arraynd<T, 1>::operator[](range r)
 {
-    return arraynd<T, 1>(*this, r, is_readonly());
+    return arraynd<T, 1>(*this, r, this->is_readonly());
 }
 
 
@@ -649,7 +649,7 @@ const arraynd<T, 1> arraynd<T, 1>::view() const
 template<typename T>
 arraynd<T, 1> arraynd<T, 1>::view()
 {
-    return arraynd<T, 1>(*this, true, is_readonly());
+    return arraynd<T, 1>(*this, true, this->is_readonly());
 }
 
 
