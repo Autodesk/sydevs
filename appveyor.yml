@@ -5,6 +5,7 @@ image: Visual Studio 2015
 branches:
   except:
     - gh-pages
+    - ci_cd
 
 platform:
   - x64
