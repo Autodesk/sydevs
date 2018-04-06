@@ -1,11 +1,15 @@
 version: '1.0.{build}'
 
-image: Visual Studio 2015
+environment:
+  matrix:
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2015
+      MY_VS_VERSION: "Visual Studio 14 2015 Win64"
+    - APPVEYOR_BUILD_WORKER_IMAGE: Visual Studio 2017
+      MY_VS_VERSION: "Visual Studio 15 2017 Win64"
 
 branches:
   except:
     - gh-pages
-    - ci_cd
 
 platform:
   - x64
@@ -15,7 +19,7 @@ configuration:
   - Debug
 
 before_build:
-    - cmake -G "Visual Studio 14 2015 Win64" .
+    - cmake -G $(MY_VS_VERSION) .
 
 build:
   project: $(APPVEYOR_BUILD_FOLDER)\SyDEVS.sln
