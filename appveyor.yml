@@ -29,8 +29,8 @@ build:
   verbosity: normal                                # MSBuild verbosity level {quiet|minimal|normal|detailed}
 
 after_build:
-  - 7z a SyDEVS_Win64_%MY_VS_SHORT%_%CONFIGURATION%_%APPVEYOR_REPO_COMMIT%.zip %APPVEYOR_BUILD_FOLDER%\*.dll
-  - 7z a SyDEVS_Win64_%MY_VS_SHORT%_%CONFIGURATION%_%APPVEYOR_REPO_COMMIT%.zip %APPVEYOR_BUILD_FOLDER%\*.lib
+  - 7z a SyDEVS_Win64_%MY_VS_SHORT%_%CONFIGURATION%_%APPVEYOR_REPO_COMMIT%.zip %APPVEYOR_BUILD_FOLDER%\%CONFIGURATION%\*.dll
+  - 7z a SyDEVS_Win64_%MY_VS_SHORT%_%CONFIGURATION%_%APPVEYOR_REPO_COMMIT%.zip %APPVEYOR_BUILD_FOLDER%\%CONFIGURATION%\*.lib
 
 artifacts:
   - path: SyDEVS_Win64_$(MY_VS_SHORT)_$(CONFIGURATION)_$(APPVEYOR_REPO_COMMIT).zip
