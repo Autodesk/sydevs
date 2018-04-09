@@ -107,4 +107,5 @@ deploy:
     target-branch: gh-pages
     on:
       #tags: true
+      all_branches: true
       condition: $DOCUMINTATION = true
