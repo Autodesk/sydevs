@@ -39,6 +39,8 @@ matrix:
     - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
     - DOCUMINTATION=false
   - os: osx
+    env:
+    - DOCUMINTATION=false
 branches:
   except:
     - gh-pages
