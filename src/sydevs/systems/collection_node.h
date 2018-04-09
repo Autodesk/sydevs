@@ -472,7 +472,7 @@ const T& collection_node<AgentID, Node>::access(const port<message, output, T>& 
                                "on which the current message is being transmitted");
     }
     auto& val = prototype_IO().message_output_value(0);
-    return const_cast<const T&>(val.dereference<T>());
+    return const_cast<const T&>(val.template dereference<T>());
 }
 
 
@@ -482,7 +482,7 @@ const T& collection_node<AgentID, Node>::access(const port<flow, output, T>& pro
 {
     validate_prototype_port(prototype_port);
     auto& val = prototype_IO().flow_output_port_value(prototype_port.port_index());
-    return const_cast<const T&>(val.dereference<T>());
+    return const_cast<const T&>(val.template dereference<T>());
 }
 
 
@@ -667,7 +667,7 @@ inline bool collection_node<AgentID, Node>::agent_exists(const AgentID& agent_id
 
 
 template<typename AgentID, typename Node>
-inline typename int64 collection_node<AgentID, Node>::agent_count()
+inline int64 collection_node<AgentID, Node>::agent_count()
 {
     return int64(agent_indices_.size());
 }

@@ -199,7 +199,7 @@ bool simulation<Node>::finished() const
 template<typename Node>
 const discrete_event_time& simulation<Node>::event_time() const
 {
-    return external_context_.event_time();
+    return const_cast<node_context&>(external_context_).event_time();
 }
 
 
