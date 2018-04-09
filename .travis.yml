@@ -86,3 +86,11 @@ after_success:
       cp LICENSE.md ${ARCHIVE_NAME}
       zip -r ${ARCHIVE_NAME}.zip ${ARCHIVE_NAME}
     fi
+
+deploy:
+  provider: releases
+  api_key: $(GITHUB_OAUTH_TOKEN)
+  file: *.zip
+  skip_cleanup: true
+  on:
+    tags: true
