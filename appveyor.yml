@@ -21,7 +21,7 @@ configuration:
   - Debug
 
 before_build:
-    - cmake -G "%MY_VS_VERSION%" .
+  - cmake -G "%MY_VS_VERSION%" .
 
 build:
   project: $(APPVEYOR_BUILD_FOLDER)\SyDEVS.sln     # path to Visual Studio solution or project
@@ -40,3 +40,10 @@ after_build:
   - copy LICENSE.md %ARCHIVE_NAME%
   - 7z a SyDEVS_Win64_%MY_VS_SHORT%_%CONFIGURATION%_%APPVEYOR_REPO_COMMIT%.zip %ARCHIVE_NAME%
   - appveyor PushArtifact SyDEVS_Win64_%MY_VS_SHORT%_%CONFIGURATION%_%APPVEYOR_REPO_COMMIT%.zip
+
+# deploy:
+#  - provider: Environment
+#    name: production
+#    on:
+#      branch: master
+#      appveyor_repo_tag: true

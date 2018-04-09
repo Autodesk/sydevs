@@ -8,6 +8,9 @@ env:
 matrix:
   include:
   - os: linux
+    env:
+    - DOCUMINTATION=true
+  - os: linux
     addons:
       apt:
         sources:
@@ -16,6 +19,7 @@ matrix:
         - g++-7
     env:
     - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
+    - DOCUMINTATION=false
   - os: linux
     addons:
       apt:
@@ -25,8 +29,8 @@ matrix:
         - clang-4.0
     env:
     - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
+    - DOCUMINTATION=false
   - os: osx
-
 branches:
   except:
     - gh-pages
@@ -48,4 +52,11 @@ before_script:
     - cd build
     - cmake ..
 
-script: make
+script: 
+  - |
+    if [[ "${DOCUMINTATION}" == true ]]; then
+      cd ..
+      doxygen doxygen.config
+    else
+      make
+    fi
