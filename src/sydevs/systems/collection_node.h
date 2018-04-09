@@ -55,8 +55,11 @@ template<typename AgentID, typename Node>
 class collection_node : public collection_node_base
 {
 public:
-    template<data_mode dmode, typename T>
-    class port_proxy;
+    template<typename T>
+    class flow_port_proxy;
+
+    template<typename T>
+    class message_port_proxy;
 
     class const_iterator;
 
@@ -94,10 +97,10 @@ protected:
     bool transmitted(const port<message, output, T>& prototype_port);  ///< Returns `true` if a message was transmitted by an agent on the port corresponding to `prototype_port`.
 
     template<typename T>
-    port_proxy<flow, T> access(const port<flow, input, T>& prototype_port);   ///< Returns a proxy of the flow input port `prototype_port`, allowing its value to be modified.
+    flow_port_proxy<T> access(const port<flow, input, T>& prototype_port);   ///< Returns a proxy of the flow input port `prototype_port`, allowing its value to be modified.
     
     template<typename T>
-    port_proxy<message, T> access(const port<message, input, T>& prototype_port);   ///< Returns a proxy of the message input port `prototype_port`, allowing its value to be modified.
+    message_port_proxy<T> access(const port<message, input, T>& prototype_port);   ///< Returns a proxy of the message input port `prototype_port`, allowing its value to be modified.
     
     template<typename T>
     const T& access(const port<message, output, T>& prototype_port);  ///< Returns the value transmitted by an agent on the message output port corresponding to `prototype_port`.
@@ -202,24 +205,48 @@ private:
 };
 
 
-// port proxy declaration
+// flow port proxy declaration
 
 template<typename AgentID, typename Node>
-template<data_mode dmode, typename T>
-class collection_node<AgentID, Node>::port_proxy
+template<typename T>
+class collection_node<AgentID, Node>::flow_port_proxy
 {
 friend class collection_node<AgentID, Node>;
 public:
-    port_proxy(const port_proxy&)       = delete;   ///< No copy constructor
-    port_proxy(port_proxy&&)            = default;  ///< Move constructor
-    port_proxy& operator=(port_proxy&&) = default;  ///< Move assignment
-    virtual ~port_proxy()               = default;  ///< Destructor
+    flow_port_proxy(const flow_port_proxy&)       = delete;   ///< No copy constructor
+    flow_port_proxy(flow_port_proxy&&)            = default;  ///< Move constructor
+    flow_port_proxy& operator=(flow_port_proxy&&) = default;  ///< Move assignment
+    virtual ~flow_port_proxy()                    = default;  ///< Destructor
 
-    port_proxy& operator=(const T& rhs);
-    port_proxy& operator=(const port_proxy& rhs);  ///< Custom copy assignment
+    flow_port_proxy& operator=(const T& rhs);
+    flow_port_proxy& operator=(const flow_port_proxy& rhs);  ///< Custom copy assignment
     
 private: 
-    port_proxy(const port<dmode, input, T>& input_port);
+    flow_port_proxy(const port<flow, input, T>& input_port);
+
+    node_interface& external_interface_;
+    const int64 port_index_;
+};
+
+
+// message port proxy declaration
+
+template<typename AgentID, typename Node>
+template<typename T>
+class collection_node<AgentID, Node>::message_port_proxy
+{
+friend class collection_node<AgentID, Node>;
+public:
+    message_port_proxy(const message_port_proxy&)       = delete;   ///< No copy constructor
+    message_port_proxy(message_port_proxy&&)            = default;  ///< Move constructor
+    message_port_proxy& operator=(message_port_proxy&&) = default;  ///< Move assignment
+    virtual ~message_port_proxy()                       = default;  ///< Destructor
+
+    message_port_proxy& operator=(const T& rhs);
+    message_port_proxy& operator=(const message_port_proxy& rhs);  ///< Custom copy assignment
+    
+private: 
+    message_port_proxy(const port<message, input, T>& input_port);
 
     node_interface& external_interface_;
     const int64 port_index_;
@@ -437,16 +464,16 @@ bool collection_node<AgentID, Node>::transmitted(const port<message, output, T>&
 
 template<typename AgentID, typename Node>
 template<typename T>
-typename collection_node<AgentID, Node>::template port_proxy<flow, T> collection_node<AgentID, Node>::access(const port<flow, input, T>& prototype_port)
+typename collection_node<AgentID, Node>::flow_port_proxy<T> collection_node<AgentID, Node>::access(const port<flow, input, T>& prototype_port)
 {
     validate_prototype_port(prototype_port);
-    return port_proxy<flow, T>(const_cast<port<flow, input, T>&>(prototype_port));
+    return flow_port_proxy<T>(const_cast<port<flow, input, T>&>(prototype_port));
 }
 
     
 template<typename AgentID, typename Node>
 template<typename T>
-typename collection_node<AgentID, Node>::template port_proxy<message, T> collection_node<AgentID, Node>::access(const port<message, input, T>& prototype_port)
+typename collection_node<AgentID, Node>::message_port_proxy<T> collection_node<AgentID, Node>::access(const port<message, input, T>& prototype_port)
 {
     validate_prototype_port(prototype_port);
     if (prototype_IO().message_input_port_index() != -1) {
@@ -457,7 +484,7 @@ typename collection_node<AgentID, Node>::template port_proxy<message, T> collect
     else {
         prototype_IO().set_message_input(prototype_port.port_index(), pointer());
     }
-    return port_proxy<message, T>(const_cast<port<message, input, T>&>(prototype_port));
+    return message_port_proxy<T>(const_cast<port<message, input, T>&>(prototype_port));
 }
 
     
@@ -803,41 +830,60 @@ inline void collection_node<AgentID, Node>::adopt_component_print_flags(const sy
 }
 
 
-// port proxy members
+// flow port proxy members
 
 template<typename AgentID, typename Node>
-template<data_mode dmode, typename T>
-inline typename collection_node<AgentID, Node>::template port_proxy<dmode, T>& collection_node<AgentID, Node>::port_proxy<dmode, T>::operator=(const T& rhs)
+template<typename T>
+inline typename collection_node<AgentID, Node>::flow_port_proxy<T>& collection_node<AgentID, Node>::flow_port_proxy<T>::operator=(const T& rhs)
 {
-    if (dmode == flow) {
-        external_interface_.assign_flow_input(port_index_, core_type<T>::copy(rhs));
-    }
-    else {
-        external_interface_.set_message_input(port_index_, core_type<T>::copy(rhs));
-    }
+    external_interface_.assign_flow_input(port_index_, core_type<T>::copy(rhs));
     return *this;
 }
 
 
 template<typename AgentID, typename Node>
-template<data_mode dmode, typename T>
-inline typename collection_node<AgentID, Node>::template port_proxy<dmode, T>& collection_node<AgentID, Node>::port_proxy<dmode, T>::operator=(const port_proxy& rhs)
+template<typename T>
+inline typename collection_node<AgentID, Node>::flow_port_proxy<T>& collection_node<AgentID, Node>::flow_port_proxy<T>::operator=(const flow_port_proxy& rhs)
 {
-    if (dmode == flow) {
-        const pointer& val = rhs.external_interface_.flow_input_port_value(rhs.port_index_);
-        external_interface_.assign_flow_input(port_index_, val);
-    }
-    else {
-        const pointer& val = rhs.external_interface_.message_input_port_value(rhs.port_index_);
-        external_interface_.set_message_input(port_index_, val);
-    }
+    const pointer& val = rhs.external_interface_.flow_input_port_value(rhs.port_index_);
+    external_interface_.assign_flow_input(port_index_, val);
     return *this;
 }
 
 
 template<typename AgentID, typename Node>
-template<data_mode dmode, typename T>
-inline collection_node<AgentID, Node>::port_proxy<dmode, T>::port_proxy(const port<dmode, input, T>& input_port)
+template<typename T>
+inline collection_node<AgentID, Node>::flow_port_proxy<T>::flow_port_proxy(const port<flow, input, T>& input_port)
+    : external_interface_(const_cast<node_interface&>(input_port.external_interface()))
+    , port_index_(input_port.port_index())
+{
+}
+
+
+// message port proxy members
+
+template<typename AgentID, typename Node>
+template<typename T>
+inline typename collection_node<AgentID, Node>::message_port_proxy<T>& collection_node<AgentID, Node>::message_port_proxy<T>::operator=(const T& rhs)
+{
+    external_interface_.set_message_input(port_index_, core_type<T>::copy(rhs));
+    return *this;
+}
+
+
+template<typename AgentID, typename Node>
+template<typename T>
+inline typename collection_node<AgentID, Node>::message_port_proxy<T>& collection_node<AgentID, Node>::message_port_proxy<T>::operator=(const message_port_proxy& rhs)
+{
+    const pointer& val = rhs.external_interface_.message_input_port_value(rhs.port_index_);
+    external_interface_.set_message_input(port_index_, val);
+    return *this;
+}
+
+
+template<typename AgentID, typename Node>
+template<typename T>
+inline collection_node<AgentID, Node>::message_port_proxy<T>::message_port_proxy(const port<message, input, T>& input_port)
     : external_interface_(const_cast<node_interface&>(input_port.external_interface()))
     , port_index_(input_port.port_index())
 {
