@@ -20,6 +20,8 @@ var searchData=
   ['message_5foutput_5ftostring_5ffunc',['message_output_tostring_func',['../classsydevs_1_1systems_1_1node__interface.html#a6ddb6ca9a444d64876eb7efe79791782',1,'sydevs::systems::node_interface']]],
   ['message_5foutput_5fvalue',['message_output_value',['../classsydevs_1_1systems_1_1node__interface.html#a5b7432afb57f7ec6090cec2d5aefd098',1,'sydevs::systems::node_interface']]],
   ['message_5foutward_5flinks',['message_outward_links',['../classsydevs_1_1systems_1_1node__structure.html#ac9e72167c1de3791f04a79337151e0be',1,'sydevs::systems::node_structure']]],
+  ['message_5fport_5fproxy',['message_port_proxy',['../classsydevs_1_1systems_1_1collection__node_1_1message__port__proxy.html',1,'sydevs::systems::collection_node']]],
+  ['message_5fport_5fproxy',['message_port_proxy',['../classsydevs_1_1systems_1_1collection__node_1_1message__port__proxy.html#ab7a78dabf0601213fefa74246046aa03',1,'sydevs::systems::collection_node::message_port_proxy::message_port_proxy(const message_port_proxy &amp;)=delete'],['../classsydevs_1_1systems_1_1collection__node_1_1message__port__proxy.html#aef829af1d663e0ae21ea4e26e870304b',1,'sydevs::systems::collection_node::message_port_proxy::message_port_proxy(message_port_proxy &amp;&amp;)=default']]],
   ['meters',['meters',['../namespacesydevs.html#afe45753433eba9fe199d1d0a81fceb80',1,'sydevs']]],
   ['micro',['micro',['../namespacesydevs.html#acb6264e292c734cb5ca7aa2b4edfcc1d',1,'sydevs']]],
   ['milli',['milli',['../namespacesydevs.html#a621d7ba9d0ab7c16cf9c8ca62d74c567',1,'sydevs']]],
