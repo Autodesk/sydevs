@@ -437,7 +437,7 @@ bool collection_node<AgentID, Node>::transmitted(const port<message, output, T>&
 
 template<typename AgentID, typename Node>
 template<typename T>
-typename collection_node<AgentID, Node>::port_proxy<flow, T> collection_node<AgentID, Node>::access(const port<flow, input, T>& prototype_port)
+typename collection_node<AgentID, Node>::template port_proxy<flow, T> collection_node<AgentID, Node>::access(const port<flow, input, T>& prototype_port)
 {
     validate_prototype_port(prototype_port);
     return port_proxy<flow, T>(const_cast<port<flow, input, T>&>(prototype_port));
@@ -446,7 +446,7 @@ typename collection_node<AgentID, Node>::port_proxy<flow, T> collection_node<Age
     
 template<typename AgentID, typename Node>
 template<typename T>
-typename collection_node<AgentID, Node>::port_proxy<message, T> collection_node<AgentID, Node>::access(const port<message, input, T>& prototype_port)
+typename collection_node<AgentID, Node>::template port_proxy<message, T> collection_node<AgentID, Node>::access(const port<message, input, T>& prototype_port)
 {
     validate_prototype_port(prototype_port);
     if (prototype_IO().message_input_port_index() != -1) {
@@ -807,7 +807,7 @@ inline void collection_node<AgentID, Node>::adopt_component_print_flags(const sy
 
 template<typename AgentID, typename Node>
 template<data_mode dmode, typename T>
-inline typename collection_node<AgentID, Node>::port_proxy<dmode, T>& collection_node<AgentID, Node>::port_proxy<dmode, T>::operator=(const T& rhs)
+inline typename collection_node<AgentID, Node>::template port_proxy<dmode, T>& collection_node<AgentID, Node>::port_proxy<dmode, T>::operator=(const T& rhs)
 {
     if (dmode == flow) {
         external_interface_.assign_flow_input(port_index_, core_type<T>::copy(rhs));
@@ -821,7 +821,7 @@ inline typename collection_node<AgentID, Node>::port_proxy<dmode, T>& collection
 
 template<typename AgentID, typename Node>
 template<data_mode dmode, typename T>
-inline typename collection_node<AgentID, Node>::port_proxy<dmode, T>& collection_node<AgentID, Node>::port_proxy<dmode, T>::operator=(const port_proxy& rhs)
+inline typename collection_node<AgentID, Node>::template port_proxy<dmode, T>& collection_node<AgentID, Node>::port_proxy<dmode, T>::operator=(const port_proxy& rhs)
 {
     if (dmode == flow) {
         const pointer& val = rhs.external_interface_.flow_input_port_value(rhs.port_index_);
