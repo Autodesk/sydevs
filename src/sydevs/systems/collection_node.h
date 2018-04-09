@@ -880,7 +880,11 @@ inline collection_node<AgentID, Node>::flow_port_proxy<T>::flow_port_proxy(const
 
 template<typename AgentID, typename Node>
 template<typename T>
-inline typename collection_node<AgentID, Node>::message_port_proxy<T>& collection_node<AgentID, Node>::message_port_proxy<T>::operator=(const T& rhs)
+#if _WIN32
+    inline typename collection_node<AgentID, Node>::message_port_proxy<T>& collection_node<AgentID, Node>::message_port_proxy<T>::operator=(const T& rhs)
+#else
+    inline typename collection_node<AgentID, Node>::template message_port_proxy<T>& collection_node<AgentID, Node>::message_port_proxy<T>::operator=(const T& rhs)
+#endif
 {
     external_interface_.set_message_input(port_index_, core_type<T>::copy(rhs));
     return *this;
@@ -889,7 +893,11 @@ inline typename collection_node<AgentID, Node>::message_port_proxy<T>& collectio
 
 template<typename AgentID, typename Node>
 template<typename T>
-inline typename collection_node<AgentID, Node>::message_port_proxy<T>& collection_node<AgentID, Node>::message_port_proxy<T>::operator=(const message_port_proxy& rhs)
+#if _WIN32
+    inline typename collection_node<AgentID, Node>::message_port_proxy<T>& collection_node<AgentID, Node>::message_port_proxy<T>::operator=(const message_port_proxy& rhs)
+#else
+    inline typename collection_node<AgentID, Node>::template message_port_proxy<T>& collection_node<AgentID, Node>::message_port_proxy<T>::operator=(const message_port_proxy& rhs)
+#endif
 {
     const pointer& val = rhs.external_interface_.message_input_port_value(rhs.port_index_);
     external_interface_.set_message_input(port_index_, val);
