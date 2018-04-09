@@ -464,7 +464,11 @@ bool collection_node<AgentID, Node>::transmitted(const port<message, output, T>&
 
 template<typename AgentID, typename Node>
 template<typename T>
-typename collection_node<AgentID, Node>::flow_port_proxy<T> collection_node<AgentID, Node>::access(const port<flow, input, T>& prototype_port)
+#if _WIN32
+    typename collection_node<AgentID, Node>::flow_port_proxy<T> collection_node<AgentID, Node>::access(const port<flow, input, T>& prototype_port)
+#else
+    typename collection_node<AgentID, Node>::template flow_port_proxy<T> collection_node<AgentID, Node>::access(const port<flow, input, T>& prototype_port)
+#endif
 {
     validate_prototype_port(prototype_port);
     return flow_port_proxy<T>(const_cast<port<flow, input, T>&>(prototype_port));
@@ -473,7 +477,11 @@ typename collection_node<AgentID, Node>::flow_port_proxy<T> collection_node<Agen
     
 template<typename AgentID, typename Node>
 template<typename T>
-typename collection_node<AgentID, Node>::message_port_proxy<T> collection_node<AgentID, Node>::access(const port<message, input, T>& prototype_port)
+#if _WIN32
+    typename collection_node<AgentID, Node>::message_port_proxy<T> collection_node<AgentID, Node>::access(const port<message, input, T>& prototype_port)
+#else
+    typename collection_node<AgentID, Node>::template message_port_proxy<T> collection_node<AgentID, Node>::access(const port<message, input, T>& prototype_port)
+#endif
 {
     validate_prototype_port(prototype_port);
     if (prototype_IO().message_input_port_index() != -1) {
@@ -834,7 +842,11 @@ inline void collection_node<AgentID, Node>::adopt_component_print_flags(const sy
 
 template<typename AgentID, typename Node>
 template<typename T>
-inline typename collection_node<AgentID, Node>::flow_port_proxy<T>& collection_node<AgentID, Node>::flow_port_proxy<T>::operator=(const T& rhs)
+#if _WIN32
+    inline typename collection_node<AgentID, Node>::flow_port_proxy<T>& collection_node<AgentID, Node>::flow_port_proxy<T>::operator=(const T& rhs)
+#else
+    inline typename collection_node<AgentID, Node>::template flow_port_proxy<T>& collection_node<AgentID, Node>::flow_port_proxy<T>::operator=(const T& rhs)
+#endif
 {
     external_interface_.assign_flow_input(port_index_, core_type<T>::copy(rhs));
     return *this;
@@ -843,7 +855,11 @@ inline typename collection_node<AgentID, Node>::flow_port_proxy<T>& collection_n
 
 template<typename AgentID, typename Node>
 template<typename T>
-inline typename collection_node<AgentID, Node>::flow_port_proxy<T>& collection_node<AgentID, Node>::flow_port_proxy<T>::operator=(const flow_port_proxy& rhs)
+#if _WIN32
+    inline typename collection_node<AgentID, Node>::flow_port_proxy<T>& collection_node<AgentID, Node>::flow_port_proxy<T>::operator=(const flow_port_proxy& rhs)
+#else
+    inline typename collection_node<AgentID, Node>::template flow_port_proxy<T>& collection_node<AgentID, Node>::flow_port_proxy<T>::operator=(const flow_port_proxy& rhs)
+#endif
 {
     const pointer& val = rhs.external_interface_.flow_input_port_value(rhs.port_index_);
     external_interface_.assign_flow_input(port_index_, val);
