@@ -8,6 +8,14 @@ env:
 matrix:
   include:
   - os: linux
+    addons:
+      apt:
+        sources:
+        - ubuntu-toolchain-r-test
+        - llvm-toolchain-trusty-5.0
+        packages:
+        - doxygen
+        - graphviz
     env:
     - DOCUMINTATION=true
   - os: linux
