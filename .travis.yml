@@ -93,14 +93,14 @@ after_success:
 
 deploy:
   - provider: releases
-    api_key: $(GITHUB_OAUTH_TOKEN)
+    api_key: "$(GITHUB_OAUTH_TOKEN)"
     file_glob: true
     file: ./*.zip
     skip_cleanup: true
     on:
       tags: true
   - provider: pages
-    github-token: $(GITHUB_OAUTH_TOKEN)
+    github-token: "$(GITHUB_OAUTH_TOKEN)"
     keep-history: true
     skip_cleanup: true
     local-dir: doc/html
