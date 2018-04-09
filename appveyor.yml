@@ -41,9 +41,11 @@ after_build:
   - 7z a SyDEVS_Win64_%MY_VS_SHORT%_%CONFIGURATION%_%APPVEYOR_REPO_COMMIT%.zip %ARCHIVE_NAME%
   - appveyor PushArtifact SyDEVS_Win64_%MY_VS_SHORT%_%CONFIGURATION%_%APPVEYOR_REPO_COMMIT%.zip
 
-# deploy:
-#  - provider: Environment
-#    name: production
-#    on:
-#      branch: master
-#      appveyor_repo_tag: true
+deploy:
+  - provider: Environment
+    name: SyDEVS-Releases
+    artifact: $(ARCHIVE_NAME).zip
+    force_update: true
+    on:
+      branch: master
+      appveyor_repo_tag: true
