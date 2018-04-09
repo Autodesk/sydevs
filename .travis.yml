@@ -64,7 +64,7 @@ before_script:
 
 script: 
   - |
-    if [[ "${DOCUMINTATION}" == true ]]; then
+    if [[ "${DOCUMINTATION}" == "true" ]]; then
       cd ..
       doxygen doxygen.config
     else
@@ -73,7 +73,7 @@ script:
 
 after_success:
   - |
-    if [[ "${DOCUMINTATION}" == true ]]; then
+    if [[ "${DOCUMINTATION}" == "true" ]]; then
       pwd &&
       zip -r documintation_${TRAVIS_COMMIT}.zip doc/html
     else
@@ -90,10 +90,19 @@ after_success:
     fi
 
 deploy:
-  provider: releases
-  api_key: $(GITHUB_OAUTH_TOKEN)
-  file_glob: true
-  file: ./*.zip
-  skip_cleanup: true
-  on:
-    tags: true
+  - provider: releases
+    api_key: $(GITHUB_OAUTH_TOKEN)
+    file_glob: true
+    file: ./*.zip
+    skip_cleanup: true
+    on:
+      tags: true
+  - provider: pages
+    github-token: $(GITHUB_OAUTH_TOKEN)
+    keep-history: true
+    skip_cleanup: true
+    local-dir: doc/html
+    target-branch: gh-pages
+    on:
+      tags: true
+      condition: $DOCUMINTATION = true
