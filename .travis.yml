@@ -105,16 +105,6 @@ deploy:
     skip_cleanup: true
     script: bash scripts/deploy_docs.sh
     on:
-      # tags: true
+      tags: true
       all_branches: true
       condition: $DOCUMINTATION = true
-  #- provider: pages
-  #  github-token: $GITHUB_OAUTH_TOKEN
-  #  keep-history: true
-  #  skip_cleanup: true
-  #  local-dir: doc/html
-  #  target-branch: gh-pages
-  #  on:
-      #tags: true
-  #    all_branches: true
-  #    condition: $DOCUMINTATION = true
