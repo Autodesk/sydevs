@@ -90,7 +90,7 @@ inline duration incident_node::sample_incident_dt()
 {
     static std::uniform_real_distribution<float64> dist(0.5, 1.5);
     return dist(rng)*avg_incident_dt;
-};
+}
 
 
 #endif

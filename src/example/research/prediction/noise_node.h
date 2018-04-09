@@ -128,7 +128,7 @@ inline float64 noise_node::sample_noise_y()
 {
     static std::uniform_real_distribution<float64> dist(0.0, 2.0);
     return dist(rng)*avg_noise_y;
-};
+}
 
 
 #endif

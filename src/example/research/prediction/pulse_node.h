@@ -92,7 +92,7 @@ inline float64 pulse_node::sample_pulse_y()
 {
     static std::uniform_real_distribution<float64> dist(0.0, 1.0);
     return (dist(rng) + occurrence_k)*avg_pulse_y;
-};
+}
 
 
 #endif
