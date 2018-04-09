@@ -22,10 +22,12 @@ int main(int argc, const char* argv[])
     error_codes.push_back(perform_regression_test("output_of_basic_systems.txt", &basic_systems));
     error_codes.push_back(perform_regression_test("output_of_sorting_systems.txt", &sorting_systems));
     error_codes.push_back(perform_regression_test("output_of_data_systems.txt", &data_systems));
-    error_codes.push_back(perform_regression_test("output_of_agentbased_systems.txt", &agentbased_systems));
     error_codes.push_back(perform_regression_test("output_of_cellular_systems.txt", &cellular_systems));
+#ifdef _WIN32
+    error_codes.push_back(perform_regression_test("output_of_agentbased_systems.txt", &agentbased_systems));
     error_codes.push_back(perform_regression_test("output_of_prediction.txt", &prediction_system));
     error_codes.push_back(perform_regression_test("output_of_customs.txt", &customs));
+#endif
     error_codes.push_back(perform_regression_test("output_of_building7m.txt", &building7m));
     error_codes.push_back(perform_regression_test("output_of_queueing.txt", &queueing));
 
