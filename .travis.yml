@@ -106,5 +106,5 @@ deploy:
     local-dir: doc/html
     target-branch: gh-pages
     on:
-      tags: true
+      #tags: true
       condition: $DOCUMINTATION = true
