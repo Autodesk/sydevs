@@ -7,12 +7,39 @@
 namespace sydevs {
 
 
+/**
+ * @brief A data type which represents a pointer to anything.
+ *
+ * @details
+ * A `pointer` instance encapsulates `std::shared_ptr<void>`, which is
+ * essentially a reference-counted pointer to any type of data. The example
+ * below demonstrates how to use the class.
+ * 
+ * ~~~
+ * auto val = pointer(new int64(7));
+ * val.reset();
+ * val.reset(new float64(-0.5));
+ * if (val) {
+ *     auto x = val.dereference<float64>();
+ * }
+ * ~~~
+ */
 class pointer
 {
 public:
+    /**
+     * @brief Constructs a null `pointer` instance.
+     */
     pointer() noexcept;
+
+    /**
+     * @brief Constructs a null `pointer` instance from a `nullptr`.
+     */
     explicit pointer(std::nullptr_t X) noexcept;
 
+    /**
+     * @brief Constructs a `pointer` instance referencing the same data as `ptr`.
+     */
     template<typename T> 
     explicit pointer(T* ptr);
 
@@ -22,15 +49,15 @@ public:
     pointer& operator=(pointer&&) noexcept      = default;  ///< Move assignment
     ~pointer()                                  = default;  ///< Destructor
 
-    void reset() noexcept;
+    void reset() noexcept;  ///< Modifies the pointer to reference `nullptr`.
 
     template<typename T> 
-    void reset(T* ptr);
+    void reset(T* ptr);  ///< Modifies the pointer to reference the same data as `ptr`.
 
     template<typename T> 
-    T& dereference() const;
+    T& dereference() const;  ///< Returns the referenced data, casting it to type `T`.
     
-    explicit operator bool() const noexcept;
+    explicit operator bool() const noexcept;  // Returns `true` if the pointer does not reference `nullptr`.
 
 private:
     std::shared_ptr<void> ptr_;

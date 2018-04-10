@@ -2,7 +2,10 @@
 
 Multiscale Simulation and Systems Modeling Library
 
-Windows: [![Build status](https://ci.appveyor.com/api/projects/status/afe2i9b8h9nxfta4?svg=true)](https://ci.appveyor.com/project/sbreslav/sydevs) Linux/MacOS: [![Build Status](https://travis-ci.org/Autodesk/sydevs.svg?branch=master)](https://travis-ci.org/Autodesk/sydevs)
+| Build | Status |
+|-------|--------|
+| Windows (VS2015, VS2017) | [![Build status](https://ci.appveyor.com/api/projects/status/afe2i9b8h9nxfta4?svg=true)](https://ci.appveyor.com/project/sbreslav/sydevs) |
+| Linux (gcc, clang), OSX (gcc) | [![Build status](https://travis-ci.org/Autodesk/sydevs.svg?branch=master)](https://travis-ci.org/Autodesk/sydevs) |
 
 ## About
 
@@ -21,6 +24,7 @@ This folder contains generic classes that may be useful for a variety of applica
 - [`arraynd`](src/sydevs/core/arraynd.h): A multidimensional array with features similar to those of the [NumPy Python Library](http://www.numpy.org/).
   - [`range`](src/sydevs/core/range.h) (related class): Represents a range of array indices along a single dimension.
 - [`core_types`](src/sydevs/core/core_types.h): Traits for the set of data types that can be passed among system nodes.
+  - [`pointer`](src/sydevs/core/pointer.h) (related class): Points to any type of data.
   - [`string_builder`](src/sydevs/core/string_builder.h) (related class): Faciliates value-to-string conversions.
 
 #### [`src/sydevs/time`](src/sydevs/time)

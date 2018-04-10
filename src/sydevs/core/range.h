@@ -20,9 +20,9 @@ namespace sydevs {
  * The arithmetic sequence represented by a `range` object starts either at or
  * immediately after a start index, increments according to a given stride, and
  * terminates either at or immediately before a stop index. The stop index can
- * be an extreme value (`std::numeric_limits<int64>::max()` or 
- * `std::numeric_limits<int64>::min()`, indicating that the sequence continues
- * until the end of the array.
+ * be `std::numeric_limits<int64>::max()` (increasing sequences) or 
+ * `std::numeric_limits<int64>::min()` (decreasing sequences), indicating that
+ * the sequence continues until the end of the array.
  *
  * A `range` object is defined using a chain of member function calls, as
  * demonstrated below.
