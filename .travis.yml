@@ -44,8 +44,6 @@ matrix:
     env:
     - DOCUMINTATION=false
 branches:
-  #only:
-    #- master
   except:
     - gh-pages
 
@@ -100,11 +98,14 @@ deploy:
     file: ./*.zip
     skip_cleanup: true
     on:
+      #branch: release
+      all_branches: true
       tags: true
   - provider: script
     skip_cleanup: true
     script: bash scripts/deploy_docs.sh
     on:
       tags: true
+      #branch: release
       all_branches: true
       condition: $DOCUMINTATION = true

@@ -10,8 +10,6 @@ environment:
       MY_VS_SHORT: vs2017
 
 branches:
-  #only:
-  #- master
   except:
     - gh-pages
  
@@ -49,6 +47,6 @@ deploy:
     artifact: $(ARCHIVE_NAME).zip
     force_update: true
     on:
-      branch: master
+      # branch: master
       appveyor_repo_tag: true
  
