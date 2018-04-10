@@ -67,8 +67,8 @@ before_script:
 script: 
   - |
     if [[ "${DOCUMENTATION}" == "true" ]]; then
-      cd ..
-      doxygen doxygen.config
+      cd .. &&
+      ( cat doxygen.config ; echo "PROJECT_NUMBER=${TRAVIS_TAG}" ) | doxygen -
     else
       make
     fi
