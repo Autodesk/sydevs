@@ -102,7 +102,7 @@ inline float64 drift_node::sample_drift_y()
 {
     static std::uniform_real_distribution<float64> dist(0.0, 2.0);
     return dist(rng)*avg_drift_y;
-};
+}
 
 
 #endif
