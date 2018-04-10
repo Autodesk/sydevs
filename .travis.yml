@@ -17,7 +17,7 @@ matrix:
         - doxygen
         - graphviz
     env:
-    - DOCUMINTATION=true
+    - DOCUMENTATION=true
   - os: linux
     addons:
       apt:
@@ -28,7 +28,7 @@ matrix:
         - libc++-dev
     env:
     - MATRIX_EVAL="CC=gcc-7 && CXX=g++-7"
-    - DOCUMINTATION=false
+    - DOCUMENTATION=false
   - os: linux
     addons:
       apt:
@@ -39,10 +39,10 @@ matrix:
         - libc++-dev
     env:
     - MATRIX_EVAL="CC=clang-4.0 && CXX=clang++-4.0"
-    - DOCUMINTATION=false
+    - DOCUMENTATION=false
   - os: osx
     env:
-    - DOCUMINTATION=false
+    - DOCUMENTATION=false
 branches:
   except:
     - gh-pages
@@ -66,7 +66,7 @@ before_script:
 
 script: 
   - |
-    if [[ "${DOCUMINTATION}" == "true" ]]; then
+    if [[ "${DOCUMENTATION}" == "true" ]]; then
       cd ..
       doxygen doxygen.config
     else
@@ -75,13 +75,13 @@ script:
 
 after_success:
   - |
-    if [[ "${DOCUMINTATION}" == "true" ]]; then
+    if [[ "${DOCUMENTATION}" == "true" ]]; then
       pwd &&
-      zip -r documintation_${TRAVIS_TAG}.zip doc/html
+      zip -r SyDEVS_documentation_${TRAVIS_TAG}.zip doc/html
     else
       cd .. &&
       pwd &&
-      export ARCHIVE_NAME=SyDEVS_${TRAVIS_OS_NAME}_${CXX}_${TRAVIS_TAG} &&
+      export ARCHIVE_NAME=SyDEVS_${TRAVIS_OS_NAME}_${CC}_${TRAVIS_TAG} &&
       mkdir ${ARCHIVE_NAME} ${ARCHIVE_NAME}/lib ${ARCHIVE_NAME}/include ${ARCHIVE_NAME}/include/sydevs ${ARCHIVE_NAME}/include/sydevs/systems ${ARCHIVE_NAME}/include/sydevs/time ${ARCHIVE_NAME}/include/sydevs/core &&
       cp src/sydevs/core/*.h ${ARCHIVE_NAME}/include/sydevs/core &&
       cp src/sydevs/systems/*.h ${ARCHIVE_NAME}/include/sydevs/systems &&

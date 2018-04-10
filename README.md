@@ -2,7 +2,9 @@
 
 Multiscale Simulation and Systems Modeling Library
 
-Windows: [![Build status](https://ci.appveyor.com/api/projects/status/afe2i9b8h9nxfta4?svg=true)](https://ci.appveyor.com/project/sbreslav/sydevs) Linux/MacOS: [![Build Status](https://travis-ci.org/Autodesk/sydevs.svg?branch=master)](https://travis-ci.org/Autodesk/sydevs)
+[![GitHub release](https://img.shields.io/github/release/qubyte/rubidium.svg)](https://github.com/Autodesk/sydevs/releases) 
+<img src="https://use.fontawesome.com/releases/v5.0.9/svgs/brands/windows.svg" alt="Windows">[![Build status](https://ci.appveyor.com/api/projects/status/afe2i9b8h9nxfta4?svg=true)](https://ci.appveyor.com/project/sbreslav/sydevs) 
+<img src="https://use.fontawesome.com/releases/v5.0.9/svgs/brands/linux.svg" alt="Windows"><img src="https://use.fontawesome.com/releases/v5.0.9/svgs/brands/apple.svg" alt="MacOS">[![Build Status](https://travis-ci.org/Autodesk/sydevs.svg?branch=master)](https://travis-ci.org/Autodesk/sydevs)
 
 ## About
 
