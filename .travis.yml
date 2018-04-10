@@ -86,7 +86,7 @@ after_success:
       cp src/sydevs/core/*.h ${ARCHIVE_NAME}/include/sydevs/core &&
       cp src/sydevs/systems/*.h ${ARCHIVE_NAME}/include/sydevs/systems &&
       cp src/sydevs/time/*.h ${ARCHIVE_NAME}/include/sydevs/time
-      cp ${TRAVIS_BUILD_DIR}/**/SyDEVS*.* ${ARCHIVE_NAME}/lib  &&
+      cp ${TRAVIS_BUILD_DIR}/**/libSyDEVS*.* ${ARCHIVE_NAME}/lib  &&
       cp LICENSE.md ${ARCHIVE_NAME} &&
       zip -r ${ARCHIVE_NAME}.zip ${ARCHIVE_NAME}
     fi
@@ -98,14 +98,10 @@ deploy:
     file: ./*.zip
     skip_cleanup: true
     on:
-      #branch: release
-      all_branches: true
       tags: true
   - provider: script
     skip_cleanup: true
     script: bash scripts/deploy_docs.sh
     on:
       tags: true
-      #branch: release
-      all_branches: true
       condition: $DOCUMINTATION = true
