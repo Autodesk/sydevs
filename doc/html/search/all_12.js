@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['sydevs_20documentation',['SyDEVS Documentation',['../index.html',1,'']]],
   ['s_5f',['s_',['../structsydevs_1_1units.html#a2244ddeda2e100c8d23c27d841542c74abe693132523fb6db75ffff8fac09dcb6',1,'sydevs::units']]],
   ['scale',['scale',['../classsydevs_1_1scale.html',1,'sydevs::scale'],['../classsydevs_1_1scale.html#a82f2f0234b213849afdd37932c65cfa6',1,'sydevs::scale::scale()'],['../classsydevs_1_1scale.html#ac47a990ba931d9c10009314cb35f4873',1,'sydevs::scale::scale(int64 level)'],['../classsydevs_1_1scale.html#af171e359a263e93341f267d0408135df',1,'sydevs::scale::scale(const scale &amp;)=default'],['../classsydevs_1_1scale.html#ab84e8a809effa316896cb1d6df5275c7',1,'sydevs::scale::scale(scale &amp;&amp;)=default']]],
   ['scale_2ecpp',['scale.cpp',['../scale_8cpp.html',1,'']]],

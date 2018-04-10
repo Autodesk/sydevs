@@ -1,7 +1,7 @@
 var NAVTREE =
 [
   [ "SyDEVS", "index.html", [
-    [ "SyDEVS Documentation", "index.html", null ],
+    [ "Overview", "index.html", null ],
     [ "Getting Started", "getting_started.html", "getting_started" ],
     [ "Namespaces", null, [
       [ "Namespace List", "namespaces.html", "namespaces" ],
@@ -38,10 +38,10 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"_basic-_tutorial.html",
-"classsydevs_1_1range.html#a35344b2e3f597767e078758f64344105",
-"classsydevs_1_1systems_1_1node__structure.html#a89fb694002eb8130b13a69e82b9596bf",
-"data__goal_8h.html#add51536d479991dea5779172e185bacca78e6221f6393d1356681db398f14ce6d",
+"annotated.html",
+"classsydevs_1_1range.html#a4c3dbcd4399c8f45714cbdf8daa917e6",
+"classsydevs_1_1systems_1_1node__structure.html#a8e11d5bd2a6577edc0c4df1fadc4a5dd",
+"data__goal_8h.html#aedc856efa1c7c01192eaa54f04517034",
 "quantity_8h.html#aaa475fce96e3851ed768c4789f154078"
 ];
 

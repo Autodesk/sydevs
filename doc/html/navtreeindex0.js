@@ -1,7 +1,5 @@
 var NAVTREEINDEX0 =
 {
-"_basic-_tutorial.html":[1,1],
-"_installation.html":[1,0],
 "annotated.html":[3,0],
 "arraynd_8h.html":[4,0,0,0,0,0],
 "arraynd_8h.html#a00331e9138ad5ebb04f522e4cc81087e":[4,0,0,0,0,0,34],
@@ -249,5 +247,7 @@ var NAVTREEINDEX0 =
 "classsydevs_1_1quantity__base.html#af3f32dc5ea179f0f760afdb44f1de171":[3,0,1,22,9],
 "classsydevs_1_1quantity__base.html#af75bbab4dfba2cb48da6b01f2cb67c55":[3,0,1,22,17],
 "classsydevs_1_1range.html":[3,0,1,23],
-"classsydevs_1_1range.html#a029db7ed25bbc65a3b57185d9536c198":[3,0,1,23,5]
+"classsydevs_1_1range.html#a029db7ed25bbc65a3b57185d9536c198":[3,0,1,23,5],
+"classsydevs_1_1range.html#a35344b2e3f597767e078758f64344105":[3,0,1,23,0],
+"classsydevs_1_1range.html#a362603d5a9a6df549997703948de8f70":[3,0,1,23,4]
 };

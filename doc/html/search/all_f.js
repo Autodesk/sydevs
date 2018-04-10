@@ -1,5 +1,7 @@
 var searchData=
 [
+  ['part_201_3a_20setting_20up_20your_20simulation_20project',['Part 1: Setting up your Simulation Project',['../getting_started_part01.html',1,'getting_started']]],
+  ['part_202_3a_20creating_20your_20first_20simulation',['Part 2: Creating your First Simulation',['../getting_started_part02.html',1,'getting_started']]],
   ['parameter',['parameter',['../classsydevs_1_1systems_1_1parameter__node.html#a686a4ce61a2a57c9ae2c9a0d4de893b4',1,'sydevs::systems::parameter_node']]],
   ['parameter_5fnode',['parameter_node',['../classsydevs_1_1systems_1_1parameter__node.html',1,'sydevs::systems::parameter_node&lt; T &gt;'],['../classsydevs_1_1systems_1_1parameter__node.html#a6a5f2f80ba7a958a55783a3dfb390918',1,'sydevs::systems::parameter_node::parameter_node(const std::string &amp;node_name, const node_context &amp;external_context)'],['../classsydevs_1_1systems_1_1parameter__node.html#ac967a6ea5443de91d5c795541ae6694f',1,'sydevs::systems::parameter_node::parameter_node(const std::string &amp;node_name, const node_context &amp;external_context, const T &amp;X)']]],
   ['parameter_5fnode_2eh',['parameter_node.h',['../parameter__node_8h.html',1,'']]],

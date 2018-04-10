@@ -8,7 +8,6 @@ var searchData=
   ['inf_5fint64',['inf_int64',['../classsydevs_1_1quantity__base.html#a793872e8035703824fa4b7988898ec81',1,'sydevs::quantity_base']]],
   ['inner_5flink',['inner_link',['../classsydevs_1_1systems_1_1composite__node.html#aa4670532898a976e5a4da46dc00ca038',1,'sydevs::systems::composite_node']]],
   ['input',['input',['../namespacesydevs_1_1systems.html#ad0d79287f2ae06535c27abf4bddcaba6',1,'sydevs::systems::input()'],['../namespacesydevs_1_1systems.html#add51536d479991dea5779172e185baccaa43c1b0aa53a0c908810c06ab1ff3967',1,'sydevs::systems::input()']]],
-  ['installation',['Installation',['../_installation.html',1,'getting_started']]],
   ['int16',['int16',['../namespacesydevs.html#a0142ae3b3b9fadbc415054ac62fb72dc',1,'sydevs']]],
   ['int32',['int32',['../namespacesydevs.html#a36e27cd6a25080ba3887c945713ebe84',1,'sydevs']]],
   ['int64',['int64',['../namespacesydevs.html#ad6a8f0e4a4fad0df62be1cb702f25de7',1,'sydevs']]],

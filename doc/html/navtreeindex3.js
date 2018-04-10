@@ -1,7 +1,5 @@
 var NAVTREEINDEX3 =
 {
-"data__goal_8h.html#add51536d479991dea5779172e185bacca78e6221f6393d1356681db398f14ce6d":[4,0,0,0,1,7,1,1],
-"data__goal_8h.html#add51536d479991dea5779172e185baccaa43c1b0aa53a0c908810c06ab1ff3967":[4,0,0,0,1,7,1,0],
 "data__goal_8h.html#aedc856efa1c7c01192eaa54f04517034":[4,0,0,0,1,7,0],
 "data__goal_8h_source.html":[4,0,0,0,1,7],
 "data__mode_8cpp.html":[4,0,0,0,1,8],
@@ -82,6 +80,8 @@ var NAVTREEINDEX3 =
 "functions_v.html":[3,3,0,20],
 "functions_vars.html":[3,3,2],
 "getting_started.html":[1],
+"getting_started_part01.html":[1,0],
+"getting_started_part02.html":[1,1],
 "globals.html":[4,1,0],
 "globals_defs.html":[4,1,1],
 "hierarchy.html":[3,2],
@@ -118,8 +118,8 @@ var NAVTREEINDEX3 =
 "namespacestd.html":[2,0,0],
 "namespacesydevs.html":[3,0,1],
 "namespacesydevs.html":[2,0,1],
-"namespacesydevs_1_1systems.html":[3,0,1,0],
 "namespacesydevs_1_1systems.html":[2,0,1,0],
+"namespacesydevs_1_1systems.html":[3,0,1,0],
 "node__context_8cpp.html":[4,0,0,0,1,12],
 "node__context_8h.html":[4,0,0,0,1,13],
 "node__context_8h.html#af88d011e67ae81177007b0ab094e20ca":[4,0,0,0,1,13,1],
