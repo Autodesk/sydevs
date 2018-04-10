@@ -99,8 +99,7 @@ protected:
      * is equal except that the precision level is set to the node's time
      * precision.
      *
-     * @param node_name The name of the node within the encompassing context. 
-     * @param external_context The context in which the node is constructed.
+     * @param planned_dt The unscaled planned duration value.
      *
      * @return A planned duration with a value equal to `planned_dt`, but where
      *         the precision level may be changed to match `time_precision()`.
