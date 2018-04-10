@@ -1,13 +1,13 @@
-Getting Started{#getting_started}
-====================
+Getting Started {#getting_started}
+===============
 
-- @subpage Installation
-- @subpage Basic-Tutorial
+- @subpage getting_started_part01
+- @subpage getting_started_part02
 
-@page Installation Installation
+@page getting_started_part01 Part 1: Setting up your Simulation Project
 
-Steps to install.
+Coming soon...
 
-@page Basic-Tutorial Basic Tutorial
+@page getting_started_part02 Part 2: Creating your First Simulation
 
-Basic tutorial.
+Coming soon...
