@@ -77,11 +77,11 @@ after_success:
   - |
     if [[ "${DOCUMENTATION}" == "true" ]]; then
       pwd &&
-      zip -r SyDEVS_documentation_${TRAVIS_TAG}.zip doc/html
+      zip -r SyDEVS-${TRAVIS_TAG}_documentation.zip doc/html
     else
       cd .. &&
       pwd &&
-      export ARCHIVE_NAME=SyDEVS_${TRAVIS_OS_NAME}_${CC}_${TRAVIS_TAG} &&
+      export ARCHIVE_NAME=SyDEVS-${TRAVIS_TAG}_${TRAVIS_OS_NAME}_${CC} &&
       mkdir ${ARCHIVE_NAME} ${ARCHIVE_NAME}/lib ${ARCHIVE_NAME}/include ${ARCHIVE_NAME}/include/sydevs ${ARCHIVE_NAME}/include/sydevs/systems ${ARCHIVE_NAME}/include/sydevs/time ${ARCHIVE_NAME}/include/sydevs/core &&
       cp src/sydevs/core/*.h ${ARCHIVE_NAME}/include/sydevs/core &&
       cp src/sydevs/systems/*.h ${ARCHIVE_NAME}/include/sydevs/systems &&
@@ -104,4 +104,4 @@ deploy:
     script: bash scripts/deploy_docs.sh
     on:
       tags: true
-      condition: $DOCUMINTATION = true
+      condition: $DOCUMENTATION = true
