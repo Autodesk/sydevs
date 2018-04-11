@@ -4,15 +4,17 @@ Multiscale Simulation and Systems Modeling Library
 
 ## About
 
-The SyDEVS C++ library provides a framework for implementating complex systems analysis and simulation code in a modular, hierarchical fashion. **In a nutshell, it will help make your simulation code scale.**
+The SyDEVS C++ library provides a framework for implementating complex systems analysis and simulation code in a modular, hierarchical fashion.
+
+**In a nutshell, it will help make your simulation code scale.**
 
 The framework combines two programming paradigms: [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) and [DEVS](https://en.wikipedia.org/wiki/DEVS). These foundations give the framework the generality neeeded to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
 
 ## Documentation
 
 - [Main Documentation](doc/html/index.html): Includes both the [Getting Started](doc/html/getting_started.html) tutorial and the API Reference.
-- SyDEVS Framework Overview ([PPTX](doc/downloads/SyDEVS_Framework.pptx), [PDF](doc/downloads/SyDEVS_Framework.pdf)): Illustrates the main concepts and relates them to the code.
-- SyDEVS Building7m Tutorial ([PPTX](doc/downloads/SyDEVS_Tutorial.pptx), [PDF](doc/downloads/SyDEVS_Tutorial.pdf)): Challenges developers to learn by enhancing an example.
+- SyDEVS Framework Overview ([PPTX](doc/downloads/SyDEVS_Framework.pptx), [PDF](doc/downloads/SyDEVS_Framework.pdf)): Illustrates the main concepts & relates them to code.
+- SyDEVS Building7m Tutorial ([PPTX](doc/downloads/SyDEVS_Tutorial.pptx), [PDF](doc/downloads/SyDEVS_Tutorial.pdf)): Challenges users to learn by enhancing an example.
 
 ## Concept
 
@@ -22,7 +24,7 @@ Using SyDEVS, simulation code is organized into nodes, which can be linked toget
 
 ## Example
 
-Below is an example of an SyDEVS atomic node declaration written in C++. Observe that the four types of ports and four types of event handlers match the atomic node diagram above. The code is taken from the [queueing](https://github.com/Autodesk/sydevs/tree/master/src/example/demo/queueing) demonstration project, which features an example of each of the four main types of nodes.
+Here's an example of a SyDEVS atomic node declared in C++. Observe that the four types of ports and four types of event handlers match the atomic node diagram above. The code is taken from the [queueing](https://github.com/Autodesk/sydevs/tree/master/src/example/demo/queueing) demonstration project, which features an example of each of the four main types of nodes.
 
 ```cpp
 /**
@@ -63,9 +65,11 @@ protected:
 };
 ```
 
-## Notatable Features
+The complete implementation is [here](https://github.com/Autodesk/sydevs/blob/master/src/example/demo/queueing/queueing_node.h).
 
-- [Multidimensional Arrays](doc/html/classsydevs_1_1arraynd.html#details): The SyDEVS library includes a generic multidimensional array C++ class template supporting a range of numerical and slicing operations, similar to [NumPy](http://www.numpy.org/) arrays in Python.
+## Notable Features
+
+- [Multidimensional Arrays](doc/html/classsydevs_1_1arraynd.html#details): The SyDEVS library includes a generic multidimensional array class template supporting a range of numerical and slicing operations in C++, similar to [NumPy](http://www.numpy.org/) arrays in Python.
 - [Standard International (SI) Units](doc/html/classsydevs_1_1quantity.html#details): Quantities can be declared with SI units such as "kilograms" for mass and "meters per second squared" for acceleration. Operations and assignments involving these quantities are checked at compile-time to ensure the units match.
 - Multiscale Time: The following classes support the recording of past events and scheduling of future events involving any combination of time scales, yet store most event times internally using 64-bit numbers.
   - [time_point](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1time__point.html#details)
