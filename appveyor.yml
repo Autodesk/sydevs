@@ -37,7 +37,6 @@ after_build:
   - copy src\sydevs\time\*.h %ARCHIVE_NAME%\include\sydevs\time
   - copy %APPVEYOR_BUILD_FOLDER%\%CONFIGURATION%\SyDEVS*.* %ARCHIVE_NAME%\lib
   - copy LICENSE.md %ARCHIVE_NAME%
-  - copy LICENSE.md %ARCHIVE_NAME%
   - 7z a %ARCHIVE_NAME%.zip %ARCHIVE_NAME%
   - appveyor PushArtifact %ARCHIVE_NAME%.zip
 
