@@ -73,7 +73,7 @@ protected:
 };
 ```
 
-The complete implementation of the node is [here](https://github.com/Autodesk/sydevs/blob/master/src/example/demo/queueing/queueing_node.h).
+The complete implementation of the node can be found [here](https://github.com/Autodesk/sydevs/blob/master/src/example/demo/queueing/queueing_node.h).
 
 ## Notable Features
 
@@ -95,7 +95,7 @@ The complete implementation of the node is [here](https://github.com/Autodesk/sy
 - [James II](http://jamesii.informatik.uni-rostock.de/jamesii.org/) (Java) by the [Modeling and Simulation Group](https://mosi.informatik.uni-rostock.de/) at the University of Rostock
 - [MS4 Me](http://www.ms4systems.com/pages/ms4me.php) (Java) by [MS4 Systems](http://www.ms4systems.com/pages/main.php)
 - [PowerDEVS](https://sourceforge.net/projects/powerdevs/) (C++) developed at the National University of Rosario
-- [PythonPDEVS](http://msdl.cs.mcgill.ca/projects/DEVS/PythonPDEVS) (Python) developed by the [MSDL](http://msdl.cs.mcgill.ca/) at McGill University and the [AnSyMo](https://www.uantwerpen.be/en/research-groups/nexor/team/ansymo/) at the Univeristy of Antwerp
+- [PythonPDEVS](http://msdl.cs.mcgill.ca/projects/DEVS/PythonPDEVS) (Python) by the [MSDL](http://msdl.cs.mcgill.ca/) (McGill University) and [AnSyMo](https://www.uantwerpen.be/en/research-groups/nexor/team/ansymo/) (Univeristy of Antwerp)
 - [Virtual Laboratory Environment](http://www.vle-project.org/) (C++)
 - [XSY](https://code.google.com/archive/p/x-s-y/) (Python)
 
