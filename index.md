@@ -4,7 +4,7 @@ Multiscale Simulation and Systems Modeling Library
 
 ## About
 
-The SyDEVS C++ library provides a framework for implementating complex systems analysis and simulation code in a modular, hierarchical fashion.
+The SyDEVS open source C++ library provides a framework for implementating complex systems analysis and simulation code in a modular, hierarchical fashion.
 
 **In a nutshell, it will help make your simulation code scale.**
 
