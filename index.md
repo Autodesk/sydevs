@@ -79,4 +79,19 @@ The complete implementation is [here](https://github.com/Autodesk/sydevs/blob/ma
 
 ## Open Source License
 
-SyDEVS is released under the [Apache License 2.0](https://github.com/Autodesk/sydevs/blob/master/LICENSE.md), a permissive open source license.
+SyDEVS is released under the [Apache License 2.0](https://github.com/Autodesk/sydevs/blob/master/LICENSE.md), a permissive open source license. The code adheres to the C++14 standard.
+
+## Other DEVS Frameworks
+
+- [Adevs](https://web.ornl.gov/~nutarojj/adevs/) (C++)
+- [CD++](http://cell-devs.sce.carleton.ca/mediawiki/index.php/Main_Page) (C++)
+- [CoSMoS](https://acims.asu.edu/software/cosmos/) (Java)
+- [DesignDEVS](http://simaud.org/resources.php#software) (Lua)
+- [DEVS-Ruby](https://github.com/devs-ruby/devs) (Ruby)
+- [James II](http://jamesii.informatik.uni-rostock.de/jamesii.org/) (Java)
+- [MS4 Me](http://www.ms4systems.com/pages/ms4me.php) (Java)
+- [PowerDEVS](https://sourceforge.net/projects/powerdevs/) (C++)
+- [PythonPDEVS](http://msdl.cs.mcgill.ca/projects/DEVS/PythonPDEVS) (Python)
+- [Virtual Laboratory Environment](http://www.vle-project.org/) (C++)
+- [x-s-y](https://code.google.com/archive/p/x-s-y/) (Python)
+
