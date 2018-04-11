@@ -18,7 +18,7 @@ The framework combines two programming paradigms: [dataflow programming](https:/
 
 ## Download
 
-Download the latest SyDEVS release [here](https://github.com/Autodesk/sydevs/releases) (**first release coming soon!**), or fork, clone, and the [repo](https://github.com/Autodesk/sydevs).
+Download the latest SyDEVS release [here](https://github.com/Autodesk/sydevs/releases) (**first release coming soon!**), or fork, clone, and build the [repo](https://github.com/Autodesk/sydevs).
 
 You will need a C++ compiler that implements the C++14 standard. SyDEVS has been tested successfully with Visual Studio 2015, Visual Studio 2017, and recent versions of GCC and Clang.
 
@@ -73,7 +73,7 @@ protected:
 };
 ```
 
-The complete implementation is [here](https://github.com/Autodesk/sydevs/blob/master/src/example/demo/queueing/queueing_node.h).
+The complete implementation of the node is [here](https://github.com/Autodesk/sydevs/blob/master/src/example/demo/queueing/queueing_node.h).
 
 ## Notable Features
 
