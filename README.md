@@ -2,10 +2,9 @@
 
 Multiscale Simulation and Systems Modeling Library
 
-| Build | Status |
-|-------|--------|
-| Windows (VS2015, VS2017) | [![Build status](https://ci.appveyor.com/api/projects/status/afe2i9b8h9nxfta4?svg=true)](https://ci.appveyor.com/project/sbreslav/sydevs) |
-| Linux (gcc, clang), OSX (gcc) | [![Build status](https://travis-ci.org/Autodesk/sydevs.svg?branch=master)](https://travis-ci.org/Autodesk/sydevs) |
+| Windows | Linux/OSX |
+|---------|-----------|
+| [![Build status](https://ci.appveyor.com/api/projects/status/afe2i9b8h9nxfta4?svg=true)](https://ci.appveyor.com/project/sbreslav/sydevs) | [![Build status](https://travis-ci.org/Autodesk/sydevs.svg?branch=master)](https://travis-ci.org/Autodesk/sydevs) |
 
 ## About
 
