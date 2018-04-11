@@ -16,6 +16,14 @@ The framework combines two programming paradigms: [dataflow programming](https:/
 - SyDEVS Framework Overview ([PPTX](doc/downloads/SyDEVS_Framework.pptx), [PDF](doc/downloads/SyDEVS_Framework.pdf)): Illustrates the main concepts & relates them to code.
 - SyDEVS Building7m Tutorial ([PPTX](doc/downloads/SyDEVS_Tutorial.pptx), [PDF](doc/downloads/SyDEVS_Tutorial.pdf)): Challenges users to learn by enhancing an example.
 
+## Download
+
+Download the latest SyDEVS release [here](https://github.com/Autodesk/sydevs/releases) (**first release coming soon!**), or fork, clone, and the [repo](https://github.com/Autodesk/sydevs).
+
+You will need a C++ compiler that implements the C++14 standard. SyDEVS has been tested successfully with Visual Studio 2015, Visual Studio 2017, and recent versions of GCC and Clang.
+
+SyDEVS is released under the [Apache License 2.0](https://github.com/Autodesk/sydevs/blob/master/LICENSE.md), a permissive open source license.
+
 ## Concept
 
 Using SyDEVS, simulation code is organized into nodes, which can be linked together to form dataflow and simulation networks. The four main types of nodes are illustrated below.
@@ -77,21 +85,20 @@ The complete implementation is [here](https://github.com/Autodesk/sydevs/blob/ma
   - [time_queue](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1time__queue.html#details)
   - [time_cache](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1time__cache.html#details)
 
-## Open Source License
-
-SyDEVS is released under the [Apache License 2.0](https://github.com/Autodesk/sydevs/blob/master/LICENSE.md), a permissive open source license. The code adheres to the C++14 standard.
-
 ## Other DEVS Frameworks
 
-- [Adevs](https://web.ornl.gov/~nutarojj/adevs/) (C++)
-- [CD++](http://cell-devs.sce.carleton.ca/mediawiki/index.php/Main_Page) (C++)
-- [CoSMoS](https://acims.asu.edu/software/cosmos/) (Java)
-- [DesignDEVS](http://simaud.org/resources.php#software) (Lua)
-- [DEVS-Ruby](https://github.com/devs-ruby/devs) (Ruby)
-- [James II](http://jamesii.informatik.uni-rostock.de/jamesii.org/) (Java)
-- [MS4 Me](http://www.ms4systems.com/pages/ms4me.php) (Java)
-- [PowerDEVS](https://sourceforge.net/projects/powerdevs/) (C++)
-- [PythonPDEVS](http://msdl.cs.mcgill.ca/projects/DEVS/PythonPDEVS) (Python)
+- [Adevs](https://web.ornl.gov/~nutarojj/adevs/) (C++) developed at Oak Ridge National Laboratory
+- [CD++](http://cell-devs.sce.carleton.ca/mediawiki/index.php/Main_Page) (C++) by the [ARSLab](http://cell-devs.sce.carleton.ca/ars/) at Carleton University
+- [CoSMoS](https://acims.asu.edu/software/cosmos/) (Java) by the [ACIMS](https://acims.asu.edu/) at Arizona State University
+- [DesignDEVS](http://simaud.org/resources.php#software) (Lua) by [Autodesk Research](https://autodeskresearch.com/)
+- [DEVS-Ruby](https://github.com/devs-ruby/devs) (Ruby) developed at the Univeristy of Corsica
+- [James II](http://jamesii.informatik.uni-rostock.de/jamesii.org/) (Java) by the [Modeling and Simulation Group](https://mosi.informatik.uni-rostock.de/) at the University of Rostock
+- [MS4 Me](http://www.ms4systems.com/pages/ms4me.php) (Java) by [MS4 Systems](http://www.ms4systems.com/pages/main.php)
+- [PowerDEVS](https://sourceforge.net/projects/powerdevs/) (C++) developed at the National University of Rosario
+- [PythonPDEVS](http://msdl.cs.mcgill.ca/projects/DEVS/PythonPDEVS) (Python) developed by the [MSDL](http://msdl.cs.mcgill.ca/) at McGill University and the [AnSyMo](https://www.uantwerpen.be/en/research-groups/nexor/team/ansymo/) at the Univeristy of Antwerp
 - [Virtual Laboratory Environment](http://www.vle-project.org/) (C++)
-- [x-s-y](https://code.google.com/archive/p/x-s-y/) (Python)
+- [XSY](https://code.google.com/archive/p/x-s-y/) (Python)
 
+## Contact
+
+Inquires about SyDEVS can be directed to [Rhys Goldstein](https://autodeskresearch.com/people/rhys-goldstein).
