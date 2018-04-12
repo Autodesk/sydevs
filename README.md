@@ -80,8 +80,8 @@ The unit testing framework used in SyDEVS is [Catch2](https://github.com/catchor
 
 There are two PowerPoint documents located in the [`doc`](doc) folder:
 
-- [`SyDEVS_Framework.pptx`](doc/SyDEVS_Framework.pptx): An overview of the systems modeling framework and related snippets of code.
-- [`SyDEVS_Tutorial.pptx`](doc/SyDEVS_Tutorial.pptx): A tutorial that challenges developers to enhance the [`building7m`](src/examples/demo/building7m) example.
+- [`SyDEVS_Framework.pptx`](doc/SyDEVS_Framework_Overview.pptx): An overview of the systems modeling framework and related snippets of code.
+- [`SyDEVS_Tutorial.pptx`](doc/SyDEVS_Building7m_Tutorial.pptx): A tutorial that challenges developers to enhance the [`building7m`](src/examples/demo/building7m) example.
 
 #### HTML
 
