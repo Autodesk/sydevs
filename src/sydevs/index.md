@@ -7,7 +7,7 @@ This library provides a framework for implementating complex systems analysis an
 Getting Started
 ---------------
 
-See the [Getting Started](getting_started.html) tutorial for step-by-step instuctions on how to develop your own simulations using SyDEVS.
+See the [Getting Started](getting_started.html) tutorial for step-by-step instuctions on how to develop your own simulations using SyDEVS. You will need a C++ compiler that implements the C++14 standard. SyDEVS has been tested successfully with Visual Studio 2015, Visual Studio 2017, and recent versions of GCC and Clang.
 
 - [Part 1: Setting up your Simulation Project](getting_started_part01.html)
 - [Part 2: Creating your First Simulation](getting_started_part02.html)
