@@ -4,11 +4,11 @@ Multiscale Simulation and Systems Modeling Library
 
 ## About
 
-The SyDEVS open source C++ library provides a framework for implementating complex systems analysis and simulation code in a modular, hierarchical fashion.
+The SyDEVS open source C++ library provides a framework for implementing complex systems analysis and simulation code in a modular, hierarchical fashion.
 
 **In a nutshell, it will help make your simulation code scale.**
 
-The framework combines two programming paradigms: [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) and [DEVS](https://en.wikipedia.org/wiki/DEVS). These foundations give the framework the generality neeeded to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
+The framework combines two programming paradigms: [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) and [DEVS](https://en.wikipedia.org/wiki/DEVS). These foundations give the framework the generality needed to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
 
 ## Documentation
 
@@ -97,11 +97,11 @@ The complete implementation of the node can be found [here](https://github.com/A
 - [CD++](http://cell-devs.sce.carleton.ca/mediawiki/index.php/Main_Page) (C++) by the [ARSLab](http://cell-devs.sce.carleton.ca/ars/) at Carleton University
 - [CoSMoS](https://acims.asu.edu/software/cosmos/) (Java) by the [ACIMS](https://acims.asu.edu/) at Arizona State University
 - [DesignDEVS](http://simaud.org/resources.php#software) (Lua) by [Autodesk Research](https://autodeskresearch.com/)
-- [DEVS-Ruby](https://github.com/devs-ruby/devs) (Ruby) developed at the Univeristy of Corsica
+- [DEVS-Ruby](https://github.com/devs-ruby/devs) (Ruby) developed at the University of Corsica
 - [James II](http://jamesii.informatik.uni-rostock.de/jamesii.org/) (Java) by the [Modeling and Simulation Group](https://mosi.informatik.uni-rostock.de/) at the University of Rostock
 - [MS4 Me](http://www.ms4systems.com/pages/ms4me.php) (Java) by [MS4 Systems](http://www.ms4systems.com/pages/main.php)
 - [PowerDEVS](https://sourceforge.net/projects/powerdevs/) (C++) developed at the National University of Rosario
-- [PythonPDEVS](http://msdl.cs.mcgill.ca/projects/DEVS/PythonPDEVS) (Python) by the [MSDL](http://msdl.cs.mcgill.ca/) (McGill University) and [AnSyMo](https://www.uantwerpen.be/en/research-groups/nexor/team/ansymo/) (Univeristy of Antwerp)
+- [PythonPDEVS](http://msdl.cs.mcgill.ca/projects/DEVS/PythonPDEVS) (Python) by the [MSDL](http://msdl.cs.mcgill.ca/) (McGill University) and [AnSyMo](https://www.uantwerpen.be/en/research-groups/nexor/team/ansymo/) (University of Antwerp)
 - [Virtual Laboratory Environment](http://www.vle-project.org/) (C++)
 - [XSY](https://code.google.com/archive/p/x-s-y/) (Python)
 
