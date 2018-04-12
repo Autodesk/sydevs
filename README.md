@@ -81,7 +81,7 @@ The unit testing framework used in SyDEVS is [Catch2](https://github.com/catchor
 There are two PowerPoint documents located in the [`doc`](doc) folder:
 
 - [`SyDEVS_Framework.pptx`](doc/SyDEVS_Framework.pptx): An overview of the systems modeling framework and related snippets of code.
-- [`SyDEVS_Tutorial.pptx`](doc/SyDEVS_Tutorial.pptx): A tutorial that challenges developers to enhance the [`building7m`](src/example/demo/building7m) example.
+- [`SyDEVS_Tutorial.pptx`](doc/SyDEVS_Tutorial.pptx): A tutorial that challenges developers to enhance the [`building7m`](src/examples/demo/building7m) example.
 
 #### HTML
 
@@ -98,16 +98,16 @@ You should update the documentation on a regular basis to keep it in sync with t
 
 #### Examples
 
-Examples of SyDEVS-based simulations are found in the [`src/example`](src/example) directory.
+Examples of SyDEVS-based simulations are found in the [`src/examples`](src/examples) directory.
 
-The best examples for learning the library are those in [`demo`](src/example/demo).
+The best examples for learning the library are those in [`demo`](src/examples/demo).
 
-In particular, the [`queueing`](src/example/demo/queueing) project features one well-commented example of each of the four types of nodes:
+In particular, the [`queueing`](src/examples/demo/queueing) project features one well-commented example of each of the four types of nodes:
 
-- [`queueing_node.h`](src/example/demo/queueing/queueing_node.h) (atomic)
-- [`two_stage_queueing_node.h`](src/example/demo/queueing/two_stage_queueing_node.h) (composite)
-- [`parallel_queueing_node.h`](src/example/demo/queueing/parallel_queueing_node.h) (collection)
-- [`plus_node.h`](src/example/demo/queueing/plus_node.h) (function)
+- [`queueing_node.h`](src/examples/demo/queueing/queueing_node.h) (atomic)
+- [`two_stage_queueing_node.h`](src/examples/demo/queueing/two_stage_queueing_node.h) (composite)
+- [`parallel_queueing_node.h`](src/examples/demo/queueing/parallel_queueing_node.h) (collection)
+- [`plus_node.h`](src/examples/demo/queueing/plus_node.h) (function)
 
 ## Contributing
 

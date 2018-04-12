@@ -26,7 +26,7 @@ namespace systems {
  * try {
  *     // Create an object to simulate a building for 5 minutes of simulated
  *     // time with a random seed of 0 and printed results directed to std::cout.
- *     sydevs::systems::simulation<building_simulation_node> sim(5_min, 0, std::cout);
+ *     simulation<building_simulation_node> sim(5_min, 0, std::cout);
  *
  *     // Print the initial temperature.
  *     sim.top.initial_temperature.parameter.print_on_use();
@@ -43,7 +43,7 @@ namespace systems {
  *     // Run the simulation until completion.
  *     sim.process_remaining_events();
  * }
- * catch (const sydevs::systems::system_node::error& e) {
+ * catch (const system_node::error& e) {
  *     std::cout << "SYSTEM NODE ERROR: " << e.what() << std::endl;
  * }
  * catch (const std::exception& e) {
