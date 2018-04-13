@@ -1,8 +1,8 @@
 #pragma once
-#ifndef SYDEVS_EXAMPLES_QUEUEING_SIMULATION_NODE_H_
-#define SYDEVS_EXAMPLES_QUEUEING_SIMULATION_NODE_H_
+#ifndef SYDEVS_EXAMPLES_TWO_STAGE_QUEUEING_CLOSED_SYSTEM_H_
+#define SYDEVS_EXAMPLES_TWO_STAGE_QUEUEING_CLOSED_SYSTEM_H_
 
-#include <examples/demo/queueing/queueing_node.h>
+#include <examples/demo/queueing/two_stage_queueing_node.h>
 #include <examples/demo/queueing/job_generation_node.h>
 #include <sydevs/systems/composite_node.h>
 #include <sydevs/systems/parameter_node.h>
@@ -15,27 +15,28 @@ using namespace sydevs::systems;
 
 
 /**
- * This node allows simulations to be performed on the "queueing_node" atomic
- * class, supplying jobs at regular intervals and providing access to the
- * parameters and statistics.
+ * This node allows simulations to be performed on the 
+ * "two_stage_queueing_node" composite class, supplying jobs at regular
+ * intervals and providing access to the parameters and statistics.
  */
-class queueing_simulation_node : public composite_node
+class two_stage_queueing_closed_system : public composite_node
 {
 public:
     // Constructor/Destructor:
-    queueing_simulation_node(const std::string& node_name, const node_context& external_context);
-    virtual ~queueing_simulation_node() = default;
+    two_stage_queueing_closed_system(const std::string& node_name, const node_context& external_context);
+    virtual ~two_stage_queueing_closed_system() = default;
 
     // Components:
+
     parameter_node<duration> job_gen_dt;  // node supplying the job generation duration as a parameter
     parameter_node<duration> serv_dt;     // node supplying the service duration as a parameter
     job_generation_node job_generation;   // node supplying jobs at regular intervals
-    queueing_node queue;                  // node representing the queue
+    two_stage_queueing_node queue;        // node representing the two sequential queues
     statistic_node<duration> idle_dt;     // node accessing the idle duration as a statistic
 };
 
 
-queueing_simulation_node::queueing_simulation_node(const std::string& node_name, const node_context& external_context)
+two_stage_queueing_closed_system::two_stage_queueing_closed_system(const std::string& node_name, const node_context& external_context)
     : composite_node(node_name, external_context)
     , job_gen_dt("job_gen_dt", internal_context())
     , serv_dt("serv_dt", internal_context())

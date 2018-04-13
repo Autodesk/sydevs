@@ -2,7 +2,7 @@
 #ifndef SYDEVS_EXAMPLES_CUSTOMS_H_
 #define SYDEVS_EXAMPLES_CUSTOMS_H_
 
-#include <examples/research/customs/customs_node.h>
+#include <examples/research/customs/customs_closed_system.h>
 #include <sydevs/systems/simulation.h>
 #include <iostream>
 
@@ -15,7 +15,7 @@ using namespace sydevs::systems;
 void customs()
 {
     try {
-        simulation<customs_node> sim(12_hr, 0, std::cout);
+        simulation<customs_closed_system> sim(12_hr, 0, std::cout);
 
         sim.top.source.item_output.print_on_use();
         sim.top.kiosk_queue.item_output.print_on_use();

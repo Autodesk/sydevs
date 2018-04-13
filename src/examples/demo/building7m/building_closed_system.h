@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SYDEVS_EXAMPLES_BUILDING_SIMULATION_NODE_H_
-#define SYDEVS_EXAMPLES_BUILDING_SIMULATION_NODE_H_
+#ifndef SYDEVS_EXAMPLES_BUILDING_CLOSED_SYSTEM_H_
+#define SYDEVS_EXAMPLES_BUILDING_CLOSED_SYSTEM_H_
 
 #include <examples/demo/building7m/building_info_node.h>
 #include <examples/demo/building7m/initial_position_node.h>
@@ -16,12 +16,12 @@ using namespace sydevs;
 using namespace sydevs::systems;
 
 
-class building_simulation_node : public composite_node
+class building_closed_system : public composite_node
 {
 public:
     // Constructor/Destructor:
-    building_simulation_node(const std::string& node_name, const node_context& external_context);
-    virtual ~building_simulation_node() = default;
+    building_closed_system(const std::string& node_name, const node_context& external_context);
+    virtual ~building_closed_system() = default;
 
     // Components:
     parameter_node<thermodynamic_temperature> initial_temperature;
@@ -34,7 +34,7 @@ public:
 };
 
 
-building_simulation_node::building_simulation_node(const std::string& node_name, const node_context& external_context)
+building_closed_system::building_closed_system(const std::string& node_name, const node_context& external_context)
     : composite_node(node_name, external_context)
     , initial_temperature("initial_temperature", internal_context(), 293150_mK)
     , frame_duration("frame_duration", internal_context(), duration::inf())  // 30_s recommended for textual output

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SYDEVS_EXAMPLES_PREDICTION_SIMULATION_NODE_H_
-#define SYDEVS_EXAMPLES_PREDICTION_SIMULATION_NODE_H_
+#ifndef SYDEVS_EXAMPLES_PREDICTION_CLOSED_SYSTEM_H_
+#define SYDEVS_EXAMPLES_PREDICTION_CLOSED_SYSTEM_H_
 
 #include <sydevs/systems/composite_node.h>
 #include <sydevs/systems/statistic_node.h>
@@ -14,12 +14,12 @@ using namespace sydevs;
 using namespace sydevs::systems;
 
 
-class prediction_simulation_node : public composite_node
+class prediction_closed_system : public composite_node
 {
 public:
     // Constructor/Destructor:
-    prediction_simulation_node(const std::string& node_name, const node_context& external_context);
-    virtual ~prediction_simulation_node() = default;
+    prediction_closed_system(const std::string& node_name, const node_context& external_context);
+    virtual ~prediction_closed_system() = default;
 
     // Components:
     parameter_node<duration> avg_occurrence_dt;
@@ -30,7 +30,7 @@ public:
 };
 
 
-prediction_simulation_node::prediction_simulation_node(const std::string& node_name, const node_context& external_context)
+prediction_closed_system::prediction_closed_system(const std::string& node_name, const node_context& external_context)
     : composite_node(node_name, external_context)
     , avg_occurrence_dt("avg_occurrence_dt", internal_context())
     , avg_incident_dt("avg_incident_dt", internal_context())
@@ -54,7 +54,7 @@ std::pair<int64, int64> simulate_prediction_system(int64 upper_scale, int64 lowe
     auto avg_incident_dt = duration(pow(10, 3*(unit - pico) - lower_scale), pico);
 
     try {
-        simulation<prediction_simulation_node> sim(duration::inf(), seed, std::cout);
+        simulation<prediction_closed_system> sim(duration::inf(), seed, std::cout);
         sim.top.avg_occurrence_dt.set_value(avg_occurrence_dt);
         sim.top.avg_incident_dt.set_value(avg_incident_dt);
         if (print_all) {

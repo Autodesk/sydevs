@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SYDEVS_EXAMPLES_CUSTOMS_NODE_H_
-#define SYDEVS_EXAMPLES_CUSTOMS_NODE_H_
+#ifndef SYDEVS_EXAMPLES_CUSTOMS_CLOSED_SYSTEM_H_
+#define SYDEVS_EXAMPLES_CUSTOMS_CLOSED_SYSTEM_H_
 
 #include <sydevs/systems/composite_node.h>
 #include <sydevs/systems/parameter_node.h>
@@ -18,12 +18,12 @@ using namespace sydevs;
 using namespace sydevs::systems;
 
 
-class customs_node : public composite_node
+class customs_closed_system : public composite_node
 {
 public:
     // Constructor/Destructor:
-    customs_node(const std::string& node_name, const node_context& external_context);
-    virtual ~customs_node() = default;
+    customs_closed_system(const std::string& node_name, const node_context& external_context);
+    virtual ~customs_closed_system() = default;
 
     // Ports:
 
@@ -62,7 +62,7 @@ public:
 };
 
 
-customs_node::customs_node(const std::string& node_name, const node_context& external_context)
+customs_closed_system::customs_closed_system(const std::string& node_name, const node_context& external_context)
     : composite_node(node_name, external_context)
 
     , source_id("source_id", internal_context(), 1000)                    // ID of the node that generates arrivals

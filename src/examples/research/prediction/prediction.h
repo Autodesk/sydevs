@@ -2,7 +2,7 @@
 #ifndef SYDEVS_EXAMPLES_PREDICTION_H_
 #define SYDEVS_EXAMPLES_PREDICTION_H_
 
-#include <examples/research/prediction/prediction_simulation_node.h>
+#include <examples/research/prediction/prediction_closed_system.h>
 #include <ctime>
 #include <chrono>
 #include <iostream>
