@@ -58,7 +58,7 @@ add_library(SyDEVS SHARED ${CORE_SRCS} ${TIME_SRCS} ${SYSTEMS_SRCS} ${CORE_HDRS}
 #   Multidimensional array examples
 #
 # ------------------------------------------------------------------------------
-set(PERFORMANCE_EXAMPLES_DIR src/examples//test_performance)
+set(PERFORMANCE_EXAMPLES_DIR src/examples/test_performance)
 
 set(MULTIDIMENSIONAL_ARRAY_EXAMPLES_DIR ${PERFORMANCE_EXAMPLES_DIR}/multidimensional_arrays)
 aux_source_directory(${MULTIDIMENSIONAL_ARRAY_EXAMPLES_DIR} ARRAY_PERFORMANCE_SRCS)
@@ -70,7 +70,7 @@ target_link_libraries(array_performance)
 #   Systems examples
 #
 # ------------------------------------------------------------------------------
-set(SYSTEMS_EXAMPLES_DIR src/examples//test_systems)
+set(SYSTEMS_EXAMPLES_DIR src/examples/test_systems)
 
 set(HELLO_SYSTEMS_DIR ${SYSTEMS_EXAMPLES_DIR}/hello)
 file (GLOB HELLO_SYSTEMS_HDRS "${HELLO_SYSTEMS_DIR}/*.h")
@@ -113,7 +113,7 @@ target_link_libraries(cellular_systems SyDEVS-static)
 #   Research examples
 #
 # ------------------------------------------------------------------------------
-set(RESEARCH_EXAMPLES_DIR src/examples//research)
+set(RESEARCH_EXAMPLES_DIR src/examples/research)
 
 set(CUSTOMS_DIR ${RESEARCH_EXAMPLES_DIR}/customs)
 file (GLOB CUSTOMS_HDRS "${CUSTOMS_DIR}/*.h")
@@ -132,7 +132,7 @@ target_link_libraries(prediction SyDEVS-static)
 #   Demo examples
 #
 # ------------------------------------------------------------------------------
-set(DEMO_EXAMPLES_DIR src/examples//demo)
+set(DEMO_EXAMPLES_DIR src/examples/demo)
 
 set(BUILDING7M_DIR ${DEMO_EXAMPLES_DIR}/building7m)
 file (GLOB BUILDING7M_HDRS "${BUILDING7M_DIR}/*.h")
