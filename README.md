@@ -10,6 +10,10 @@ Multiscale Simulation and Systems Modeling Library
 
 This library provides a framework for implementating complex systems analysis and simulation code in a modular/hierarchical fashion. It was originally developed to serve as a backend for the visual programming interfaces described by [Maleki et al. (2015)](https://www.autodeskresearch.com/publications/designingdevs), but the same functionality can be achieved without a GUI by defining C++ classes that derive from one of the system node base classes ([`atomic_node`](src/sydevs/systems/atomic_node.h), [`composite_node`](src/sydevs/systems/composite_node.h), [`collection_node`](src/sydevs/systems/collection_node.h), [`function_node`](src/sydevs/systems/function_node.h)). The framework combines two programming paradigms: [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) as exemplified by Autodesk's [Dynamo](http://dynamobim.org/) tool, and the [DEVS](https://en.wikipedia.org/wiki/DEVS) message-passing paradigm implemented in tools such as DesignDEVS (see [software](http://simaud.com/resources.php#software), [conference paper](https://www.autodeskresearch.com/designdevs), [journal paper](https://www.autodeskresearch.com/publications/practical-aspects-designdevs-simulation-environment)). These foundations give the framework the generality neeeded to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
 
+Webpage: [https://autodesk.github.io/sydevs](https://autodesk.github.io/sydevs)
+
+## Main Classes
+
 The library includes C++11/14 classes grouped into three main folders:
 
 #### [`src/sydevs/core`](src/sydevs/core)
@@ -76,6 +80,12 @@ The unit testing framework used in SyDEVS is [Catch2](https://github.com/catchor
 
 ## Documentation
 
+#### Webpage
+
+Main SyDEVS webpage:
+
+- [https://autodesk.github.io/sydevs](https://autodesk.github.io/sydevs).
+
 #### PowerPoint
 
 There are two PowerPoint documents located in the [`doc`](doc) folder:
@@ -95,6 +105,10 @@ This will build the documentation in the [`doc`](doc) directory. To open the doc
 - Open `index.html` in your web browser.
 
 You should update the documentation on a regular basis to keep it in sync with the code.
+
+Latest published version of the HTML documentation:
+
+- [https://autodesk.github.io/sydevs/doc/html/index.html](https://autodesk.github.io/sydevs/doc/html/index.html).
 
 #### Examples
 
