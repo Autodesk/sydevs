@@ -32,7 +32,7 @@ Using SyDEVS, simulation code is organized into nodes, which can be linked toget
 
 ## Example
 
-Here's an example of a SyDEVS atomic node declared in C++. Observe that the four types of ports and four types of event handlers match the atomic node diagram above. The code is taken from the [queueing](https://github.com/Autodesk/sydevs/tree/master/src/example/demo/queueing) demonstration project, which features an example of each of the four main types of nodes.
+Here's an example of a SyDEVS atomic node declared in C++. Observe that the four types of ports and four types of event handlers match the atomic node diagram above. The code is taken from the [queueing](https://github.com/Autodesk/sydevs/tree/master/src/examples/demo/queueing) demonstration project, which features an example of each of the four main types of nodes.
 
 ```cpp
 /**
@@ -73,7 +73,7 @@ protected:
 };
 ```
 
-The complete implementation of the node can be found [here](https://github.com/Autodesk/sydevs/blob/master/src/example/demo/queueing/queueing_node.h).
+The complete implementation of the node can be found [here](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/queueing_node.h).
 
 ## Notable Features
 
