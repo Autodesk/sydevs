@@ -26,9 +26,9 @@ sydevs_examples/
             part01/
 ```
 
-This is the project we will use for the Getting Started tutorial. When you begin other projects, choose different names for the project folder `sydevs_examples` as well as the `examples` folder within `src`. In other projects, your first simulation will not be called `part01`, so change this folder name as well. Other names can also be changed. For example, you might prefer your compiled data to go in a folder named `build` instead of `bin`.
+This is the project we will use for the Getting Started tutorial. When you begin other projects, choose different names for the project folder (`sydevs_examples`) and the folder that will contain reusable code (`examples`). In other projects, your first simulation will not be called `part01`, so change this folder name as well. Other names can also be changed. For example, you might prefer your compiled data to go in a folder named `build` instead of `bin`.
 
-Now download and extract a SyDEVS release from [github.com/Autodesk/sydevs/releases](https://github.com/Autodesk/sydevs/releases). Shorten the name of the extracted folder so that it contains only the word `sydevs` followed by the version number. Then place the `SyDEVS-v???` folder into the `external` folder of your project.
+Now download and extract a SyDEVS release from [github.com/Autodesk/sydevs/releases](https://github.com/Autodesk/sydevs/releases). Shorten the name of the extracted folder so that it contains only the word `sydevs` followed by the version number. Then place the `SyDEVS-v[...]` folder into the `external` folder of your project.
 
 The resulting directory structure should be as follows (except possibly with a different version number in the `sydevs-v0.4` folder name). The `core`, `systems` and `time` folders should each contain a number of header files, and the `lib` folder should contain several pre-compiled libraries.
 ```
@@ -116,13 +116,13 @@ add_executable(part01 ${PART01_SRCS})
 target_link_libraries(part01 debug SyDEVS-static-debug optimized SyDEVS-static)
 ```
 
-When preparing a `CMakeLists.txt` file for other projects, remember to change the name of the project, reference the correct version of SyDEVS, replace `Examples` and the `examples` folder with terms that describe your application, and replace `PART01_DIR` and `part01` to properly identify your simulation.
+When preparing a `CMakeLists.txt` file for other projects, remember to change the name of the project, reference the correct version of SyDEVS, replace the `Examples` heading (and the `examples` folder) with terms that describe your application, and replace the `PART01_DIR` variable (and `part01` executable) to properly identify your simulation.
 
-Now it's time to build and test the project to make sure everything is set up properly.
+Now it's time to build and test the project to make sure everything is properly set up.
 
 1. If you do not already have CMake, [download](http://www.cmake.org/) and install it.
 2. Open a Command Prompt and navigate into the `sydevs_examples/bin` folder.
-3. Run CMake; for example...
+3. Run CMake using the appropriate command, possibly one of the following:
   - `cmake ..`
   - `cmake -G "Visual Studio 15 2017 Win64" ..`
   - `cmake -G "Visual Studio 14 2015 Win64" ..`
@@ -137,7 +137,7 @@ The `part01` executable should produce the following output.
 SyDEVS Getting Started - Part 1 Complete
 ```
 
-That's it for Part 1! The program you just created doesn't do anything, but at least you've got the project set up and ready to support simulation code. In [Part 2](getting_started_part02.html), you will create your first SyDEVS node and simulation.
+That's it for Part 1! The program you just made doesn't do anything, but at least you've got the project set up and ready to support simulation code. In [Part 2](getting_started_part02.html), you will create your first SyDEVS node and simulation.
 
 ([***Continue to Part 2***](getting_started_part02.html))
 
@@ -147,11 +147,11 @@ That's it for Part 1! The program you just created doesn't do anything, but at l
 
 @page getting_started_part02 Part 2: Creating your First Simulation
 
-Let's start by creating a few new folders within the `sydevs_examples` project.
+Let's start by adding a few new folders to your `sydevs_examples` project.
 
 1. In `sydevs_examples/src/examples`, create a folder named `getting_started`.
 2. In the new `getting_started` folder, create a folder named `waveform`. This is where your first SyDEVS node will be located.
-3. In `sydevs_examples/src/simulations` make a folder named `part02`. The code here will invoke the simulation code in `sydevs_examples/src/examples/getting_started/waveform`. 
+3. In `sydevs_examples/src/simulations` make a folder named `part02`. The code here will invoke the simulation code in `examples/getting_started/waveform`. 
 
 The overall directory structure should now be as follows.
 
@@ -170,14 +170,14 @@ sydevs_examples/
             part02/
 ```
 
-The `CMakeLists.txt` file will have to be updated, so let's get that out of the way. Add the following instructions to the `Examples` section. This prepares a list of the header (.h) files we will later create in the `waveform` folder.
+The `CMakeLists.txt` file will have to be updated, so let's get that out of the way. Add the following instructions to the `Examples` section. These instructions prepare a list of the header (.h) files we will later create in the `waveform` folder.
 
 ```CMake
 set(WAVEFORM_DIR ${EXAMPLES_DIR}/getting_started/waveform)
 file(GLOB WAVEFORM_HDRS "${WAVEFORM_DIR}/*.h")
 ```
 
-Also add the following instructions to the `Simulations` section. This creates an executable for Part 2 of the tutorial. Observe that the executable references the `waveform` header files.
+Also add the following instructions to the `Simulations` section. These instructions create an executable for Part 2 of the tutorial. Observe that the executable references the `waveform` header files.
 
 ```CMake
 set(PART02_DIR ${SIMULATIONS_DIR}/part02)
@@ -217,7 +217,7 @@ add_executable(part02 ${PART02_SRCS} ${WAVEFORM_HDRS})
 target_link_libraries(part02 debug SyDEVS-static-debug optimized SyDEVS-static)
 ```
 
-It's time now to add a SyDEVS node to the project. In the `sydevs_examples/src/examples/getting_started/waveform` folder, create a file named `square_wave_closed_system.h` and save it with the following code.
+It's time now to add a SyDEVS node to the project. In the `examples/getting_started/waveform` folder, create a file named `square_wave_closed_system.h` and save it with the following code.
 
 ```cpp
 #pragma once
@@ -352,7 +352,9 @@ void square_wave()
 #endif
 ```
 
-Finally, in `sydevs_examples/src/simulations/part02`, save the following code as `main.cpp`.
+This file contains a function (`square_wave`) which creates a simulation (`sim`) that will last for 1 minute of simulated time. The simulation has a random seed of 0 and sends output data to `std::cout`. The simulation is executed by invoking the `sim` object's `process_remaining_events` member function.
+
+Finally, in `simulations/part02`, save the following code as `main.cpp`. This main program simply calls the function described above.
 
 ```cpp
 #include <examples/getting_started/waveform/square_wave.h>
@@ -381,3 +383,8 @@ phase = 0
 phase = 1
 ```
 
+The phase of the square wave alternatives between off and on.
+
+You've now completed Part 2 of the Getting Started tutorial, and have successfully run a simulation developed using SyDEVS. Continue exploring the resources listed on the [SyDEVS webpage](https://autodesk.github.io/sydevs/) and [GitHub repo](https://github.com/Autodesk/sydevs) to learn how to (a) create more sophisticated nodes, and (b) extract a variety of data from your simulations.
+
+Also, keep an eye out for future expanded versions of this tutorial.
