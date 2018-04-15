@@ -7,5 +7,5 @@ var classsydevs_1_1string__builder =
     [ "operator<<", "classsydevs_1_1string__builder.html#a33c88e8518fa0866d9a70e554ee908e8", null ],
     [ "operator=", "classsydevs_1_1string__builder.html#a4ca84d50502d5070e51759486e3f6ff6", null ],
     [ "operator=", "classsydevs_1_1string__builder.html#a0313ce338cdb774aa52ae321c3e27487", null ],
-    [ "str", "classsydevs_1_1string__builder.html#ab7b6f8eb9af485583d46f7cb2397809f", null ]
+    [ "str", "classsydevs_1_1string__builder.html#af0e3fb43b2fb74a19c56a729fb1baa7e", null ]
 ];
