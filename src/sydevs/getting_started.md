@@ -3,7 +3,7 @@ Getting Started {#getting_started}
 
 This tutorial will guide you through the steps of creating a simulation project using the SyDEVS library.
 
-You will need a C++ compiler that implements the C++14 standard. SyDEVS has been tested successfully with Visual Studio 2015, Visual Studio 2017, and recent versions of GCC and Clang.
+You will need a C++ compiler that implements the C++14 standard. If you're relatively new to C++, a list of free compilers and a tutorial are available on the [Standard C++ Foundation's getting started page](https://isocpp.org/get-started). SyDEVS has been tested successfully with Visual C++ 2015 and 2017, the Gnu Compiler Collection, and Clang.
 
 - @subpage getting_started_part01
 - @subpage getting_started_part02
