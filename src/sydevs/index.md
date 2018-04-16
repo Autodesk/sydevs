@@ -12,6 +12,7 @@ See the [Getting Started](getting_started.html) tutorial for step-by-step instuc
 - [Introductory page](getting_started.html)
 - [Part 1: Setting up your Simulation Project](getting_started_part01.html)
 - [Part 2: Creating your First Simulation](getting_started_part02.html)
+- [Part 3: Customizing Simulation Output](getting_started_part03.html)
 
 
 Main Classes
