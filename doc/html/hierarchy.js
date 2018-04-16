@@ -19,7 +19,7 @@ var hierarchy =
     [ "sydevs::core_type< std::shared_ptr< T > >", "structsydevs_1_1core__type_3_01std_1_1shared__ptr_3_01_t_01_4_01_4.html", null ],
     [ "sydevs::core_type< std::string >", "structsydevs_1_1core__type_3_01std_1_1string_01_4.html", null ],
     [ "sydevs::core_type< std::tuple< T > >", "structsydevs_1_1core__type_3_01std_1_1tuple_3_01_t_01_4_01_4.html", null ],
-    [ "sydevs::core_type< std::tuple< T, Ts...> >", "structsydevs_1_1core__type_3_01std_1_1tuple_3_01_t_00_01_ts_8_8_8_4_01_4.html", null ],
+    [ "sydevs::core_type< std::tuple< T, Ts... > >", "structsydevs_1_1core__type_3_01std_1_1tuple_3_01_t_00_01_ts_8_8_8_01_4_01_4.html", null ],
     [ "sydevs::core_type< std::vector< T > >", "structsydevs_1_1core__type_3_01std_1_1vector_3_01_t_01_4_01_4.html", null ],
     [ "sydevs::systems::discrete_event_time", "classsydevs_1_1systems_1_1discrete__event__time.html", null ],
     [ "sydevs::systems::collection_node< AgentID, Node >::flow_port_proxy< T >", "classsydevs_1_1systems_1_1collection__node_1_1flow__port__proxy.html", null ],

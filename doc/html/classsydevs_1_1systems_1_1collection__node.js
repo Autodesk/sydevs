@@ -22,8 +22,8 @@ var classsydevs_1_1systems_1_1collection__node =
     [ "handle_planned_event", "classsydevs_1_1systems_1_1collection__node.html#aec15b2e424c551a36b35f0094d565151", null ],
     [ "handle_unplanned_event", "classsydevs_1_1systems_1_1collection__node.html#a67a7e596dab1dd34acc514cbe519ccdc", null ],
     [ "invoke_agent", "classsydevs_1_1systems_1_1collection__node.html#ae297a53a9dd5921af65e3f6018de8b94", null ],
-    [ "print_on_elapsed_duration", "classsydevs_1_1systems_1_1collection__node.html#a235822f4d15f96cff61ad79cba777dd2", null ],
-    [ "print_on_planned_duration", "classsydevs_1_1systems_1_1collection__node.html#abfb5493d39b79490d7a7d783dcd645cb", null ],
+    [ "print_on_elapsed_duration", "classsydevs_1_1systems_1_1collection__node.html#a7c1f46cbfc779ef555c64fa22bb1c875", null ],
+    [ "print_on_planned_duration", "classsydevs_1_1systems_1_1collection__node.html#a011c9eb62079c538a2f6303a86908f92", null ],
     [ "remove_agent", "classsydevs_1_1systems_1_1collection__node.html#aeba98831e06b063b454e64d6d37d0d79", null ],
     [ "transmitted", "classsydevs_1_1systems_1_1collection__node.html#a030cc5e56b83c9d01f7a983056dec7c1", null ],
     [ "prototype", "classsydevs_1_1systems_1_1collection__node.html#a38bdb939c4aa5cbc06e7ddbb702688e6", null ]
