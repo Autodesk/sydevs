@@ -12,7 +12,9 @@ The framework combines two programming paradigms: [dataflow programming](https:/
 
 ## Documentation
 
-- [Main Documentation](doc/html/index.html): Includes both the [Getting Started](doc/html/getting_started.html) tutorial and the API Reference.
+- [Overview](overview.html): Briefly introduces SyDEVS.
+- [Getting Started](getting_started/): Explains how to use SyDEVS, step by step.
+- [API Reference](doc/html/index.html): Documents the C++ classes that make up the library.
 - SyDEVS Framework Overview ([PPTX](doc/downloads/SyDEVS_Framework_Overview.pptx), [PDF](doc/downloads/SyDEVS_Framework_Overview.pdf)): Illustrates the main concepts & relates them to code.
 - SyDEVS Building7m Tutorial ([PPTX](doc/downloads/SyDEVS_Building7m_Tutorial.pptx), [PDF](doc/downloads/SyDEVS_Building7m_Tutorial.pdf)): Challenges users to learn by enhancing an example.
 
