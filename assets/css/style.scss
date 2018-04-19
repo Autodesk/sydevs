@@ -3,27 +3,19 @@
 
 @import "{{ site.theme }}";
 
-nav {
-    margin: 0 auto;
-}
-
 nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
+    background-color: #9295a3;
 }
 
 nav li {
     display: inline-block;
-    margin-right: 70px;
+    margin-right: 40px;
 }
 
-.topnav {
-    background-color: #9295a3;
-    overflow: hidden;
-}
-
-.topnav a {
+nav a {
     float: left;
     color: #f2f2f2;
     text-align: center;
@@ -31,12 +23,12 @@ nav li {
     font-size: 17px;
 }
 
-.topnav a:hover {
+nav a:hover {
     background-color: #ddd;
     color: black;
 }
 
-.topnav a.active {
+nav a.active {
     background-color: #4CAF50;
     color: white;
 }
