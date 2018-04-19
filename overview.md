@@ -1,6 +1,6 @@
 # Overview
 
-Understanding SyDEVS
+Brief Introduction to SyDEVS
 
 ## Concept
 
