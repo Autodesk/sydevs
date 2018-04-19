@@ -4,26 +4,48 @@
 @import "{{ site.theme }}";
 
 nav ul {
-    margin: 0;
-    padding: 8px 0 4px 0;
     list-style: none;
     text-align: center;
+    padding: 8px 0 4px 0;
     background-color: #9295a3;
 }
 
-nav li {
+nav ul li {
     display: inline-block;
     padding: 0 30px 0 30px
 }
 
-nav a {
+nav ul li a {
     float: left;
-    color: #f2f2f2;
     text-align: center;
     text-decoration: none;
     font-size: 18px;
+    color: #f2f2f2;
 }
 
-nav a:hover {
+nav ul li a:hover {
+    color: #f2ff00;
+}
+
+nav ul li ul {
+    list-style: none;
+    text-align: left;
+    padding: 8px 0 4px 0;
+    background-color: #9295a3;
+}
+
+nav ul li ul li {
+    display: block;
+}
+
+nav ul li ul li a {
+    float: left;
+    text-align: left;
+    text-decoration: none;
+    font-size: 18px;
+    color: #f2f2f2;
+}
+
+nav ul li ul li a:hover {
     color: #f2ff00;
 }
