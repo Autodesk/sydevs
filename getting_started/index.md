@@ -1,4 +1,4 @@
-| <span style="color:gray">Prev</span> | <span style="color:gray">Getting Started - Table of Contents</span> | [Next](part01.html) |
+| Prev | Getting Started - Table of Contents | [Next](part01.html) |
 # Getting Started
 
 Step-by-Step Guide to Using SyDEVS
