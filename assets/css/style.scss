@@ -7,6 +7,17 @@ nav {
     float: center;
 }
 
+nav ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 70px;
+}
+
 /* Add a black background color to the top navigation */
 .topnav {
     background-color: #9295a3;
