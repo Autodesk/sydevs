@@ -1,5 +1,9 @@
 # Overview
 
+Understanding SyDEVS
+
+## Concept
+
 Using SyDEVS, simulation code is organized into nodes, which can be linked together to form dataflow and simulation networks. The four main types of nodes are illustrated below.
 
 ![SyDEVS Nodes](doc/images/sydevs_nodes.png "The four main types of SyDEVS nodes")

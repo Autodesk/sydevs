@@ -1,4 +1,5 @@
-# Getting Started - Part 1
+[Getting Started](/)
+# Part 1:  Setting up your Simulation Project
 
 First, create a folder named `sydevs_examples` for your simulation project. Next make several new folders within `sydevs_examples` to produce the following directory structure.
 
@@ -123,4 +124,6 @@ The `part01` executable should produce the following output.
 SyDEVS Getting Started - Part 1 Complete
 ```
 
-That's it for Part 1! The program you just made doesn't do anything, but at least you've got the project set up and ready to support simulation code. 
+That's it for Part 1! The program you just made doesn't do anything, but at least you've got the project set up and ready to support simulation code. In [Part 2](part02.html), you will create your first SyDEVS node and simulation.
+
+([***Continue to Part 2***](part02.html))
