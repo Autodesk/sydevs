@@ -4,6 +4,7 @@
 @import "{{ site.theme }}";
 
 nav ul {
+    margin: 0;
     list-style: none;
     text-align: center;
     padding: 8px 0 4px 0;
@@ -28,17 +29,16 @@ nav ul li a:hover {
 }
 
 nav ul li ul {
+    margin: 0;
     list-style: none;
     text-align: left;
     background-color: #9295a3;
     position: absolute;
-    list-style-type: none;
-    padding: 0;
 }
 
 nav ul li ul li {
     display: block;
-    width: 360px;
+    width: 380px;
 }
 
 nav ul li ul li a {
