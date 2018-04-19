@@ -17,7 +17,6 @@ nav ul li {
 }
 
 nav ul li a {
-    float: left;
     text-align: center;
     text-decoration: none;
     font-size: 18px;
@@ -31,7 +30,6 @@ nav ul li a:hover {
 nav ul li ul {
     list-style: none;
     text-align: left;
-    padding: 8px 0 4px 0;
     background-color: #9295a3;
     position: absolute;
 }
@@ -41,7 +39,6 @@ nav ul li ul li {
 }
 
 nav ul li ul li a {
-    float: left;
     text-align: left;
     text-decoration: none;
     font-size: 18px;
