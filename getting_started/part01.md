@@ -1,6 +1,4 @@
-------------------------------------------------------------------------------------------------
 | [Prev](index.html) | [Getting Started - Table of Contents](index.html) | [Next](part02.html) |
-------------------------------------------------------------------------------------------------
 # Part 1:  Setting up your Simulation Project
 
 First, create a folder named `sydevs_examples` for your simulation project. Next make several new folders within `sydevs_examples` to produce the following directory structure.

@@ -1,5 +1,4 @@
-| [Getting Started - Table of Contents](index.html) | [Next](part01.html) |
-| --------------------------------------------------|---------------------|
+| <span style="color:gray">Prev</span> | <span style="color:gray">Getting Started - Table of Contents</span>(index.html) | [Next](part01.html) |
 # Getting Started
 
 The tutorial is being moved to this page.
