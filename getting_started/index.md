@@ -1,4 +1,4 @@
-| Prev | Getting Started - Table of Contents | [Next](part01.html) |
+| Prev | Getting Started -- Table of Contents | [Next](part01.html) |
 # Getting Started
 
 Step-by-Step Guide to Modeling and Simulation with SyDEVS
