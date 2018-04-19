@@ -1,19 +1,10 @@
-Overview {#mainpage}
-========
+API Reference Overview {#mainpage}
+======================
 
-This library provides a framework for implementating complex systems analysis and simulation code in a modular/hierarchical fashion. It was originally developed to serve as a backend for the visual programming interfaces described by [Maleki et al. (2005)](https://www.autodeskresearch.com/publications/designingdevs), but the same functionality can be achieved without a GUI by defining C++ classes that derive from one of the system node base classes ([atomic_node](@ref sydevs::systems::atomic_node), [composite_node](@ref sydevs::systems::composite_node), [collection_node](@ref sydevs::systems::collection_node), [function_node](@ref sydevs::systems::function_node)). The framework combines two programming paradigms: [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) as exemplified by Autodesk's [Dynamo](http://dynamobim.org/) tool, and the [DEVS](https://en.wikipedia.org/wiki/DEVS) message-passing paradigm implemented in tools such as DesignDEVS (see [software](http://simaud.com/resources.php#software), [conference paper](https://www.autodeskresearch.com/designdevs), [journal paper](https://www.autodeskresearch.com/publications/practical-aspects-designdevs-simulation-environment)). These foundations give the framework the generality neeeded to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
+About SyDEVS
+------------
 
-
-Getting Started
----------------
-
-See the [Getting Started](getting_started.html) tutorial for step-by-step instuctions on how to develop your own simulations using SyDEVS.
-
-- [Introductory page](getting_started.html)
-- [Part 1: Setting up your Simulation Project](getting_started_part01.html)
-- [Part 2: Creating your First Simulation](getting_started_part02.html)
-- [Part 3: Customizing Simulation Output](getting_started_part03.html)
-
+This library provides a framework for implementating complex systems analysis and simulation code in a modular/hierarchical fashion. It was originally developed to serve as a backend for the visual programming interfaces described by [Maleki et al. (2015)](https://www.autodeskresearch.com/publications/designingdevs), but the same functionality can be achieved without a GUI by defining C++ classes that derive from one of the system node base classes ([atomic_node](@ref sydevs::systems::atomic_node), [composite_node](@ref sydevs::systems::composite_node), [collection_node](@ref sydevs::systems::collection_node), [function_node](@ref sydevs::systems::function_node)). The framework combines two programming paradigms: [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) as exemplified by Autodesk's [Dynamo](http://dynamobim.org/) tool, and the [DEVS](https://en.wikipedia.org/wiki/DEVS) message-passing paradigm implemented in tools such as DesignDEVS (see [software](http://simaud.com/resources.php#software), [conference paper](https://www.autodeskresearch.com/designdevs), [journal paper](https://www.autodeskresearch.com/publications/practical-aspects-designdevs-simulation-environment)). These foundations give the framework the generality neeeded to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
 
 Main Classes
 ------------
