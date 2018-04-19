@@ -3,9 +3,13 @@
 
 @import "{{ site.theme }}";
 
+nav {
+    float: center;
+}
+
 /* Add a black background color to the top navigation */
 .topnav {
-    background-color: #333;
+    background-color: #9295a3;
     overflow: hidden;
 }
 
