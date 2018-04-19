@@ -1,6 +1,5 @@
 var searchData=
 [
-  ['overview',['Overview',['../index.html',1,'']]],
   ['offset',['offset',['../classsydevs_1_1arraynd__base.html#a27c491762e0550a87dfc6efa79cca1c6',1,'sydevs::arraynd_base']]],
   ['offset_5fmultiplier',['offset_multiplier',['../classsydevs_1_1quantity__base.html#add21bb8948ec52c8c604acdcac2fa5ad',1,'sydevs::quantity_base']]],
   ['operator_20_26_26',['operator &amp;&amp;',['../namespacesydevs.html#af1bd17451618ec487815c6bd712bd26b',1,'sydevs::operator &amp;&amp;(const arraynd&lt; bool, ndims &gt; &amp;lhs, const arraynd&lt; bool, ndims &gt; &amp;rhs)'],['../namespacesydevs.html#ab209311db9fd35a1e264e6fd26e8005c',1,'sydevs::operator &amp;&amp;(const arraynd&lt; bool, ndims &gt; &amp;lhs, const bool &amp;rhs)'],['../namespacesydevs.html#aecdca474d717e87f95f7f462c052edc8',1,'sydevs::operator &amp;&amp;(const bool &amp;lhs, const arraynd&lt; bool, ndims &gt; &amp;rhs)']]],

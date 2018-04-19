@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['getting_20started',['Getting Started',['../getting_started.html',1,'']]]
+  ['api_20reference_20overview',['API Reference Overview',['../index.html',1,'']]]
 ];

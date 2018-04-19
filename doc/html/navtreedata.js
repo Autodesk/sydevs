@@ -24,8 +24,7 @@ for the JavaScript code in this file
 var NAVTREE =
 [
   [ "SyDEVS", "index.html", [
-    [ "Overview", "index.html", null ],
-    [ "Getting Started", "getting_started.html", "getting_started" ],
+    [ "API Reference Overview", "index.html", null ],
     [ "Namespaces", "namespaces.html", [
       [ "Namespace List", "namespaces.html", "namespaces_dup" ],
       [ "Namespace Members", "namespacemembers.html", [
@@ -65,7 +64,7 @@ var NAVTREEINDEX =
 "classsydevs_1_1range.html#a4c3dbcd4399c8f45714cbdf8daa917e6",
 "classsydevs_1_1systems_1_1node__structure.html#a8e11d5bd2a6577edc0c4df1fadc4a5dd",
 "data__goal_8h.html#aedc856efa1c7c01192eaa54f04517034",
-"quantity_8h.html#aa4b1a1479c50dbe71d3d7cc0c13da385"
+"quantity_8h.html#aacfd4c2fac5dd0dd5e797142605c9402"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
