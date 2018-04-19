@@ -10,10 +10,10 @@ sydevs_examples/
     src/
         examples/
         simulations/
-            part01/
+            setting_up/
 ```
 
-This is the project we will use for the Getting Started tutorial. When you begin other projects, choose different names for the project folder (`sydevs_examples`) and the folder that will contain reusable code (`examples`). In other projects, your first simulation will not be called `part01`, so change this folder name as well. Other names can also be changed. For example, you might prefer your compiled data to go in a folder named `build` instead of `bin`.
+This is the project we will use for the Getting Started tutorial. When you begin other projects, choose different names for the project folder (`sydevs_examples`) and the folder that will contain reusable code (`examples`). In other projects, your first simulation will not be called `setting_up`, so change this folder name as well. Other names can also be changed. For example, you might prefer your compiled data to go in a folder named `build` instead of `bin`.
 
 Now download and extract a SyDEVS release from [github.com/Autodesk/sydevs/releases](https://github.com/Autodesk/sydevs/releases). Shorten the name of the extracted folder so that it contains only the word `sydevs` followed by the version number. Then place the `SyDEVS-v[...]` folder into the `external` folder of your project.
 
@@ -32,10 +32,10 @@ sydevs_examples/
     src/
         examples/
         simulations/
-            part01/
+            setting_up/
 ```
 
-The next step is to add code specific your project. In the `src/simulations/part01` folder, create a text file named `main.cpp`. Copy the C++ code below into the file and save.
+The next step is to add code specific your project. In the `src/simulations/setting_up` folder, create a text file named `main.cpp`. Copy the C++ code below into the file and save.
 
 ```cpp
 #include <sydevs/systems/simulation.h>
@@ -97,13 +97,13 @@ set(EXAMPLES_DIR src/examples)
 # ------------------------------------------------------------------------------
 set(SIMULATIONS_DIR src/simulations)
 
-set(PART01_DIR ${SIMULATIONS_DIR}/part01)
-aux_source_directory(${PART01_DIR} PART01_SRCS)
-add_executable(part01 ${PART01_SRCS})
-target_link_libraries(part01 debug SyDEVS-static-debug optimized SyDEVS-static)
+set(SETTING_UP_DIR ${SIMULATIONS_DIR}/setting_up)
+aux_source_directory(${SETTING_UP_DIR} SETTING_UP_SRCS)
+add_executable(setting_up ${SETTING_UP_SRCS})
+target_link_libraries(setting_up debug SyDEVS-static-debug optimized SyDEVS-static)
 ```
 
-When preparing a `CMakeLists.txt` file for other projects, remember to change the name of the project, reference the correct version of SyDEVS, replace the `Examples` heading (and the `examples` folder) with terms that describe your application, and replace the `PART01_DIR` variable (and `part01` executable) to properly identify your simulation.
+When preparing a `CMakeLists.txt` file for other projects, remember to change the name of the project, reference the correct version of SyDEVS, replace the `Examples` heading (and the `examples` folder) with terms that describe your application, and replace the `SETTING_UP_DIR` variable (and `setting_up` executable) to properly identify your simulation.
 
 Now it's time to build and test the project to make sure everything is properly set up.
 
@@ -115,10 +115,10 @@ Now it's time to build and test the project to make sure everything is properly 
   - `cmake -G "Visual Studio 14 2015 Win64" ..`
   - `cmake -G "Xcode" ..`
 4. Build your project (e.g. using Visual Studio or Xcode)
-5. Find the `part01` executable (e.g. in `bin/Debug/` or `bin/Release/`)
-6. Run `part01` (e.g. `part01.exe`)
+5. Find the `setting_up` executable (e.g. in `bin/Debug/` or `bin/Release/`)
+6. Run `setting_up` (e.g. `setting_up.exe`)
 
-The `part01` executable should produce the following output.
+The `setting_up` executable should produce the following output.
 
 ```
 SyDEVS Getting Started - Part 1 Complete
@@ -126,4 +126,4 @@ SyDEVS Getting Started - Part 1 Complete
 
 That's it for Part 1! The program you just made doesn't do anything, but at least you've got the project set up and ready to support simulation code. In [Part 2](part02.html), you will create your first SyDEVS node and simulation.
 
-([***Continue to Part 2***](part02.html))
+| [***Continue to Part 2***](part02.html) |

@@ -38,7 +38,7 @@ std::cout << "phase = " << phase << std::endl;
 print((string_builder() << "phase = " << phase).str());
 ```
 
-Here the `string_builder` object is used to create a `std::string` value of the form `"phase = #"`. The `print` function outputs the string along with contextual information about the simulation. If you rebuild and run the `part02` executable, you should see the following output.
+Here the `string_builder` object is used to create a `std::string` value of the form `"phase = #"`. The `print` function outputs the string along with contextual information about the simulation. If you rebuild and run the `first_simulation` executable, you should see the following output.
 
 ```
 0|0|$time:time_point()
@@ -87,7 +87,7 @@ sim.process_remaining_events();
 sim.top.print_on_event();
 ```
 
-Now when the `part02` executable is rebuilt and run, the type of each event is printed. You can see that the `initialization` event occurs first, followed by a succession of `planned` events, followed by the `finalization` event. This extra information helps one locate the function responsible for each printed value.
+Now when the `first_simulation` executable is rebuilt and run, the type of each event is printed. You can see that the `initialization` event occurs first, followed by a succession of `planned` events, followed by the `finalization` event. This extra information helps one locate the function responsible for each printed value.
 
 ```
 0|0|$time:time_point()

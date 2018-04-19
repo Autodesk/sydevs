@@ -1,7 +1,7 @@
 | Prev | Getting Started - Table of Contents | [Next](part01.html) |
 # Getting Started
 
-Step-by-Step Guide to Creating Simulations using SyDEVS
+Step-by-Step Guide to Modeling and Simulation with SyDEVS
 
 ## New to C++?
 
@@ -13,7 +13,7 @@ You will need a C++ compiler that implements the C++14 standard. A list of free 
 - [Part 2: Creating your First Simulation](part02.html)
 - [Part 3: Customizing Simulation Output](part03.html)
 
-([***Continue to Part 1***](part01.html))
+| [***Continue to Part 1***](part01.html) |
 
 
 

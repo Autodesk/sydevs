@@ -5,7 +5,7 @@ Let's start by adding a few new folders to your `sydevs_examples` project.
 
 1. In `sydevs_examples/src/examples`, create a folder named `getting_started`.
 2. In the new `getting_started` folder, create a folder named `waveform`. This is where your first SyDEVS node will be located.
-3. In `sydevs_examples/src/simulations` make a folder named `part02`. The code here will invoke the simulation code in `examples/getting_started/waveform`. 
+3. In `sydevs_examples/src/simulations` make a folder named `first_simulation`. The code here will invoke the simulation code in `examples/getting_started/waveform`. 
 
 The overall directory structure should now be as follows.
 
@@ -20,8 +20,8 @@ sydevs_examples/
             getting_started/
                 waveform/
         simulations/
-            part01/
-            part02/
+            setting_up/
+            first_simulation/
 ```
 
 The `CMakeLists.txt` file will have to be updated, so let's get that out of the way. Add the following instructions to the `Examples` section. These instructions prepare a list of the header (.h) files we will later create in the `waveform` folder.
@@ -34,10 +34,10 @@ file(GLOB WAVEFORM_HDRS "${WAVEFORM_DIR}/*.h")
 Also add the following instructions to the `Simulations` section. These instructions create an executable for Part 2 of the tutorial. Observe that the executable references the `waveform` header files.
 
 ```CMake
-set(PART02_DIR ${SIMULATIONS_DIR}/part02)
-aux_source_directory(${PART02_DIR} PART02_SRCS)
-add_executable(part02 ${PART02_SRCS} ${WAVEFORM_HDRS})
-target_link_libraries(part02 debug SyDEVS-static-debug optimized SyDEVS-static)
+set(FIRST_SIMULATION_DIR ${SIMULATIONS_DIR}/first_simulation)
+aux_source_directory(${FIRST_SIMULATION_DIR} FIRST_SIMULATION_SRCS)
+add_executable(first_simulation ${FIRST_SIMULATION_SRCS} ${WAVEFORM_HDRS})
+target_link_libraries(first_simulation debug SyDEVS-static-debug optimized SyDEVS-static)
 ```
 
 The bottom of the `CMakeLists.txt` file should now appear as follows.
@@ -60,15 +60,15 @@ file(GLOB WAVEFORM_HDRS "${WAVEFORM_DIR}/*.h")
 # ------------------------------------------------------------------------------
 set(SIMULATIONS_DIR src/simulations)
 
-set(PART01_DIR ${SIMULATIONS_DIR}/part01)
-aux_source_directory(${PART01_DIR} PART01_SRCS)
-add_executable(part01 ${PART01_SRCS})
-target_link_libraries(part01 debug SyDEVS-static-debug optimized SyDEVS-static)
+set(SETTING_UP_DIR ${SIMULATIONS_DIR}/setting_up)
+aux_source_directory(${SETTING_UP_DIR} SETTING_UP_SRCS)
+add_executable(setting_up ${SETTING_UP_SRCS})
+target_link_libraries(setting_up debug SyDEVS-static-debug optimized SyDEVS-static)
 
-set(PART02_DIR ${SIMULATIONS_DIR}/part02)
-aux_source_directory(${PART02_DIR} PART02_SRCS)
-add_executable(part02 ${PART02_SRCS} ${WAVEFORM_HDRS})
-target_link_libraries(part02 debug SyDEVS-static-debug optimized SyDEVS-static)
+set(FIRST_SIMULATION_DIR ${SIMULATIONS_DIR}/first_simulation)
+aux_source_directory(${FIRST_SIMULATION_DIR} FIRST_SIMULATION_SRCS)
+add_executable(first_simulation ${FIRST_SIMULATION_SRCS} ${WAVEFORM_HDRS})
+target_link_libraries(first_simulation debug SyDEVS-static-debug optimized SyDEVS-static)
 ```
 
 It's time now to add a SyDEVS node to the project. In the `examples/getting_started/waveform` folder, create a text file named `square_wave_closed_system.h` and save it with the following code.
@@ -186,7 +186,7 @@ using namespace sydevs;
 using namespace sydevs::systems;
 
 
-void square_wave()
+void simulate_square_wave_closed_system()
 {
     try {
         simulation<square_wave_closed_system> sim(1_min, 0, std::cout);
@@ -208,19 +208,19 @@ void square_wave()
 
 This file contains a function (`square_wave`) which creates a simulation (`sim`) that will last for 1 minute of simulated time. The simulation has a random seed of 0 and sends output data to `std::cout`. The simulation is executed by invoking the `sim` object's `process_remaining_events` member function.
 
-Finally, in `simulations/part02`, save the following code as `main.cpp`. This main program simply calls the function described above.
+Finally, in `simulations/first_simulation`, save the following code as `main.cpp`. This main program simply calls the function described above.
 
 ```cpp
 #include <examples/getting_started/waveform/square_wave.h>
 
 int main(int argc, const char* argv[])
 {
-    sydevs_examples::square_wave();
+    sydevs_examples::simulate_square_wave_closed_system();
     return 0;
 }
 ```
 
-Build the project and run the new `part02` executable. It should produce the following output.
+Build the project and run the new `first_simulation` executable. It should produce the following output.
 
 ```
 phase = 0
@@ -241,4 +241,4 @@ The phase of the square wave alternatives between off and on.
 
 You've now completed Part 2 of the Getting Started tutorial, and have successfully run a simulation developed using SyDEVS. In [Part 3](part03.html), you will modify this example to output more information about the simulation run.
 
-([***Continue to Part 3***](part03.html))
+| [***Continue to Part 3***](part03.html) |
