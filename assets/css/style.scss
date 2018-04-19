@@ -36,7 +36,7 @@ nav ul li ul {
 
 nav ul li ul li {
     display: block;
-    padding: 0 8px 0 4px;
+    wideth: 180px;
 }
 
 nav ul li ul li a {
@@ -44,6 +44,7 @@ nav ul li ul li a {
     text-decoration: none;
     font-size: 18px;
     color: #f2f2f2;
+    padding: 0 8px 0 4px;
 }
 
 nav ul li ul li a:hover {
