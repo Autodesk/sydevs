@@ -40,7 +40,7 @@ print((string_builder() << "phase = " << phase).str());
 
 Here the `string_builder` object is used to create a `std::string` value of the form `"phase = #"`. The `print` function outputs the string along with contextual information about the simulation. If you rebuild and run the `part02` executable, you should see the following output.
 
-```cpp
+```
 0|0|$time:time_point()
 0|0|top$print:phase = 0
 1|0|$time:time_point() + 7_s
