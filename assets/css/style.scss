@@ -5,14 +5,15 @@
 
 nav ul {
     margin: 0;
-    padding: 0;
+    padding: 10px 0 10px 0;
     list-style: none;
+    text-align: center;
     background-color: #9295a3;
 }
 
 nav li {
     display: inline-block;
-    margin-right: 40px;
+    padding: 0 25px 0 25px
 }
 
 nav a {
@@ -24,11 +25,5 @@ nav a {
 }
 
 nav a:hover {
-    background-color: #ddd;
-    color: black;
-}
-
-nav a.active {
-    background-color: #4CAF50;
-    color: white;
+    color: #d3ff66;
 }
