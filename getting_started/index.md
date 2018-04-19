@@ -1,7 +1,7 @@
 | Prev | Getting Started - Table of Contents | [Next](part01.html) |
 # Getting Started
 
-Step-by-Step Guide to Using SyDEVS
+Step-by-Step Guide to Creating Simulations using SyDEVS
 
 ## New to C++?
 
