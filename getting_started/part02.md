@@ -1,4 +1,4 @@
-[Getting Started](/)
+| [Prev](part01.html) | [Getting Started - Table of Contents](index.html) | [Next](part03.html) 
 # Part 2: Creating your First Simulation
 
 Let's start by adding a few new folders to your `sydevs_examples` project.

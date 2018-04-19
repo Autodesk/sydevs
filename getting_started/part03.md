@@ -1,4 +1,4 @@
-[Getting Started](/)
+| [Prev](part02.html) | [Getting Started - Table of Contents](index.html) |
 # Part 3: Customizing Simulation Output
 
 In [Part 2](part02.html) we created a node called `square_wave_closed_system` that used the standard output stream `std::cout` to produce the following output.
