@@ -32,11 +32,13 @@ nav ul li ul {
     text-align: left;
     background-color: #9295a3;
     position: absolute;
+    list-style-type: none;
+    padding: 0;
 }
 
 nav ul li ul li {
     display: block;
-    width: 400px;
+    width: 360px;
 }
 
 nav ul li ul li a {
