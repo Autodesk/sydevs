@@ -4,7 +4,7 @@
 @import "{{ site.theme }}";
 
 nav {
-    float: center;
+    margin: 0 auto;
 }
 
 nav ul {
@@ -27,7 +27,6 @@ nav li {
     float: left;
     color: #f2f2f2;
     text-align: center;
-    padding: 18px 18px;
     text-decoration: none;
     font-size: 17px;
 }
