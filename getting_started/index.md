@@ -12,6 +12,7 @@ You will need a C++ compiler that implements the C++14 standard. A list of free 
 - [Part 1: Setting up your Simulation Project](part01.html)
 - [Part 2: Creating your First Simulation](part02.html)
 - [Part 3: Customizing Simulation Output](part03.html)
+- [Part 3: Adding Ports](part04.html)
 
 | [***Continue to Part 1***](part01.html) |
 

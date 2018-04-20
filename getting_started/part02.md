@@ -123,9 +123,8 @@ inline duration square_wave_closed_system::initialization_event()
 {
     period_dt = (10_s).fixed_at(time_precision());
     duty_cycle = 0.3;
-    phase = 0;
-    std::cout << "phase = " << phase << std::endl;
-    return period_dt*(1.0 - duty_cycle);
+    phase = 1;
+    return 0_s;
 }
 
 
@@ -146,7 +145,7 @@ inline duration square_wave_closed_system::planned_event(duration elapsed_dt)
         phase = 0;
         planned_dt = period_dt*(1.0 - duty_cycle);
     }
-    std::cout << "phase = " << phase << std::endl;
+    std::cout << "y = " << float64(phase) << std::endl;
     return planned_dt;
 }
 
@@ -167,7 +166,7 @@ Let's make a few observations about this node.
 - The name of the node ends with `_closed_system`, reflecting the fact the node has no ports. By convention, nodes that do have ports end with `_node`.
 - The node inherits from `atomic_node`. The other node base classes include `composite_node`, `collection_node`, and `function_node`.
 - When simulated, the `initialization_event` will be invoked once at the beginning, the `planned_event` will be invoked repeatedly as simulated time advances, and the `finalization_event` will be invoked once at the end. The `unplanned_event` will never be invoked because the node has no message input ports.
-- The node represents a square wave cycling between `phase = 0` (off) and `phase = 1` (on). A full cycle is 10 seconds (`period_dt`). The "on" phase lasts for 30% of this time (`duty_cycle`). Observe that the planned duration (`planned_dt`) is either 3 seconds (`period_dt*duty_cycle`) or 7 seconds (`period_dt*(1.0 - duty_cycle)`) depending on the phase. Whenever the planned duration elapses, the `planned_event` is invoked.
+- The node represents a square wave cycling between `y = 0` (off) and `y = 1` (on). A full cycle is 10 seconds (`period_dt`). The "on" phase lasts for 30% of this time (`duty_cycle`). Observe that the planned duration (`planned_dt`) is either 3 seconds (`period_dt*duty_cycle`) or 7 seconds (`period_dt*(1.0 - duty_cycle)`) depending on the phase. Whenever the planned duration elapses, the `planned_event` is invoked.
 
 Also in the `waveform` folder, create a text file named `square_wave.h` and save it with the code below.
 
@@ -223,21 +222,21 @@ int main(int argc, const char* argv[])
 Build the project and run the new `first_simulation` executable. It should produce the following output.
 
 ```
-phase = 0
-phase = 1
-phase = 0
-phase = 1
-phase = 0
-phase = 1
-phase = 0
-phase = 1
-phase = 0
-phase = 1
-phase = 0
-phase = 1
+y = 0
+y = 1
+y = 0
+y = 1
+y = 0
+y = 1
+y = 0
+y = 1
+y = 0
+y = 1
+y = 0
+y = 1
 ```
 
-The phase of the square wave alternatives between off and on.
+The square wave signal alternatives between off and on.
 
 You've now completed Part 2 of the Getting Started tutorial, and have successfully run a simulation developed using SyDEVS. In [Part 3](part03.html), you will modify this example to output more information about the simulation run.
 
