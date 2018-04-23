@@ -1,7 +1,7 @@
-| [Prev](part03.html) | [Getting Started -- Table of Contents](index.html) | Next |
+| [Prev](part03.html) | [Getting Started -- Table of Contents](index.html) | [Next](part05.html) |
 # Part 4: Adding Ports
 
-In [Part 3](getting_started_part03.html) we improved the `square_wave_closed_system` node by replacing `std::cout` with `print` as a means of outputting information. Yet there's an even better way to let a node interact with its surroundings. In general, a node should have ports through which it communicates with other nodes. So let's add ports to the node.
+In [Part 3](getting_started_part03.html) we improved the `square_wave_closed_system` node by replacing `std::cout` with `print` as a means of outputting information. Yet there's an even better way to let a node interact with its surroundings. In general, a node should have ***ports*** through which it ***communicates*** with other nodes. So let's add ports to the node.
 
 First make a copy of the `square_wave_closed_system.h` file, and name the new file `square_wave_generator_node.h`.
 
@@ -106,8 +106,8 @@ public:
 
 square_wave_integration_closed_system::square_wave_integration_closed_system(const std::string& node_name, const node_context& external_context)
     : composite_node(node_name, external_context)
-    , period_dt("period_dt", internal_context(), 10_s)
-    , duty_ratio("duty_ratio", internal_context())
+    , period_dt("period_dt", internal_context())
+    , duty_ratio("duty_ratio", internal_context(), 0.5)
     , generator("generator", internal_context())
 {
     // Initialization Links:
@@ -140,6 +140,7 @@ void simulate_square_wave_integration_closed_system()
 {
     try {
         simulation<square_wave_integration_closed_system> sim(1_min, 0, std::cout);
+        sim.top.period_dt.set_value(10_s);
         sim.top.duty_ratio.set_value(0.3);
         sim.top.generator.y_output.print_on_use();
         sim.process_remaining_events();
@@ -153,7 +154,7 @@ void simulate_square_wave_integration_closed_system()
 }
 ```
 
-In the above function, observe the line that provides the value of the `duty_ratio` parameter. There is also a `period_dt` parameter, but if you check the definition of the composite node you'll find that `period_dt` already has a default value of `10_s`. Also observe in the above function the instruction that prints every output of the `generator` node's `y_output` port. 
+In the above function, observe the lines that provide values for the `period_dt` and `duty_ratio` parameters. If the `period_dt` assignment were omitted, the simulation would fail due to the missing input. But if the `duty_ratio` assignment were omitted, the simulation would proceed with the 50% default duty ratio specified in the composite node. Also observe in the above function the instruction that prints every output of the `generator` node's `y_output` port. This is how we will view the simulation results.
 
 In the `src/simulations` folder, make a new folder called `simulation_with_ports`. In the new folder, save a `main.cpp` file with the following code.
 
@@ -204,4 +205,4 @@ Build and run the `simulation_with_ports` executable. You should get the results
 11|1|top.generator#y_output:1
 ```
 
-***Congratulations on completing the Getting Started tutorial!*** Continue exploring the resources listed on the [SyDEVS webpage](https://autodesk.github.io/sydevs/) and [GitHub repo](https://github.com/Autodesk/sydevs) to learn how to create more sophisticated nodes. Also, keep an eye out for future expanded versions of this tutorial.
+| [***Continue to Part 5***](part05.html) |
