@@ -170,7 +170,7 @@ int main(int argc, const char* argv[])
 Finally, append the following instructions onto the bottom of `CMakeLists.txt`.
 
 ```cmake
-set(SIMULATION_WITH_PORTS_DIR ${SIMULATIONS_DIR}/SIMULATION_WITH_PORTS)
+set(SIMULATION_WITH_PORTS_DIR ${SIMULATIONS_DIR}/simulation_with_ports)
 aux_source_directory(${SIMULATION_WITH_PORTS_DIR} SIMULATION_WITH_PORTS_SRCS)
 add_executable(simulation_with_ports ${SIMULATION_WITH_PORTS_SRCS} ${WAVEFORM_HDRS})
 target_link_libraries(simulation_with_ports debug SyDEVS-static-debug optimized SyDEVS-static)
