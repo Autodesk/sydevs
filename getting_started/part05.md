@@ -129,7 +129,7 @@ Now open `square_wave_integration_closed_system.h`. Add additional `#include` st
 #include <sydevs/systems/statistic_node.h>
 ```
 
-And to the component declarations.
+Add to the component declarations.
 
 ```cpp
     // Components:
@@ -168,9 +168,11 @@ square_wave_integration_closed_system::square_wave_integration_closed_system(con
 
 Observe the one simulation link that connects the `generator` to the `integrator`. This is the only link that is activated repeatly as the simulation is underway (i.e. as simulated time is advancing). Complex models may have many more simulation links.
 
-Remember that initialization and finalization links, which connect flow ports, must form a directed acyclic graph. You must not have any cycles where Node `A` supplies information to Node `B`, and Node `C` supplies information to Node `A`. Simulation links, which connect message ports, are permitted to form cycles.
+Also observe the new initialization link, which supplies a value from the new parameter node `integrator_step_dt`. In addition, there is now a finalization link that delivers a value to the new statistic node `Y_final`.
 
-Finally, open `square_wave.h` and edit the code in the `try` block of the `simulate_square_wave_integration_closed_system` function.
+Note that initialization and finalization links, which connect flow ports, must form a directed acyclic graph. You must not have any cycles where Node `A` supplies information to Node `B`, and Node `C` supplies information to Node `A`. Simulation links, which connect message ports, are permitted to form cycles.
+
+To complete the example, open `square_wave.h` and edit the code in the `try` block of the `simulate_square_wave_integration_closed_system` function.
 
 ```cpp
         simulation<square_wave_integration_closed_system> sim(1_min, 0, std::cout);
