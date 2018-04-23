@@ -172,7 +172,7 @@ Also observe the new initialization link, which supplies a value from the new pa
 
 Note that initialization and finalization links, which connect flow ports, must form a directed acyclic graph. You must not have any cycles where Node `A` supplies information to Node `B`, and Node `C` supplies information to Node `A`. Simulation links, which connect message ports, are permitted to form cycles.
 
-To complete the example, open `square_wave.h` and edit the code in the `try` block of the `simulate_square_wave_integration_closed_system` function.
+To complete the example, open `square_wave.h` and replace the instructions in the `try` block of the `simulate_square_wave_integration_closed_system` function. The new code sets the time step of the integrator output, and also obtains the final value of the integrated signal (the accumulated area under the square wave).
 
 ```cpp
         simulation<square_wave_integration_closed_system> sim(1_min, 0, std::cout);
