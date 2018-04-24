@@ -69,6 +69,8 @@ The above lines extract data from the flow input ports. To make use of the messa
    y_output.send(float64(phase));
 ```
 
+Save the file.
+
 The node is now complete and needs to be tested. However, because the node has ports, it cannot be simulated directly. To enable simulation, we need to define an encompassing "closed system" node with no ports.
 
 Create a text file named `square_wave_integration_closed_system.h` and save it with the following code.
@@ -125,7 +127,7 @@ square_wave_integration_closed_system::square_wave_integration_closed_system(con
 #endif
 ```
 
-The node in this file inherits from `composite_node`, a base class for defining networks of nodes. In this case the network consists of two parameter nodes (`period_dt` and `duty_ratio`) connected to a simulation node (`generator`). In the next part of this tutorial (***comming soon!***), we will expand this example with an additional simulation node that numerically integrates the square wave.
+The node in this file inherits from `composite_node`, a base class for defining networks of nodes. In this case the network consists of two parameter nodes (`period_dt` and `duty_ratio`) connected to a simulation node (`generator`). In the next part of this tutorial, we will expand this example with an additional simulation node that numerically integrates the square wave.
 
 Now that the `square_wave_generator_node` is incorporated by another node with no ports, we can prepare a simulation. Edit the `square_wave.h` file by inserting the following `#include` line.
 
@@ -155,6 +157,8 @@ void simulate_square_wave_integration_closed_system()
 ```
 
 In the above function, observe the lines that provide values for the `period_dt` and `duty_ratio` parameters. If the `period_dt` assignment were omitted, the simulation would fail due to the missing input. But if the `duty_ratio` assignment were omitted, the simulation would proceed with the 50% default duty ratio specified in the composite node. Also observe in the above function the instruction that prints every output of the `generator` node's `y_output` port. This is how we will view the simulation results.
+
+Save the file.
 
 In the `src/simulations` folder, make a new folder called `simulation_with_ports`. In the new folder, save a `main.cpp` file with the following code.
 

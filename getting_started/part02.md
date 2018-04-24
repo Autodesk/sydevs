@@ -40,7 +40,7 @@ add_executable(first_simulation ${FIRST_SIMULATION_SRCS} ${WAVEFORM_HDRS})
 target_link_libraries(first_simulation debug SyDEVS-static-debug optimized SyDEVS-static)
 ```
 
-The bottom of the `CMakeLists.txt` file should now appear as follows.
+The bottom of the `CMakeLists.txt` file should now appear as follows. Save the file.
 
 ```CMake
 # ------------------------------------------------------------------------------

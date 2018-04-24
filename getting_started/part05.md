@@ -141,7 +141,7 @@ Add to the component declarations.
     statistic_node<float64> Y_final;
 ```
 
-Expand the constructor.
+Expand the constructor and save.
 
 ```cpp
 square_wave_integration_closed_system::square_wave_integration_closed_system(const std::string& node_name, const node_context& external_context)
@@ -185,6 +185,8 @@ To complete the example, open `square_wave.h` and replace the instructions in th
         float64 Y_final = sim.top.Y_final.value();
         std::cout << "Y_final = " << Y_final << std::endl;
 ```
+
+Save the file.
 
 After rebuilding and running the `simulation_with_ports` executable, you should see the following results.
 
@@ -292,6 +294,6 @@ After rebuilding and running the `simulation_with_ports` executable, you should 
 Y_final = 18
 ```
 
-The integrated waveform (`top.integrator#Y_output`) increases whenever the square wave (`top.generator#y_output`) is in an "on" state. 
+The integrated waveform (`top.integrator#Y_output`) increases whenever the square wave (`top.generator#y_output`) is in the "on" phase of the cycle. 
 
 ***Congratulations on completing the Getting Started tutorial!*** Continue exploring the resources listed on the [SyDEVS webpage](https://autodesk.github.io/sydevs/) and [GitHub repo](https://github.com/Autodesk/sydevs) to learn how to create more sophisticated nodes. Also, keep an eye out for future expanded versions of this tutorial.

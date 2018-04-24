@@ -32,7 +32,7 @@ Now, find the line below...
     std::cout << "y = " << float64(phase) << std::endl;
 ```
 
-...and replace it with the following.
+...and replace it with the following and save.
 
 ```cpp
     print((string_builder() << "y = " << float64(phase)).str());
@@ -81,7 +81,7 @@ In the `square_wave.h` file, find the instruction...
 sim.process_remaining_events();
 ```
 
-...and immediately above it insert the following line.
+...and immediately above it insert the following line and save.
 
 ```cpp
 sim.top.print_on_event();
