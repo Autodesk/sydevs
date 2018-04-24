@@ -15,14 +15,14 @@ sydevs_examples/
 
 This is the project we will use for the Getting Started tutorial. When you begin other projects, choose different names for the project folder (`sydevs_examples`) and the folder that will contain reusable code (`examples`). In other projects, your first simulation will not be called `setting_up`, so change this folder name as well. Other names can also be changed. For example, you might prefer your compiled data to go in a folder named `build` instead of `bin`.
 
-Now download and extract a SyDEVS release from [github.com/Autodesk/sydevs/releases](https://github.com/Autodesk/sydevs/releases). Shorten the name of the extracted folder so that it contains only the word `sydevs` followed by the version number. Then place the `SyDEVS-v[...]` folder into the `external` folder of your project.
+Now download and extract a SyDEVS release from [github.com/Autodesk/sydevs/releases](https://github.com/Autodesk/sydevs/releases) (version 0.4.1 or later). In the extracted archive should be folder with a name similar to `sydevs-v0.4.1` (the version number may be different). Copy this folder into `external` folder of your project.
 
-The resulting directory structure should be as follows (except possibly with a different version number in the `sydevs-v0.4` folder name). The `core`, `systems` and `time` folders should each contain a number of header files, and the `lib` folder should contain several pre-compiled libraries.
+The resulting directory structure should be as follows (except possibly with a different version number in the `sydevs-v0.4.1` folder name). The `core`, `systems` and `time` folders should each contain a number of header files, and the `lib` folder should contain several pre-compiled libraries.
 ```
 sydevs_examples/
     bin/
     external/
-        sydevs-v0.4/
+        sydevs-v0.4.1/
             include/
                 sydevs/
                     core/
@@ -79,7 +79,7 @@ include_directories(src)
 #   SyDEVS
 #
 # ------------------------------------------------------------------------------
-set(SYDEVS_DIR external/sydevs-v0.4)
+set(SYDEVS_DIR external/sydevs-v0.4.1)
 include_directories(${SYDEVS_DIR}/include)
 link_directories(${SYDEVS_DIR}/lib)
 
@@ -114,9 +114,9 @@ Now it's time to build and test the project to make sure everything is properly 
   - `cmake -G "Visual Studio 15 2017 Win64" ..`
   - `cmake -G "Visual Studio 14 2015 Win64" ..`
   - `cmake -G "Xcode" ..`
-4. Build your project (e.g. using Visual Studio or Xcode)
-5. Find the `setting_up` executable (e.g. in `bin/Debug/` or `bin/Release/`)
-6. Run `setting_up` (e.g. `setting_up.exe`)
+4. Build your project (e.g. using Visual Studio or Xcode).
+5. Find the `setting_up` executable (e.g. in the `bin/Debug` or `bin/Release` folder).
+6. Run `setting_up` (e.g. `setting_up.exe`).
 
 The `setting_up` executable should produce the following output.
 
