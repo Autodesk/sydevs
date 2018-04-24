@@ -131,5 +131,7 @@ Now when the `first_simulation` executable is rebuilt and run, the type of each 
 12|0|top$finalization
 ```
 
+In [Part 4](part04.html), you'll learn how to take a node and give it a set of ports.
+ 
 | [***Continue to Part 4***](part04.html) |
 
