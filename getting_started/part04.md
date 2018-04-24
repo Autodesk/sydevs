@@ -3,7 +3,7 @@
 
 In [Part 3](getting_started_part03.html) we improved the `square_wave_closed_system` node by replacing `std::cout` with `print` as a means of outputting information. Yet there's an even better way to let a node interact with its surroundings. In general, a node should have ***ports*** through which it ***communicates*** with other nodes. So let's add ports to the node.
 
-First make a copy of the `square_wave_closed_system.h` file, and name the new file `square_wave_generator_node.h`.
+Make a copy of the `square_wave_closed_system.h` file, and name the new file `square_wave_generator_node.h`.
 
 In the new version of the node, replace both instances of...
 
@@ -29,7 +29,7 @@ square_wave_closed_system
 square_wave_generator_node
 ```
 
-You now have a node that's identical to the one you previously simulated, except with a new name. Now let's add ports.
+You now have a node that's identical to the one you previously simulated, except with a new name. Let's take the renamed node and add a few ports.
 
 Find the comment `// Ports:` and define three ports underneath, as follows.
 
@@ -40,7 +40,7 @@ Find the comment `// Ports:` and define three ports underneath, as follows.
     port<message, output, float64> y_output;      // output signal level
 ```
 
-The first two ports are flow input ports, otherwise known as "parameters". They allow the period and duty cycle of the square wave to be configured when the node is first initialized. The message output port is used to update the output signal level whenever it changes.
+The first two ports are flow input ports, otherwise known as "parameters". In this example, the flow input ports allow the period and duty cycle of the square wave to be configured when the node is first initialized. There is also a message output port, which in this case is used to update the output signal level whenever it changes.
 
 Ports must be initialized at the top of the constructor, so find the following line of code...
 
@@ -209,5 +209,7 @@ Build and run the `simulation_with_ports` executable. You should get the results
 11|0|$time:time_point() + 57_s
 11|1|top.generator#y_output:1
 ```
+
+We now have a simulation node that communicates via ports to configure and generate a square wave. In [Part 5](part05.html), we will create another simulation node that numerically integrates the square wave. The generator and integrator nodes will be linked together.
 
 | [***Continue to Part 5***](part05.html) |
