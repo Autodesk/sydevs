@@ -1,4 +1,4 @@
-| [Prev](part04.html) | [Getting Started -- Table of Contents](index.html) | Next |
+| [Prev](part04.html) | [Getting Started -- Table of Contents](index.html) | [Next](part06.html) |
 # Part 5: Linking Simulation Nodes
 
 Here we will finally end up with an example that demonstrates the main purpose of SyDEVS: to support models with ***multiple*** simulation nodes that ***communicate*** as simulated time advances. 
@@ -296,4 +296,4 @@ Y_final = 18
 
 The integrated waveform (`top.integrator#Y_output`) increases whenever the square wave (`top.generator#y_output`) is in the "on" phase of the cycle. 
 
-***Congratulations on completing the Getting Started tutorial!*** Continue exploring the resources listed on the [SyDEVS webpage](https://autodesk.github.io/sydevs/) and [GitHub repo](https://github.com/Autodesk/sydevs) to learn how to create more sophisticated nodes. Also, keep an eye out for future expanded versions of this tutorial.
+| [***Continue to Part 6***](part06.html) |
