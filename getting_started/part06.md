@@ -55,8 +55,8 @@ add_executable(building7m ${BUILDING7M_SIMULATION_SRCS} ${BUILDING7M_HDRS})
 target_link_libraries(building7m debug SyDEVS-static-debug optimized SyDEVS-static)
 add_custom_command(TARGET building7m POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy 
-				   ${PROJECT_SOURCE_DIR}/${BUILDING7M_DIR}/building7m.png
-				   $<TARGET_FILE_DIR:building7m>/.)
+                   ${PROJECT_SOURCE_DIR}/${BUILDING7M_DIR}/building7m.png
+                   $<TARGET_FILE_DIR:building7m>/.)
 ```
 
 When the project is re-built, there should be an executable named `queueing_simulation` which produces the following results.
