@@ -15,9 +15,9 @@ sydevs_examples/
 
 This is the project we will use for the Getting Started tutorial. When you begin other projects, choose different names for the project folder (`sydevs_examples`) and the folder that will contain reusable code (`examples`). In other projects, your first simulation will not be called `setting_up`, so change this folder name as well. Other names can also be changed. For example, you might prefer your compiled data to go in a folder named `build` instead of `bin`.
 
-Now download and extract a SyDEVS release from [github.com/Autodesk/sydevs/releases](https://github.com/Autodesk/sydevs/releases) (version 0.4.1 or later). In the extracted archive should be folder with a name similar to `sydevs-v0.4.1` (the version number may be different). Copy this folder into `external` folder of your project.
+Now download and extract a SyDEVS release from [github.com/Autodesk/sydevs/releases](https://github.com/Autodesk/sydevs/releases) (version 0.4.1 or later). Choose a zip file that matches your operating system and C++ compiler. On Windows, prefer archives with the suffix `_All` to those that end with `_Debug` or `_Release`.
 
-The resulting directory structure should be as follows (except possibly with a different version number in the `sydevs-v0.4.1` folder name). The `core`, `systems` and `time` folders should each contain a number of header files, and the `lib` folder should contain several pre-compiled libraries.
+In the extracted archive should be folder with a name similar to `sydevs-v0.4.1` (the version number may be different). Copy this folder into `external` folder of your project. The resulting directory structure should be as follows (except possibly with a different version number in the `sydevs-v0.4.1` folder name). The `core`, `systems` and `time` folders should each contain a number of header files, and the `lib` folder should contain several pre-compiled libraries.
 ```
 sydevs_examples/
     bin/
