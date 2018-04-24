@@ -90,8 +90,10 @@ after_success:
       cp LICENSE.md ${CONTENT_NAME} &&
       export ARCHIVE_NAME=SyDEVS-${TRAVIS_TAG}_${TRAVIS_OS_NAME}_${CC} &&
       zip -r ${ARCHIVE_NAME}.zip ${CONTENT_NAME}
+      mkdir demo
+      cp -r src/examples/demo/* demo
       export DEMO_ARCHIVE_NAME=SyDEVS-${TRAVIS_TAG}_demo-examples &&
-      zip -r ${DEMO_ARCHIVE_NAME}.zip src/examples/demo
+      zip -r ${DEMO_ARCHIVE_NAME}.zip demo
     fi
 
 deploy:
