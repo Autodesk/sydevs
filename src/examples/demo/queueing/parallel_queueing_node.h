@@ -11,6 +11,15 @@ using namespace sydevs;
 using namespace sydevs::systems;
 
 
+/**
+ * This node initially directs incoming jobs to a single queue, but more queues
+ * are added in parallel when needed. Normally, a job will go into the first
+ * queue with fewer than the maximum number of jobs. But if a job is received
+ * while the current queues are all full, then a new queue is created. The
+ * variable number of queues are modeled as agents in a collection. The idle
+ * duration of this collection node is the sum of the idle durations of all
+ * queueing node agents.
+ */
 class parallel_queueing_node : public collection_node<int64, queueing_node>
 {
 public:
