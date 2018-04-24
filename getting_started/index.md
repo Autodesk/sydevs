@@ -11,6 +11,7 @@ Step-by-Step Guide to Modeling and Simulation with SyDEVS
 - [Part 4: Adding Ports](part04.html)
 - [Part 5: Linking Simulation Nodes](part05.html)
 - [Part 6: Incorporating Additional Examples](part06.html)
+- [Part 7: Becoming Proficient](part07.html)
 
 ## New to C++?
 

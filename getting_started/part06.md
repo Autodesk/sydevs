@@ -1,4 +1,4 @@
-| [Prev](part05.html) | [Getting Started -- Table of Contents](index.html) | Next |
+| [Prev](part05.html) | [Getting Started -- Table of Contents](index.html) | [Next](part07.html) |
 # Part 6: Incorporating Additional Examples
 
 Let's extend the `sydevs_examples` project with two existing examples.
@@ -173,6 +173,8 @@ The building7m (7-meter building) example demonstrates a number of features of t
 - Multidimensional Arrays: [`thermodynamics_node.h`](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/thermodynamics_node.h)
 - Standard International (SI) Units: [`occupant_node.h`](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/occupant_node.h)
 
-Take a few minutes to familiarize yourself with these examples.
+Take a few minutes to familiarize yourself with these examples, then proceed to the final part of the tutorial. In [Part 7](part07.html), you will be challenged to make several enhancements to the `building7m` example.
 
-***Congratulations on completing the Getting Started tutorial!*** Continue exploring the resources listed on the [SyDEVS webpage](https://autodesk.github.io/sydevs/) and [GitHub repo](https://github.com/Autodesk/sydevs) to learn how to create more sophisticated nodes. Also, keep an eye out for future expanded versions of this tutorial.
+| [***Continue to Part 7***](part07.html) |
+
+
