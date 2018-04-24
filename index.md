@@ -8,7 +8,7 @@ The SyDEVS open source C++ library provides a framework for implementing complex
 
 **In a nutshell, it will help make your simulation code scale.**
 
-The framework combines two programming paradigms: [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) and [DEVS](https://en.wikipedia.org/wiki/DEVS). These foundations give the framework the generality needed to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
+The framework combines three modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) and [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model). These foundations give SyDEVS the generality needed to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
 
 ## Documentation
 
