@@ -20,8 +20,8 @@ sydevs_examples/
             getting_started/
                 waveform/
         simulations/
-            setting_up/
             first_simulation/
+            setting_up/
 ```
 
 The `CMakeLists.txt` file will have to be updated, so let's get that out of the way. Add the following instructions to the `Examples` section. These instructions prepare a list of the header (.h) files we will later create in the `waveform` folder.
@@ -40,7 +40,7 @@ add_executable(first_simulation ${FIRST_SIMULATION_SRCS} ${WAVEFORM_HDRS})
 target_link_libraries(first_simulation debug SyDEVS-static-debug optimized SyDEVS-static)
 ```
 
-The bottom of the `CMakeLists.txt` file should now appear as follows. Save the file.
+The bottom of the `CMakeLists.txt` file should now appear as follows.
 
 ```cmake
 # ------------------------------------------------------------------------------
@@ -70,6 +70,8 @@ aux_source_directory(${FIRST_SIMULATION_DIR} FIRST_SIMULATION_SRCS)
 add_executable(first_simulation ${FIRST_SIMULATION_SRCS} ${WAVEFORM_HDRS})
 target_link_libraries(first_simulation debug SyDEVS-static-debug optimized SyDEVS-static)
 ```
+
+Save the file.
 
 It's time now to add a SyDEVS node to the project. In the `examples/getting_started/waveform` folder, create a text file named `square_wave_closed_system.h` and save it with the following code.
 
@@ -205,7 +207,7 @@ void simulate_square_wave_closed_system()
 #endif
 ```
 
-This file contains a function (`square_wave`) which creates a simulation (`sim`) that will last for 1 minute of simulated time. The simulation has a random seed of 0 and sends output data to `std::cout`. The simulation is executed by invoking the `sim` object's `process_remaining_events` member function.
+This file contains a function (`simulate_square_wave_closed_system`) which creates a simulation (`sim`) that will last for 1 minute of simulated time. The simulation has a random seed of 0 and sends output data to `std::cout`. The simulation is executed by invoking the `sim` object's `process_remaining_events` member function.
 
 Finally, in `simulations/first_simulation`, save the following code as `main.cpp`. This main program simply calls the function described above.
 
