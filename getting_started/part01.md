@@ -50,7 +50,7 @@ int main(int argc, const char* argv[])
 
 Next, create a text file named `CMakeLists.txt` in the project folder (`sydevs_examples`). Copy the CMake code below into the file, change the SyDEVS version number if needed, and save.
 
-```CMake
+```cmake
 ################################################################################
 # CMake File for SyDEVS Examples
 ################################################################################

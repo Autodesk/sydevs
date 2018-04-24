@@ -26,14 +26,14 @@ sydevs_examples/
 
 The `CMakeLists.txt` file will have to be updated, so let's get that out of the way. Add the following instructions to the `Examples` section. These instructions prepare a list of the header (.h) files we will later create in the `waveform` folder.
 
-```CMake
+```cmake
 set(WAVEFORM_DIR ${EXAMPLES_DIR}/getting_started/waveform)
 file(GLOB WAVEFORM_HDRS "${WAVEFORM_DIR}/*.h")
 ```
 
 Also add the following instructions to the `Simulations` section. These instructions create an executable for Part 2 of the tutorial. Observe that the executable references the `waveform` header files.
 
-```CMake
+```cmake
 set(FIRST_SIMULATION_DIR ${SIMULATIONS_DIR}/first_simulation)
 aux_source_directory(${FIRST_SIMULATION_DIR} FIRST_SIMULATION_SRCS)
 add_executable(first_simulation ${FIRST_SIMULATION_SRCS} ${WAVEFORM_HDRS})
@@ -42,7 +42,7 @@ target_link_libraries(first_simulation debug SyDEVS-static-debug optimized SyDEV
 
 The bottom of the `CMakeLists.txt` file should now appear as follows. Save the file.
 
-```CMake
+```cmake
 # ------------------------------------------------------------------------------
 #
 #   Examples
