@@ -3,7 +3,7 @@
 
 You've now compiled and executed a number of SyDEVS simulations, and learned the basics of the framework. To become proficient at using the library for your own project, you'll need to challenge yourself and develop SyDEVS nodes without the benefit of step-by-step guidance. In this last part of the Getting Started tutorial, we'll begin that process.
 
-Download and open the SyDEVS Building7m Tutorial ([PPTX](https://autodesk.github.io/sydevs/doc/downloads/SyDEVS_Framework_Overview.pptx), [PDF](https://autodesk.github.io/sydevs/doc/downloads/SyDEVS_Building7m_Tutorial.pdf)).
+Download and open the SyDEVS Building7m Tutorial ([PPTX](https://autodesk.github.io/sydevs/doc/downloads/SyDEVS_Building7m_Tutorial.pptx), [PDF](https://autodesk.github.io/sydevs/doc/downloads/SyDEVS_Building7m_Tutorial.pdf)).
 
 This resource first describes the `building7m` example that you incoporated into your project in [Part 6](part06.html):
 
