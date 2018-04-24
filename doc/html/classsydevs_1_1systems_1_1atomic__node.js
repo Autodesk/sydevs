@@ -6,7 +6,7 @@ var classsydevs_1_1systems_1_1atomic__node =
     [ "handle_initialization_event", "classsydevs_1_1systems_1_1atomic__node.html#a74a5ac9bcd03551bd1575172cceaf501", null ],
     [ "handle_planned_event", "classsydevs_1_1systems_1_1atomic__node.html#a4a07f79a600ad5fa22b9dd32b96371a1", null ],
     [ "handle_unplanned_event", "classsydevs_1_1systems_1_1atomic__node.html#ab8b06b75d9e1764e3aa35d05305a78c6", null ],
-    [ "node_dmode", "classsydevs_1_1systems_1_1atomic__node.html#a1f9b26ff32fa40c4b56428c9c58c7b94", null ],
-    [ "print_on_elapsed_duration", "classsydevs_1_1systems_1_1atomic__node.html#a090ebf73671dfc9eee3439dc43074d9b", null ],
-    [ "print_on_planned_duration", "classsydevs_1_1systems_1_1atomic__node.html#a797f1b8154b006a5427b0197835e214a", null ]
+    [ "node_dmode", "classsydevs_1_1systems_1_1atomic__node.html#aa64052a3e40def4dc25dacd945098ccd", null ],
+    [ "print_on_elapsed_duration", "classsydevs_1_1systems_1_1atomic__node.html#ac8f470c116120ab06fbfa2f8bf5ff5d8", null ],
+    [ "print_on_planned_duration", "classsydevs_1_1systems_1_1atomic__node.html#aac1d1367bb1568e8b7914d6d778de51d", null ]
 ];

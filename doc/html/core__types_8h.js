@@ -10,7 +10,7 @@ var core__types_8h =
     [ "core_type< arraynd< T, ndims > >", "structsydevs_1_1core__type_3_01arraynd_3_01_t_00_01ndims_01_4_01_4.html", null ],
     [ "core_type< std::pair< T1, T2 > >", "structsydevs_1_1core__type_3_01std_1_1pair_3_01_t1_00_01_t2_01_4_01_4.html", null ],
     [ "core_type< std::tuple< T > >", "structsydevs_1_1core__type_3_01std_1_1tuple_3_01_t_01_4_01_4.html", null ],
-    [ "core_type< std::tuple< T, Ts... > >", "structsydevs_1_1core__type_3_01std_1_1tuple_3_01_t_00_01_ts_8_8_8_01_4_01_4.html", null ],
+    [ "core_type< std::tuple< T, Ts...> >", "structsydevs_1_1core__type_3_01std_1_1tuple_3_01_t_00_01_ts_8_8_8_4_01_4.html", null ],
     [ "core_type< std::vector< T > >", "structsydevs_1_1core__type_3_01std_1_1vector_3_01_t_01_4_01_4.html", null ],
     [ "core_type< std::set< T > >", "structsydevs_1_1core__type_3_01std_1_1set_3_01_t_01_4_01_4.html", null ],
     [ "core_type< std::map< Key, T > >", "structsydevs_1_1core__type_3_01std_1_1map_3_01_key_00_01_t_01_4_01_4.html", null ],

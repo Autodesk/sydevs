@@ -3,7 +3,8 @@ var searchData=
   ['collection_5fnode',['collection_node',['../classsydevs_1_1systems_1_1collection__node.html',1,'sydevs::systems']]],
   ['collection_5fnode_5fbase',['collection_node_base',['../classsydevs_1_1systems_1_1collection__node__base.html',1,'sydevs::systems']]],
   ['composite_5fnode',['composite_node',['../classsydevs_1_1systems_1_1composite__node.html',1,'sydevs::systems']]],
-  ['const_5fiterator',['const_iterator',['../classsydevs_1_1systems_1_1collection__node_1_1const__iterator.html',1,'sydevs::systems::collection_node&lt; AgentID, Node &gt;::const_iterator'],['../classsydevs_1_1time__sequence_1_1const__iterator.html',1,'sydevs::time_sequence::const_iterator']]],
+  ['const_5fiterator',['const_iterator',['../classsydevs_1_1systems_1_1collection__node_1_1const__iterator.html',1,'sydevs::systems::collection_node']]],
+  ['const_5fiterator',['const_iterator',['../classsydevs_1_1time__sequence_1_1const__iterator.html',1,'sydevs::time_sequence']]],
   ['core_5ftype',['core_type',['../structsydevs_1_1core__type.html',1,'sydevs']]],
   ['core_5ftype_3c_20arraynd_3c_20t_2c_20ndims_20_3e_20_3e',['core_type&lt; arraynd&lt; T, ndims &gt; &gt;',['../structsydevs_1_1core__type_3_01arraynd_3_01_t_00_01ndims_01_4_01_4.html',1,'sydevs']]],
   ['core_5ftype_3c_20bool_20_3e',['core_type&lt; bool &gt;',['../structsydevs_1_1core__type_3_01bool_01_4.html',1,'sydevs']]],
@@ -17,6 +18,6 @@ var searchData=
   ['core_5ftype_3c_20std_3a_3ashared_5fptr_3c_20t_20_3e_20_3e',['core_type&lt; std::shared_ptr&lt; T &gt; &gt;',['../structsydevs_1_1core__type_3_01std_1_1shared__ptr_3_01_t_01_4_01_4.html',1,'sydevs']]],
   ['core_5ftype_3c_20std_3a_3astring_20_3e',['core_type&lt; std::string &gt;',['../structsydevs_1_1core__type_3_01std_1_1string_01_4.html',1,'sydevs']]],
   ['core_5ftype_3c_20std_3a_3atuple_3c_20t_20_3e_20_3e',['core_type&lt; std::tuple&lt; T &gt; &gt;',['../structsydevs_1_1core__type_3_01std_1_1tuple_3_01_t_01_4_01_4.html',1,'sydevs']]],
-  ['core_5ftype_3c_20std_3a_3atuple_3c_20t_2c_20ts_2e_2e_2e_20_3e_20_3e',['core_type&lt; std::tuple&lt; T, Ts... &gt; &gt;',['../structsydevs_1_1core__type_3_01std_1_1tuple_3_01_t_00_01_ts_8_8_8_01_4_01_4.html',1,'sydevs']]],
+  ['core_5ftype_3c_20std_3a_3atuple_3c_20t_2c_20ts_2e_2e_2e_3e_20_3e',['core_type&lt; std::tuple&lt; T, Ts...&gt; &gt;',['../structsydevs_1_1core__type_3_01std_1_1tuple_3_01_t_00_01_ts_8_8_8_4_01_4.html',1,'sydevs']]],
   ['core_5ftype_3c_20std_3a_3avector_3c_20t_20_3e_20_3e',['core_type&lt; std::vector&lt; T &gt; &gt;',['../structsydevs_1_1core__type_3_01std_1_1vector_3_01_t_01_4_01_4.html',1,'sydevs']]]
 ];

@@ -8,6 +8,6 @@ var structsydevs_1_1units =
     [ "mol_", "structsydevs_1_1units.html#a2244ddeda2e100c8d23c27d841542c74ad84275458d779abafca5d7b256d098a9", null ],
     [ "cd_", "structsydevs_1_1units.html#a2244ddeda2e100c8d23c27d841542c74a9e1ed4bc783dda50abb78ca114d6cea3", null ],
     [ "units", "structsydevs_1_1units.html#a7c0795e39272f1fde62b8d8457da6e0e", null ],
-    [ "operator*", "structsydevs_1_1units.html#afc45461186b007d5cbd896810bbf3918", null ],
-    [ "operator/", "structsydevs_1_1units.html#a4a64d1e3a1d5106102569a152c1d527b", null ]
+    [ "operator*", "structsydevs_1_1units.html#ad77e4c8081c36e9bfc67cee45f532622", null ],
+    [ "operator/", "structsydevs_1_1units.html#a5e2e77f5285b6e6b92ea17e163d3844a", null ]
 ];
