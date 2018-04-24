@@ -169,7 +169,8 @@ int main(int argc, const char* argv[])
 {
     sydevs_examples::simulate_square_wave_integration_closed_system();
     return 0;
-}```
+}
+```
 
 Finally, append the following instructions onto the bottom of `CMakeLists.txt`.
 
