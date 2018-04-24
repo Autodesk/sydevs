@@ -11,10 +11,10 @@ if(MSVC)
 else()
     set(WARNING_FLAGS "-Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-sign-compare -Wno-missing-braces -Wignored-qualifiers -Woverloaded-virtual -Winline")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pedantic-errors -std=c++14 ${WARNING_FLAGS}")
-	if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-		# using regular Clang or AppleClang
-		set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-	endif()
+    if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+        # using regular Clang or AppleClang
+        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
+    endif()
     add_compile_options(-std=c++14)
     message(STATUS "Unix Build")
 endif(MSVC)
@@ -141,8 +141,8 @@ add_executable(building7m ${BUILDING7M_SRCS} ${BUILDING7M_HDRS})
 target_link_libraries(building7m SyDEVS-static)
 add_custom_command(TARGET building7m POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy 
-				   ${PROJECT_SOURCE_DIR}/${BUILDING7M_DIR}/building7m.png
-				   $<TARGET_FILE_DIR:building7m>/.)
+                   ${PROJECT_SOURCE_DIR}/${BUILDING7M_DIR}/building7m.png
+                   $<TARGET_FILE_DIR:building7m>/.)
 
 set(QUEUEING_DIR ${DEMO_EXAMPLES_DIR}/queueing)
 file(GLOB QUEUEING_HDRS "${QUEUEING_DIR}/*.h")
@@ -182,8 +182,8 @@ add_custom_command(TARGET regression_tests PRE_BUILD COMMAND ${CMAKE_COMMAND} -E
 file(GLOB RTESTS_DATA ${REGRESSION_TEST_DIR}/regression_test_data/*.txt)
 add_custom_command(TARGET regression_tests PRE_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy 
-				   ${RTESTS_DATA}
-				   regression_test_data/old_data/.)
+                   ${RTESTS_DATA}
+                   regression_test_data/old_data/.)
 add_custom_command(TARGET regression_tests POST_BUILD COMMAND regression_tests COMMENT "Running regression tests")
 
 
