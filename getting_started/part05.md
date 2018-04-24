@@ -103,7 +103,7 @@ inline void waveform_integrator_node::finalization_event(duration elapsed_dt)
 #endif
 ```
 
-The `waveform_integrator_node` is an example of node that can accept an input message at any time, but only outputs messages at mulitples of a fixed interval. Whenever there are inputs that do not affect the timing of outputs, it is typical to see the following line of code somewhere in the node:
+The `waveform_integrator_node` is an example of node that can accept an input message at any time, but only outputs messages at multiples of a fixed interval. Whenever there are inputs that do not affect the timing of outputs, it is typical to see the following line of code in the `unplanned_event` function.
 
 ```cpp
     planned_dt -= elapsed_dt;
@@ -119,7 +119,9 @@ The actual numerical integration is performed by the line...
 
 ...which appears 3 times in the class: once for every event type with an elapsed time variable (`elapsed_dt`).
 
-Now open `square_wave_integration_closed_system.h`. Add additional `#include` statements.
+Notice that the `waveform_integrator_node` has one port of each of the four types. We previously saw that flow input ports provide a node with parameter values, and that message output ports send messages over the course of a simulation. A message input port, such as `y_input` in this example, receives messages over the course of a simulation. A flow output port, such as `Y_final_output`, can be regarded as a `statistic` that provides information when the simulation is over or when the node is terminated.
+
+Now we need to make use of the new node. Open `square_wave_integration_closed_system.h`. Add additional `#include` statements. You should end up with the following.
 
 ```cpp
 #include <examples/getting_started/waveform/square_wave_generator_node.h>
@@ -129,7 +131,7 @@ Now open `square_wave_integration_closed_system.h`. Add additional `#include` st
 #include <sydevs/systems/statistic_node.h>
 ```
 
-Add to the component declarations.
+Add to the component declarations. There should be six in total.
 
 ```cpp
     // Components:
@@ -141,7 +143,7 @@ Add to the component declarations.
     statistic_node<float64> Y_final;
 ```
 
-Expand the constructor and save.
+Expand the constructor as follows, then save.
 
 ```cpp
 square_wave_integration_closed_system::square_wave_integration_closed_system(const std::string& node_name, const node_context& external_context)
@@ -170,7 +172,7 @@ Observe the one simulation link that connects the `generator` to the `integrator
 
 Also observe the new initialization link, which supplies a value from the new parameter node `integrator_step_dt`. In addition, there is now a finalization link that delivers a value to the new statistic node `Y_final`.
 
-Note that initialization and finalization links, which connect flow ports, must form a directed acyclic graph. You must not have any cycles where Node `A` supplies information to Node `B`, and Node `C` supplies information to Node `A`. Simulation links, which connect message ports, are permitted to form cycles.
+Note that initialization and finalization links, which connect flow ports, must form a directed acyclic graph. You must not have any cycles where, for example, Node `A` supplies information to Node `B`, Node `B` supplies information to Node `C`, and Node `C` supplies information to Node `A`. Simulation links, which connect message ports, are permitted to form cycles.
 
 To complete the example, open `square_wave.h` and replace the instructions in the `try` block of the `simulate_square_wave_integration_closed_system` function. The new code sets the time step of the integrator output, and also obtains the final value of the integrated signal (the accumulated area under the square wave).
 
@@ -294,6 +296,8 @@ After rebuilding and running the `simulation_with_ports` executable, you should 
 Y_final = 18
 ```
 
-The integrated waveform (`top.integrator#Y_output`) increases whenever the square wave (`top.generator#y_output`) is in the "on" phase of the cycle. 
+The integrated waveform (`top.integrator#Y_output`) increases whenever the square wave (`top.generator#y_output`) is in the "on" phase of the cycle. In the end, the area under the square wave is 18 (as expected, since there are 3 seconds per cycle in the "on" phase, times 6 ten-second cycles in the one-minute simulation).
+
+We're now done with the `waveform` example nodes. In [Part 6](part06.html), we'll download and incorporate a couple examples that demonstrate other types of nodes and SyDEVS features.
 
 | [***Continue to Part 6***](part06.html) |
