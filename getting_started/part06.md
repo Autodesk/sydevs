@@ -51,12 +51,12 @@ target_link_libraries(queueing_simulation debug SyDEVS-static-debug optimized Sy
 
 set(BUILDING7M_SIMULATION_DIR ${SIMULATIONS_DIR}/building7m_simulation)
 aux_source_directory(${BUILDING7M_SIMULATION_DIR} BUILDING7M_SIMULATION_SRCS)
-add_executable(building7m ${BUILDING7M_SIMULATION_SRCS} ${BUILDING7M_HDRS})
-target_link_libraries(building7m debug SyDEVS-static-debug optimized SyDEVS-static)
-add_custom_command(TARGET building7m POST_BUILD
+add_executable(building7m_simulation ${BUILDING7M_SIMULATION_SRCS} ${BUILDING7M_HDRS})
+target_link_libraries(building7m_simulation debug SyDEVS-static-debug optimized SyDEVS-static)
+add_custom_command(TARGET building7m_simulation POST_BUILD
                    COMMAND ${CMAKE_COMMAND} -E copy 
                    ${PROJECT_SOURCE_DIR}/${BUILDING7M_DIR}/building7m.png
-                   $<TARGET_FILE_DIR:building7m>/.)
+                   $<TARGET_FILE_DIR:building7m_simulation>/.)
 ```
 
 When the project is re-built, there should be an executable named `queueing_simulation` which produces the following results.
