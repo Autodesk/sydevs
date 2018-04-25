@@ -3,7 +3,7 @@
 
 Here we will finally end up with an example that demonstrates the main purpose of SyDEVS: to support models with ***multiple*** simulation nodes that ***communicate*** as simulated time advances. 
 
-The example will still be very simple, featuring one-way communication between two simulation nodes. We will take the `square_wave_generator_node` we prepared in [Part 4](part04.html), and direct its output messages into a new `waveform_integrator_node` that performs numerical integration on the piecewise constant signal. 
+The example will still be very simple, featuring one-way communication between two simulation nodes. We will take the `square_wave_generator_node` you prepared in [Part 4](part04.html), and direct its output messages into a new `waveform_integrator_node` that performs numerical integration on the piecewise constant signal. 
 
 In the `waveform` example folder, save a file named `waveform_integrator_node.h` with the following code.
 
@@ -298,6 +298,6 @@ Y_final = 18
 
 The integrated waveform (`top.integrator#Y_output`) increases whenever the square wave (`top.generator#y_output`) is in the "on" phase of the cycle. In the end, the area under the square wave is 18 (as expected, since there are 3 seconds per cycle in the "on" phase, times 6 ten-second cycles in the one-minute simulation).
 
-We're now done with the `waveform` example nodes. In [Part 6](part06.html), we'll download and incorporate a couple examples that demonstrate other types of nodes and SyDEVS features.
+We're now done with the `waveform` example. In [Part 6](part06.html), you'll download and incorporate two examples that demonstrate other types of nodes and SyDEVS features.
 
 | [***Continue to Part 6***](part06.html) |

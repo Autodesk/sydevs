@@ -1,16 +1,16 @@
 | [Prev](part01.html) | [Getting Started -- Table of Contents](index.html) | [Next](part03.html) |
 # Part 2: Creating your First Simulation
 
-Let's start by adding a few new folders to your `sydevs_examples` project.
+Let's start by adding a few new folders to your `sydevs-examples` project.
 
-1. In `sydevs_examples/src/examples`, create a folder named `getting_started`.
+1. In `sydevs-examples/src/examples`, create a folder named `getting_started`.
 2. In the new `getting_started` folder, create a folder named `waveform`. This is where your first SyDEVS node will be located.
-3. In `sydevs_examples/src/simulations` make a folder named `first_simulation`. The code here will invoke the simulation code in `examples/getting_started/waveform`. 
+3. In `sydevs-examples/src/simulations` make a folder named `first_simulation`. The code here will invoke the simulation code in `examples/getting_started/waveform`. 
 
 The overall directory structure should now be as follows.
 
 ```
-sydevs_examples/
+sydevs-examples/
     bin/
         ...
     external/
@@ -24,7 +24,7 @@ sydevs_examples/
             setting_up/
 ```
 
-The `CMakeLists.txt` file will have to be updated, so let's get that out of the way. Add the following instructions to the `Examples` section. These instructions prepare a list of the header (.h) files we will later create in the `waveform` folder.
+The `CMakeLists.txt` file will have to be updated, so let's get that out of the way. Add the following instructions to the `Examples` section. These instructions prepare a list of the header (.h) files you will later create in the `waveform` folder.
 
 ```cmake
 set(WAVEFORM_DIR ${EXAMPLES_DIR}/getting_started/waveform)

@@ -1,17 +1,17 @@
 | [Prev](part05.html) | [Getting Started -- Table of Contents](index.html) | [Next](part07.html) |
 # Part 6: Incorporating Additional Examples
 
-Let's extend the `sydevs_examples` project with two existing examples.
+Let's extend the `sydevs-examples` project with two existing examples.
 
 1. Return to the [SyDEVS releases](https://github.com/Autodesk/sydevs/releases) page and download `SyDEVS-v0.4.1_demo-examples.zip` (instead of v0.4.1, download the version of `demo-examples` that corresponds with the SyDEVS library you selected in [Part 1](part01.html)).
-2. Extract the archive, find the folder named `demo` inside, and copy it into your `sydevs_examples/src/examples` directory.
-2. In the `demo/queueing` folder, find `main.cpp` and move it into a new `queueing_simulation` folder within `sydevs_examples/src/simulations`.
-3. In the `demo/building7m` folder, find `main.cpp` and move it into a new `building7m_simulation` folder within `sydevs_examples/src/simulations`.
+2. Extract the archive, find the folder named `demo` inside, and copy it into your `sydevs-examples/src/examples` directory.
+2. In the `demo/queueing` folder, find `main.cpp` and move it into a new `queueing_simulation` folder within `sydevs-examples/src/simulations`.
+3. In the `demo/building7m` folder, find `main.cpp` and move it into a new `building7m_simulation` folder within `sydevs-examples/src/simulations`.
 
 You should now have the following directory structure.
 
 ```
-sydevs_examples/
+sydevs-examples/
     bin/
         ...
     external/

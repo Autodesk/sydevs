@@ -1,7 +1,7 @@
 | [Prev](part02.html) | [Getting Started -- Table of Contents](index.html) | [Next](part04.html) |
 # Part 3: Customizing Simulation Output
 
-In [Part 2](part02.html) we created a node called `square_wave_closed_system` that used the standard output stream `std::cout` to produce the following output.
+In [Part 2](part02.html) you created a node called `square_wave_closed_system` that used the standard output stream `std::cout` to produce the following output.
 
 ```
 y = 0
@@ -131,7 +131,7 @@ Now when the `first_simulation` executable is rebuilt and run, the type of each 
 12|0|top$finalization
 ```
 
-In [Part 4](part04.html), you'll learn how to take a node and give it a set of ports.
+The `print` and `print_on_event` features are just two of several mechanisms that SyDEVS provides for customizing simulation output. In [Part 4](part04.html), you'll learn how to take a node and give it a set of ports, which opens up additional possibilities for communicating data.
  
 | [***Continue to Part 4***](part04.html) |
 
