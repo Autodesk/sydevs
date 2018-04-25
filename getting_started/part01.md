@@ -109,8 +109,7 @@ Now it's time to build and test the project to make sure everything is properly 
 
 1. If you do not already have CMake, [download](http://www.cmake.org/) and install it.
 2. Open a Command Prompt and navigate into the `sydevs_examples/bin` folder.
-3. Run CMake using the appropriate command, possibly one of the following:
-  - `cmake ..`
+3. Run CMake using the appropriate command, possibly one of the following (on Windows, be sure to specify "Win64"):
   - `cmake -G "Visual Studio 15 2017 Win64" ..`
   - `cmake -G "Visual Studio 14 2015 Win64" ..`
   - `cmake -G "Xcode" ..`
