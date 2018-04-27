@@ -70,7 +70,7 @@ public:
      * @tparam Node The port-free `system_node` on which the simulation is 
      *              based.
      */
-    simulation(time_point start_t, time_point end_t, bool can_end_early, int64 seed, std::ostream& stream);
+    simulation(const time_point& start_t, const time_point& end_t, bool can_end_early, int64 seed, std::ostream& stream);
 
     /**
      * @brief Constructs a `simulation` with a reduced set of configuration
@@ -96,13 +96,16 @@ public:
     const time_point& end_time() const;    ///< Returns the end time of the simulation.
     bool can_end_early() const;            ///< Returns `true` if the simulation can end before the specified end time.
 
-    bool started() const;   ///< Return `true` if the simulation has started.
-    bool finished() const;  ///< Return `true` if the simulation has finished.
+    bool started() const;    ///< Return `true` if the simulation has started.
+    bool finishing() const;  ///< Return `true` if all events are finished except finalization.
+    bool finished() const;   ///< Return `true` if the simulation has finished.
 
-    const discrete_event_time& event_time() const;  ///< Return the current point in discrete event time.
+    const discrete_event_time& time() const;  ///< Return the current point in discrete event time.
 
-    void process_next_event();        ///< Run the next event of the topmost system node.
-    void process_remaining_events();  ///< Run simulation until completion.
+    void process_next_event();                       ///< Run the next event of the topmost system node.
+    void process_next_events();                      ///< Run all events until simulated time advances.
+    void process_events_until(const time_point& t);  ///< Run all events until simulated time advances at least to `t`.
+    void process_remaining_events();                 ///< Run simulation until completion.
 
 private:
     node_interface& top_IO();
@@ -112,13 +115,14 @@ private:
     void process_initialization_event();
     void process_planned_event();
     void process_finalization_event();
-    bool advance_time();
+    void advance_time();
 
     const time_point start_t_;       ///< (must be declared before member variable external_context_)
     const time_point end_t_;
     bool can_end_early_;
     node_context external_context_;  ///< (must be declared before member variable top)
     bool started_;
+    bool finishing_;
     bool finished_;
     time_queue t_queue_;
     time_cache t_cache_;
@@ -129,12 +133,13 @@ public:
 
 
 template<typename Node>
-simulation<Node>::simulation(time_point start_t, time_point end_t, bool can_end_early, int64 seed, std::ostream& stream)
+simulation<Node>::simulation(const time_point& start_t, const time_point& end_t, bool can_end_early, int64 seed, std::ostream& stream)
     : start_t_(start_t)
     , end_t_(end_t)
     , can_end_early_(can_end_early)
     , external_context_(start_t, seed, stream)
     , started_(false)
+    , finishing_(false)
     , finished_(false)
     , t_queue_(start_t)
     , t_cache_(start_t)
@@ -152,6 +157,7 @@ simulation<Node>::simulation(duration total_dt, int64 seed, std::ostream& stream
     , can_end_early_(!total_dt.finite())
     , external_context_(start_t_, seed, stream)
     , started_(false)
+    , finishing_(false)
     , finished_(false)
     , t_queue_()
     , t_cache_()
@@ -197,7 +203,7 @@ bool simulation<Node>::finished() const
 
 
 template<typename Node>
-const discrete_event_time& simulation<Node>::event_time() const
+const discrete_event_time& simulation<Node>::time() const
 {
     return const_cast<node_context&>(external_context_).event_time();
 }
@@ -206,17 +212,38 @@ const discrete_event_time& simulation<Node>::event_time() const
 template<typename Node>
 void simulation<Node>::process_next_event()
 {
-    if (!started_) {
-        process_initialization_event();
-    }
-    else {
-        auto end_early = advance_time();        
-        if (!end_early && event_time().t() < end_t_) {
-            process_planned_event();
+    if (!finished_) {
+        if (!finishing_) {
+            if (!started_) {
+                process_initialization_event();
+            }
+            else {
+                process_planned_event();
+            }
+            advance_time();        
         }
         else {
             process_finalization_event();
         }
+    }
+}
+
+
+template<typename Node>
+void simulation<Node>::process_next_events()
+{
+    auto t = event_time().t();
+    while (!finished_ && event_time().t() == t) {
+        process_next_event();
+    }
+}
+
+
+template<typename Node>
+void simulation<Node>::process_events_until(const time_point& t)
+{
+    while (!finished_ && event_time().t() < t) {
+        process_next_event();
     }
 }
 
@@ -314,22 +341,25 @@ void simulation<Node>::process_finalization_event()
 
 
 template<typename Node>
-bool simulation<Node>::advance_time()
+void simulation<Node>::advance_time()
 {
-    auto end_early = false;
-    auto planned_dt = t_queue_.imminent_duration();
-    if (planned_dt.finite() || !can_end_early_) {
-        event_time().advance(planned_dt, end_t_);
-        if (planned_dt > 0_s) {
-            external_context_.time_printed() = false;
-            t_queue_.advance_time(event_time().t());
-            t_cache_.advance_time(event_time().t());
+    if (!finishing_) {
+        auto planned_dt = t_queue_.imminent_duration();
+        if (planned_dt.finite() || !can_end_early_) {
+            event_time().advance(planned_dt, end_t_);
+            if (planned_dt > 0_s) {
+                external_context_.time_printed() = false;
+                t_queue_.advance_time(event_time().t());
+                t_cache_.advance_time(event_time().t());
+            }
+            if (event_time().t() >= end_t_) {
+                finishing_ = true;
+            }
+        }
+        else {
+            finishing_ = true;
         }
     }
-    else {
-        end_early = true;
-    }
-    return end_early;
 }
 
 
