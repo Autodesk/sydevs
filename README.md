@@ -62,8 +62,8 @@ This folder contains the elements from which dataflow + message-passing networks
 * `mkdir bin`
 * `cd bin/`
 * `cmake -G "Visual Studio 14 2015 Win64" ..` or `cmake -G "Visual Studio 15 2017 Win64" ..`
-* Open 'bin/SyDEVS.sln' in Visual Studio
-* Recommendation: In `Tools->Options->Text Editor->C/C++->Tabs`, select `Insert spaces` with a `Tab size` and `Indent size` of `4`
+* Open `bin/SyDEVS.sln` in Visual Studio
+* Recommendation: In `Tools -> Options -> Text Editor -> C/C++ -> Tabs`, select `Insert spaces` with a `Tab size` and `Indent size` of `4`
 
 #### Building on Mac OS
 * You will need [CMake](http://www.cmake.org/)
