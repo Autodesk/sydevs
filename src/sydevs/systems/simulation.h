@@ -96,16 +96,16 @@ public:
     const time_point& end_time() const;    ///< Returns the end time of the simulation.
     bool can_end_early() const;            ///< Returns `true` if the simulation can end before the specified end time.
 
-    bool started() const;    ///< Return `true` if the simulation has started.
-    bool finishing() const;  ///< Return `true` if all events are finished except finalization.
-    bool finished() const;   ///< Return `true` if the simulation has finished.
+    bool started() const;    ///< Returns `true` if the simulation has started.
+    bool finishing() const;  ///< Returns `true` if all events are finished except finalization.
+    bool finished() const;   ///< Returns `true` if the simulation has finished.
 
-    const discrete_event_time& time() const;  ///< Return the current point in discrete event time.
+    const discrete_event_time& time() const;  ///< Returns the current point in discrete event time.
 
-    void process_next_event();                       ///< Run the next event of the topmost system node.
-    void process_next_events();                      ///< Run all events until simulated time advances.
-    void process_events_until(const time_point& t);  ///< Run all events until simulated time advances at least to `t`.
-    void process_remaining_events();                 ///< Run simulation until completion.
+    void process_next_event();                        ///< Runs the next event of the topmost system node.
+    int64 process_next_events();                      ///< Runs all events until simulated time advances; returns the number of processed events.
+    int64 process_events_until(const time_point& t);  ///< Runs all events until simulated time advances at least to `t`; returns the number of processed events.
+    int64 process_remaining_events();                 ///< Runs simulation until completion; returns the number of processed events.
 
 private:
     node_interface& top_IO();
@@ -230,30 +230,39 @@ void simulation<Node>::process_next_event()
 
 
 template<typename Node>
-void simulation<Node>::process_next_events()
+int64 simulation<Node>::process_next_events()
 {
+    int64 event_count = 0;
     auto t = event_time().t();
     while (!finished_ && event_time().t() == t) {
         process_next_event();
+        ++event_count;
     }
+    return event_count;
 }
 
 
 template<typename Node>
-void simulation<Node>::process_events_until(const time_point& t)
+int64 simulation<Node>::process_events_until(const time_point& t)
 {
+    int64 event_count = 0;
     while (!finished_ && event_time().t() < t) {
         process_next_event();
+        ++event_count;
     }
+    return event_count;
 }
 
 
 template<typename Node>
-void simulation<Node>::process_remaining_events()
+int64 simulation<Node>::process_remaining_events()
 {
+    int64 event_count = 0;
     while (!finished_) {
         process_next_event();
+        ++event_count;
     }
+    return event_count;
 }
 
 

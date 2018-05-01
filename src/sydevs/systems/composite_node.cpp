@@ -160,7 +160,7 @@ void composite_node::handle_initialization_events()
         int64 missing_input = component_IO(node).missing_flow_input();
         if (missing_input != -1) {
             throw std::logic_error("Flow input port (" + component_IO(node).flow_input_port_name(missing_input) + ") " +
-                                   "of flow node (" + node.full_name() + ") has no value");
+                                   "of message node (" + node.full_name() + ") has no value");
         }
         int64 port_count = component_IO(node).flow_input_port_count();
         for (int64 port_index = 0; port_index < port_count; ++port_index) {
@@ -256,7 +256,7 @@ void composite_node::handle_finalization_events()
         int64 missing_output = component_IO(node).missing_flow_output();
         if (missing_output != -1) {
             throw std::logic_error("Flow output port (" + component_IO(node).flow_input_port_name(missing_output) + ") " +
-                                   "of flow node (" + node.full_name() + ") not assigned");
+                                   "of message node (" + node.full_name() + ") not assigned");
         }
         int64 port_count = component_IO(node).flow_output_port_count();
         for (int64 port_index = 0; port_index < port_count; ++port_index) {
