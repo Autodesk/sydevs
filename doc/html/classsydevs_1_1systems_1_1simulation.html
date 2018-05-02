@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname"><a href="https://autodesk.github.io/sydevs/">SyDEVS</a>
-   &#160;<span id="projectnumber">v0.4.1</span>
+   &#160;<span id="projectnumber">v0.4.2</span>
    </div>
    <div id="projectbrief">Multiscale Simulation and Systems Modeling Library</div>
   </td>
@@ -127,9 +127,9 @@ $(document).ready(function(){initNavTree('classsydevs_1_1systems_1_1simulation.h
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ade51677c045d524a5e8a26431b5cf593"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1systems_1_1simulation.html#ade51677c045d524a5e8a26431b5cf593">simulation</a> (<a class="el" href="classsydevs_1_1time__point.html">time_point</a> start_t, <a class="el" href="classsydevs_1_1time__point.html">time_point</a> end_t, <a class="el" href="classbool.html">bool</a> <a class="el" href="classsydevs_1_1systems_1_1simulation.html#aa915943d9d7e607f8e06f3835d2336c6">can_end_early</a>, <a class="el" href="namespacesydevs.html#ad6a8f0e4a4fad0df62be1cb702f25de7">int64</a> seed, std::ostream &amp;stream)</td></tr>
-<tr class="memdesc:ade51677c045d524a5e8a26431b5cf593"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>simulation</code> with the full set of configuration options.  <a href="#ade51677c045d524a5e8a26431b5cf593">More...</a><br/></td></tr>
-<tr class="separator:ade51677c045d524a5e8a26431b5cf593"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:acca4a2e7f23f9ef5426e230393f07471"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1systems_1_1simulation.html#acca4a2e7f23f9ef5426e230393f07471">simulation</a> (const <a class="el" href="classsydevs_1_1time__point.html">time_point</a> &amp;start_t, const <a class="el" href="classsydevs_1_1time__point.html">time_point</a> &amp;end_t, <a class="el" href="classbool.html">bool</a> <a class="el" href="classsydevs_1_1systems_1_1simulation.html#aa915943d9d7e607f8e06f3835d2336c6">can_end_early</a>, <a class="el" href="namespacesydevs.html#ad6a8f0e4a4fad0df62be1cb702f25de7">int64</a> seed, std::ostream &amp;stream)</td></tr>
+<tr class="memdesc:acca4a2e7f23f9ef5426e230393f07471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>simulation</code> with the full set of configuration options.  <a href="#acca4a2e7f23f9ef5426e230393f07471">More...</a><br/></td></tr>
+<tr class="separator:acca4a2e7f23f9ef5426e230393f07471"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc4db385859e2d0a1824b76653d82c66"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1systems_1_1simulation.html#acc4db385859e2d0a1824b76653d82c66">simulation</a> (<a class="el" href="namespacesydevs.html#a5dc8b39b907edd06f5c13f4df2854c29">duration</a> total_dt, <a class="el" href="namespacesydevs.html#ad6a8f0e4a4fad0df62be1cb702f25de7">int64</a> seed, std::ostream &amp;stream)</td></tr>
 <tr class="memdesc:acc4db385859e2d0a1824b76653d82c66"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>simulation</code> with a reduced set of configuration options.  <a href="#acc4db385859e2d0a1824b76653d82c66">More...</a><br/></td></tr>
 <tr class="separator:acc4db385859e2d0a1824b76653d82c66"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -158,20 +158,29 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:aa915943d9d7e607f8e06f3835d2336c6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if the simulation can end before the specified end time.  <a href="#aa915943d9d7e607f8e06f3835d2336c6">More...</a><br/></td></tr>
 <tr class="separator:aa915943d9d7e607f8e06f3835d2336c6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a04c6e089a692296d7fb2a1e84ec48ecd"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1systems_1_1simulation.html#a04c6e089a692296d7fb2a1e84ec48ecd">started</a> () const </td></tr>
-<tr class="memdesc:a04c6e089a692296d7fb2a1e84ec48ecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return <code>true</code> if the simulation has started.  <a href="#a04c6e089a692296d7fb2a1e84ec48ecd">More...</a><br/></td></tr>
+<tr class="memdesc:a04c6e089a692296d7fb2a1e84ec48ecd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if the simulation has started.  <a href="#a04c6e089a692296d7fb2a1e84ec48ecd">More...</a><br/></td></tr>
 <tr class="separator:a04c6e089a692296d7fb2a1e84ec48ecd"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:afdde8570cbde783540502167e6e4b43c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1systems_1_1simulation.html#afdde8570cbde783540502167e6e4b43c">finishing</a> () const </td></tr>
+<tr class="memdesc:afdde8570cbde783540502167e6e4b43c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if all events are finished except finalization.  <a href="#afdde8570cbde783540502167e6e4b43c">More...</a><br/></td></tr>
+<tr class="separator:afdde8570cbde783540502167e6e4b43c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aac3a1c8402c05219150a8dcf93d79ced"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1systems_1_1simulation.html#aac3a1c8402c05219150a8dcf93d79ced">finished</a> () const </td></tr>
-<tr class="memdesc:aac3a1c8402c05219150a8dcf93d79ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return <code>true</code> if the simulation has finished.  <a href="#aac3a1c8402c05219150a8dcf93d79ced">More...</a><br/></td></tr>
+<tr class="memdesc:aac3a1c8402c05219150a8dcf93d79ced"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if the simulation has finished.  <a href="#aac3a1c8402c05219150a8dcf93d79ced">More...</a><br/></td></tr>
 <tr class="separator:aac3a1c8402c05219150a8dcf93d79ced"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ac836de4385813a5b20201504e2a8e850"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsydevs_1_1systems_1_1discrete__event__time.html">discrete_event_time</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1systems_1_1simulation.html#ac836de4385813a5b20201504e2a8e850">event_time</a> () const </td></tr>
-<tr class="memdesc:ac836de4385813a5b20201504e2a8e850"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the current point in discrete event time.  <a href="#ac836de4385813a5b20201504e2a8e850">More...</a><br/></td></tr>
-<tr class="separator:ac836de4385813a5b20201504e2a8e850"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab9b156026dc5d9a959f682ba0351aa98"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="classsydevs_1_1systems_1_1discrete__event__time.html">discrete_event_time</a> &amp;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1systems_1_1simulation.html#ab9b156026dc5d9a959f682ba0351aa98">time</a> () const </td></tr>
+<tr class="memdesc:ab9b156026dc5d9a959f682ba0351aa98"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the current point in discrete event time.  <a href="#ab9b156026dc5d9a959f682ba0351aa98">More...</a><br/></td></tr>
+<tr class="separator:ab9b156026dc5d9a959f682ba0351aa98"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1d226421d24e44f349717e9cde399739"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1systems_1_1simulation.html#a1d226421d24e44f349717e9cde399739">process_next_event</a> ()</td></tr>
-<tr class="memdesc:a1d226421d24e44f349717e9cde399739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run the next event of the topmost system node.  <a href="#a1d226421d24e44f349717e9cde399739">More...</a><br/></td></tr>
+<tr class="memdesc:a1d226421d24e44f349717e9cde399739"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs the next event of the topmost system node.  <a href="#a1d226421d24e44f349717e9cde399739">More...</a><br/></td></tr>
 <tr class="separator:a1d226421d24e44f349717e9cde399739"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0ca8cfffe0b5c81d20ca732bd40f90ea"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1systems_1_1simulation.html#a0ca8cfffe0b5c81d20ca732bd40f90ea">process_remaining_events</a> ()</td></tr>
-<tr class="memdesc:a0ca8cfffe0b5c81d20ca732bd40f90ea"><td class="mdescLeft">&#160;</td><td class="mdescRight">Run simulation until completion.  <a href="#a0ca8cfffe0b5c81d20ca732bd40f90ea">More...</a><br/></td></tr>
-<tr class="separator:a0ca8cfffe0b5c81d20ca732bd40f90ea"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c690602152e197ce8fe5949a7c0bb97"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesydevs.html#ad6a8f0e4a4fad0df62be1cb702f25de7">int64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1systems_1_1simulation.html#a9c690602152e197ce8fe5949a7c0bb97">process_next_events</a> ()</td></tr>
+<tr class="memdesc:a9c690602152e197ce8fe5949a7c0bb97"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs all events until simulated time advances; returns the number of processed events.  <a href="#a9c690602152e197ce8fe5949a7c0bb97">More...</a><br/></td></tr>
+<tr class="separator:a9c690602152e197ce8fe5949a7c0bb97"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5c109faf56216ac2e17cbeeaf984ffa1"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesydevs.html#ad6a8f0e4a4fad0df62be1cb702f25de7">int64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1systems_1_1simulation.html#a5c109faf56216ac2e17cbeeaf984ffa1">process_events_until</a> (const <a class="el" href="classsydevs_1_1time__point.html">time_point</a> &amp;t)</td></tr>
+<tr class="memdesc:a5c109faf56216ac2e17cbeeaf984ffa1"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs all events until simulated time advances at least to <code>t</code>; returns the number of processed events.  <a href="#a5c109faf56216ac2e17cbeeaf984ffa1">More...</a><br/></td></tr>
+<tr class="separator:a5c109faf56216ac2e17cbeeaf984ffa1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac442e17c6144437b45c873eeb8f4492a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesydevs.html#ad6a8f0e4a4fad0df62be1cb702f25de7">int64</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1systems_1_1simulation.html#ac442e17c6144437b45c873eeb8f4492a">process_remaining_events</a> ()</td></tr>
+<tr class="memdesc:ac442e17c6144437b45c873eeb8f4492a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Runs simulation until completion; returns the number of processed events.  <a href="#ac442e17c6144437b45c873eeb8f4492a">More...</a><br/></td></tr>
+<tr class="separator:ac442e17c6144437b45c873eeb8f4492a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Public Attributes</h2></td></tr>
@@ -213,7 +222,7 @@ class sydevs::systems::simulation&lt; Node &gt;</h3>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;OTHER ERROR: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
 <div class="line">}</div>
 </div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
-<a class="anchor" id="ade51677c045d524a5e8a26431b5cf593"></a>
+<a class="anchor" id="acca4a2e7f23f9ef5426e230393f07471"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
@@ -222,13 +231,13 @@ template&lt;typename Node &gt; </div>
         <tr>
           <td class="memname"><a class="el" href="classsydevs_1_1systems_1_1simulation.html">sydevs::systems::simulation</a>&lt; Node &gt;::<a class="el" href="classsydevs_1_1systems_1_1simulation.html">simulation</a> </td>
           <td>(</td>
-          <td class="paramtype"><a class="el" href="classsydevs_1_1time__point.html">time_point</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsydevs_1_1time__point.html">time_point</a> &amp;&#160;</td>
           <td class="paramname"><em>start_t</em>, </td>
         </tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype"><a class="el" href="classsydevs_1_1time__point.html">time_point</a>&#160;</td>
+          <td class="paramtype">const <a class="el" href="classsydevs_1_1time__point.html">time_point</a> &amp;&#160;</td>
           <td class="paramname"><em>end_t</em>, </td>
         </tr>
         <tr>
@@ -449,25 +458,6 @@ template&lt;typename Node &gt; </div>
 
 </div>
 </div>
-<a class="anchor" id="ac836de4385813a5b20201504e2a8e850"></a>
-<div class="memitem">
-<div class="memproto">
-<div class="memtemplate">
-template&lt;typename Node &gt; </div>
-      <table class="memname">
-        <tr>
-          <td class="memname">const <a class="el" href="classsydevs_1_1systems_1_1discrete__event__time.html">discrete_event_time</a> &amp; <a class="el" href="classsydevs_1_1systems_1_1simulation.html">sydevs::systems::simulation</a>&lt; Node &gt;::event_time </td>
-          <td>(</td>
-          <td class="paramname"></td><td>)</td>
-          <td> const</td>
-        </tr>
-      </table>
-</div><div class="memdoc">
-
-<p>Return the current point in discrete event time. </p>
-
-</div>
-</div>
 <a class="anchor" id="aac3a1c8402c05219150a8dcf93d79ced"></a>
 <div class="memitem">
 <div class="memproto">
@@ -483,7 +473,26 @@ template&lt;typename Node &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Return <code>true</code> if the simulation has finished. </p>
+<p>Returns <code>true</code> if the simulation has finished. </p>
+
+</div>
+</div>
+<a class="anchor" id="afdde8570cbde783540502167e6e4b43c"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Node &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="classbool.html">bool</a> <a class="el" href="classsydevs_1_1systems_1_1simulation.html">sydevs::systems::simulation</a>&lt; Node &gt;::finishing </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns <code>true</code> if all events are finished except finalization. </p>
 
 </div>
 </div>
@@ -543,6 +552,26 @@ template&lt;typename Node &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a5c109faf56216ac2e17cbeeaf984ffa1"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Node &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesydevs.html#ad6a8f0e4a4fad0df62be1cb702f25de7">int64</a> <a class="el" href="classsydevs_1_1systems_1_1simulation.html">sydevs::systems::simulation</a>&lt; Node &gt;::process_events_until </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="classsydevs_1_1time__point.html">time_point</a> &amp;&#160;</td>
+          <td class="paramname"><em>t</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Runs all events until simulated time advances at least to <code>t</code>; returns the number of processed events. </p>
+
+</div>
+</div>
 <a class="anchor" id="a1d226421d24e44f349717e9cde399739"></a>
 <div class="memitem">
 <div class="memproto">
@@ -558,18 +587,18 @@ template&lt;typename Node &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Run the next event of the topmost system node. </p>
+<p>Runs the next event of the topmost system node. </p>
 
 </div>
 </div>
-<a class="anchor" id="a0ca8cfffe0b5c81d20ca732bd40f90ea"></a>
+<a class="anchor" id="a9c690602152e197ce8fe5949a7c0bb97"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
 template&lt;typename Node &gt; </div>
       <table class="memname">
         <tr>
-          <td class="memname">void <a class="el" href="classsydevs_1_1systems_1_1simulation.html">sydevs::systems::simulation</a>&lt; Node &gt;::process_remaining_events </td>
+          <td class="memname"><a class="el" href="namespacesydevs.html#ad6a8f0e4a4fad0df62be1cb702f25de7">int64</a> <a class="el" href="classsydevs_1_1systems_1_1simulation.html">sydevs::systems::simulation</a>&lt; Node &gt;::process_next_events </td>
           <td>(</td>
           <td class="paramname"></td><td>)</td>
           <td></td>
@@ -577,7 +606,26 @@ template&lt;typename Node &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Run simulation until completion. </p>
+<p>Runs all events until simulated time advances; returns the number of processed events. </p>
+
+</div>
+</div>
+<a class="anchor" id="ac442e17c6144437b45c873eeb8f4492a"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Node &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesydevs.html#ad6a8f0e4a4fad0df62be1cb702f25de7">int64</a> <a class="el" href="classsydevs_1_1systems_1_1simulation.html">sydevs::systems::simulation</a>&lt; Node &gt;::process_remaining_events </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Runs simulation until completion; returns the number of processed events. </p>
 
 </div>
 </div>
@@ -615,7 +663,26 @@ template&lt;typename Node &gt; </div>
       </table>
 </div><div class="memdoc">
 
-<p>Return <code>true</code> if the simulation has started. </p>
+<p>Returns <code>true</code> if the simulation has started. </p>
+
+</div>
+</div>
+<a class="anchor" id="ab9b156026dc5d9a959f682ba0351aa98"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename Node &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="classsydevs_1_1systems_1_1discrete__event__time.html">discrete_event_time</a> &amp; <a class="el" href="classsydevs_1_1systems_1_1simulation.html">sydevs::systems::simulation</a>&lt; Node &gt;::time </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td> const</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Returns the current point in discrete event time. </p>
 
 </div>
 </div>
@@ -645,7 +712,7 @@ template&lt;typename Node &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesydevs.html">sydevs</a></li><li class="navelem"><a class="el" href="namespacesydevs_1_1systems.html">systems</a></li><li class="navelem"><a class="el" href="classsydevs_1_1systems_1_1simulation.html">simulation</a></li>
-    <li class="footer">Generated on Tue Apr 24 2018 19:01:05 for SyDEVS by
+    <li class="footer">Generated on Wed May 2 2018 18:35:10 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

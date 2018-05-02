@@ -8,7 +8,7 @@ var searchData=
   ['error',['error',['../classsydevs_1_1systems_1_1system__node_1_1error.html#a914736d300cbc91f73e022eaac728cad',1,'sydevs::systems::system_node::error::error(const std::string &amp;what_arg)'],['../classsydevs_1_1systems_1_1system__node_1_1error.html#a1f546689bfa396e5c6ce437c0c56b279',1,'sydevs::systems::system_node::error::error(const char *what_arg)']]],
   ['event_5fids',['event_ids',['../classsydevs_1_1time__cache.html#ae13c379b43687f47b0309cc52628be68',1,'sydevs::time_cache']]],
   ['event_5fids_5fat',['event_ids_at',['../classsydevs_1_1time__queue.html#ad627505d756a4afab90118a72d2588cc',1,'sydevs::time_queue']]],
-  ['event_5ftime',['event_time',['../classsydevs_1_1systems_1_1node__context.html#a69841e68e9df12e2b5cefb58f62b651d',1,'sydevs::systems::node_context::event_time()'],['../classsydevs_1_1systems_1_1simulation.html#ac836de4385813a5b20201504e2a8e850',1,'sydevs::systems::simulation::event_time()']]],
+  ['event_5ftime',['event_time',['../classsydevs_1_1systems_1_1node__context.html#a69841e68e9df12e2b5cefb58f62b651d',1,'sydevs::systems::node_context']]],
   ['external_5fcontext',['external_context',['../classsydevs_1_1systems_1_1node__interface.html#a5460edcfa1c5ac1cf7ebc2aa64d2cb16',1,'sydevs::systems::node_interface']]],
   ['external_5finterface',['external_interface',['../classsydevs_1_1systems_1_1port__base.html#a959b237ca5bb569044d78fb9c98ffd1b',1,'sydevs::systems::port_base::external_interface()'],['../classsydevs_1_1systems_1_1system__node.html#ad875d7fc7340a3b8fb83f4a65da656a1',1,'sydevs::systems::system_node::external_interface()']]],
   ['external_5finterface_5fptr',['external_interface_ptr',['../classsydevs_1_1systems_1_1node__context.html#acccafb2343d9a49561f2e7f0e8de35ea',1,'sydevs::systems::node_context']]],
