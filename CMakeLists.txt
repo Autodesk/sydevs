@@ -7,6 +7,8 @@ project(SyDEVS)
 message(STATUS "Compiler: ${CMAKE_CXX_COMPILER_ID}")
 if(MSVC)
     add_definitions("/wd4244") # Hide type conversion warnings
+    string(REGEX REPLACE "/Z[iI7]" "" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
+    set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /Z7")
     message(STATUS "Visual Studio")
 else()
     set(WARNING_FLAGS "-Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-sign-compare -Wno-missing-braces -Wignored-qualifiers -Woverloaded-virtual -Winline")
