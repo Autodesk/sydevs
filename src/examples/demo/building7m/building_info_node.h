@@ -2,6 +2,7 @@
 #ifndef SYDEVS_EXAMPLES_BUILDING_INFO_NODE_H_
 #define SYDEVS_EXAMPLES_BUILDING_INFO_NODE_H_
 
+#include <examples/demo/building7m/building_layout_codes.h>
 #include <sydevs/systems/function_node.h>
 
 namespace sydevs_examples {
@@ -43,34 +44,34 @@ inline void building_info_node::flow_event()
     int64 wall_R = 5;
 
     // Starting with indoor cells everywhere.
-    array2d<int64> L({nx, ny}, 0);
+    array2d<int64> L({nx, ny}, indoor_code);
 
     // Placing outdoor cells on the two southern and northern rows.
     for (int64 ix = 0; ix < nx; ++ix) {
-        L(ix, 0) = -1;
-        L(ix, 1) = -1;
-        L(ix, ny - 2) = -1;
-        L(ix, ny - 1) = -1;
+        L(ix, 0) = outdoor_code;
+        L(ix, 1) = outdoor_code;
+        L(ix, ny - 2) = outdoor_code;
+        L(ix, ny - 1) = outdoor_code;
     }
 
-    // Placing indoor cells on the two western and eastern rows.
+    // Placing outdoor cells on the two western and eastern rows.
     for (int64 iy = 2; iy < ny - 2; ++iy) {
-        L(0, iy) = -1;
-        L(1, iy) = -1;
-        L(nx - 2, iy) = -1;
-        L(nx - 1, iy) = -1;
+        L(0, iy) = outdoor_code;
+        L(1, iy) = outdoor_code;
+        L(nx - 2, iy) = outdoor_code;
+        L(nx - 1, iy) = outdoor_code;
     }
 
     // Placing wall cells on the southern and northern facade.
     for (int64 ix = 2; ix < nx - 2; ++ix) {
-        L(ix, 2) = 1;
-        L(ix, ny - 3) = 1;
+        L(ix, 2) = wall_code;
+        L(ix, ny - 3) = wall_code;
     }
 
     // Placing wall cells on the western and eastern facade.
     for (int64 iy = 3; iy < ny - 3; ++iy) {
-        L(2, iy) = 1;
-        L(nx - 3, iy) = 1;
+        L(2, iy) = wall_code;
+        L(nx - 3, iy) = wall_code;
     }
 
     building_layout_output.assign(std::make_pair(L, d));

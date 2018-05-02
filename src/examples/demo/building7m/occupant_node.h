@@ -2,6 +2,7 @@
 #ifndef SYDEVS_EXAMPLES_OCCUPANT_NODE_H_
 #define SYDEVS_EXAMPLES_OCCUPANT_NODE_H_
 
+#include <examples/demo/building7m/building_layout_codes.h>
 #include <sydevs/systems/atomic_node.h>
 
 namespace sydevs_examples {
@@ -115,7 +116,7 @@ inline duration occupant_node::planned_event(duration elapsed_dt)
         // dest_pos is off the grid, so remain stationary.
         dest_pos = pos;
     }
-    else if (L(dest_pos) == 1) {
+    else if (L(dest_pos) == wall_code) {
         // dest_pos is in a wall, so remain stationary.
         dest_pos = pos;
     }

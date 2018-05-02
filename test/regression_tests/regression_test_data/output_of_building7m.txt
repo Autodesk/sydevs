@@ -1,6 +1,6 @@
 building_closed_system
 0|0|$time:time_point()
-0|1|top.initial_temperature#parameter:293150_mK
+0|2|top.initial_temperature#parameter:293150_mK
 0|9|top.building_dynamics.occupant$print:quantity<decltype(_s*_K)>(0, unit)
 0|9|top.building_dynamics.occupant$print:0_us
 165|0|$time:time_point() + 15_s

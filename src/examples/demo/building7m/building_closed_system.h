@@ -24,8 +24,8 @@ public:
     virtual ~building_closed_system() = default;
 
     // Components:
-    parameter_node<thermodynamic_temperature> initial_temperature;
     parameter_node<duration> frame_duration;
+    parameter_node<thermodynamic_temperature> initial_temperature;
     parameter_node<quantity<decltype(_m/_s)>> walking_speed;
     building_info_node building_info;
     initial_position_node initial_position;
@@ -36,8 +36,8 @@ public:
 
 building_closed_system::building_closed_system(const std::string& node_name, const node_context& external_context)
     : composite_node(node_name, external_context)
-    , initial_temperature("initial_temperature", internal_context(), 293150_mK)
     , frame_duration("frame_duration", internal_context(), duration::inf())  // 30_s recommended for textual output
+    , initial_temperature("initial_temperature", internal_context(), 293150_mK)
     , walking_speed("walking_speed", internal_context(), 1400_mm/_s)
     , building_info("building_info", internal_context())
     , initial_position("initial_position", internal_context())
@@ -45,13 +45,13 @@ building_closed_system::building_closed_system(const std::string& node_name, con
     , building_vis("building_vis", internal_context())
 {
     // Initialization Links
+    inner_link(frame_duration.parameter, building_vis.frame_duration_input);
     inner_link(initial_temperature.parameter, building_dynamics.initial_temperature_input);
     inner_link(building_info.building_layout_output, building_dynamics.building_layout_input);
     inner_link(building_info.building_layout_output, initial_position.building_layout_input);
     inner_link(building_info.wall_resistance_output, building_dynamics.wall_resistance_input);
     inner_link(initial_position.initial_position_output, building_dynamics.initial_position_input);
     inner_link(walking_speed.parameter, building_dynamics.walking_speed_input);
-    inner_link(frame_duration.parameter, building_vis.frame_duration_input);
 
     // Simulation Links
     inner_link(building_dynamics.temperature_field_output, building_vis.temperature_field_input);

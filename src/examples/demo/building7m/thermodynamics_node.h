@@ -2,6 +2,7 @@
 #ifndef SYDEVS_EXAMPLES_THERMODYNAMICS_NODE_H_
 #define SYDEVS_EXAMPLES_THERMODYNAMICS_NODE_H_
 
+#include <examples/demo/building7m/building_layout_codes.h>
 #include <sydevs/systems/atomic_node.h>
 
 namespace sydevs_examples {
@@ -74,7 +75,7 @@ inline duration thermodynamics_node::unplanned_event(duration elapsed_dt)
 {
     if (outdoor_temperature_input.received()) {
         thermodynamic_temperature T = outdoor_temperature_input.value();
-        TF = replace(TF, L == -1, T);
+        TF = replace(TF, L == outdoor_code, T);
     }
     planned_dt -= elapsed_dt;
     return planned_dt;
@@ -87,15 +88,15 @@ inline duration thermodynamics_node::planned_event(duration elapsed_dt)
     array2d<thermodynamic_temperature> prev_TF = TF.copy();
     for (int64 ix = 1; ix < nx - 1; ++ix) {
         for (int64 iy = 1; iy < ny - 1; ++iy) {
-            if (L(ix, iy) >= 0) {
+            if (L(ix, iy) != outdoor_code) {
                 // The cell is not an outdoor cell.
 
                 // Obtain thermal resistances in neighborhood.
-                float64 r__ = (L(ix, iy) == 1 ? wall_R : 0.0);
-                float64 r0_ = (L(ix - 1, iy) == 1 ? wall_R : 0.0);
-                float64 r1_ = (L(ix + 1, iy) == 1 ? wall_R : 0.0);
-                float64 r_0 = (L(ix, iy - 1) == 1 ? wall_R : 0.0);
-                float64 r_1 = (L(ix, iy + 1) == 1 ? wall_R : 0.0);
+                float64 r__ = (L(ix, iy) == wall_code ? wall_R : 0.0);
+                float64 r0_ = (L(ix - 1, iy) == wall_code ? wall_R : 0.0);
+                float64 r1_ = (L(ix + 1, iy) == wall_code ? wall_R : 0.0);
+                float64 r_0 = (L(ix, iy - 1) == wall_code ? wall_R : 0.0);
+                float64 r_1 = (L(ix, iy + 1) == wall_code ? wall_R : 0.0);
 
                 // Calculate diffusion coefficients.
                 // (Note: This is not actually based on physics.)
