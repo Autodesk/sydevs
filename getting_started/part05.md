@@ -168,7 +168,7 @@ square_wave_integration_closed_system::square_wave_integration_closed_system(con
 }
 ```
 
-Observe the one simulation link that connects the `generator` to the `integrator`. This is the only link that is activated repeatly as the simulation is underway (i.e. as simulated time is advancing). Complex models may have many more simulation links.
+Observe the one simulation link that connects the `generator` to the `integrator`. This is the only link that is activated repeatedly as the simulation is underway (i.e. as simulated time is advancing). Complex models may have many more simulation links.
 
 Also observe the new initialization link, which supplies a value from the new parameter node `integrator_step_dt`. In addition, there is now a finalization link that delivers a value to the new statistic node `Y_final`.
 

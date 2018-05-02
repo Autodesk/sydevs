@@ -13,16 +13,16 @@ sydevs-examples/
             setting_up/
 ```
 
-This is the project you will use for the Getting Started tutorial. When you begin other projects, choose different names for the project folder (`sydevs-examples`) and the folder that will contain reusable code (`examples`). In other projects, your first simulation will not be called `setting_up`, so change this folder name as well. Other names can also be changed. For example, you might prefer your compiled data to go in a folder named `build` instead of `bin`.
+This is the project you will use for the Getting Started tutorial.
 
-Now download and extract a SyDEVS release from [github.com/Autodesk/sydevs/releases](https://github.com/Autodesk/sydevs/releases) (version 0.4.1 or later). Choose a zip file that matches your operating system and C++ compiler. On Windows, prefer archives with the suffix `_All` to those that end with `_Debug` or `_Release`.
+Now download and extract a SyDEVS release from [github.com/Autodesk/sydevs/releases](https://github.com/Autodesk/sydevs/releases) (version 0.4.1 or later, preferably the most recent release). Choose a zip file that matches your operating system and C++ compiler. On Windows, prefer archives with the suffix `_All` to those that end with `_Debug` or `_Release`.
 
-In the extracted package should be folder with a name similar to `sydevs-v0.4.1` (the version number may be different). Copy this folder into `external` folder of your project. The resulting directory structure should be as follows (except possibly with a different version number in the `sydevs-v0.4.1` folder name). The `core`, `systems` and `time` folders should each contain a number of header files, and the `lib` folder should contain several pre-compiled libraries.
+In the extracted package should be folder with a name similar to `sydevs-v0.4.2` (the version number may be different). Copy this folder into `external` folder of your project. The resulting directory structure should be as follows (except possibly with a different version number in the `sydevs-v0.4.2` folder name). The `core`, `systems` and `time` folders should each contain a number of header files, and the `lib` folder should contain several pre-compiled libraries.
 ```
 sydevs-examples/
     bin/
     external/
-        sydevs-v0.4.1/
+        sydevs-v0.4.2/
             include/
                 sydevs/
                     core/
@@ -79,7 +79,7 @@ include_directories(src)
 #   SyDEVS
 #
 # ------------------------------------------------------------------------------
-set(SYDEVS_DIR external/sydevs-v0.4.1)
+set(SYDEVS_DIR external/sydevs-v0.4.2)
 include_directories(${SYDEVS_DIR}/include)
 link_directories(${SYDEVS_DIR}/lib)
 
@@ -103,8 +103,6 @@ add_executable(setting_up ${SETTING_UP_SRCS})
 target_link_libraries(setting_up debug SyDEVS-static-debug optimized SyDEVS-static)
 ```
 
-When preparing a `CMakeLists.txt` file for other projects, remember to change the name of the project, reference the correct version of SyDEVS, replace the `Examples` heading (and the `examples` folder) with terms that describe your application, and replace the `SETTING_UP_DIR` variable (and `setting_up` executable) to properly identify your simulation.
-
 Now it's time to build and test the project to make sure everything is properly set up.
 
 1. If you do not already have CMake, [download](http://www.cmake.org/) and install it.
@@ -113,7 +111,9 @@ Now it's time to build and test the project to make sure everything is properly 
   - `cmake -G "Visual Studio 15 2017 Win64" ..`
   - `cmake -G "Visual Studio 14 2015 Win64" ..`
   - `cmake -G "Xcode" ..`
-4. Build your project (e.g. using Visual Studio or Xcode).
+  
+  (Note: The `..` in the above commands tell CMake to search for `CMakeLists.txt` one folder above the `bin` folder.)
+4. Build your project (e.g. using [Visual Studio](https://www.visualstudio.com/vs/), [MSBuild](https://msdn.microsoft.com/en-us/library/dd393574.aspx), [Xcode](https://developer.apple.com/xcode/), or [another free compiler](https://isocpp.org/get-started)).
 5. Find the `setting_up` executable (e.g. in the `bin/Debug` or `bin/Release` folder).
 6. Run `setting_up` (e.g. `setting_up.exe`).
 

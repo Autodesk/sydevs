@@ -103,7 +103,7 @@ public:
 
 protected:
     // State Variables:
-    duration period_dt;  // duration of one period of the sqaure wave
+    duration period_dt;  // duration of one period of the square wave
     float64 duty_cycle;  // fraction (0 to 1) of each period spent in the "on" phase
     int64 phase;         // binary signal phase (0 => off, 1 => on)
 
