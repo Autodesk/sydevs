@@ -30,7 +30,6 @@ SyDEVS is released under the [Apache License 2.0](https://github.com/Autodesk/sy
 
 Inquires about SyDEVS can be directed to [Rhys Goldstein](https://autodeskresearch.com/people/rhys-goldstein).
 
-![Queueing Network](doc/images/queueing network.png "Simulation of a queueing network")
-
+![Queueing Network](doc/images/queueing network.png "Simulation of a queueing network")  
 *Above: A queueing network simulated using SyDEVS*
 
