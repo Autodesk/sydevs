@@ -111,8 +111,9 @@ Now it's time to build and test the project to make sure everything is properly 
   - `cmake -G "Visual Studio 15 2017 Win64" ..`
   - `cmake -G "Visual Studio 14 2015 Win64" ..`
   - `cmake -G "Xcode" ..`
-4. Build your project (e.g. using [Visual Studio](https://www.visualstudio.com/vs/), [MSBuild](https://msdn.microsoft.com/en-us/library/dd393574.aspx), [Xcode](https://developer.apple.com/xcode/), or [another free compiler](https://isocpp.org/get-started)).
-5. Find the `setting_up` executable (e.g. in the `bin/Debug` or `bin/Release` folder).
+  - `cmake ..` (on Mac/Unix, to produce a Makefile)
+4. Build your project (e.g. use [Visual Studio](https://www.visualstudio.com/vs/), [MSBuild](https://msdn.microsoft.com/en-us/library/dd393574.aspx), [Xcode](https://developer.apple.com/xcode/), or [another free compiler](https://isocpp.org/get-started), or run `make` to use the Makefile).
+5. Find the `setting_up` executable (e.g. in the `bin`, `bin/Debug` or `bin/Release` folder).
 6. Run `setting_up` (e.g. `setting_up.exe`).
 
 The `setting_up` executable should produce the following output.

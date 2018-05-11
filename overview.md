@@ -53,10 +53,6 @@ protected:
 
 The complete implementation of the node can be found [here](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/queueing_node.h).
 
-## Theoretical Basis
-
-SyDEVS is based on [DEVS](https://en.wikipedia.org/wiki/DEVS), a set of conventions developed in the 1970s that allow essentially any simulation model to be specified using a common set of mathematical elements. The atomic and composite nodes of SyDEVS, which support [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), are similar to the atomic and coupled models of the classic version of DEVS. The function nodes of SyDEVS extend the original theory to accommodate [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming). The collection nodes improve support for [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model).
-
 ## Notable Features
 
 - [Multidimensional Arrays](doc/html/classsydevs_1_1arraynd.html#details): The SyDEVS library includes a generic multidimensional array class template supporting a range of numerical and slicing operations in C++, similar to [NumPy](http://www.numpy.org/) arrays in Python.
@@ -67,6 +63,10 @@ SyDEVS is based on [DEVS](https://en.wikipedia.org/wiki/DEVS), a set of conventi
   - [time_sequence](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1time__sequence.html#details)
   - [time_queue](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1time__queue.html#details)
   - [time_cache](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1time__cache.html#details)
+
+## Theoretical Basis
+
+SyDEVS is based on [DEVS](https://en.wikipedia.org/wiki/DEVS), a set of conventions developed in the 1970s that allow essentially any simulation model to be specified using a common set of mathematical elements. The atomic and composite nodes of SyDEVS, which support [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), are similar to the atomic and coupled models of the classic version of DEVS. The function nodes of SyDEVS extend the original theory to accommodate [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming). The collection nodes improve support for [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model).
 
 ## Related Articles
 
