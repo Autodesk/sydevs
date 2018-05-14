@@ -4,9 +4,17 @@ Brief Introduction to SyDEVS
 
 ## Concept
 
-Using SyDEVS, simulation code is organized into nodes, which can be linked together to form dataflow and simulation networks. The four main types of nodes are illustrated below.
+Using SyDEVS, simulation code is organized into nodes, which can be linked together to form dataflow and simulation networks. There are four main types of nodes, illustrated below.
 
 ![SyDEVS Nodes](doc/images/sydevs_nodes.png "The four main types of SyDEVS nodes")
+
+The ***atomic node*** provides a general structure for representing behavior that unfolds over simulated time. The modeler must implement four event handers that are invoked by the simulator. The initialization event hander is invoked first. The unplanned and planned event handlers are then called any number of times over the course of the simulation in response to incoming messages (unplanned events) or internally scheduled events (planned events). The finalization event handler is invoked at the end.
+
+The ***function node*** represents a single function that reads a set of input values and calculates a set of output values.
+
+The ***composite node*** integrates other nodes by linking their ports. There are initialization and finalization links, which form a dataflow programming graph. There are also simulation links, which direct messages and support discrete event simulation.
+
+The ***collection node*** contains an arbtrary number of instances of the same type of node, supporting agent-based modeling.
 
 ## Example
 
@@ -51,7 +59,9 @@ protected:
 };
 ```
 
-The complete implementation of the node can be found [here](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/queueing_node.h).
+For the complete implementation of this atomic node, see [queueing_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/queueing_node.h).
+
+Also see an example of a function node ([plus_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/plus_node.h)), a composite node ([two_stage_queueing_node](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/two_stage_queueing_node.h)), and a collection node ([parallel_queueing_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/parallel_queueing_node.h).
 
 ## Notable Features
 
