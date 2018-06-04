@@ -17,6 +17,7 @@ The framework combines 3 modeling paradigms: [discrete event simulation](https:/
 - [Overview](overview.html): Briefly introduces SyDEVS.
 - [Getting Started](getting_started/): Explains how to use SyDEVS, step by step.
 - [API Reference](doc/html/index.html): Documents the C++ classes that make up the library.
+- SyDEVS Introduction ([PPTX](doc/downloads/SyDEVS_Introduction.pptx), [PDF](doc/downloads/SyDEVS_Introduction.pdf)): Provides background information and introduces SyDEVS.
 - SyDEVS Framework Overview ([PPTX](doc/downloads/SyDEVS_Framework_Overview.pptx), [PDF](doc/downloads/SyDEVS_Framework_Overview.pdf)): Illustrates the main concepts & relates them to code.
 - SyDEVS Building7m Tutorial ([PPTX](doc/downloads/SyDEVS_Building7m_Tutorial.pptx), [PDF](doc/downloads/SyDEVS_Building7m_Tutorial.pdf)): Challenges users to learn by enhancing an example.
 
