@@ -72,6 +72,27 @@ This folder contains the elements from which dataflow + message-passing networks
 * `cmake -G "Xcode" ..`
 * `xcodebuild -project SyDEVS.xcodeproj` or open the `.xcodeproj` file.
 
+#### Building WebAssembly on Windows (Ninja)
+* You will need [CMake](http://www.cmake.org/)
+* You will need [Ninja](https://ninja-build.org/)
+* You will need precompiled webassembly toolchain, instructions from https://webassembly.org/getting-started/developers-guide/:
+	```
+	git clone https://github.com/juj/emsdk.git
+	cd emsdk
+	./emsdk.bat install latest 
+	./emsdk.bat activate latest
+	```
+* Build sydevs
+	```
+	cd <sydevs repo>
+	mkdir bin
+	cd bin
+	cmake -GNinja .. -DCMAKE_TOOLCHAIN_FILE=%EMSCRIPTEN%/cmake/Modules/Platform/Emscripten.cmake
+	ninja
+	```
+* Run a test server with `emrun --no_browser --port 8080 .`
+* Once the HTTP server is running, you can [open it in your browser](http://localhost:8080/hello_systems.html).
+
 #### Testing
 
 Unit and regression tests are run automatically during the build process.
