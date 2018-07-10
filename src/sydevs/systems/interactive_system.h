@@ -8,7 +8,7 @@ namespace sydevs {
 namespace systems {
 
 
-template <typename Node, typename Injection, typename Observation>
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
 class interactive_system : public collection_node<int64, Node>
 {
 public:
@@ -19,121 +19,173 @@ public:
 
     virtual ~interactive_system() = default;  ///< Destructor
 
+    std::unique_ptr<data_injector> acquire_injector();
+    std::unique_ptr<data_observer> acquire_observer();
+
     int64 frame_index() const;
 
-    std::unique_ptr<data_injector> injector();
-    std::unique_ptr<data_observer> observer();
-
 private:
-    std::unique_ptr<Injection> injection_ptr_;
-    std::unique_ptr<Observation> observation_ptr_;
+    std::unique_ptr<InjData> injection_;
+    std::unique_ptr<ObsData> observation_;
     int64 frame_index_;
     std::unique_ptr<data_injector> injector_;
     std::unique_ptr<data_observer> observer_;
 
+    void validate();
+
+    duration macro_initialization_event();
+    duration macro_unplanned_event(duration elapsed_dt);
+    duration micro_planned_event(const AgentID& agent_id, duration elapsed_dt);
     duration macro_planned_event(duration elapsed_dt);
+    void macro_finalization_event(duration elapsed_dt);
 
-    virtual std::pair<duration, Observation> interaction_event(duration elapsed_dt, Injection& injection) = 0;
+    virtual duration initialize() = 0;
+    virtual void update(const AgentID& agent_id, duration elapsed_dt) = 0;
+    virtual duration interact(duration elapsed_dt, const std::unique_ptr<InjData>& injection, const std::unique_ptr<ObsData>& observation) = 0;
+    virtual void finalize(duration elapsed_dt) = 0;
 };
 
 
-template <typename Node, typename Injection, typename Observation>
-class interactive_system<Node, Injection, Observation>::data_injector
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
+class interactive_system<AgentID, Node, InjData, ObsData>::data_injector
 {
 friend class interative_system;
 public:
-    std::unique_ptr<Injection>& injection_ptr();
+    std::unique_ptr<InjData>& injection();
 
 private:
-    data_injector(std::unique_ptr<Injection>& injection_ptr);
+    data_injector(std::unique_ptr<InjData>& injection);
 
-    std::unique_ptr<Injection>& injection_ptr_;
+    std::unique_ptr<InjData>& injection_;
 };
 
 
 
-template <typename Node, typename Injection, typename Observation>
-class interactive_system<Node, Injection, Observation>::data_observer
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
+class interactive_system<AgentID, Node, InjData, ObsData>::data_observer
 {
 friend class interative_system;
 public:
-    std::unique_ptr<Observation>& observation_ptr();
+    std::unique_ptr<ObsData>& observation();
 
 private:
-    data_observer(std::unique_ptr<Observation>& observation_ptr);
+    data_observer(std::unique_ptr<ObsData>& observation);
 
-    std::unique_ptr<Observation>& observation_ptr_;
+    std::unique_ptr<ObsData>& observation_;
 };
 
 
 
-template <typename Node, typename Injection, typename Observation>
-interactive_system<Node, Injection, Observation>::interactive_system(const std::string& node_name, const node_context& external_context)
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
+interactive_system<AgentID, Node, InjData, ObsData>::interactive_system(const std::string& node_name, const node_context& external_context)
     : collection_node<int64, Node>(node_name, external_context)
-    , injection_ptr_()
-    , observation_ptr_()
-    , injector_(new data_injector(injection_ptr_))
-    , observer_(new data_observer(observation_ptr_))
+    , injection_()
+    , observation_()
+    , injector_(new data_injector(injection_))
+    , observer_(new data_observer(observation_))
 {
+    validate();
 }
 
 
-template <typename Node, typename Injection, typename Observation>
-int64 interactive_system<Node, Injection, Observation>::frame_index() const
-{
-    return frame_index_;
-}
-
-
-template <typename Node, typename Injection, typename Observation>
-std::unique_ptr<typename interactive_system<Node, Injection, Observation>::data_injector> interactive_system<Node, Injection, Observation>::injector()
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
+std::unique_ptr<typename interactive_system<AgentID, Node, InjData, ObsData>::data_injector> interactive_system<AgentID, Node, InjData, ObsData>::acquire_injector()
 {
     return std::move(injector_);
 }
 
 
-template <typename Node, typename Injection, typename Observation>
-std::unique_ptr<typename interactive_system<Node, Injection, Observation>::data_observer> interactive_system<Node, Injection, Observation>::observer()
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
+std::unique_ptr<typename interactive_system<AgentID, Node, InjData, ObsData>::data_observer> interactive_system<AgentID, Node, InjData, ObsData>::acquire_observer()
 {
     return std::move(observer_);
 }
 
 
-template <typename Node, typename Injection, typename Observation>
-duration interactive_system<Node, Injection, Observation>::macro_planned_event(duration elapsed_dt)
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
+int64 interactive_system<AgentID, Node, InjData, ObsData>::frame_index() const
 {
-    ++frame_index_;
-    auto event_result = interaction_event(elapsed_dt, *injection_ptr_);
-    interaction_ptr_.reset();
-    observation_ptr_ = std::move(event_result.second);
-    return event_result.first;
+    return frame_index_;
 }
 
 
-template <typename Node, typename Injection, typename Observation>
-std::unique_ptr<Injection>& interactive_system<Node, Injection, Observation>::data_injector::injection_ptr()
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
+void interactive_system<AgentID, Node, InjData, ObsData>::validate()
 {
-    return injection_ptr_;
+    if (external_IO().flow_input_port_count() != 0 ||
+        external_IO().message_input_port_count() != 0 ||
+        external_IO().message_output_port_count() != 0 ||
+        external_IO().flow_output_port_count() != 0) {
+        throw std::invalid_argument("Interactive node (" + full_name() + ") must have no ports");
+    }
+}
+
+
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
+duration interactive_system<AgentID, Node, InjData, ObsData>::macro_initialization_event()
+{
+    auto planned_dt = initialize();
+    return planned_dt;
+}
+
+    
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
+duration interactive_system<AgentID, Node, InjData, ObsData>::macro_unplanned_event(duration elapsed_dt)
+{
+}
+
+
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
+duration interactive_system<AgentID, Node, InjData, ObsData>::micro_planned_event(const AgentID& agent_id, duration elapsed_dt)
+{
+    update(agent_id, elapsed_dt);
+    return planned_dt - elapsed_dt;
+}
+
+    
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
+duration interactive_system<AgentID, Node, InjData, ObsData>::macro_planned_event(duration elapsed_dt)
+{
+    ++frame_index_;
+    observation_.reset();
+    auto planned_dt = interact(elapsed_dt, injection_, observation_);
+    if (planned_dt <= 0_s) throw std::logic_error("Planned duration between interact events must be positive.");
+    injection_.reset();
+    return planned_dt;
+}
+
+
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
+void interactive_system<AgentID, Node, InjData, ObsData>::macro_finalization_event(duration elapsed_dt)
+{
+    finalize(elapsed_dt);
+}
+
+    
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
+std::unique_ptr<InjData>& interactive_system<AgentID, Node, InjData, ObsData>::data_injector::injection()
+{
+    return injection_;
 };
 
 
-template <typename Node, typename Injection, typename Observation>
-interactive_system<Node, Injection, Observation>::data_injector::data_injector(std::unique_ptr<Injection>& injection_ptr)
-    : injection_ptr_(injection_ptr)
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
+interactive_system<AgentID, Node, InjData, ObsData>::data_injector::data_injector(std::unique_ptr<InjData>& injection)
+    : injection_(injection)
 {
 };
 
 
-template <typename Node, typename Injection, typename Observation>
-std::unique_ptr<Observation>& interactive_system<Node, Injection, Observation>::data_observer::observation_ptr()
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
+std::unique_ptr<ObsData>& interactive_system<AgentID, Node, InjData, ObsData>::data_observer::observation()
 {
-    return observation_ptr_;
+    return observation_;
 };
 
 
-template <typename Node, typename Injection, typename Observation>
-interactive_system<Node, Injection, Observation>::data_observer::data_observer(std::unique_ptr<Observation>& observation_ptr)
-    : observation_ptr_(observation_ptr)
+template <typename AgentID, typename Node, typename InjData, typename ObsData>
+interactive_system<AgentID, Node, InjData, ObsData>::data_observer::data_observer(std::unique_ptr<ObsData>& observation)
+    : observation_(observation)
 {
 };
 

@@ -554,7 +554,6 @@ inline void collection_node<AgentID, Node>::create_agent(const AgentID& agent_id
     agent_IO(agent).activate(flow, input);
     auto planned_dt = agent.process_initialization_event();
     agent_IO(agent).deactivate();
-    if (!planned_dt.valid()) throw std::logic_error("Invalid planned duration");
     if (planned_dt.finite()) {
         t_queue_.plan_event(agent_index, planned_dt);
     }
