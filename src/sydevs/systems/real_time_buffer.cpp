@@ -9,7 +9,6 @@ real_time_buffer::real_time_buffer(float64 ta_rate, int64 ta_precision)
     , count_(0)
     , time_points_(ta_precision)
     , clock_times_(ta_precision)
-    , frame_indices_(ta_precision)
     , retention_flags_(ta_precision)
     , planned_dt_(0_s)
     , planned_clock_t_()
@@ -29,7 +28,6 @@ void real_time_buffer::update_time_advancement_precision(int64 ta_precision)
 {
     time_points_.resize(ta_precision);
     clock_times_.resize(ta_precision);
-    frame_indices_.resize(ta_precision);
     retention_flags_.resize(ta_precision);
     if (ta_precision < count_) {
         count_ = ta_precision;
@@ -38,17 +36,15 @@ void real_time_buffer::update_time_advancement_precision(int64 ta_precision)
 }
 
 
-void real_time_buffer::retain(const time_point& t, const clock_time& clock_t, int64 frame_index, duration planned_dt)
+void real_time_buffer::retain(const time_point& t, const clock_time& clock_t, duration planned_dt)
 {
     auto insert = true;
     auto insert_t = t;
     auto insert_clock_t = clock_t;
-    auto insert_frame_index = frame_index;
     for (int64 i = 0; insert && i <= count_; ++i) {
         if (i < time_advancement_precision()) {
             std::swap(time_points_[i], insert_t);
             std::swap(clock_times_[i], insert_clock_t);
-            std::swap(frame_indices_[i], insert_frame_index);
             if (i == count_) {
                 ++count_;
                 insert = false;
@@ -78,9 +74,8 @@ void real_time_buffer::recompute_planned_clock_time()
             const auto& ref_ti = time_points_[i];
             const auto& ref_clock_ti = clock_times_[i];
             auto dt = t.gap(ref_ti) + planned_dt_.unfixed();
-            auto ref_clock_dti = float64((dt/ta_rate_)/1_us);
-            auto clock_ti = ref_clock_ti + std::chrono::microseconds(int64(ref_clock_dti));
-            auto clock_dti = 0.0;
+            auto clock_ti = ref_clock_ti + std::chrono::microseconds(int64((dt/ta_rate_)/1_us));
+            float64 clock_dti = 0.0;
             if (clock_ti > clock_t) {
                 clock_dti = float64(std::chrono::duration_cast<std::chrono::microseconds>(clock_ti - clock_t).count());
             }
@@ -89,7 +84,7 @@ void real_time_buffer::recompute_planned_clock_time()
             }
             float64 coeff = 0.0;
             if (clock_dt0 > 0.0) {
-                coeff = (clock_dti/clock_dt0)*ref_clock_dti;
+                coeff = exp2(i*(2.0*clock_dti/clock_dt0 - 1));
             }            
             numer += coeff*clock_dti;
             denom += coeff;

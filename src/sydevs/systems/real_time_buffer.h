@@ -25,7 +25,7 @@ public:
 
     clock_time planned_clock_time() const;
 
-    void retain(const time_point& t, const clock_time& clock_t, int64 frame_index, duration planned_dt);
+    void retain(const time_point& t, const clock_time& clock_t, duration planned_dt);
 
 private:
     void recompute_planned_clock_time();
@@ -34,7 +34,6 @@ private:
     int64 count_;
     std::vector<time_point> time_points_;
     std::vector<clock_time> clock_times_;
-    std::vector<int64> frame_indices_;
     std::vector<int64> retention_flags_;
     duration planned_dt_;
     clock_time planned_clock_t_;
