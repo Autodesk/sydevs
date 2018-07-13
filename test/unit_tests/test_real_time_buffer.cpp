@@ -25,7 +25,7 @@ TEST_CASE("test real time buffer")
 
     rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(30), 25_ms);
 
-    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 101987);
+    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 101824);
 
     rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(20), 25_ms);
 
@@ -33,7 +33,7 @@ TEST_CASE("test real time buffer")
 
     rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(30), 25_ms);
 
-    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 151038);
+    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 150866);
 
     rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(20), 25_ms);
 
@@ -41,7 +41,7 @@ TEST_CASE("test real time buffer")
 
     rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(30), 25_ms);
 
-    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 201038);
+    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 200866);
 
     rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(20), 25_ms);
 
@@ -49,7 +49,7 @@ TEST_CASE("test real time buffer")
 
     rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(20), 25_ms);
 
-    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 249827);
+    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 249758);
 
     rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(30), 25_ms);
 
@@ -61,11 +61,15 @@ TEST_CASE("test real time buffer")
 
     rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(100), 25_ms);
 
-    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 388333);
+    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 381250);
 
     rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(1), 25_ms);
 
-    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 420261);
+    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 407294);
+
+    rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(25), 25_ms);
+
+    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 432294);
 }
 
 

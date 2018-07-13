@@ -84,7 +84,7 @@ void real_time_buffer::recompute_planned_clock_time()
             }
             float64 coeff = 0.0;
             if (clock_dt0 > 0.0) {
-                coeff = exp2(i*(2.0*clock_dti/clock_dt0 - 1));
+                coeff = exp2(i*(clock_dti/clock_dt0));
             }            
             numer += coeff*clock_dti;
             denom += coeff;
