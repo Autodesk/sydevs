@@ -24,10 +24,10 @@ public:
     std::unique_ptr<interactive_system::data_observer> acquire_observer();
 
     float64 time_advancement_rate() const;
-    int64 time_advancement_precision() const;
+    int64 time_advancement_depth() const;
 
     void update_time_advancement_rate(float64 ta_rate);
-    void update_time_advancement_precision(int64 ta_precision);
+    void update_time_advancement_depth(int64 ta_depth);
 
     int64 frame_index() const;
 
@@ -41,7 +41,7 @@ private:
 
 
 template<typename Node>
-real_time_simulation<Node>::real_time_simulation(const time_point& start_t, const time_point& end_t, bool can_end_early, int64 seed, std::ostream& stream)
+inline real_time_simulation<Node>::real_time_simulation(const time_point& start_t, const time_point& end_t, bool can_end_early, int64 seed, std::ostream& stream)
     : simulation<Node>(start_t, end_t, can_end_early, seed, stream)
     , ta_buffer_(std::numeric_limits<float64>::infinity(), 1)
 {
@@ -50,7 +50,7 @@ real_time_simulation<Node>::real_time_simulation(const time_point& start_t, cons
 
 
 template<typename Node>
-real_time_simulation<Node>::real_time_simulation(duration total_dt, int64 seed, std::ostream& stream)
+inline real_time_simulation<Node>::real_time_simulation(duration total_dt, int64 seed, std::ostream& stream)
     : simulation<Node>::(total_dt, seed, stream)
     , ta_buffer_(std::numeric_limits<float64>::infinity(), 1)
 {
@@ -59,56 +59,56 @@ real_time_simulation<Node>::real_time_simulation(duration total_dt, int64 seed, 
 
 
 template<typename Node>
-std::unique_ptr<interactive_system::data_injector> real_time_simulation<Node>::acquire_injector()
+inline std::unique_ptr<interactive_system::data_injector> real_time_simulation<Node>::acquire_injector()
 {
     return top.acquire_injector();
 }
 
 
 template<typename Node>
-std::unique_ptr<interactive_system::data_observer> real_time_simulation<Node>::acquire_observer()
+inline std::unique_ptr<interactive_system::data_observer> real_time_simulation<Node>::acquire_observer()
 {
     return top.acquire_observer();
 }
 
 
 template<typename Node>
-float64 real_time_simulation<Node>::time_advancement_rate() const
+inline float64 real_time_simulation<Node>::time_advancement_rate() const
 {
     return ta_buffer_.time_advancement_rate();
 }
 
 
 template<typename Node>
-int64 real_time_simulation<Node>::time_advancement_precision() const
+inline int64 real_time_simulation<Node>::time_advancement_depth() const
 {
-    return ta_buffer_.time_precision_rate();
+    return ta_buffer_.time_depth_rate();
 }
 
 
 template<typename Node>
-void real_time_simulation<Node>::update_time_advancement_rate(float64 ta_rate)
+inline void real_time_simulation<Node>::update_time_advancement_rate(float64 ta_rate)
 {
     ta_buffer_.update_time_advancement_rate(ta_rate);
 }
 
 
 template<typename Node>
-void real_time_simulation<Node>::update_time_advancement_precision(int64 ta_precision)
+inline void real_time_simulation<Node>::update_time_advancement_depth(int64 ta_depth)
 {
-    ta_buffer_.update_time_advancement_precision(ta_precision);
+    ta_buffer_.update_time_advancement_depth(ta_depth);
 }
 
 
 template<typename Node>
-int64 real_time_simulation<Node>::frame_index() const
+inline int64 real_time_simulation<Node>::frame_index() const
 {
     return top.frame_index();
 }
 
 
 template<typename Node>
-int64 real_time_simulation<Node>::process_next_frame()
+inline int64 real_time_simulation<Node>::process_next_frame()
 {
     int64 event_count = 0;
     int64 index0 = frame_index();
@@ -120,7 +120,7 @@ int64 real_time_simulation<Node>::process_next_frame()
 
 
 template<typename Node>
-void real_time_simulation<Node>::validate_interative()
+inline void real_time_simulation<Node>::validate_interative()
 {
     static_assert(std::is_base_of<interactive_system, Node>::value, "Node must inherit from interactive_system");
 }
