@@ -63,6 +63,34 @@ TEST_CASE("test real time buffer")
 
     CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 381250);
 
+    rt_buffer.update_time_advancement_depth(5);
+
+    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 381250);
+
+    rt_buffer.update_time_advancement_depth(4);
+
+    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 381250);
+
+    rt_buffer.update_time_advancement_depth(3);
+
+    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 383333);
+
+    rt_buffer.update_time_advancement_depth(2);
+
+    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 387500);
+
+    rt_buffer.update_time_advancement_depth(1);
+
+    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 400000);
+
+    rt_buffer.update_time_advancement_depth(0);
+
+    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 375000);
+
+    rt_buffer.update_time_advancement_depth(6);
+
+    CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 381250);
+
     rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(1), 25_ms);
 
     CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 407294);

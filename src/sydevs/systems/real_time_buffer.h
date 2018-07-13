@@ -3,6 +3,7 @@
 #define SYDEVS_SYSTEMS_REAL_TIME_BUFFER_H_
 
 #include <sydevs/time/time_point.h>
+#include <array>
 #include <chrono>
 
 namespace sydevs {
@@ -15,13 +16,13 @@ using clock_time = std::chrono::time_point<clock>;
 class real_time_buffer
 {
 public:
-    real_time_buffer(float64 ta_rate, int64 ta_precision);
+    real_time_buffer(float64 ta_rate, int64 ta_depth);
 
     float64 time_advancement_rate() const;
-    int64 time_advancement_precision() const;
+    int64 time_advancement_depth() const;
 
     void update_time_advancement_rate(float64 ta_rate);
-    void update_time_advancement_precision(int64 ta_precision);
+    void update_time_advancement_depth(int64 ta_depth);
 
     clock_time planned_clock_time() const;
 
@@ -31,10 +32,11 @@ private:
     void recompute_planned_clock_time();
 
     float64 ta_rate_;
-    int64 count_;
-    std::vector<time_point> time_points_;
-    std::vector<clock_time> clock_times_;
-    std::vector<int64> retention_flags_;
+    int64 ta_depth_;
+    int64 max_depth_;
+    std::array<time_point, 64> time_points_;
+    std::array<clock_time, 64> clock_times_;
+    std::array<int64, 64> retention_flags_;
     duration planned_dt_;
     clock_time planned_clock_t_;
 };
@@ -46,9 +48,9 @@ inline float64 real_time_buffer::time_advancement_rate() const
 }
 
 
-inline int64 real_time_buffer::time_advancement_precision() const
+inline int64 real_time_buffer::time_advancement_depth() const
 {
-    return int64(time_points_.size());
+    return ta_depth_;
 }
 
 
