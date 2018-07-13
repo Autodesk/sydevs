@@ -20,8 +20,8 @@ public:
 
     virtual ~real_time_simulation() = default;  ///< Destructor   
 
-    std::unique_ptr<interactive_system::data_injector> acquire_injector();
-    std::unique_ptr<interactive_system::data_observer> acquire_observer();
+    typename Node::injection_type& injection();
+    const typename Node::observation_type& observation();
 
     float64 time_advancement_rate() const;
     int64 time_advancement_depth() const;
@@ -36,6 +36,7 @@ public:
 private:
     void validate_interative();
 
+    std::unique_ptr<typename Node::interaction_data> interaction_data_ptr_;
     real_time_buffer ta_buffer_;
 };
 
@@ -43,32 +44,36 @@ private:
 template<typename Node>
 inline real_time_simulation<Node>::real_time_simulation(const time_point& start_t, const time_point& end_t, bool can_end_early, int64 seed, std::ostream& stream)
     : simulation<Node>(start_t, end_t, can_end_early, seed, stream)
+    , interaction_data_ptr_()
     , ta_buffer_(std::numeric_limits<float64>::infinity(), 1)
 {
     validate_interative();
+    interaction_data_ptr_.reset(top.acquire_interaction_data())
 }
 
 
 template<typename Node>
 inline real_time_simulation<Node>::real_time_simulation(duration total_dt, int64 seed, std::ostream& stream)
     : simulation<Node>::(total_dt, seed, stream)
+    , interaction_data_ptr_()
     , ta_buffer_(std::numeric_limits<float64>::infinity(), 1)
 {
     validate_interative();
+    interaction_data_ptr_.reset(top.acquire_interaction_data())
 }
 
 
 template<typename Node>
-inline std::unique_ptr<interactive_system::data_injector> real_time_simulation<Node>::acquire_injector()
+inline typename Node::injection_type& real_time_simulation<Node>::injection()
 {
-    return top.acquire_injector();
+    return interaction_data_ptr_->injection();
 }
 
 
 template<typename Node>
-inline std::unique_ptr<interactive_system::data_observer> real_time_simulation<Node>::acquire_observer()
+inline const typename Node::observation_type& real_time_simulation<Node>::observation()
 {
-    return top.acquire_observer();
+    return interaction_data_ptr_->observation();
 }
 
 
