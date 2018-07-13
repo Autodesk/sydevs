@@ -60,13 +60,14 @@ void real_time_buffer::retain(const time_point& t, const clock_time& clock_t, du
 void real_time_buffer::recompute_planned_clock_time()
 {
     planned_clock_t_ = clock_time();
-    if (max_depth_ > 0) {
+    int64 depth = std::min(ta_depth_, max_depth_);
+    if (depth > 0) {
         float64 numer = 0.0;
         float64 denom = 0.0;
         const auto& t = time_points_[0];
         const auto& clock_t = clock_times_[0];
         float64 clock_dt0 = 0.0;
-        for (int64 i = 0; i < max_depth_ && i < ta_depth_; ++i) {
+        for (int64 i = 0; i < depth; ++i) {
             const auto& ref_ti = time_points_[i];
             const auto& ref_clock_ti = clock_times_[i];
             auto dt = t.gap(ref_ti) + planned_dt_.unfixed();

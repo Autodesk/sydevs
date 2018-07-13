@@ -24,6 +24,10 @@ public:
     void update_time_advancement_rate(float64 ta_rate);
     void update_time_advancement_depth(int64 ta_depth);
 
+    int64 max_depth() const;
+    const time_point& cached_time(int64 depth = 0) const;
+    const clock_time& cached_clock_time(int64 depth = 0) const;
+
     clock_time planned_clock_time() const;
 
     void retain(const time_point& t, const clock_time& clock_t, duration planned_dt);
@@ -51,6 +55,26 @@ inline float64 real_time_buffer::time_advancement_rate() const
 inline int64 real_time_buffer::time_advancement_depth() const
 {
     return ta_depth_;
+}
+
+
+inline int64 real_time_buffer::max_depth() const
+{
+    return max_depth_;
+}
+
+
+inline const time_point& real_time_buffer::cached_time(int64 depth) const
+{
+    if (depth >= max_depth_) throw std::domain_error("Cached time retrieval depth must be less than the maximum depth");
+    return time_points_.at(depth);
+}
+
+
+inline const clock_time& real_time_buffer::cached_clock_time(int64 depth) const
+{
+    if (depth >= max_depth_) throw std::domain_error("Cached clock time retrieval depth must be less than the maximum depth");
+    return clock_times_.at(depth);
 }
 
 
