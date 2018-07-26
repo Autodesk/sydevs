@@ -196,6 +196,13 @@ inline bool simulation<Node>::started() const
 
 
 template<typename Node>
+inline bool simulation<Node>::finishing() const
+{
+    return finishing_;
+}
+
+    
+template<typename Node>
 inline bool simulation<Node>::finished() const
 {
     return finished_;

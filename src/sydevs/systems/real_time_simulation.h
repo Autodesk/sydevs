@@ -31,7 +31,7 @@ public:
 
     int64 frame_index() const;
 
-    int64 process_next_frame();
+    int64 process_frame_if_time_reached();
 
 private:
     void validate_interative();
@@ -87,7 +87,7 @@ inline float64 real_time_simulation<Node>::time_advancement_rate() const
 template<typename Node>
 inline int64 real_time_simulation<Node>::time_advancement_depth() const
 {
-    return ta_buffer_.time_depth_rate();
+    return ta_buffer_.time_advancement_depth();
 }
 
 
@@ -113,12 +113,25 @@ inline int64 real_time_simulation<Node>::frame_index() const
 
 
 template<typename Node>
-inline int64 real_time_simulation<Node>::process_next_frame()
+inline int64 real_time_simulation<Node>::process_frame_if_time_reached()
 {
     int64 event_count = 0;
-    int64 index0 = frame_index();
-    while (!finished_ && event_time().t() < t && frame_index() == index0) {
-        event_count += process_next_events();
+    if (!finished()) {
+        auto t = time().t();
+        auto clock_t = clock::now();
+        if (clock_t >= ta_buffer_.planned_clock_time()) {
+            int64 current_frame_index = frame_index();
+            auto done = false;
+            while (!done) {
+                event_count += process_next_events();
+                done = finished() || (frame_index() > current_frame_index);
+                if (!done) {
+                    t = time().t();
+                    clock_t = clock::now();
+                }
+            }
+            ta_buffer_.retain(t, clock_t);
+        }
     }
     return event_count;
 }
