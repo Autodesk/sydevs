@@ -13,7 +13,7 @@ class interactive_system : public collection_node<int64, Node>
 {
 public:
     using injection_type = InjData;
-    using observation_type = InjData;
+    using observation_type = ObsData;
 
     class interaction_data;
 
@@ -24,11 +24,13 @@ public:
     std::unique_ptr<interaction_data> acquire_interaction_data();
 
     int64 frame_index() const;
+    duration planned_duration() const;
 
 private:
     InjData injection_;
     ObsData observation_;
     int64 frame_index_;
+    duration planned_dt_;
     std::unique_ptr<interaction_data> interaction_data_;
 
     void validate();
@@ -49,7 +51,7 @@ private:
 template<typename AgentID, typename Node, typename InjData, typename ObsData>
 class interactive_system<AgentID, Node, InjData, ObsData>::interaction_data
 {
-friend class interative_system;
+friend class interactive_system;
 public:
     InjData& injection();
     const ObsData& observation();
@@ -69,6 +71,7 @@ interactive_system<AgentID, Node, InjData, ObsData>::interactive_system(const st
     , injection_()
     , observation_()
     , frame_index_(-1)
+    , planned_dt_()
     , interaction_data_(new interaction_data(injection_, observation_))
 {
     validate();
@@ -90,6 +93,13 @@ int64 interactive_system<AgentID, Node, InjData, ObsData>::frame_index() const
 
 
 template<typename AgentID, typename Node, typename InjData, typename ObsData>
+duration interactive_system<AgentID, Node, InjData, ObsData>::planned_duration() const
+{
+    return planned_dt_;
+}
+
+
+template<typename AgentID, typename Node, typename InjData, typename ObsData>
 void interactive_system<AgentID, Node, InjData, ObsData>::validate()
 {
     if (external_IO().flow_input_port_count() != 0 ||
@@ -104,14 +114,15 @@ void interactive_system<AgentID, Node, InjData, ObsData>::validate()
 template<typename AgentID, typename Node, typename InjData, typename ObsData>
 duration interactive_system<AgentID, Node, InjData, ObsData>::macro_initialization_event()
 {
-    auto planned_dt = macro_initialization_update();
-    return planned_dt;
+    planned_dt_ = macro_initialization_update();
+    return planned_dt_;
 }
 
     
 template<typename AgentID, typename Node, typename InjData, typename ObsData>
 duration interactive_system<AgentID, Node, InjData, ObsData>::macro_unplanned_event(duration elapsed_dt)
 {
+    return duration();
 }
 
 
@@ -119,7 +130,8 @@ template<typename AgentID, typename Node, typename InjData, typename ObsData>
 duration interactive_system<AgentID, Node, InjData, ObsData>::micro_planned_event(const AgentID& agent_id, duration elapsed_dt)
 {
     micro_planned_update(agent_id, elapsed_dt);
-    return planned_dt - elapsed_dt;
+    planned_dt_ -= elapsed_dt;
+    return planned_dt_;
 }
 
     
@@ -127,9 +139,9 @@ template<typename AgentID, typename Node, typename InjData, typename ObsData>
 duration interactive_system<AgentID, Node, InjData, ObsData>::macro_planned_event(duration elapsed_dt)
 {
     ++frame_index_;
-    auto planned_dt = macro_planned_update(elapsed_dt, injection_, observation_);
-    if (planned_dt <= 0_s) throw std::logic_error("Planned duration between interact events must be positive.");
-    return planned_dt;
+    planned_dt_ = macro_planned_update(elapsed_dt, injection_, observation_);
+    if (planned_dt_ <= 0_s) throw std::logic_error("Planned duration between interact events must be positive.");
+    return planned_dt_;
 }
 
 

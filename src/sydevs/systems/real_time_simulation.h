@@ -30,12 +30,12 @@ public:
     void update_time_advancement_depth(int64 ta_depth);
 
     int64 frame_index() const;
+    const time_point& frame_time() const;
+    const clock_time& frame_clock_time() const;
 
     int64 process_frame_if_time_reached();
 
 private:
-    void validate_interative();
-
     std::unique_ptr<typename Node::interaction_data> interaction_data_ptr_;
     real_time_buffer ta_buffer_;
 };
@@ -47,19 +47,17 @@ inline real_time_simulation<Node>::real_time_simulation(const time_point& start_
     , interaction_data_ptr_()
     , ta_buffer_(std::numeric_limits<float64>::infinity(), 1)
 {
-    validate_interative();
-    interaction_data_ptr_.reset(top.acquire_interaction_data())
+    interaction_data_ptr_ = top.acquire_interaction_data();
 }
 
 
 template<typename Node>
 inline real_time_simulation<Node>::real_time_simulation(duration total_dt, int64 seed, std::ostream& stream)
-    : simulation<Node>::(total_dt, seed, stream)
+    : simulation<Node>(total_dt, seed, stream)
     , interaction_data_ptr_()
     , ta_buffer_(std::numeric_limits<float64>::infinity(), 1)
 {
-    validate_interative();
-    interaction_data_ptr_.reset(top.acquire_interaction_data())
+    interaction_data_ptr_ = top.acquire_interaction_data();
 }
 
 
@@ -87,6 +85,7 @@ inline float64 real_time_simulation<Node>::time_advancement_rate() const
 template<typename Node>
 inline int64 real_time_simulation<Node>::time_advancement_depth() const
 {
+    if (ta_rate < 0) throw std::invalid_argument("Time advancement depth must be non-negative");
     return ta_buffer_.time_advancement_depth();
 }
 
@@ -94,6 +93,7 @@ inline int64 real_time_simulation<Node>::time_advancement_depth() const
 template<typename Node>
 inline void real_time_simulation<Node>::update_time_advancement_rate(float64 ta_rate)
 {
+    if (ta_rate <= 0.0) throw std::invalid_argument("Time advancement rate must be positive");
     ta_buffer_.update_time_advancement_rate(ta_rate);
 }
 
@@ -109,6 +109,20 @@ template<typename Node>
 inline int64 real_time_simulation<Node>::frame_index() const
 {
     return top.frame_index();
+}
+
+
+template<typename Node>
+const time_point& real_time_simulation<Node>::frame_time() const
+{
+    return ta_buffer_.cached_time(0);
+}
+
+    
+template<typename Node>
+const clock_time& real_time_simulation<Node>::frame_clock_time() const
+{
+    return ta_buffer_.cached_clock_time(0);
 }
 
 
@@ -130,17 +144,10 @@ inline int64 real_time_simulation<Node>::process_frame_if_time_reached()
                     clock_t = clock::now();
                 }
             }
-            ta_buffer_.retain(t, clock_t);
+            ta_buffer_.retain(t, clock_t, top.planned_duration());
         }
     }
     return event_count;
-}
-
-
-template<typename Node>
-inline void real_time_simulation<Node>::validate_interative()
-{
-    static_assert(std::is_base_of<interactive_system, Node>::value, "Node must inherit from interactive_system");
 }
 
 

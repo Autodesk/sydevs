@@ -101,6 +101,7 @@ public:
     bool finished() const;   ///< Returns `true` if the simulation has finished.
 
     const discrete_event_time& time() const;  ///< Returns the current point in discrete event time.
+    duration imminent_duration() const;       ///< Returns the duration until the imminent event.
 
     void process_next_event();                        ///< Runs the next event of the topmost system node.
     int64 process_next_events();                      ///< Runs all events until simulated time advances; returns the number of processed events.
@@ -213,6 +214,13 @@ template<typename Node>
 inline const discrete_event_time& simulation<Node>::time() const
 {
     return const_cast<node_context&>(external_context_).event_time();
+}
+
+
+template<typename Node>
+inline duration simulation<Node>::imminent_duration() const
+{
+    return t_queue_.imminent_duration();
 }
 
 
