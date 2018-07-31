@@ -41,7 +41,7 @@ private:
     duration macro_planned_event(duration elapsed_dt);
     void macro_finalization_event(duration elapsed_dt);
 
-    virtual duration macro_initialization_update() = 0;
+    virtual duration macro_initialization_update(InjData& injection) = 0;
     virtual void micro_planned_update(const AgentID& agent_id, duration elapsed_dt) = 0;
     virtual duration macro_planned_update(duration elapsed_dt, const InjData& injection, ObsData& observation) = 0;
     virtual void macro_finalization_update(duration elapsed_dt) = 0;
@@ -114,7 +114,7 @@ void interactive_system<AgentID, Node, InjData, ObsData>::validate()
 template<typename AgentID, typename Node, typename InjData, typename ObsData>
 duration interactive_system<AgentID, Node, InjData, ObsData>::macro_initialization_event()
 {
-    planned_dt_ = macro_initialization_update();
+    planned_dt_ = macro_initialization_update(injection_);
     return planned_dt_;
 }
 

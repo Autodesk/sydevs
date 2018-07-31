@@ -30,7 +30,7 @@ private:
     duration motion_dt;
 
     // Event Handlers:
-    virtual duration macro_initialization_update();
+    virtual duration macro_initialization_update(acceleration& injection);
     virtual void micro_planned_update(const int64& agent_id, duration elapsed_dt);
     virtual duration macro_planned_update(duration elapsed_dt, const acceleration& injection, distance& observation);
     virtual void macro_finalization_update(duration elapsed_dt);
@@ -43,11 +43,12 @@ bouncing_ball_interactive_system::bouncing_ball_interactive_system(const std::st
 }
 
 
-duration bouncing_ball_interactive_system::macro_initialization_update()
+duration bouncing_ball_interactive_system::macro_initialization_update(acceleration& injection)
 {
     x = 0_m;
     v = 15000_mm/_s;
     a = -9810_mm/_s/_s;
+    injection = -a;
     access(prototype.X0_input) = std::make_tuple(x, v, a);
     create_agent(0);
     frame_dt = 100_ms;
@@ -72,8 +73,9 @@ duration bouncing_ball_interactive_system::macro_planned_update(duration elapsed
 {
     motion_dt += elapsed_dt;
     observation = x + v*motion_dt + 0.5*a*motion_dt*motion_dt;
-    if (injection != a) {
+    if (injection != -a) {
         access(prototype.g_input) = injection;
+        affect_agent(0);
     }
     return frame_dt;
 }

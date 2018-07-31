@@ -91,15 +91,11 @@ inline duration bouncing_ball_node::planned_event(duration elapsed_dt)
         midair_change = false;
     }
     else {
-        if (y == 0_m && v > 0_m/_s) {
-            bounce_dt = (2*v/g).fixed_at(time_precision());
+        if (y != 0_m || v < 0_m/_s) {
+            v = -(v - g*elapsed_dt);
         }
-        else {
-            auto d = float64((v*v + 2*y*g)/(_m*_m/_s/_s));
-            bounce_dt = ((v + sqrt(d)*(1_m/_s))/g).fixed_at(time_precision());
-        }
-        bounce_dt = 2*v/g;
-        bounce_dt = bounce_dt.fixed_at(time_precision());
+        y = 0_m;
+        bounce_dt = (2*v/g).fixed_at(time_precision());
     }
     X_output.send(std::make_tuple(y, v, -g));
     return bounce_dt;
