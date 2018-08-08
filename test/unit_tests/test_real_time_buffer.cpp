@@ -25,28 +25,28 @@ TEST_CASE("test real time buffer")
     }
     {
         rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(30), 25_ms);
-        CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 101824);
+        CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 102500);
 
         rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(20), 25_ms);
         CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 125000);
     }
     {
         rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(30), 25_ms);
-        CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 150866);
+        CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 151666);
 
         rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(20), 25_ms);
         CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 175000);
     }
     {
         rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(30), 25_ms);
-        CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 200866);
+        CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 201666);
 
         rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(20), 25_ms);
         CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 225000);
     }
     {
         rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(20), 25_ms);
-        CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 249758);
+        CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 248750);
 
         rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(30), 25_ms);
         CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 275000);
@@ -83,10 +83,10 @@ TEST_CASE("test real time buffer")
     }
     {
         rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(1), 25_ms);
-        CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 407294);
+        CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 384333);
 
         rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(25), 25_ms);
-        CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 432294);
+        CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 409333);
 
         rt_buffer.retain(tp += 25_ms, ct += std::chrono::milliseconds(99), 25_ms);
         CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 506250);

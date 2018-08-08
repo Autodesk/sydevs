@@ -71,7 +71,8 @@ void realtime()
                 }
             }
             else if (isdigit(input_ch)) {
-                int64 ta_depth = input_ch - '0';
+                int64 ta_depth_input = input_ch - '0';
+                int64 ta_depth = exp2(ta_depth_input) - 1;
                 sim.update_time_advancement_depth(ta_depth);
             }
             std::cout << std::endl;
