@@ -20,6 +20,7 @@ void realtime()
         sim.update_time_advancement_depth(1);
         auto clock_t0 = clock_time();
         auto t = 0_s;
+        bool high_g = false;
         while (true) {
             auto pause_t = t + 5_s;
             auto done = false;
@@ -56,11 +57,24 @@ void realtime()
                     prev_x = x;
                 }
             }
+            std::cout << std::endl;
+            std::cout << "Enter a character (g = toggle high gravity | 0-9 = time advancement depth): ";
             char input_ch;
             std::cin >> input_ch;
             if (input_ch == 'g') {
-                sim.injection() = 19620_mm/_s/_s;
+                high_g = !high_g;
+                if (high_g) {
+                    sim.injection() = 19620_mm/_s/_s;
+                }
+                else {
+                    sim.injection() = 9810_mm/_s/_s;
+                }
             }
+            else if (isdigit(input_ch)) {
+                int64 ta_depth = input_ch - '0';
+                sim.update_time_advancement_depth(ta_depth);
+            }
+            std::cout << std::endl;
         }
     }
     catch (const system_node::error& e) {
