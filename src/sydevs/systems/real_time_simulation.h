@@ -47,7 +47,7 @@ inline real_time_simulation<Node>::real_time_simulation(const time_point& start_
     , interaction_data_ptr_()
     , ta_buffer_(std::numeric_limits<float64>::infinity(), 1)
 {
-    interaction_data_ptr_ = top.acquire_interaction_data();
+    interaction_data_ptr_ = this->top.acquire_interaction_data();
 }
 
 
@@ -57,7 +57,7 @@ inline real_time_simulation<Node>::real_time_simulation(duration total_dt, int64
     , interaction_data_ptr_()
     , ta_buffer_(std::numeric_limits<float64>::infinity(), 1)
 {
-    interaction_data_ptr_ = top.acquire_interaction_data();
+    interaction_data_ptr_ = this->top.acquire_interaction_data();
 }
 
 
@@ -108,7 +108,7 @@ inline void real_time_simulation<Node>::update_time_advancement_depth(int64 ta_d
 template<typename Node>
 inline int64 real_time_simulation<Node>::frame_index() const
 {
-    return top.frame_index();
+    return this->top.frame_index();
 }
 
 
@@ -144,7 +144,7 @@ inline int64 real_time_simulation<Node>::process_frame_if_time_reached()
                     clock_t = clock::now();
                 }
             }
-            ta_buffer_.retain(t, clock_t, top.planned_duration());
+            ta_buffer_.retain(t, clock_t, this->top.planned_duration());
         }
     }
     return event_count;
