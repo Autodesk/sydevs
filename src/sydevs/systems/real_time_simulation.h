@@ -24,14 +24,19 @@ public:
     const typename Node::observation_type& observation();
 
     float64 time_advancement_rate() const;
-    int64 time_advancement_depth() const;
+    float64 time_synchronization_rate() const;
 
-    void update_time_advancement_rate(float64 ta_rate);
-    void update_time_advancement_depth(int64 ta_depth);
+    void update_time_advancement_rate(float64 t_adv_rate);
+    void update_time_synchronization_rate(float64 t_syn_rate);
+
+    time_point synchronization_time() const;
+    clock_time synchronization_clock_time() const;
+
+    void update_synchronization_time(const time_point& sim_t, const clock_time& clk_t);
 
     int64 frame_index() const;
-    const time_point& frame_time() const;
-    const clock_time& frame_clock_time() const;
+    time_point frame_time() const;
+    clock_time frame_clock_time() const;
 
     int64 process_frame_if_time_reached();
 
@@ -45,7 +50,7 @@ template<typename Node>
 inline real_time_simulation<Node>::real_time_simulation(const time_point& start_t, const time_point& end_t, bool can_end_early, int64 seed, std::ostream& stream)
     : simulation<Node>(start_t, end_t, can_end_early, seed, stream)
     , interaction_data_ptr_()
-    , ta_buffer_(std::numeric_limits<float64>::infinity(), 1)
+    , ta_buffer_(std::numeric_limits<float64>::infinity(), 0.0)
 {
     interaction_data_ptr_ = this->top.acquire_interaction_data();
 }
@@ -55,7 +60,7 @@ template<typename Node>
 inline real_time_simulation<Node>::real_time_simulation(duration total_dt, int64 seed, std::ostream& stream)
     : simulation<Node>(total_dt, seed, stream)
     , interaction_data_ptr_()
-    , ta_buffer_(std::numeric_limits<float64>::infinity(), 1)
+    , ta_buffer_(std::numeric_limits<float64>::infinity(), 0.0)
 {
     interaction_data_ptr_ = this->top.acquire_interaction_data();
 }
@@ -83,28 +88,49 @@ inline float64 real_time_simulation<Node>::time_advancement_rate() const
 
 
 template<typename Node>
-inline int64 real_time_simulation<Node>::time_advancement_depth() const
+inline float64 real_time_simulation<Node>::time_synchronization_rate() const
 {
-    return ta_buffer_.time_advancement_depth();
+    return ta_buffer_.time_synchronization_rate();
 }
 
 
 template<typename Node>
-inline void real_time_simulation<Node>::update_time_advancement_rate(float64 ta_rate)
+inline void real_time_simulation<Node>::update_time_advancement_rate(float64 t_adv_rate)
 {
-    if (ta_rate <= 0.0) throw std::invalid_argument("Time advancement rate must be positive");
-    ta_buffer_.update_time_advancement_rate(ta_rate);
+    if (t_adv_rate <= 0.0) throw std::invalid_argument("Time advancement rate must be positive");
+    ta_buffer_.update_time_advancement_rate(t_adv_rate);
 }
 
 
 template<typename Node>
-inline void real_time_simulation<Node>::update_time_advancement_depth(int64 ta_depth)
+inline void real_time_simulation<Node>::update_time_synchronization_rate(float64 t_syn_rate)
 {
-    if (ta_depth < 0) throw std::invalid_argument("Time advancement depth must be non-negative");
-    ta_buffer_.update_time_advancement_depth(ta_depth);
+    if (t_syn_rate < 0) throw std::invalid_argument("Time advancement depth must be non-negative");
+    ta_buffer_.update_time_synchronization_rate(t_syn_rate);
 }
 
 
+template<typename Node>
+inline time_point real_time_simulation<Node>::synchronization_time() const
+{
+    return ta_buffer_.synchronization_time();
+}
+
+
+template<typename Node>
+inline clock_time real_time_simulation<Node>::synchronization_clock_time() const
+{
+    return ta_buffer_.synchronization_clock_time();
+}
+
+
+template<typename Node>
+inline void real_time_simulation<Node>::update_synchronization_time(const time_point& sim_t, const clock_time& clk_t)
+{
+    ta_buffer_.update_synchronization_time(sim_t, clk_t);
+}
+
+    
 template<typename Node>
 inline int64 real_time_simulation<Node>::frame_index() const
 {
@@ -113,16 +139,16 @@ inline int64 real_time_simulation<Node>::frame_index() const
 
 
 template<typename Node>
-const time_point& real_time_simulation<Node>::frame_time() const
+time_point real_time_simulation<Node>::frame_time() const
 {
-    return ta_buffer_.cached_time(0);
+    return ta_buffer_.current_time();
 }
 
     
 template<typename Node>
-const clock_time& real_time_simulation<Node>::frame_clock_time() const
+clock_time real_time_simulation<Node>::frame_clock_time() const
 {
-    return ta_buffer_.cached_clock_time(0);
+    return ta_buffer_.current_clock_time();
 }
 
 
@@ -144,7 +170,7 @@ inline int64 real_time_simulation<Node>::process_frame_if_time_reached()
                     clock_t = clock::now();
                 }
             }
-            ta_buffer_.retain(t, clock_t, this->top.planned_duration());
+            ta_buffer_.update_current_time(t, clock_t, this->top.planned_duration());
         }
     }
     return event_count;

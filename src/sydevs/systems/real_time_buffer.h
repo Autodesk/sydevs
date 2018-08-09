@@ -16,71 +16,80 @@ using clock_time = std::chrono::time_point<clock>;
 class real_time_buffer
 {
 public:
-    real_time_buffer(float64 ta_rate, int64 ta_depth);
+    real_time_buffer(float64 t_adv_rate, int64 t_syn_depth);
 
     float64 time_advancement_rate() const;
-    int64 time_advancement_depth() const;
+    float64 time_synchronization_rate() const;
 
-    void update_time_advancement_rate(float64 ta_rate);
-    void update_time_advancement_depth(int64 ta_depth);
+    void update_time_advancement_rate(float64 t_adv_rate);
+    void update_time_synchronization_rate(float64 t_syn_rate);
 
-    int64 max_depth() const;
-    const time_point& cached_time(int64 depth = 0) const;
-    const clock_time& cached_clock_time(int64 depth = 0) const;
+    time_point synchronization_time() const;
+    clock_time synchronization_clock_time() const;
+
+    void update_synchronization_time(const time_point& sim_t, const clock_time& clk_t);
+
+    time_point current_time() const;
+    clock_time current_clock_time() const;
+
+    void update_current_time(const time_point& sim_t, const clock_time& clk_t, duration planned_sim_dt);
 
     clock_time planned_clock_time() const;
 
-    void retain(const time_point& t, const clock_time& clock_t, duration planned_dt);
-
 private:
-    void recompute_planned_clock_time();
+    void recompute_planned_clock_duration();
 
-    float64 ta_rate_;
-    int64 ta_depth_;
-    int64 max_depth_;
-    std::array<time_point, 64> time_points_;
-    std::array<clock_time, 64> clock_times_;
-    std::array<int64, 64> retention_flags_;
-    duration planned_dt_;
-    clock_time planned_clock_t_;
+    float64 t_adv_rate_;        // time advancement rate
+    float64 t_syn_rate_;        // time synchronization rate
+    time_point syn_sim_t_;      // synchronization simulated time
+    clock_time syn_clk_t_;      // synchronization clock time
+    time_point current_sim_t_;  // current simulated time
+    clock_time current_clk_t_;  // current clock time
+    duration planned_sim_dt_;   // planned simulated time duration
+    float64 planned_clk_dt_;    // planned simulated time duration
+    int64 syn_count_;           // synchronization step count
 };
 
 
 inline float64 real_time_buffer::time_advancement_rate() const
 {
-    return ta_rate_;
+    return t_adv_rate_;
 }
 
 
-inline int64 real_time_buffer::time_advancement_depth() const
+inline float64 real_time_buffer::time_synchronization_rate() const
 {
-    return ta_depth_;
+    return t_syn_rate_;
 }
 
 
-inline int64 real_time_buffer::max_depth() const
+inline time_point real_time_buffer::synchronization_time() const
 {
-    return max_depth_;
+    return syn_sim_t_;
 }
 
 
-inline const time_point& real_time_buffer::cached_time(int64 depth) const
+inline clock_time real_time_buffer::synchronization_clock_time() const
 {
-    if (depth >= max_depth_) throw std::domain_error("Cached time retrieval depth must be less than the maximum depth");
-    return time_points_.at(depth);
+    return syn_clk_t_;
 }
 
 
-inline const clock_time& real_time_buffer::cached_clock_time(int64 depth) const
+inline time_point real_time_buffer::current_time() const
 {
-    if (depth >= max_depth_) throw std::domain_error("Cached clock time retrieval depth must be less than the maximum depth");
-    return clock_times_.at(depth);
+    return current_sim_t_;
+}
+
+
+inline clock_time real_time_buffer::current_clock_time() const
+{
+    return current_clk_t_;
 }
 
 
 inline clock_time real_time_buffer::planned_clock_time() const
 {
-    return planned_clock_t_;
+    return current_clk_t_ + std::chrono::milliseconds(int64(planned_clk_dt_));
 }
 
 

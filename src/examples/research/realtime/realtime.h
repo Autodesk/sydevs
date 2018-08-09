@@ -17,10 +17,11 @@ void realtime()
     try {
         real_time_simulation<bouncing_ball_interactive_system> sim(duration::inf(), 0, std::cout);
         sim.update_time_advancement_rate(1);
-        sim.update_time_advancement_depth(1);
+        sim.update_time_synchronization_rate(0);
         auto clock_t0 = clock_time();
         auto t = 0_s;
         bool high_g = false;
+        bool fast_as_possible = false;
         while (true) {
             std::cout << std::endl;
             auto pause_t = t + 5_s;
@@ -32,6 +33,7 @@ void realtime()
                 if (event_count > 0) {
                     if (sim.frame_index() == 0) {
                         clock_t0 = sim.frame_clock_time();
+                        sim.update_synchronization_time(sim.frame_time(), clock_t0);
                     }
                     distance x = sim.observation();
                     int64 pos = int64(x/250_mm + 0.5);
@@ -60,9 +62,9 @@ void realtime()
             }
             std::cout << std::endl;
             std::cout << "Commands:" << std::endl;
-            std::cout << "    g   | toggle high gravity)" << std::endl;
-            std::cout << "    0-9 | log2(ta_depth + 1)" << std::endl;
-            std::cout << "        | (ta_depth = time advancement depth)" << std::endl;
+            std::cout << "    g   | toggle high gravity (currently " << (high_g ? "high" : "low") << ")" << std::endl;
+            std::cout << "    f   | toggle fast as possible (currently " << (fast_as_possible ? "on" : "off") << ")" << std::endl;
+            std::cout << "    0-9 | synchronization rate (currently " << sim.time_synchronization_rate() << ")" << std::endl;
             std::cout << "Enter a command sequence: ";
             char input_ch;
             std::cin >> input_ch;
@@ -75,12 +77,19 @@ void realtime()
                     sim.injection() = 9810_mm/_s/_s;
                 }
             }
-            else if (isdigit(input_ch)) {
-                int64 ta_depth_input = input_ch - '0';
-                int64 ta_depth = exp2(ta_depth_input) - 1;
-                sim.update_time_advancement_depth(ta_depth);
+            else if (input_ch == 'f') {
+                fast_as_possible = !fast_as_possible;
+                if (fast_as_possible) {
+                    sim.update_time_advancement_rate(std::numeric_limits<float64>::infinity());
+                }
+                else {
+                    sim.update_time_advancement_rate(1);
+                }
             }
-            std::cout << std::endl;
+            else if (isdigit(input_ch)) {
+                float64 t_syn_rate = (input_ch - '0')/10.0;
+                sim.update_time_synchronization_rate(t_syn_rate);
+            }
         }
     }
     catch (const system_node::error& e) {

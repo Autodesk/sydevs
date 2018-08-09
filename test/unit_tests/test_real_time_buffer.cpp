@@ -19,6 +19,7 @@ TEST_CASE("test real time buffer")
     auto tp = time_point();
     auto ct = clock_time();
 
+    /*
     {
         rt_buffer.retain(tp += 50_ms, ct += std::chrono::milliseconds(50), 25_ms);
         CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 75000);
@@ -160,6 +161,7 @@ TEST_CASE("test real time buffer")
         CHECK(rt_buffer.max_depth() == 1);
         CHECK(ms_from_clock_t(rt_buffer.planned_clock_time()) == 1500000);
     }
+    */
 }
 
 
