@@ -85,7 +85,6 @@ inline float64 real_time_simulation<Node>::time_advancement_rate() const
 template<typename Node>
 inline int64 real_time_simulation<Node>::time_advancement_depth() const
 {
-    if (ta_rate < 0) throw std::invalid_argument("Time advancement depth must be non-negative");
     return ta_buffer_.time_advancement_depth();
 }
 
@@ -101,6 +100,7 @@ inline void real_time_simulation<Node>::update_time_advancement_rate(float64 ta_
 template<typename Node>
 inline void real_time_simulation<Node>::update_time_advancement_depth(int64 ta_depth)
 {
+    if (ta_depth < 0) throw std::invalid_argument("Time advancement depth must be non-negative");
     ta_buffer_.update_time_advancement_depth(ta_depth);
 }
 
@@ -130,17 +130,17 @@ template<typename Node>
 inline int64 real_time_simulation<Node>::process_frame_if_time_reached()
 {
     int64 event_count = 0;
-    if (!finished()) {
-        auto t = time().t();
+    if (!this->finished()) {
+        auto t = this->time().t();
         auto clock_t = clock::now();
         if (clock_t >= ta_buffer_.planned_clock_time()) {
             int64 current_frame_index = frame_index();
             auto done = false;
             while (!done) {
-                event_count += process_next_events();
-                done = finished() || (frame_index() > current_frame_index);
+                event_count += this->process_next_events();
+                done = this->finished() || (frame_index() > current_frame_index);
                 if (!done) {
-                    t = time().t();
+                    t = this->time().t();
                     clock_t = clock::now();
                 }
             }

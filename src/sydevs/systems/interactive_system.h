@@ -102,11 +102,11 @@ duration interactive_system<AgentID, Node, InjData, ObsData>::planned_duration()
 template<typename AgentID, typename Node, typename InjData, typename ObsData>
 void interactive_system<AgentID, Node, InjData, ObsData>::validate()
 {
-    if (external_IO().flow_input_port_count() != 0 ||
-        external_IO().message_input_port_count() != 0 ||
-        external_IO().message_output_port_count() != 0 ||
-        external_IO().flow_output_port_count() != 0) {
-        throw std::invalid_argument("Interactive node (" + full_name() + ") must have no ports");
+    if (this->external_IO().flow_input_port_count() != 0 ||
+        this->external_IO().message_input_port_count() != 0 ||
+        this->external_IO().message_output_port_count() != 0 ||
+        this->external_IO().flow_output_port_count() != 0) {
+        throw std::invalid_argument("Interactive node (" + this->full_name() + ") must have no ports");
     }
 }
 
