@@ -156,14 +156,14 @@ template<typename AgentID, typename Node, typename InjData, typename ObsData>
 InjData& interactive_system<AgentID, Node, InjData, ObsData>::interaction_data::injection()
 {
     return injection_;
-};
+}
 
 
 template<typename AgentID, typename Node, typename InjData, typename ObsData>
 const ObsData& interactive_system<AgentID, Node, InjData, ObsData>::interaction_data::observation()
 {
     return observation_;
-};
+}
 
 
 template<typename AgentID, typename Node, typename InjData, typename ObsData>
@@ -171,7 +171,7 @@ interactive_system<AgentID, Node, InjData, ObsData>::interaction_data::interacti
     : injection_(inj)
     , observation_(obs)
 {
-};
+}
 
 
 }  // namespace

@@ -22,6 +22,7 @@ void realtime()
         auto t = 0_s;
         bool high_g = false;
         while (true) {
+            std::cout << std::endl;
             auto pause_t = t + 5_s;
             auto done = false;
             auto prev_prev_x = distance();
@@ -58,7 +59,11 @@ void realtime()
                 }
             }
             std::cout << std::endl;
-            std::cout << "Enter a character (g = toggle high gravity | 0-9 = time advancement depth): ";
+            std::cout << "Commands:" << std::endl;
+            std::cout << "    g   | toggle high gravity)" << std::endl;
+            std::cout << "    0-9 | log2(ta_depth + 1)" << std::endl;
+            std::cout << "        | (ta_depth = time advancement depth)" << std::endl;
+            std::cout << "Enter a command sequence: ";
             char input_ch;
             std::cin >> input_ch;
             if (input_ch == 'g') {

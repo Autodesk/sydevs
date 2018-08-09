@@ -118,10 +118,10 @@ private:
     void process_finalization_event();
     void advance_time();
 
-    const time_point start_t_;       ///< (must be declared before member variable external_context_)
+    const time_point start_t_;       // (must be declared before member variable external_context_)
     const time_point end_t_;
     bool can_end_early_;
-    node_context external_context_;  ///< (must be declared before member variable top)
+    node_context external_context_;  // (must be declared before member variable top)
     bool started_;
     bool finishing_;
     bool finished_;
