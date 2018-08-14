@@ -1,5 +1,4 @@
 #include <examples/research/realtime/realtime.h>
-#include <examples/research/realtime/bouncing_ball_interactive_system.h>
 #include <iostream>
 
 namespace sydevs_examples {
@@ -18,57 +17,10 @@ void realtime()
         auto t = 0_s;
         bool high_g = false;
         bool fast_as_possible = false;
+        float64 t_syn_rate = sim.time_synchronization_rate();
         while (true) {
-            auto pause_t = t + 5_s;
-            auto done = false;
-            auto prev_prev_x = distance();
-            auto prev_x = distance();
-            print_header();
-            while (!done) {
-                int64 event_count = sim.process_frame_if_time_reached();
-                if (event_count > 0) {
-                    if (sim.frame_index() == 0) {
-                        clock_t0 = sim.frame_clock_time();
-                        sim.update_synchronization_time(sim.frame_time(), clock_t0);
-                    }
-                    distance x = sim.observation();
-                    t = sim.frame_time().gap(time_point()).rescaled(milli);
-                    auto clock_t = sim.frame_clock_time();
-                    print_line(x, t, clock_t0, clock_t);
-                    if (t >= pause_t) {
-                        done = ((x > prev_x) && (prev_x <= prev_prev_x));
-                    }
-                    prev_prev_x = prev_x;
-                    prev_x = x;
-                }
-            }
-            float64 t_syn_rate = sim.time_synchronization_rate();
-            print_footer();
-            print_menu(high_g, fast_as_possible, t_syn_rate);
-            char input_ch;
-            std::cin >> input_ch;
-            if (input_ch == 'g') {
-                high_g = !high_g;
-                if (high_g) {
-                    sim.injection() = 19620_mm/_s/_s;
-                }
-                else {
-                    sim.injection() = 9810_mm/_s/_s;
-                }
-            }
-            else if (input_ch == 'f') {
-                fast_as_possible = !fast_as_possible;
-                if (fast_as_possible) {
-                    sim.update_time_advancement_rate(std::numeric_limits<float64>::infinity());
-                }
-                else {
-                    sim.update_time_advancement_rate(1);
-                }
-            }
-            else if (isdigit(input_ch)) {
-                float64 t_syn_rate = (input_ch - '0')/10.0;
-                sim.update_time_synchronization_rate(t_syn_rate);
-            }
+            observation_phase(sim, clock_t0, t);
+            interaction_phase(sim, high_g, fast_as_possible, t_syn_rate);
         }
     }
     catch (const system_node::error& e) {
@@ -76,6 +28,71 @@ void realtime()
     }
     catch (const std::exception& e) {
         std::cout << "OTHER ERROR: " << e.what() << std::endl;
+    }
+}
+
+
+void observation_phase(real_time_simulation<bouncing_ball_interactive_system>& sim, clock_time& clock_t0, duration& t)
+{
+    print_header();
+    auto pause_t = t + 5_s;
+    auto done = false;
+    auto prev_prev_x = distance();
+    auto prev_x = distance();
+    while (!done) {
+        int64 event_count = sim.process_frame_if_time_reached();
+        if (event_count > 0) {
+            if (sim.frame_index() == 0) {
+                clock_t0 = sim.frame_clock_time();
+                sim.update_synchronization_time(sim.frame_time(), clock_t0);
+            }
+            distance x = sim.observation();
+            t = sim.frame_time().gap(time_point()).rescaled(milli);
+            auto clock_t = sim.frame_clock_time();
+            print_line(x, t, clock_t0, clock_t);
+            if (t >= pause_t) {
+                done = ((x > prev_x) && (prev_x <= prev_prev_x));
+            }
+            prev_prev_x = prev_x;
+            prev_x = x;
+        }
+    }
+    print_footer();
+}
+
+
+void interaction_phase(real_time_simulation<bouncing_ball_interactive_system>& sim, bool& high_g, bool& fast_as_possible, float64& t_syn_rate)
+{
+    print_menu(high_g, fast_as_possible, t_syn_rate);
+    char input_ch;
+    std::cin >> input_ch;
+    if (input_ch == 'g') {
+        high_g = !high_g;
+        if (high_g) {
+            sim.injection() = 19620_mm/_s/_s;
+        }
+        else {
+            sim.injection() = 9810_mm/_s/_s;
+        }
+    }
+    else if (input_ch == 'f') {
+        fast_as_possible = !fast_as_possible;
+        if (fast_as_possible) {
+            sim.update_time_advancement_rate(std::numeric_limits<float64>::infinity());
+        }
+        else {
+            sim.update_time_advancement_rate(1);
+        }
+    }
+    else if (isdigit(input_ch)) {
+        int64 intput_int = input_ch - '0';
+        if (intput_int == 0) {
+            t_syn_rate = 0;
+        }
+        else {
+            t_syn_rate = pow(10, intput_int - 5);
+        }
+        sim.update_time_synchronization_rate(t_syn_rate);
     }
 }
 

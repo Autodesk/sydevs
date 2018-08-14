@@ -37,13 +37,13 @@ private:
 };
 
 
-bouncing_ball_interactive_system::bouncing_ball_interactive_system(const std::string& node_name, const node_context& external_context)
+inline bouncing_ball_interactive_system::bouncing_ball_interactive_system(const std::string& node_name, const node_context& external_context)
     : interactive_system<int64, bouncing_ball_node, acceleration, distance>(node_name, external_context)
 {
 }
 
 
-duration bouncing_ball_interactive_system::macro_initialization_update(acceleration& injection)
+inline duration bouncing_ball_interactive_system::macro_initialization_update(acceleration& injection)
 {
     x = 0_m;
     v = 15000_mm/_s;
@@ -57,7 +57,7 @@ duration bouncing_ball_interactive_system::macro_initialization_update(accelerat
 }
 
 
-void bouncing_ball_interactive_system::micro_planned_update(const int64& agent_id, duration elapsed_dt)
+inline void bouncing_ball_interactive_system::micro_planned_update(const int64& agent_id, duration elapsed_dt)
 {
     if (transmitted(prototype.X_output)) {
         const auto& X = access(prototype.X_output);
@@ -69,7 +69,7 @@ void bouncing_ball_interactive_system::micro_planned_update(const int64& agent_i
 }
 
 
-duration bouncing_ball_interactive_system::macro_planned_update(duration elapsed_dt, const acceleration& injection, distance& observation)
+inline duration bouncing_ball_interactive_system::macro_planned_update(duration elapsed_dt, const acceleration& injection, distance& observation)
 {
     motion_dt += elapsed_dt;
     observation = x + v*motion_dt + 0.5*a*motion_dt*motion_dt;
@@ -81,7 +81,7 @@ duration bouncing_ball_interactive_system::macro_planned_update(duration elapsed
 }
 
 
-void bouncing_ball_interactive_system::macro_finalization_update(duration elapsed_dt)
+inline void bouncing_ball_interactive_system::macro_finalization_update(duration elapsed_dt)
 {
 }
 
