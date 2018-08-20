@@ -11,15 +11,28 @@ using namespace sydevs;
 using namespace sydevs::systems;
 
 
-void realtime();
+class realtime {
+public:
+    realtime();
 
-void observation_phase(real_time_simulation<bouncing_ball_interactive_system>& sim, clock_time& clock_t0, duration& t);
-void interaction_phase(real_time_simulation<bouncing_ball_interactive_system>& sim, bool& high_g, bool& fast_as_possible, float64& t_syn_rate);
+    void mainloop();
 
-void print_header();
-void print_footer();
-void print_line(distance x, duration t, clock_time clock_t0, clock_time clock_t);
-void print_menu(bool high_g, bool fast_as_possible, float64 t_syn_rate);
+private:
+    void observation_phase();
+    void interaction_phase();
+
+    void print_header();
+    void print_footer();
+    void print_frame(distance x);
+    void print_menu();
+
+    real_time_simulation<bouncing_ball_interactive_system> sim_;
+    clock_time clock_t0_;
+    duration t_;
+    bool high_g_;
+    bool fast_as_possible_;
+    float64 t_syn_rate_;
+};
 
 
 }  // namespace
