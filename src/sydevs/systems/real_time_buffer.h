@@ -16,7 +16,7 @@ using clock_time = std::chrono::time_point<clock>;
 class real_time_buffer
 {
 public:
-    real_time_buffer(float64 t_adv_rate, int64 t_syn_depth);
+    real_time_buffer(float64 t_adv_rate, int64 t_syn_rate);
 
     float64 time_advancement_rate() const;
     float64 time_synchronization_rate() const;
