@@ -11,7 +11,6 @@ using namespace sydevs;
 using namespace sydevs::systems;
 
 
-
 class bouncing_ball_interactive_system : public interactive_system<int64, bouncing_ball_node, acceleration, distance>
 {
 public:
