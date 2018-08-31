@@ -9,26 +9,28 @@ namespace systems {
 
 
 /**
- * @brief A base class for all interactive closed system nodes intended to be
- *        used at the highest level of a real time simulation model.
+ * @brief A base class template for all interactive closed system nodes intended
+ *        to be used at the highest level of a real time simulation model.
  *
  * @details
  * The `interactive_system` abstract base class is inherited by classes that
- * represent a system that interacts with the user or a process external to the
- * model hierarchy. The interaction is facilitated by an `interaction_data`
- * object supporting information injection via an instance of type `InjData` and
- * observation via an instance of type `ObsData`.
+ * represent a system that interacts with either a user or a process external to
+ * the model hierarchy. Interaction is facilitated by an `interaction_data`
+ * object. This object supports the injection of information into the simulation
+ * model via an instance of type `InjData`. It also supports observations of the
+ * simulation model via an instance of type `ObsData`.
  *
- * The base class itself inherits from the `collection_node`. This provides 
- * macro-level behavior supporting interaction and frames, and micro-level
- * behavior represented by one (or possibly more) agents of type `Node`. 
+ * The class inherits from the `collection_node`. This provides macro-level
+ * behavior supporting interaction and frames, and micro-level behavior 
+ * represented by one (or possibly more) agents of type `Node`. 
  *
  * Concrete derived classes must implement the following pure virtual member
  * functions:
  *
  * - `time_precision`, which indicates the time quantum that must evenly divide
- *   all planned and elapsed durations associated with the node (unless the
- *   time precision is `no_scale`);
+ *   all planned and elapsed durations associated with the node (the time
+ *   precision should not be `no_scale`, since the intent is that a frame is
+ *   produced whenever the planned duration elapses);
  * - `macro_initialization_update`, which is called at the beginning of a
  *   simulation;
  * - `micro_planned_update`, which is called whenever an agent sends a message;
@@ -38,9 +40,10 @@ namespace systems {
  * Each transition to the next frame at the macro-level is associated with the
  * macro-level planned duration, which is returned from the 
  * `macro_initialization_update` and `macro_planned_update` member functions.
- * The `micro_planned_update` does not return a planned duration because it is
- * assumed that agents to not affect the frame rate established at the macro
- * level of the interactive system node.
+ * The `micro_planned_update` member function does not return a planned
+ * duration because it is assumed that micro-level events should not directly
+ * affect the frame rate established at the macro level of the interactive 
+ * system node.
  */
 template<typename AgentID, typename Node, typename InjData, typename ObsData>
 class interactive_system : public collection_node<int64, Node>

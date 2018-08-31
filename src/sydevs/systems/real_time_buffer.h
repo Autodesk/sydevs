@@ -26,17 +26,17 @@ using clock_time = std::chrono::time_point<clock>;
  * as the time advancement rate.
  *
  * The time advancement rate `t_adv_rate` is the intended ratio of a duration
- * of simulated time divided by a duration of wallclock time. If the rate is 1,
- * the objective is that the simulation proceed at exactly real time. If the
- * rate is 2, the objective is to run the simulation twice as fast as realtime.
- * If the rate is 0.1, the objective is to run the simulation at one tenth the
- * speed of real-world time.
+ * of simulated time to a corresponding duration of wallclock time. If the rate
+ * is 1, the objective is that the simulation proceed at exactly real time. If
+ * the rate is 2, the objective is to run the simulation twice as fast as real
+ * time. If the rate is 0.1, the objective is to run the simulation at one tenth
+ * the speed of real-world time.
  *
  * The time synchronization rate `t_syn_rate` measures how aggressively the real
  * time buffer will try to synchronize simulated and wallclock time. If the rate
  * is large (i.e. much greater than 1), the objective is to rapidly bring 
  * simulated and wallclock time into alignment. If rate is small (i.e.
- * considerably less than 1), the objective is gradually and smoothly
+ * considerably less than 1), the objective is to gradually and smoothly
  * synchronize simulated and wallclock time and eventually bring them into
  * alignment.
  */
@@ -59,9 +59,9 @@ public:
     time_point current_time() const;        ///< Returns the current simulated time.
     clock_time current_clock_time() const;  ///< Returns the current wallclock time.
 
-    void update_current_time(const time_point& sim_t, const clock_time& clk_t, duration planned_sim_dt);  ///< Updates the current time and planned duration of simulated time until the planned event.
+    void update_current_time(const time_point& sim_t, const clock_time& clk_t, duration planned_sim_dt);  ///< Updates the current time and the planned duration of simulated time until the planned event.
 
-    clock_time planned_clock_time() const;  // Returns the recommended point in wallclock time of the planned event.
+    clock_time planned_clock_time() const;  ///< Returns the recommended point in wallclock time of the planned event.
 
 private:
     void recompute_planned_clock_duration();

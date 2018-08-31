@@ -45,8 +45,8 @@ public:
      * @param seed The integer used to seed the random number generator.
      * @param stream The output steam onto which printed results are directed.
      *
-     * @tparam Node The port-free `system_node` on which the simulation is 
-     *              based.
+     * @tparam Node The port-free `interactive_system` node on which the
+     *              simulation is based.
      */
     real_time_simulation(const time_point& start_t, const time_point& end_t, bool can_end_early, int64 seed, std::ostream& stream);
 
@@ -59,15 +59,15 @@ public:
      * @param seed The integer used to seed the random number generator.
      * @param stream The output steam onto which printed results are directed.
      *
-     * @tparam Node The port-free `system_node` on which the simulation is 
-     *              based.
+     * @tparam Node The port-free `interactive_system` node on which the
+     *              simulation is based.
      */
     real_time_simulation(duration total_dt, int64 seed, std::ostream& stream);
 
     virtual ~real_time_simulation() = default;  ///< Destructor   
 
-    typename Node::injection_type& injection();            ///< Returns a reference to the injection object that supports communication into the system node.
-    const typename Node::observation_type& observation();  ///< Returns a reference to the observation object that supports communication from the system node.
+    typename Node::injection_type& injection();            ///< Returns a reference to the injection object that supports communication into the interactive system node.
+    const typename Node::observation_type& observation();  ///< Returns a reference to the observation object that supports communication from the interactive system node.
 
     float64 time_advancement_rate() const;      ///< Returns the time advancement rate.
     float64 time_synchronization_rate() const;  ///< Returns the time synchronization rate.
