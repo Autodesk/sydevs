@@ -101,6 +101,7 @@ public:
     bool finished() const;   ///< Returns `true` if the simulation has finished.
 
     const discrete_event_time& time() const;  ///< Returns the current point in discrete event time.
+    duration imminent_duration() const;       ///< Returns the duration until the imminent event.
 
     void process_next_event();                        ///< Runs the next event of the topmost system node.
     int64 process_next_events();                      ///< Runs all events until simulated time advances; returns the number of processed events.
@@ -117,10 +118,10 @@ private:
     void process_finalization_event();
     void advance_time();
 
-    const time_point start_t_;       ///< (must be declared before member variable external_context_)
+    const time_point start_t_;       // (must be declared before member variable external_context_)
     const time_point end_t_;
     bool can_end_early_;
-    node_context external_context_;  ///< (must be declared before member variable top)
+    node_context external_context_;  // (must be declared before member variable top)
     bool started_;
     bool finishing_;
     bool finished_;
@@ -133,7 +134,7 @@ public:
 
 
 template<typename Node>
-simulation<Node>::simulation(const time_point& start_t, const time_point& end_t, bool can_end_early, int64 seed, std::ostream& stream)
+inline simulation<Node>::simulation(const time_point& start_t, const time_point& end_t, bool can_end_early, int64 seed, std::ostream& stream)
     : start_t_(start_t)
     , end_t_(end_t)
     , can_end_early_(can_end_early)
@@ -150,7 +151,7 @@ simulation<Node>::simulation(const time_point& start_t, const time_point& end_t,
 
 
 template<typename Node>
-simulation<Node>::simulation(duration total_dt, int64 seed, std::ostream& stream)
+inline simulation<Node>::simulation(duration total_dt, int64 seed, std::ostream& stream)
     : start_t_()
     , end_t_(total_dt.finite() ? time_point() + total_dt : 
                                  time_point() + duration(1, scale(std::numeric_limits<scale::level_type>::max() - 6)))
@@ -168,49 +169,63 @@ simulation<Node>::simulation(duration total_dt, int64 seed, std::ostream& stream
 
 
 template<typename Node>
-const time_point& simulation<Node>::start_time() const
+inline const time_point& simulation<Node>::start_time() const
 {
     return start_t_;
 }
 
 
 template<typename Node>
-const time_point& simulation<Node>::end_time() const
+inline const time_point& simulation<Node>::end_time() const
 {
     return end_t_;
 }
 
     
 template<typename Node>
-bool simulation<Node>::can_end_early() const
+inline bool simulation<Node>::can_end_early() const
 {
     return can_end_early_;
 }
 
 
 template<typename Node>
-bool simulation<Node>::started() const
+inline bool simulation<Node>::started() const
 {
     return started_;
 }
 
 
 template<typename Node>
-bool simulation<Node>::finished() const
+inline bool simulation<Node>::finishing() const
+{
+    return finishing_;
+}
+
+    
+template<typename Node>
+inline bool simulation<Node>::finished() const
 {
     return finished_;
 }
 
 
 template<typename Node>
-const discrete_event_time& simulation<Node>::time() const
+inline const discrete_event_time& simulation<Node>::time() const
 {
     return const_cast<node_context&>(external_context_).event_time();
 }
 
 
 template<typename Node>
-void simulation<Node>::process_next_event()
+inline duration simulation<Node>::imminent_duration() const
+{
+    return t_queue_.imminent_duration();
+}
+
+
+template<typename Node>
+inline void simulation<Node>::process_next_event()
 {
     if (!finished_) {
         if (!finishing_) {
@@ -230,7 +245,7 @@ void simulation<Node>::process_next_event()
 
 
 template<typename Node>
-int64 simulation<Node>::process_next_events()
+inline int64 simulation<Node>::process_next_events()
 {
     int64 event_count = 0;
     auto t = event_time().t();
@@ -243,7 +258,7 @@ int64 simulation<Node>::process_next_events()
 
 
 template<typename Node>
-int64 simulation<Node>::process_events_until(const time_point& t)
+inline int64 simulation<Node>::process_events_until(const time_point& t)
 {
     int64 event_count = 0;
     while (!finished_ && event_time().t() < t) {
@@ -255,7 +270,7 @@ int64 simulation<Node>::process_events_until(const time_point& t)
 
 
 template<typename Node>
-int64 simulation<Node>::process_remaining_events()
+inline int64 simulation<Node>::process_remaining_events()
 {
     int64 event_count = 0;
     while (!finished_) {
@@ -267,21 +282,21 @@ int64 simulation<Node>::process_remaining_events()
 
 
 template<typename Node>
-node_interface& simulation<Node>::top_IO()
+inline node_interface& simulation<Node>::top_IO()
 {
     return const_cast<node_interface&>(top.external_interface());
 }
 
 
 template<typename Node>
-discrete_event_time& simulation<Node>::event_time()
+inline discrete_event_time& simulation<Node>::event_time()
 {
     return external_context_.event_time();
 }
 
 
 template<typename Node>
-void simulation<Node>::validate()
+inline void simulation<Node>::validate()
 {
     static_assert(std::is_base_of<system_node, Node>::value, "Node must inherit from system_node");
 
@@ -295,7 +310,7 @@ void simulation<Node>::validate()
 
 
 template<typename Node>
-void simulation<Node>::process_initialization_event()
+inline void simulation<Node>::process_initialization_event()
 {
     started_ = true;
     top_IO().print_event("initialization");
@@ -312,7 +327,7 @@ void simulation<Node>::process_initialization_event()
 
 
 template<typename Node>
-void simulation<Node>::process_planned_event()
+inline void simulation<Node>::process_planned_event()
 {
     top_IO().print_event("planned");
     auto elapsed_dt = duration();
@@ -335,7 +350,7 @@ void simulation<Node>::process_planned_event()
 
 
 template<typename Node>
-void simulation<Node>::process_finalization_event()
+inline void simulation<Node>::process_finalization_event()
 {
     top_IO().print_event("finalization");
     auto elapsed_dt = duration();
@@ -350,7 +365,7 @@ void simulation<Node>::process_finalization_event()
 
 
 template<typename Node>
-void simulation<Node>::advance_time()
+inline void simulation<Node>::advance_time()
 {
     if (!finishing_) {
         auto planned_dt = t_queue_.imminent_duration();

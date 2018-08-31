@@ -55,8 +55,8 @@ namespace sydevs {
  * auto lhs = time_point() + 7_s + 3_ms + 5_us + 6_ns + 2_ps + 9_fs;
  * auto rhs = time_point() + 6_s
  *
- * (lhs - rhs) == duration::inf();    \\ true
- * lhs.gap(rhs) == 1003005006002_ps;  \\ true
+ * (lhs - rhs) == duration::inf();    // true
+ * lhs.gap(rhs) == 1003005006002_ps;  // true
  * ~~~
  *
  * Time also provide an alternative to the regular accumulation of `duration`

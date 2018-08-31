@@ -17,7 +17,7 @@ Namespace: [sydevs](@ref sydevs)
   * [quantity](@ref sydevs::quantity) ([quantity.h](@ref sydevs/core/quantity.h)) - Standard International (SI) quantity (e.g. mass, acceleration)
     * [units](@ref sydevs::units) ([units.h](@ref sydevs/core/units.h)) - related template for SI units (e.g. grams, meters/second^2)
   * [arraynd](@ref sydevs::arraynd) ([arraynd.h](@ref sydevs/core/arraynd.h)) - multidimensional array
-    * [range](@ref sydevs::range) ([range.h](@ref sydevs/core/range.h)) - related class representing range of array indices
+    * [range](@ref sydevs::range) ([range.h](@ref sydevs/core/range.h)) - related class for representing range of array indices
   * [core_type](@ref sydevs::core_type) ([core_types.h](@ref sydevs/core/core_types.h)) - traits for types exchanged between system nodes
     * [pointer](@ref sydevs::pointer) ([pointer.h](@ref sydevs/core/pointer.h)) - related class for pointers to any type of data
     * [string_builder](@ref sydevs::string_builder) ([string_builder.h](@ref sydevs/core/string_builder.h)) - related class for value-to-string conversion
@@ -36,6 +36,9 @@ Namespace: [sydevs](@ref sydevs)
     * [function_node](@ref sydevs::systems::function_node) ([function_node.h](@ref sydevs/systems/function_node.h)) - derived from [system_node](@ref sydevs::systems::system_node), supports functions
       * [parameter_node](@ref sydevs::systems::parameter_node) ([parameter_node.h](@ref sydevs/systems/parameter_node.h)) - derived from [function_node](@ref sydevs::systems::function_node), handles parameter values
       * [statistic_node](@ref sydevs::systems::statistic_node) ([statistic_node.h](@ref sydevs/systems/statistic_node.h)) - derived from [function_node](@ref sydevs::systems::function_node), handles statistic values
+    * [interactive_system](@ref sydevs::systems::interactive_system) ([interactive_system.h](@ref sydevs/systems/interactive_system.h)) - derived from [system_node](@ref sydevs::systems::system_node), supports interactive real time simulations
     * port<[data_mode](@ref sydevs::systems::data_mode), [data_goal](@ref sydevs::systems::data_goal)> ([port.h](@ref sydevs/systems/port.h)) - related classes for node ports
   * [simulation](@ref sydevs::systems::simulation) ([simulation.h](@ref sydevs/systems/simulation.h)) - template for simulations based on a port-free [system_node](@ref sydevs::systems::system_node)
-    * [discrete_event_time](@ref sydevs::systems::discrete_event_time) ([discrete_event_time.h](@ref sydevs/systems/discrete_event_time.h)) - related class tracking progress through a simulation
+    * [real_time_simulation](@ref sydevs::systems::real_time_simulation) ([real_time_simulation.h](@ref sydevs/systems/real_time_simulation.h)) - derived from [simulation](@ref sydevs::systems::simulation), supports real time interactive simulations based on a port-free [interactive_system](@ref sydevs::systems::interactive_system) node
+      * [real_time_buffer](@ref sydevs::systems::real_time_buffer) ([real_time_buffer.h](@ref sydevs/systems/real_time_buffer.h)) - related class for associating simulated time points with wallclock time points
+    * [discrete_event_time](@ref sydevs::systems::discrete_event_time) ([discrete_event_time.h](@ref sydevs/systems/discrete_event_time.h)) - related class for tracking progress through a simulation

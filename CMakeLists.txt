@@ -129,6 +129,12 @@ aux_source_directory(${PREDICTION_DIR} PREDICTION_SRCS)
 add_executable(prediction ${PREDICTION_SRCS} ${PREDICTION_HDRS})
 target_link_libraries(prediction SyDEVS-static)
 
+set(REALTIME_DIR ${RESEARCH_EXAMPLES_DIR}/realtime)
+file(GLOB REALTIME_HDRS "${REALTIME_DIR}/*.h")
+aux_source_directory(${REALTIME_DIR} REALTIME_SRCS)
+add_executable(realtime ${REALTIME_SRCS} ${REALTIME_HDRS})
+target_link_libraries(realtime SyDEVS-static)
+
 # ------------------------------------------------------------------------------
 #
 #   Demo examples
