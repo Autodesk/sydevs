@@ -109,6 +109,24 @@ protected:
     const T& access(const port<flow, output, T>& prototype_port);  ///< Return the value output by an agent on the flow output port corresponding to `prototype_port`.
 
     /**
+     * @brief Creates a new agent of type AgentNode.
+     * 
+     * @details
+     * The collection node must be a collection of message node agents, not 
+     * function node agents. In other words, `prototype.node_dmode()` must be
+     * `message`. The created agent is initialized with the flow input values
+     * found on the prototype. The prototype's flow input values are left 
+     * unchanged.
+     *
+     * The created agent will be of type AgentNode, which must be the same
+     * type as Node or a type derived from Node.
+     *
+     * @param agent_id The ID of the agent to be created.
+     */
+    template<typename AgentNode>
+    void create_agent(const AgentID& agent_id);
+
+    /**
      * @brief Creates a new agent.
      * 
      * @details
@@ -120,7 +138,7 @@ protected:
      *
      * @param agent_id The ID of the agent to be created.
      */
-    void create_agent(const AgentID& agent_id);  ///<  with ID `agent_id`; 
+    void create_agent(const AgentID& agent_id);
 
     /**
      * @brief Sends a message to an agent.
@@ -524,12 +542,21 @@ const T& collection_node<AgentID, Node>::access(const port<flow, output, T>& pro
 template<typename AgentID, typename Node>
 inline void collection_node<AgentID, Node>::create_agent(const AgentID& agent_id)
 {
+    create_agent<Node>(agent_id);
+}
+
+
+template<typename AgentID, typename Node>
+template<typename AgentNode>
+inline void collection_node<AgentID, Node>::create_agent(const AgentID& agent_id)
+{
+    static_assert(std::is_base_of<Node, AgentNode>::value, "AgentNode must inherit from Node");
     if (prototype.node_dmode() == flow) {
         throw std::logic_error("Attempt to use \"create_agent\" to create a flow node agent; use \"invoke_agent\" instead");
     }
     event_time().advance();
-    std::string agent_name = agent_name_from_id(core_type<AgentID>(), agent_id);
-    auto agent_ptr = std::make_unique<Node>(agent_name, internal_context_);
+    auto agent_name = agent_name_from_id(core_type<AgentID>(), agent_id);
+    std::unique_ptr<Node> agent_ptr(new AgentNode(agent_name, internal_context_));
     auto& agent = *agent_ptr;
     agent.adopt_print_flags(prototype);
     if (agent_exists(agent_id)) {

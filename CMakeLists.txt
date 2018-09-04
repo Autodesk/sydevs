@@ -135,6 +135,12 @@ aux_source_directory(${REALTIME_DIR} REALTIME_SRCS)
 add_executable(realtime ${REALTIME_SRCS} ${REALTIME_HDRS})
 target_link_libraries(realtime SyDEVS-static)
 
+set(SUBTYPING_DIR ${RESEARCH_EXAMPLES_DIR}/subtyping)
+file(GLOB SUBTYPING_HDRS "${SUBTYPING_DIR}/*.h")
+aux_source_directory(${SUBTYPING_DIR} SUBTYPING_SRCS)
+add_executable(subtyping ${SUBTYPING_SRCS} ${SUBTYPING_HDRS})
+target_link_libraries(subtyping SyDEVS-static)
+
 # ------------------------------------------------------------------------------
 #
 #   Demo examples
