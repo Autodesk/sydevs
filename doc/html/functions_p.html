@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname"><a href="https://autodesk.github.io/sydevs/">SyDEVS</a>
-   &#160;<span id="projectnumber">v0.4.2</span>
+   &#160;<span id="projectnumber">v0.5</span>
    </div>
    <div id="projectbrief">Multiscale Simulation and Systems Modeling Library</div>
   </td>
@@ -162,8 +162,14 @@ $(document).ready(function(){initNavTree('functions_p.html','');});
 <li>plan_event()
 : <a class="el" href="classsydevs_1_1time__queue.html#a174a5ee1aaafd55f04cbe92213abbe04">sydevs::time_queue</a>
 </li>
+<li>planned_clock_time()
+: <a class="el" href="classsydevs_1_1systems_1_1real__time__buffer.html#a0ea33c05a420718ad6b4566f01e2bef4">sydevs::systems::real_time_buffer</a>
+</li>
+<li>planned_duration()
+: <a class="el" href="classsydevs_1_1systems_1_1interactive__system.html#a425619a0cc1ec73a3f7e3fb176984489">sydevs::systems::interactive_system&lt; AgentID, Node, InjData, ObsData &gt;</a>
+</li>
 <li>pointer()
-: <a class="el" href="classsydevs_1_1pointer.html#ab9a89e74ab2d7c3db77e95b0f3abeeb9">sydevs::pointer</a>
+: <a class="el" href="classsydevs_1_1pointer.html#a7d85ae60ac474d74d91d6a87a33a0f43">sydevs::pointer</a>
 </li>
 <li>pop_imminent_event()
 : <a class="el" href="classsydevs_1_1time__queue.html#ad5ae05b0a358b0867aa48bef5601a401">sydevs::time_queue</a>
@@ -172,9 +178,9 @@ $(document).ready(function(){initNavTree('functions_p.html','');});
 : <a class="el" href="classsydevs_1_1time__queue.html#ac4de5402d7c0b03a943a3d6446317771">sydevs::time_queue</a>
 </li>
 <li>port()
-: <a class="el" href="classsydevs_1_1systems_1_1port_3_01flow_00_01input_00_01_t_01_4.html#a03092e497b03391ea41091b93cc37772">sydevs::systems::port&lt; flow, input, T &gt;</a>
+: <a class="el" href="classsydevs_1_1systems_1_1port_3_01flow_00_01input_00_01_t_01_4.html#af340b3d6d34816e3899d8c501d733e55">sydevs::systems::port&lt; flow, input, T &gt;</a>
 , <a class="el" href="classsydevs_1_1systems_1_1port_3_01flow_00_01output_00_01_t_01_4.html#ad4da4419f3721abf80bf97e5d774d566">sydevs::systems::port&lt; flow, output, T &gt;</a>
-, <a class="el" href="classsydevs_1_1systems_1_1port_3_01message_00_01input_00_01_t_01_4.html#a56d8af5363504e21aeff097df7d3b3f5">sydevs::systems::port&lt; message, input, T &gt;</a>
+, <a class="el" href="classsydevs_1_1systems_1_1port_3_01message_00_01input_00_01_t_01_4.html#a1c21f908677309ddd2cb00b042a75ea9">sydevs::systems::port&lt; message, input, T &gt;</a>
 , <a class="el" href="classsydevs_1_1systems_1_1port_3_01message_00_01output_00_01_t_01_4.html#a90e45db6c9f3c2b982a5af10735229df">sydevs::systems::port&lt; message, output, T &gt;</a>
 </li>
 <li>port_base()
@@ -194,7 +200,7 @@ $(document).ready(function(){initNavTree('functions_p.html','');});
 : <a class="el" href="classsydevs_1_1quantity__base.html#af75bbab4dfba2cb48da6b01f2cb67c55">sydevs::quantity_base</a>
 </li>
 <li>print()
-: <a class="el" href="classsydevs_1_1systems_1_1system__node.html#a4783f4c98789bb66b8a975f916e317bd">sydevs::systems::system_node</a>
+: <a class="el" href="classsydevs_1_1systems_1_1system__node.html#a99a4afbfdcb04704182326bf0903f219">sydevs::systems::system_node</a>
 </li>
 <li>print_command_text()
 : <a class="el" href="classsydevs_1_1systems_1_1node__interface.html#aa4e1291001ea2e74283a51a39e20616b">sydevs::systems::node_interface</a>
@@ -258,6 +264,9 @@ $(document).ready(function(){initNavTree('functions_p.html','');});
 <li>process_finalization_event()
 : <a class="el" href="classsydevs_1_1systems_1_1system__node.html#aa4931d570997ffa42d469ed77d6ab037">sydevs::systems::system_node</a>
 </li>
+<li>process_frame_if_time_reached()
+: <a class="el" href="classsydevs_1_1systems_1_1real__time__simulation.html#acad9e65fda4e1e20c17b04cce8aea358">sydevs::systems::real_time_simulation&lt; Node &gt;</a>
+</li>
 <li>process_initialization_event()
 : <a class="el" href="classsydevs_1_1systems_1_1system__node.html#a5a9ca27e098330cfbb7faffbfabbdfa0">sydevs::systems::system_node</a>
 </li>
@@ -291,7 +300,7 @@ $(document).ready(function(){initNavTree('functions_p.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed May 2 2018 20:30:44 for SyDEVS by
+    <li class="footer">Generated on Tue Sep 4 2018 19:19:45 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

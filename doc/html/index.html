@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname"><a href="https://autodesk.github.io/sydevs/">SyDEVS</a>
-   &#160;<span id="projectnumber">v0.4.2</span>
+   &#160;<span id="projectnumber">v0.5</span>
    </div>
    <div id="projectbrief">Multiscale Simulation and Systems Modeling Library</div>
   </td>
@@ -122,7 +122,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 </ul>
 </li>
 <li><a class="el" href="classsydevs_1_1arraynd.html">arraynd</a> (<a class="el" href="arraynd_8h.html">arraynd.h</a>) - multidimensional array<ul>
-<li><a class="el" href="classsydevs_1_1range.html">range</a> (<a class="el" href="range_8h.html">range.h</a>) - related class representing range of array indices</li>
+<li><a class="el" href="classsydevs_1_1range.html">range</a> (<a class="el" href="range_8h.html">range.h</a>) - related class for representing range of array indices</li>
 </ul>
 </li>
 <li><a class="el" href="structsydevs_1_1core__type.html">core_type</a> (<a class="el" href="core__types_8h.html">core_types.h</a>) - traits for types exchanged between system nodes<ul>
@@ -149,11 +149,16 @@ $(document).ready(function(){initNavTree('index.html','');});
 <li><a class="el" href="classsydevs_1_1systems_1_1statistic__node.html">statistic_node</a> (<a class="el" href="statistic__node_8h.html">statistic_node.h</a>) - derived from <a class="el" href="classsydevs_1_1systems_1_1function__node.html">function_node</a>, handles statistic values</li>
 </ul>
 </li>
+<li><a class="el" href="classsydevs_1_1systems_1_1interactive__system.html">interactive_system</a> (<a class="el" href="interactive__system_8h.html">interactive_system.h</a>) - derived from <a class="el" href="classsydevs_1_1systems_1_1system__node.html">system_node</a>, supports interactive real time simulations</li>
 <li>port&lt;<a class="el" href="namespacesydevs_1_1systems.html#a1852ea7ca1d57fd679e01369acb054b8">data_mode</a>, <a class="el" href="namespacesydevs_1_1systems.html#add51536d479991dea5779172e185bacc">data_goal</a>&gt; (<a class="el" href="port_8h.html">port.h</a>) - related classes for node ports</li>
 </ul>
 </li>
 <li><a class="el" href="classsydevs_1_1systems_1_1simulation.html">simulation</a> (<a class="el" href="simulation_8h.html">simulation.h</a>) - template for simulations based on a port-free <a class="el" href="classsydevs_1_1systems_1_1system__node.html">system_node</a><ul>
-<li><a class="el" href="classsydevs_1_1systems_1_1discrete__event__time.html">discrete_event_time</a> (<a class="el" href="discrete__event__time_8h.html">discrete_event_time.h</a>) - related class tracking progress through a simulation </li>
+<li><a class="el" href="classsydevs_1_1systems_1_1real__time__simulation.html">real_time_simulation</a> (<a class="el" href="real__time__simulation_8h.html">real_time_simulation.h</a>) - derived from <a class="el" href="classsydevs_1_1systems_1_1simulation.html">simulation</a>, supports real time interactive simulations based on a port-free <a class="el" href="classsydevs_1_1systems_1_1interactive__system.html">interactive_system</a> node<ul>
+<li><a class="el" href="classsydevs_1_1systems_1_1real__time__buffer.html">real_time_buffer</a> (<a class="el" href="real__time__buffer_8h.html">real_time_buffer.h</a>) - related class for associating simulated time points with wallclock time points</li>
+</ul>
+</li>
+<li><a class="el" href="classsydevs_1_1systems_1_1discrete__event__time.html">discrete_event_time</a> (<a class="el" href="discrete__event__time_8h.html">discrete_event_time.h</a>) - related class for tracking progress through a simulation </li>
 </ul>
 </li>
 </ul>
@@ -164,7 +169,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Wed May 2 2018 20:30:44 for SyDEVS by
+    <li class="footer">Generated on Tue Sep 4 2018 19:19:45 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

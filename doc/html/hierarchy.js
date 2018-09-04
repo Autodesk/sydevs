@@ -23,6 +23,7 @@ var hierarchy =
     [ "sydevs::core_type< std::vector< T > >", "structsydevs_1_1core__type_3_01std_1_1vector_3_01_t_01_4_01_4.html", null ],
     [ "sydevs::systems::discrete_event_time", "classsydevs_1_1systems_1_1discrete__event__time.html", null ],
     [ "sydevs::systems::collection_node< AgentID, Node >::flow_port_proxy< T >", "classsydevs_1_1systems_1_1collection__node_1_1flow__port__proxy.html", null ],
+    [ "sydevs::systems::interactive_system< AgentID, Node, InjData, ObsData >::interaction_data", "classsydevs_1_1systems_1_1interactive__system_1_1interaction__data.html", null ],
     [ "iterator", null, [
       [ "sydevs::systems::collection_node< AgentID, Node >::const_iterator", "classsydevs_1_1systems_1_1collection__node_1_1const__iterator.html", null ],
       [ "sydevs::time_sequence::const_iterator", "classsydevs_1_1time__sequence_1_1const__iterator.html", null ]
@@ -49,19 +50,26 @@ var hierarchy =
       [ "sydevs::systems::port< message, output, T >", "classsydevs_1_1systems_1_1port_3_01message_00_01output_00_01_t_01_4.html", null ]
     ] ],
     [ "sydevs::quantity_base", "classsydevs_1_1quantity__base.html", [
+      [ "sydevs::quantity< seconds >", "classsydevs_1_1quantity.html", null ],
       [ "sydevs::quantity< U >", "classsydevs_1_1quantity.html", null ],
       [ "sydevs::quantity< no_units >", "classsydevs_1_1quantity_3_01no__units_01_4.html", null ]
     ] ],
     [ "sydevs::range", "classsydevs_1_1range.html", null ],
+    [ "sydevs::systems::real_time_buffer", "classsydevs_1_1systems_1_1real__time__buffer.html", null ],
     [ "runtime_error", null, [
       [ "sydevs::systems::system_node::error", "classsydevs_1_1systems_1_1system__node_1_1error.html", null ]
     ] ],
     [ "sydevs::scale", "classsydevs_1_1scale.html", null ],
-    [ "sydevs::systems::simulation< Node >", "classsydevs_1_1systems_1_1simulation.html", null ],
+    [ "sydevs::systems::simulation< Node >", "classsydevs_1_1systems_1_1simulation.html", [
+      [ "sydevs::systems::real_time_simulation< Node >", "classsydevs_1_1systems_1_1real__time__simulation.html", null ]
+    ] ],
     [ "sydevs::string_builder", "classsydevs_1_1string__builder.html", null ],
     [ "sydevs::systems::system_node", "classsydevs_1_1systems_1_1system__node.html", [
       [ "sydevs::systems::atomic_node", "classsydevs_1_1systems_1_1atomic__node.html", null ],
       [ "sydevs::systems::collection_node_base", "classsydevs_1_1systems_1_1collection__node__base.html", [
+        [ "sydevs::systems::collection_node< int64, Node >", "classsydevs_1_1systems_1_1collection__node.html", [
+          [ "sydevs::systems::interactive_system< AgentID, Node, InjData, ObsData >", "classsydevs_1_1systems_1_1interactive__system.html", null ]
+        ] ],
         [ "sydevs::systems::collection_node< AgentID, Node >", "classsydevs_1_1systems_1_1collection__node.html", null ]
       ] ],
       [ "sydevs::systems::composite_node", "classsydevs_1_1systems_1_1composite__node.html", null ],
@@ -78,5 +86,7 @@ var hierarchy =
     [ "sydevs::tuple_tostring_helper< Tuple, 1 >", "structsydevs_1_1tuple__tostring__helper_3_01_tuple_00_011_01_4.html", null ],
     [ "sydevs::units< g, m, s, A, K, mol, cd >", "structsydevs_1_1units.html", null ],
     [ "bool", "classbool.html", null ],
-    [ "int64_t", "classint64__t.html", null ]
+    [ "int64_t", "classint64__t.html", null ],
+    [ "map< int64, int64_t >", "classstd_1_1map_3_01int64_00_01int64__t_01_4.html", null ],
+    [ "map< int64_t, int64 >", "classstd_1_1map_3_01int64__t_00_01int64_01_4.html", null ]
 ];

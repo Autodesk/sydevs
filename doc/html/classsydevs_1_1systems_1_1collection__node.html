@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname"><a href="https://autodesk.github.io/sydevs/">SyDEVS</a>
-   &#160;<span id="projectnumber">v0.4.2</span>
+   &#160;<span id="projectnumber">v0.5</span>
    </div>
    <div id="projectbrief">Multiscale Simulation and Systems Modeling Library</div>
   </td>
@@ -269,6 +269,10 @@ Protected Member Functions</h2></td></tr>
 <tr class="memitem:a7febe702beba085f5b384da99b9c14f8"><td class="memTemplItemLeft" align="right" valign="top">const T &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsydevs_1_1systems_1_1collection__node.html#a7febe702beba085f5b384da99b9c14f8">access</a> (const <a class="el" href="classsydevs_1_1systems_1_1port.html">port</a>&lt; <a class="el" href="namespacesydevs_1_1systems.html#a1852ea7ca1d57fd679e01369acb054b8acff5497121104c2b8e0cb41ed2083a9b">flow</a>, <a class="el" href="namespacesydevs_1_1systems.html#add51536d479991dea5779172e185bacca78e6221f6393d1356681db398f14ce6d">output</a>, T &gt; &amp;prototype_port)</td></tr>
 <tr class="memdesc:a7febe702beba085f5b384da99b9c14f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Return the value output by an agent on the flow output port corresponding to <code>prototype_port</code>.  <a href="#a7febe702beba085f5b384da99b9c14f8">More...</a><br/></td></tr>
 <tr class="separator:a7febe702beba085f5b384da99b9c14f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a52006a813f12c8a86696ca310c69c91f"><td class="memTemplParams" colspan="2">template&lt;typename AgentNode &gt; </td></tr>
+<tr class="memitem:a52006a813f12c8a86696ca310c69c91f"><td class="memTemplItemLeft" align="right" valign="top">void&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="classsydevs_1_1systems_1_1collection__node.html#a52006a813f12c8a86696ca310c69c91f">create_agent</a> (const AgentID &amp;agent_id)</td></tr>
+<tr class="memdesc:a52006a813f12c8a86696ca310c69c91f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new agent of type AgentNode.  <a href="#a52006a813f12c8a86696ca310c69c91f">More...</a><br/></td></tr>
+<tr class="separator:a52006a813f12c8a86696ca310c69c91f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a07fe49ed2c3bb85f3de6882513a6e251"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1systems_1_1collection__node.html#a07fe49ed2c3bb85f3de6882513a6e251">create_agent</a> (const AgentID &amp;agent_id)</td></tr>
 <tr class="memdesc:a07fe49ed2c3bb85f3de6882513a6e251"><td class="mdescLeft">&#160;</td><td class="mdescRight">Creates a new agent.  <a href="#a07fe49ed2c3bb85f3de6882513a6e251">More...</a><br/></td></tr>
 <tr class="separator:a07fe49ed2c3bb85f3de6882513a6e251"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -410,7 +414,7 @@ template&lt;typename AgentID , typename Node &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename AgentID , typename Node &gt; </div>
+template&lt;typename AgentID, typename Node&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -438,7 +442,7 @@ template&lt;typename AgentID , typename Node &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename AgentID , typename Node &gt; </div>
+template&lt;typename AgentID, typename Node&gt; </div>
 <div class="memtemplate">
 template&lt;typename T &gt; </div>
 <table class="mlabels">
@@ -468,7 +472,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename AgentID , typename Node &gt; </div>
+template&lt;typename AgentID, typename Node&gt; </div>
 <div class="memtemplate">
 template&lt;typename T &gt; </div>
 <table class="mlabels">
@@ -558,7 +562,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename AgentID , typename Node &gt; </div>
+template&lt;typename AgentID, typename Node&gt; </div>
 <div class="memtemplate">
 template&lt;typename T &gt; </div>
       <table class="memname">
@@ -578,7 +582,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename AgentID , typename Node &gt; </div>
+template&lt;typename AgentID, typename Node&gt; </div>
 <div class="memtemplate">
 template&lt;typename T &gt; </div>
       <table class="memname">
@@ -598,7 +602,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename AgentID , typename Node &gt; </div>
+template&lt;typename AgentID, typename Node &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -714,7 +718,7 @@ template&lt;typename AgentID , typename Node &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename AgentID , typename Node &gt; </div>
+template&lt;typename AgentID, typename Node &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -738,11 +742,49 @@ template&lt;typename AgentID , typename Node &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a52006a813f12c8a86696ca310c69c91f"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename AgentID, typename Node &gt; </div>
+<div class="memtemplate">
+template&lt;typename AgentNode &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">void <a class="el" href="classsydevs_1_1systems_1_1collection__node.html">sydevs::systems::collection_node</a>&lt; AgentID, Node &gt;::create_agent </td>
+          <td>(</td>
+          <td class="paramtype">const AgentID &amp;&#160;</td>
+          <td class="paramname"><em>agent_id</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span><span class="mlabel">protected</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Creates a new agent of type AgentNode. </p>
+<p>The collection node must be a collection of message node agents, not function node agents. In other words, <code>prototype.node_dmode()</code> must be <code>message</code>. The created agent is initialized with the flow input values found on the prototype. The prototype's flow input values are left unchanged.</p>
+<p>The created agent will be of type AgentNode, which must be the same type as Node or a type derived from Node.</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">agent_id</td><td>The ID of the agent to be created. </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a class="anchor" id="a07fe49ed2c3bb85f3de6882513a6e251"></a>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename AgentID , typename Node &gt; </div>
+template&lt;typename AgentID, typename Node &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -766,7 +808,7 @@ template&lt;typename AgentID , typename Node &gt; </div>
 <p>The collection node must be a collection of message node agents, not function node agents. In other words, <code>prototype.node_dmode()</code> must be <code>message</code>. The created agent is initialized with the flow input values found on the prototype. The prototype's flow input values are left unchanged.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramname">agent_id</td><td>The ID of the agent to be created.with ID <code>agent_id</code>; </td></tr>
+    <tr><td class="paramname">agent_id</td><td>The ID of the agent to be created. </td></tr>
   </table>
   </dd>
 </dl>
@@ -896,7 +938,7 @@ template&lt;typename AgentID , typename Node &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename AgentID , typename Node &gt; </div>
+template&lt;typename AgentID, typename Node &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -987,7 +1029,7 @@ template&lt;typename AgentID , typename Node &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename AgentID , typename Node &gt; </div>
+template&lt;typename AgentID, typename Node &gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1053,7 +1095,7 @@ template&lt;typename T &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename AgentID , typename Node &gt; </div>
+template&lt;typename AgentID, typename Node&gt; </div>
 <table class="mlabels">
   <tr>
   <td class="mlabels-left">
@@ -1077,7 +1119,7 @@ template&lt;typename AgentID , typename Node &gt; </div>
 <div class="memitem">
 <div class="memproto">
 <div class="memtemplate">
-template&lt;typename AgentID , typename Node &gt; </div>
+template&lt;typename AgentID, typename Node&gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">const Node <a class="el" href="classsydevs_1_1systems_1_1collection__node.html">sydevs::systems::collection_node</a>&lt; AgentID, Node &gt;::prototype</td>
@@ -1098,7 +1140,7 @@ template&lt;typename AgentID , typename Node &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesydevs.html">sydevs</a></li><li class="navelem"><a class="el" href="namespacesydevs_1_1systems.html">systems</a></li><li class="navelem"><a class="el" href="classsydevs_1_1systems_1_1collection__node.html">collection_node</a></li>
-    <li class="footer">Generated on Wed May 2 2018 20:30:44 for SyDEVS by
+    <li class="footer">Generated on Tue Sep 4 2018 19:19:45 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
