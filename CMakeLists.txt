@@ -9,16 +9,13 @@ if(MSVC)
     add_definitions("/wd4244") # Hide type conversion warnings
     string(REGEX REPLACE "/Z[iI7]" "" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /Z7")
-    message(STATUS "Visual Studio")
 else()
     set(WARNING_FLAGS "-Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-sign-compare -Wno-missing-braces -Wignored-qualifiers -Woverloaded-virtual -Winline")
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pedantic-errors -std=c++14 ${WARNING_FLAGS}")
     if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-        # using regular Clang or AppleClang
+	    # Replace g++ standard library with Clang standard library
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
     endif()
-    add_compile_options(-std=c++14)
-    message(STATUS "Unix Build")
 endif(MSVC)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
