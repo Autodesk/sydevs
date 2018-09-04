@@ -7,6 +7,7 @@
 #include <examples/test_systems/cellular/cellular_systems.h>
 #include <examples/research/customs/customs.h>
 #include <examples/research/prediction/prediction.h>
+#include <examples/research/subtyping/subtyping.h>
 #include <examples/demo/building7m/building7m.h>
 #include <examples/demo/queueing/queueing.h>
 #include <vector>
@@ -18,18 +19,25 @@ int main(int argc, const char* argv[])
 {
     auto error_codes = std::vector<int>();
 
-    error_codes.push_back(perform_regression_test("output_of_hello_systems.txt", &sydevs_examples::hello_systems));
-    error_codes.push_back(perform_regression_test("output_of_basic_systems.txt", &sydevs_examples::basic_systems));
-    error_codes.push_back(perform_regression_test("output_of_sorting_systems.txt", &sydevs_examples::sorting_systems));
-    error_codes.push_back(perform_regression_test("output_of_data_systems.txt", &sydevs_examples::data_systems));
-    error_codes.push_back(perform_regression_test("output_of_cellular_systems.txt", &sydevs_examples::cellular_systems));
+    {
+        // Perform deterministic regression tests.
+        error_codes.push_back(perform_regression_test("output_of_hello_systems.txt", &sydevs_examples::hello_systems));
+        error_codes.push_back(perform_regression_test("output_of_basic_systems.txt", &sydevs_examples::basic_systems));
+        error_codes.push_back(perform_regression_test("output_of_sorting_systems.txt", &sydevs_examples::sorting_systems));
+        error_codes.push_back(perform_regression_test("output_of_data_systems.txt", &sydevs_examples::data_systems));
+        error_codes.push_back(perform_regression_test("output_of_cellular_systems.txt", &sydevs_examples::cellular_systems));
+        error_codes.push_back(perform_regression_test("output_of_subtyping.txt", &sydevs_examples::subtyping));
+        error_codes.push_back(perform_regression_test("output_of_building7m.txt", &sydevs_examples::building7m));
+        error_codes.push_back(perform_regression_test("output_of_queueing.txt", &sydevs_examples::queueing));
+    }
 #ifdef _WIN32
-    error_codes.push_back(perform_regression_test("output_of_agentbased_systems.txt", &sydevs_examples::agentbased_systems));
-    error_codes.push_back(perform_regression_test("output_of_prediction.txt", &sydevs_examples::prediction_system));
-    error_codes.push_back(perform_regression_test("output_of_customs.txt", &sydevs_examples::customs));
+    {
+        // Perform regression tests involving non-portable random number distributions.
+        error_codes.push_back(perform_regression_test("output_of_agentbased_systems.txt", &sydevs_examples::agentbased_systems));
+        error_codes.push_back(perform_regression_test("output_of_prediction.txt", &sydevs_examples::prediction_system));
+        error_codes.push_back(perform_regression_test("output_of_customs.txt", &sydevs_examples::customs));
+    }
 #endif
-    error_codes.push_back(perform_regression_test("output_of_building7m.txt", &sydevs_examples::building7m));
-    error_codes.push_back(perform_regression_test("output_of_queueing.txt", &sydevs_examples::queueing));
 
     int error_count = std::count_if(begin(error_codes), end(error_codes), [](int error_code) { return error_code != 0; } );
 
