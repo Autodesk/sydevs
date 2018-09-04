@@ -189,8 +189,8 @@ using namespace sydevs::systems;
 
 void simulate_square_wave_closed_system()
 {
+    simulation<square_wave_closed_system> sim(1_min, 0, std::cout);
     try {
-        simulation<square_wave_closed_system> sim(1_min, 0, std::cout);
         sim.process_remaining_events();
     }
     catch (const system_node::error& e) {

@@ -140,11 +140,11 @@ Then add the `simulate_square_wave_integration_closed_system` function, as defin
 ```cpp
 void simulate_square_wave_integration_closed_system()
 {
+    simulation<square_wave_integration_closed_system> sim(1_min, 0, std::cout);
+    sim.top.period_dt.set_value(10_s);
+    sim.top.duty_ratio.set_value(0.3);
+    sim.top.generator.y_output.print_on_use();
     try {
-        simulation<square_wave_integration_closed_system> sim(1_min, 0, std::cout);
-        sim.top.period_dt.set_value(10_s);
-        sim.top.duty_ratio.set_value(0.3);
-        sim.top.generator.y_output.print_on_use();
         sim.process_remaining_events();
     }
     catch (const system_node::error& e) {
