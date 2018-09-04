@@ -23,23 +23,23 @@ namespace systems {
  * used.
  *
  * ~~~
+ * // Create an object to simulate a building for 5 minutes of simulated
+ * // time with a random seed of 0 and printed results directed to std::cout.
+ * simulation<building_closed_system> sim(5_min, 0, std::cout);
+ *
+ * // Print the initial temperature.
+ * sim.top.initial_temperature.parameter.print_on_use();
+ *
+ * // Print every outdoor temperature send from the weather node.
+ * sim.top.building_dynamics.weather.outdoor_temperature_output.print_on_use();
+ *
+ * // Print every outdoor temperature received by the thermodynamics node.
+ * sim.top.building_dynamics.thermodynamics.outdoor_temperature_input.print_on_use();
+ *
+ * // Print every event experienced by the occupant node.
+ * sim.top.building_dynamics.occupant.print_on_event();
+ *
  * try {
- *     // Create an object to simulate a building for 5 minutes of simulated
- *     // time with a random seed of 0 and printed results directed to std::cout.
- *     simulation<building_closed_system> sim(5_min, 0, std::cout);
- *
- *     // Print the initial temperature.
- *     sim.top.initial_temperature.parameter.print_on_use();
- *
- *     // Print every outdoor temperature send from the weather node.
- *     sim.top.building_dynamics.weather.outdoor_temperature_output.print_on_use();
- *
- *     // Print every outdoor temperature received by the thermodynamics node.
- *     sim.top.building_dynamics.thermodynamics.outdoor_temperature_input.print_on_use();
- *
- *     // Print every event experienced by the occupant node.
- *     sim.top.building_dynamics.occupant.print_on_event();
- *
  *     // Run the simulation until completion.
  *     sim.process_remaining_events();
  * }

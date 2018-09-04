@@ -15,11 +15,10 @@ using namespace sydevs::systems;
 void building7m()
 {
     std::cout << "building_closed_system" << std::endl;
-    thermodynamic_temperature average_T = thermodynamic_temperature();
+    simulation<building_closed_system> sim(5_min, 0, std::cout);
+    sim.top.initial_temperature.parameter.print_on_use();
+    sim.top.building_dynamics.weather.outdoor_temperature_output.print_on_use();
     try {
-        simulation<building_closed_system> sim(5_min, 0, std::cout);
-        sim.top.initial_temperature.parameter.print_on_use();
-        sim.top.building_dynamics.weather.outdoor_temperature_output.print_on_use();
         sim.process_remaining_events();
     }
     catch (const system_node::error& e) {

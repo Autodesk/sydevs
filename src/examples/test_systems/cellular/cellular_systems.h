@@ -14,14 +14,14 @@ using namespace sydevs::systems;
 
 void cellular_systems()
 {
+    simulation<upper_cellular_node> sim(1_s, 0, std::cout);
+    sim.top.prototype.print_on_event();
+    sim.top.prototype.coords_input.print_on_use();
+    sim.top.prototype.cellspace.print_on_use();
+    sim.top.prototype.prototype.print_on_event();
+    sim.top.prototype.prototype.coords_input.print_on_use();
+    sim.top.prototype.prototype.flow_output.print_on_use();
     try {
-        simulation<upper_cellular_node> sim(1_s, 0, std::cout);
-        sim.top.prototype.print_on_event();
-        sim.top.prototype.coords_input.print_on_use();
-        sim.top.prototype.cellspace.print_on_use();
-        sim.top.prototype.prototype.print_on_event();
-        sim.top.prototype.prototype.coords_input.print_on_use();
-        sim.top.prototype.prototype.flow_output.print_on_use();
         sim.process_remaining_events();
     }
     catch (const system_node::error& e) {

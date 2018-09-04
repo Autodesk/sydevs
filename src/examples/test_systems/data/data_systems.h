@@ -17,8 +17,8 @@ using namespace sydevs::systems;
 
 void data_systems()
 {
-    std::cout << "data_primitives_composite_node" << std::endl;
-    try {
+    {
+        std::cout << "data_primitives_composite_node" << std::endl;
         simulation<data_primitives_composite_node> sim(10_s, 0, std::cout);
         sim.top.print_on_event();
         sim.top.A.print_on_event();
@@ -47,17 +47,19 @@ void data_systems()
         sim.top.B.fo_float64.print_on_use();
         sim.top.B.fo_duration.print_on_use();
         sim.top.B.fo_string.print_on_use();
-        sim.process_remaining_events();
-    }
-    catch (const system_node::error& e) {
-        std::cout << "SYSTEM NODE ERROR: " << e.what() << std::endl;
-    }
-    catch (const std::exception& e) {
-        std::cout << "OTHER ERROR: " << e.what() << std::endl;
+        try {
+            sim.process_remaining_events();
+        }
+        catch (const system_node::error& e) {
+            std::cout << "SYSTEM NODE ERROR: " << e.what() << std::endl;
+        }
+        catch (const std::exception& e) {
+            std::cout << "OTHER ERROR: " << e.what() << std::endl;
+        }
     }
     std::cout << std::endl;
-    std::cout << "data_structures_composite_node" << std::endl;
-    try {
+    {
+        std::cout << "data_structures_composite_node" << std::endl;
         simulation<data_structures_composite_node> sim(10_s, 0, std::cout);
         sim.top.print_on_event();
         sim.top.A.print_on_event();
@@ -98,17 +100,19 @@ void data_systems()
         sim.top.B.fo_rate_ptr.print_on_use();
         sim.top.B.fo_ostringstream_ptr.print_on_use();
         sim.top.B.fo_vector_array_ptr.print_on_use();
-        sim.process_remaining_events();
-    }
-    catch (const system_node::error& e) {
-        std::cout << "SYSTEM NODE ERROR: " << e.what() << std::endl;
-    }
-    catch (const std::exception& e) {
-        std::cout << "OTHER ERROR: " << e.what() << std::endl;
+        try {
+            sim.process_remaining_events();
+        }
+        catch (const system_node::error& e) {
+            std::cout << "SYSTEM NODE ERROR: " << e.what() << std::endl;
+        }
+        catch (const std::exception& e) {
+            std::cout << "OTHER ERROR: " << e.what() << std::endl;
+        }
     }
     std::cout << std::endl;
-    std::cout << "data_arraynds_composite_node" << std::endl;
-    try {
+    {
+        std::cout << "data_arraynds_composite_node" << std::endl;
         simulation<data_arraynds_composite_node> sim(10_s, 0, std::cout);
         sim.top.print_on_event();
         sim.top.A.print_on_event();
@@ -133,17 +137,19 @@ void data_systems()
         sim.top.B.fo_s1d.print_on_use();
         sim.top.B.fo_a2d_ptr.print_on_use();
         sim.top.B.fo_s1d_ptr.print_on_use();
-        sim.process_remaining_events();
-    }
-    catch (const system_node::error& e) {
-        std::cout << "SYSTEM NODE ERROR: " << e.what() << std::endl;
-    }
-    catch (const std::exception& e) {
-        std::cout << "OTHER ERROR: " << e.what() << std::endl;
+        try {
+            sim.process_remaining_events();
+        }
+        catch (const system_node::error& e) {
+            std::cout << "SYSTEM NODE ERROR: " << e.what() << std::endl;
+        }
+        catch (const std::exception& e) {
+            std::cout << "OTHER ERROR: " << e.what() << std::endl;
+        }
     }
     std::cout << std::endl;
-    std::cout << "data_tuples_composite_node" << std::endl;
-    try {
+    {
+        std::cout << "data_tuples_composite_node" << std::endl;
         simulation<data_tuples_composite_node> sim(10_s, 0, std::cout);
         sim.top.print_on_event();
         sim.top.A.print_on_event();
@@ -164,13 +170,15 @@ void data_systems()
         sim.top.B.fo_tuple_int64.print_on_use();
         sim.top.B.fo_tuple_string_bool_float64.print_on_use();
         sim.top.B.fo_tuple_mass_speed_pair_bool_bool.print_on_use();
-        sim.process_remaining_events();
-    }
-    catch (const system_node::error& e) {
-        std::cout << "SYSTEM NODE ERROR: " << e.what() << std::endl;
-    }
-    catch (const std::exception& e) {
-        std::cout << "OTHER ERROR: " << e.what() << std::endl;
+        try {
+            sim.process_remaining_events();
+        }
+        catch (const system_node::error& e) {
+            std::cout << "SYSTEM NODE ERROR: " << e.what() << std::endl;
+        }
+        catch (const std::exception& e) {
+            std::cout << "OTHER ERROR: " << e.what() << std::endl;
+        }
     }
 }
 
