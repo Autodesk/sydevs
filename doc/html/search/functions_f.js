@@ -1,6 +1,8 @@
 var searchData=
 [
   ['range',['range',['../classsydevs_1_1range.html#a35344b2e3f597767e078758f64344105',1,'sydevs::range::range()'],['../classsydevs_1_1range.html#a682bc4ef2b23022c19995e177bb25ba3',1,'sydevs::range::range(const range &amp;)=default'],['../classsydevs_1_1range.html#ab7fb0e45d848259c861940f68cbd3c43',1,'sydevs::range::range(range &amp;&amp;)=default']]],
+  ['real_5ftime_5fbuffer',['real_time_buffer',['../classsydevs_1_1systems_1_1real__time__buffer.html#a1914d51e3e28cc3d1d543612ffc4d251',1,'sydevs::systems::real_time_buffer']]],
+  ['real_5ftime_5fsimulation',['real_time_simulation',['../classsydevs_1_1systems_1_1real__time__simulation.html#aed39cc670514f9369e8ab20d619c40e5',1,'sydevs::systems::real_time_simulation::real_time_simulation(const time_point &amp;start_t, const time_point &amp;end_t, bool can_end_early, int64 seed, std::ostream &amp;stream)'],['../classsydevs_1_1systems_1_1real__time__simulation.html#a411be6dc7138b155ec22f0756a9131c7',1,'sydevs::systems::real_time_simulation::real_time_simulation(duration total_dt, int64 seed, std::ostream &amp;stream)']]],
   ['received',['received',['../classsydevs_1_1systems_1_1port_3_01message_00_01input_00_01_t_01_4.html#a63b043e1b8fc97b9ca26046897012467',1,'sydevs::systems::port&lt; message, input, T &gt;']]],
   ['refined',['refined',['../classsydevs_1_1quantity.html#a258d03ec921fea47f5ab80fd4def3eee',1,'sydevs::quantity::refined()'],['../classsydevs_1_1quantity_3_01no__units_01_4.html#a5ff62d4930d3e611d29a2e8382ecc5ea',1,'sydevs::quantity&lt; no_units &gt;::refined()']]],
   ['release_5fevent',['release_event',['../classsydevs_1_1time__cache.html#a96240de5f73b7c60d06a57483d4169e7',1,'sydevs::time_cache']]],

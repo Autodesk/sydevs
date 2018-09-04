@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['time_5fsequence',['time_sequence',['../classsydevs_1_1time__sequence_1_1const__iterator.html#ab791f0c81b5891f8fccfa2c5d15d551b',1,'sydevs::time_sequence::const_iterator']]]
+  ['quantity',['quantity',['../classsydevs_1_1quantity.html#a99cdf6b8ba157516f1f2f085ee709efc',1,'sydevs::quantity::quantity()'],['../classsydevs_1_1quantity_3_01no__units_01_4.html#a99cdf6b8ba157516f1f2f085ee709efc',1,'sydevs::quantity&lt; no_units &gt;::quantity()']]]
 ];

@@ -16,6 +16,7 @@ var classsydevs_1_1systems_1_1collection__node =
     [ "agent_count", "classsydevs_1_1systems_1_1collection__node.html#a8e396547bb4901136f735df2c420bf1b", null ],
     [ "agent_end", "classsydevs_1_1systems_1_1collection__node.html#aba34c6c34385a425db26339bc4d8328a", null ],
     [ "agent_exists", "classsydevs_1_1systems_1_1collection__node.html#a3af8744164ea620889602337f1946efe", null ],
+    [ "create_agent", "classsydevs_1_1systems_1_1collection__node.html#a52006a813f12c8a86696ca310c69c91f", null ],
     [ "create_agent", "classsydevs_1_1systems_1_1collection__node.html#a07fe49ed2c3bb85f3de6882513a6e251", null ],
     [ "handle_finalization_event", "classsydevs_1_1systems_1_1collection__node.html#ac4945659df641dae7f91588eb66794c3", null ],
     [ "handle_initialization_event", "classsydevs_1_1systems_1_1collection__node.html#a137ca240e7c42175e6b205443cd83818", null ],

@@ -6,6 +6,7 @@ var namespacesydevs_1_1systems =
     [ "composite_node", "classsydevs_1_1systems_1_1composite__node.html", "classsydevs_1_1systems_1_1composite__node" ],
     [ "discrete_event_time", "classsydevs_1_1systems_1_1discrete__event__time.html", "classsydevs_1_1systems_1_1discrete__event__time" ],
     [ "function_node", "classsydevs_1_1systems_1_1function__node.html", "classsydevs_1_1systems_1_1function__node" ],
+    [ "interactive_system", "classsydevs_1_1systems_1_1interactive__system.html", "classsydevs_1_1systems_1_1interactive__system" ],
     [ "node_context", "classsydevs_1_1systems_1_1node__context.html", "classsydevs_1_1systems_1_1node__context" ],
     [ "node_interface", "classsydevs_1_1systems_1_1node__interface.html", "classsydevs_1_1systems_1_1node__interface" ],
     [ "node_structure", "classsydevs_1_1systems_1_1node__structure.html", "classsydevs_1_1systems_1_1node__structure" ],
@@ -16,6 +17,8 @@ var namespacesydevs_1_1systems =
     [ "port< message, input, T >", "classsydevs_1_1systems_1_1port_3_01message_00_01input_00_01_t_01_4.html", "classsydevs_1_1systems_1_1port_3_01message_00_01input_00_01_t_01_4" ],
     [ "port< message, output, T >", "classsydevs_1_1systems_1_1port_3_01message_00_01output_00_01_t_01_4.html", "classsydevs_1_1systems_1_1port_3_01message_00_01output_00_01_t_01_4" ],
     [ "port< flow, output, T >", "classsydevs_1_1systems_1_1port_3_01flow_00_01output_00_01_t_01_4.html", "classsydevs_1_1systems_1_1port_3_01flow_00_01output_00_01_t_01_4" ],
+    [ "real_time_buffer", "classsydevs_1_1systems_1_1real__time__buffer.html", "classsydevs_1_1systems_1_1real__time__buffer" ],
+    [ "real_time_simulation", "classsydevs_1_1systems_1_1real__time__simulation.html", "classsydevs_1_1systems_1_1real__time__simulation" ],
     [ "simulation", "classsydevs_1_1systems_1_1simulation.html", "classsydevs_1_1systems_1_1simulation" ],
     [ "statistic_node", "classsydevs_1_1systems_1_1statistic__node.html", "classsydevs_1_1systems_1_1statistic__node" ],
     [ "system_node", "classsydevs_1_1systems_1_1system__node.html", "classsydevs_1_1systems_1_1system__node" ]

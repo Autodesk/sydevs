@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['seconds',['seconds',['../namespacesydevs.html#a5c1db1b69523e3ddf361d94937e88900',1,'sydevs']]]
+  ['observation_5ftype',['observation_type',['../classsydevs_1_1systems_1_1interactive__system.html#a83e6bed09de2a3426a1b8315bc52fb77',1,'sydevs::systems::interactive_system']]]
 ];

@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname"><a href="https://autodesk.github.io/sydevs/">SyDEVS</a>
-   &#160;<span id="projectnumber">v0.4.2</span>
+   &#160;<span id="projectnumber">v0.5</span>
    </div>
    <div id="projectbrief">Multiscale Simulation and Systems Modeling Library</div>
   </td>
@@ -208,7 +208,7 @@ $(document).ready(function(){initNavTree('function__node_8h_source.html','');});
 <div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_ab6883b754b02821db4052cb02b1720de"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#ab6883b754b02821db4052cb02b1720de">sydevs::systems::function_node::~function_node</a></div><div class="ttdeci">virtual ~function_node()=default</div><div class="ttdoc">Destructor. </div></div>
 <div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_a00a79f980a5272c289165f00db546d5d"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#a00a79f980a5272c289165f00db546d5d">sydevs::systems::function_node::handle_initialization_event</a></div><div class="ttdeci">duration handle_initialization_event()</div><div class="ttdoc">Invoked when all flow input ports have values; calls flow_event. </div><div class="ttdef"><b>Definition:</b> function_node.h:71</div></div>
 <div class="ttc" id="classsydevs_1_1scale_html"><div class="ttname"><a href="classsydevs_1_1scale.html">sydevs::scale</a></div><div class="ttdoc">A data type which represents the general concept of scale as a dimensionless power of 1000...</div><div class="ttdef"><b>Definition:</b> scale.h:70</div></div>
-<div class="ttc" id="classsydevs_1_1quantity_html_aab3f74af562a2a5a73d744dd77f8ff06"><div class="ttname"><a href="classsydevs_1_1quantity.html#aab3f74af562a2a5a73d744dd77f8ff06">sydevs::quantity::inf</a></div><div class="ttdeci">static constexpr quantity inf()</div><div class="ttdef"><b>Definition:</b> quantity.h:540</div></div>
+<div class="ttc" id="classsydevs_1_1quantity_html_aab3f74af562a2a5a73d744dd77f8ff06"><div class="ttname"><a href="classsydevs_1_1quantity.html#aab3f74af562a2a5a73d744dd77f8ff06">sydevs::quantity&lt; seconds &gt;::inf</a></div><div class="ttdeci">static constexpr quantity inf()</div></div>
 <div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_a5c33c560a4bc934f0962cb85f685ed93"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#a5c33c560a4bc934f0962cb85f685ed93">sydevs::systems::function_node::handle_unplanned_event</a></div><div class="ttdeci">duration handle_unplanned_event(duration elapsed_dt)</div><div class="ttdoc">Never invoked for function nodes. </div><div class="ttdef"><b>Definition:</b> function_node.h:78</div></div>
 <div class="ttc" id="classsydevs_1_1systems_1_1node__context_html"><div class="ttname"><a href="classsydevs_1_1systems_1_1node__context.html">sydevs::systems::node_context</a></div><div class="ttdef"><b>Definition:</b> node_context.h:16</div></div>
 <div class="ttc" id="classsydevs_1_1systems_1_1function__node_html"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html">sydevs::systems::function_node</a></div><div class="ttdoc">A base class for indivisible nodes in which function behavior is procedurally encoded. </div><div class="ttdef"><b>Definition:</b> function_node.h:21</div></div>
@@ -217,14 +217,14 @@ $(document).ready(function(){initNavTree('function__node_8h_source.html','');});
 <div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_ad1348180a4576599e86da871026b0e0f"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#ad1348180a4576599e86da871026b0e0f">sydevs::systems::function_node::node_dmode</a></div><div class="ttdeci">data_mode node_dmode() const </div><div class="ttdoc">Returns message for all atomic nodes. </div><div class="ttdef"><b>Definition:</b> function_node.h:59</div></div>
 <div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_a58a84bb43ebccb0b06bf413ee6e24963"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#a58a84bb43ebccb0b06bf413ee6e24963">sydevs::systems::function_node::function_node</a></div><div class="ttdeci">function_node(const std::string &amp;node_name, const node_context &amp;external_context)</div><div class="ttdoc">Constructs a function_node. </div><div class="ttdef"><b>Definition:</b> function_node.h:53</div></div>
 <div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_a7024f71f3fab0434ca666620defafcaf"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#a7024f71f3fab0434ca666620defafcaf">sydevs::systems::function_node::handle_planned_event</a></div><div class="ttdeci">duration handle_planned_event(duration elapsed_dt)</div><div class="ttdoc">Never invoked for function nodes. </div><div class="ttdef"><b>Definition:</b> function_node.h:85</div></div>
-<div class="ttc" id="classsydevs_1_1quantity_html"><div class="ttname"><a href="classsydevs_1_1quantity.html">sydevs::quantity</a></div><div class="ttdoc">A data type template which represents a dimensioned quantity as a multiple of a precision level...</div><div class="ttdef"><b>Definition:</b> quantity.h:196</div></div>
+<div class="ttc" id="classsydevs_1_1quantity_html"><div class="ttname"><a href="classsydevs_1_1quantity.html">sydevs::quantity&lt; seconds &gt;</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7768905cd5f13791a907789958daff55.html">src</a></li><li class="navelem"><a class="el" href="dir_b52b886ab9c805f02d8e0ac18424dc05.html">sydevs</a></li><li class="navelem"><a class="el" href="dir_870de5e1b8007a1b7c54b99faffaf6a2.html">systems</a></li><li class="navelem"><a class="el" href="function__node_8h.html">function_node.h</a></li>
-    <li class="footer">Generated on Wed May 2 2018 20:30:44 for SyDEVS by
+    <li class="footer">Generated on Tue Sep 4 2018 19:19:45 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
