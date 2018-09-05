@@ -18,6 +18,7 @@ In addition to supporting multiple modeling paradigms, the SyDEVS library provid
 
 - [Overview](overview.html): Briefly introduces SyDEVS.
 - [Getting Started](getting_started/): Explains how to use SyDEVS, step by step.
+- [User Manual](user_manual/): Describes the main elements of SyDEVS in detail, with examples.
 - [API Reference](doc/html/index.html): Documents the C++ classes that make up the library.
 - SyDEVS Introduction ([PPTX](doc/downloads/SyDEVS_Introduction.pptx), [PDF](doc/downloads/SyDEVS_Introduction.pdf)): Provides background information and introduces SyDEVS.
 - SyDEVS Framework Overview ([PPTX](doc/downloads/SyDEVS_Framework_Overview.pptx), [PDF](doc/downloads/SyDEVS_Framework_Overview.pdf)): Illustrates the main concepts & relates them to code.

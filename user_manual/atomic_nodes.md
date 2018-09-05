@@ -1,3 +1,4 @@
+| [Prev](index.html) | [User Manual -- Table of Contents](index.html) | [Next](function_nodes.html) |
 # Atomic Nodes
 
 The ***atomic node*** provides a general structure for representing behavior that unfolds over simulated time. The modeler must implement four event handers that are invoked by the simulator. The initialization event hander is invoked first. The unplanned and planned event handlers are then called any number of times over the course of the simulation in response to incoming messages (unplanned events) or internally scheduled events (planned events). The finalization event handler is invoked at the end.
@@ -308,5 +309,5 @@ The `thermodynamics_node` class found in [`thermodynamics_node.h`](https://githu
 
 The `occupant_node` class found in [`occupant_node.h`](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/occupant_node.h) provides an example of stocasticity, where a simulated individual performs a random walk within a building.
 
-
+| [***Continue to Function Nodes***](function_nodes.html) |
 
