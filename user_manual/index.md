@@ -1,4 +1,4 @@
-| Prev | Getting Started -- Table of Contents | [Next](atomic_nodes.html) |
+| Prev | User Manual -- Table of Contents | [Next](atomic_nodes.html) |
 # User Manual
 
 The Elements of SyDEVS Explained using Examples
