@@ -181,7 +181,7 @@ Atomic nodes must override the four pure virtual member functions representing e
     virtual void finalization_event(duration elapsed_dt);
 ```
 
-### Intialization Events
+### Initialization Events
 
 The `initialization_event` function is invoked once, before any other event handling function. Typically it is invoked at the beginning of the simulation (unless the node is an agent; see [Collection Nodes](collection_nodes.html)). The main purpose of the function is to take parameter values from the flow input ports, and use the information to initialize the state variables. The return value is the planned duration until the next planned event.
 
@@ -250,7 +250,7 @@ inline duration queueing_node::unplanned_event(duration elapsed_dt)
 
 ### Planned Events
 
-The `planned_event` function is invoked whenever the planned duration elapses without being interruped by an unplanned event. If a message is received either before the planned duration elapses or at the same time, then the planned event is essentially cancelled and the unplanned event occurs instead. (The instruction `planned_dt -= elapsed_dt` is often used to reschedule the planned event, as in the example above.) Like its unplanned counterpart, the planned event handler is invoked with the elapsed duration `elapsed_dt` and returns the planned duration until the next planned event.
+The `planned_event` function is invoked whenever the planned duration elapses without being interrupted by an unplanned event. If a message is received either before the planned duration elapses or at the same time, then the planned event is essentially cancelled and the unplanned event occurs instead. (The instruction `planned_dt -= elapsed_dt` is often used to reschedule the planned event, as in the example above.) Like its unplanned counterpart, the planned event handler is invoked with the elapsed duration `elapsed_dt` and returns the planned duration until the next planned event.
 
 Inside the function, there is often (but not necessarily) one or more instructions to send a message on a message output port. These operations make use of the port member function `send`. It is possible to send multiple messages on the same port, or multiple messages on multiple ports. Even if multiple messages are sent from the same planned event, each message triggers its own separate unplanned event in each receiving node.
 
