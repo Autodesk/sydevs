@@ -140,7 +140,7 @@ std::set<T>        // standard library set of values of data type `T`
 std::map<T>        // standard library map of values of data type `T`
 
 std::shared_ptr<T>  // standard library shared pointer to value of data type `T`
-pointer             // alias for `std::shared_ptr<void>` (not recommended)
+pointer             // untyped shared pointer (not recommended)
 ```
 
 The first 4 core types are standard C++ data types.
