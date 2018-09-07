@@ -86,7 +86,7 @@ data_structures_composite_node
 0|20|top.A#mo_set_pair_float64_string:{{0, "five"}, {5, "five"}, {5, "zero"}}
 0|20|top.A#mo_rate_ptr:(shared_ptr:quantity<decltype(_1/_s)>(2, unit))
 0|20|top.A#mo_ostringstream_ptr:(shared_ptr:...)
-0|20|top.A#mo_vector_array_ptr:(pointer:...)
+0|20|top.A#mo_vector_array_ptr:(shared_ptr:...)
 0|21|top.B$unplanned
 0|21|top.B$elapsed_dt:0_us
 0|21|top.B$print:ostringstream_var.str() = 10 created;initialized;received;
@@ -140,7 +140,7 @@ data_structures_composite_node
 0|31|top.B#mo_set_pair_float64_string:{{0, "five"}, {5, "five"}, {5, "zero"}, {9.7, "nine point seven"}}
 0|31|top.B#mo_rate_ptr:(shared_ptr:quantity<decltype(_1/_s)>::inf())
 0|31|top.B#mo_ostringstream_ptr:(shared_ptr:...)
-0|31|top.B#mo_vector_array_ptr:(pointer:...)
+0|31|top.B#mo_vector_array_ptr:(shared_ptr:...)
 1|0|$time:time_point() + 10_s
 1|0|top$finalization
 1|1|top.A$finalization
@@ -154,7 +154,7 @@ data_structures_composite_node
 1|1|top.A#fo_set_pair_float64_string:{{0, "five"}, {5, "five"}, {5, "zero"}}
 1|1|top.A#fo_rate_ptr:(shared_ptr:quantity<decltype(_1/_s)>::inf())
 1|1|top.A#fo_ostringstream_ptr:(shared_ptr:...)
-1|1|top.A#fo_vector_array_ptr:(pointer:...)
+1|1|top.A#fo_vector_array_ptr:(shared_ptr:...)
 1|2|top.B$finalization
 1|2|top.B$elapsed_dt:10000000_us
 1|2|top.B$print:ostringstream_var.str() = 5 created;initialized;sent;received;received;sent;finalized;finalized;
@@ -166,7 +166,7 @@ data_structures_composite_node
 1|2|top.B#fo_set_pair_float64_string:{{0, "five"}, {5, "five"}, {5, "zero"}, {9.7, "nine point seven"}}
 1|2|top.B#fo_rate_ptr:(shared_ptr:quantity<decltype(_1/_s)>::inf())
 1|2|top.B#fo_ostringstream_ptr:(shared_ptr:...)
-1|2|top.B#fo_vector_array_ptr:(pointer:...)
+1|2|top.B#fo_vector_array_ptr:(shared_ptr:...)
 
 data_arraynds_composite_node
 0|0|$time:time_point()
@@ -191,8 +191,8 @@ data_arraynds_composite_node
 0|12|top.A$planned_dt:duration::inf()
 0|12|top.A#mo_a2d:{{100, 1, 2}, {3, 4, 5}, {6, 7, 8}, {9, 10, 11}}
 0|12|top.A#mo_s1d:{1, 4, 7, 10}
-0|12|top.A#mo_a2d_ptr:(pointer:...)
-0|12|top.A#mo_s1d_ptr:(pointer:...)
+0|12|top.A#mo_a2d_ptr:(shared_ptr:{{100, 1, 2}, {3, 4, 5}, {6, 7, 8}, {9, 10, 11}})
+0|12|top.A#mo_s1d_ptr:(shared_ptr:{1, 4, 7, 10})
 0|13|top.B$unplanned
 0|13|top.B$elapsed_dt:0_us
 0|13|top.B$print:sv_a2d  = {{100, 1, 2}, {3, 200, 5}, {6, 7, 8}, {9, 10, 11}}
@@ -229,8 +229,8 @@ data_arraynds_composite_node
 0|19|top.B$planned_dt:duration::inf()
 0|19|top.B#mo_a2d:{{100, 1, 2}, {3, 200, 5}, {6, 7, 8}, {9, 10, 11}}
 0|19|top.B#mo_s1d:{1, 200, 7, 10}
-0|19|top.B#mo_a2d_ptr:(pointer:...)
-0|19|top.B#mo_s1d_ptr:(pointer:...)
+0|19|top.B#mo_a2d_ptr:(shared_ptr:{{100, 1, 2}, {3, 200, 5}, {6, 300, 8}, {9, 10, 11}})
+0|19|top.B#mo_s1d_ptr:(shared_ptr:{1, 200, 300, 10})
 1|0|$time:time_point() + 10_s
 1|0|top$finalization
 1|1|top.A$finalization
@@ -239,16 +239,16 @@ data_arraynds_composite_node
 1|1|top.A$print:s1d_var = {100, 3, 6, 9}
 1|1|top.A#fo_a2d:{{100, 1, 2}, {3, 4, 5}, {6, 7, 8}, {9, 10, 11}}
 1|1|top.A#fo_s1d:{0, 3, 6, 9}
-1|1|top.A#fo_a2d_ptr:(pointer:...)
-1|1|top.A#fo_s1d_ptr:(pointer:...)
+1|1|top.A#fo_a2d_ptr:(shared_ptr:{{100, 1, 2}, {3, 200, 5}, {6, 300, 8}, {9, 10, 11}})
+1|1|top.A#fo_s1d_ptr:(shared_ptr:{100, 3, 6, 9})
 1|2|top.B$finalization
 1|2|top.B$elapsed_dt:10000000_us
 1|2|top.B$print:a2d_var = {{100, 1, 2}, {3, 200, 5}, {6, 300, 8}, {9, 10, 11}}
 1|2|top.B$print:s1d_var = {1, 200, 300, 10}
 1|2|top.B#fo_a2d:{{100, 1, 2}, {3, 200, 5}, {6, 7, 8}, {9, 10, 11}}
 1|2|top.B#fo_s1d:{1, 4, 300, 10}
-1|2|top.B#fo_a2d_ptr:(pointer:...)
-1|2|top.B#fo_s1d_ptr:(pointer:...)
+1|2|top.B#fo_a2d_ptr:(shared_ptr:{{100, 1, 2}, {3, 200, 5}, {6, 300, 8}, {9, 10, 11}})
+1|2|top.B#fo_s1d_ptr:(shared_ptr:{1, 200, 300, 10})
 
 data_tuples_composite_node
 0|0|$time:time_point()

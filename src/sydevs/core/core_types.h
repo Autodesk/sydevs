@@ -16,6 +16,20 @@ namespace sydevs {
 
 using tostring_function = std::function<std::string(const pointer&)>;
 
+template<typename T>
+std::string tostring(const T& val)
+{
+    return core_type<T>::tostring(val);
+}
+
+template<typename T>
+inline tostring_function tostring_converter()
+{
+    return [](const pointer& val) -> std::string {
+        return core_type<T>::tostring(val.dereference<T>());
+    };
+}
+
 
 // core type trait declarations
 
@@ -130,31 +144,6 @@ struct core_type<std::shared_ptr<T>> {
     static std::string tostring(const std::shared_ptr<T>& X);
     static pointer copy(const std::shared_ptr<T>& X);
 };
-
-
-// core type functions
-
-template<typename T>
-std::string tostring(const T& val)
-{
-    return core_type<T>::tostring(val);
-}
-
-template<typename T>
-inline tostring_function tostring_converter()
-{
-    return [](const pointer& val) -> std::string {
-        return core_type<T>::tostring(val.dereference<T>());
-    };
-}
-
-template<>
-inline tostring_function tostring_converter<pointer>()
-{
-    return [](const pointer& val) -> std::string {
-        return core_type<pointer>::tostring(val);
-    };
-}
 
 
 // non core type trait definitions
