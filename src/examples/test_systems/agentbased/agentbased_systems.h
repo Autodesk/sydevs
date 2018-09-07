@@ -16,18 +16,18 @@ using namespace sydevs::systems;
 
 void agentbased_systems()
 {
-    simulation<simple_agentbased_node> sim(600_s, 0, std::cout);
-    sim.top.grid_extent.print_on_event();
-    sim.top.grid_extent.parameter.print_on_use();
-    sim.top.avg_delay_dt.print_on_event();
-    sim.top.avg_delay_dt.parameter.print_on_use();
-    sim.top.invite_prob.print_on_event();
-    sim.top.invite_prob.parameter.print_on_use();
-    sim.top.print_on_event();
-    sim.top.agents.print_on_event();
-    sim.top.agents.avg_acquaintances_output.print_on_use();
-    sim.top.avg_acquaintances.print_on_event();
     try {
+        simulation<simple_agentbased_node> sim(600_s, 0, std::cout);
+        sim.top.grid_extent.print_on_event();
+        sim.top.grid_extent.parameter.print_on_use();
+        sim.top.avg_delay_dt.print_on_event();
+        sim.top.avg_delay_dt.parameter.print_on_use();
+        sim.top.invite_prob.print_on_event();
+        sim.top.invite_prob.parameter.print_on_use();
+        sim.top.print_on_event();
+        sim.top.agents.print_on_event();
+        sim.top.agents.avg_acquaintances_output.print_on_use();
+        sim.top.avg_acquaintances.print_on_event();
         sim.process_remaining_events();
     }
     catch (const system_node::error& e) {
