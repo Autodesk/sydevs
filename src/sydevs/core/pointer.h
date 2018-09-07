@@ -57,7 +57,7 @@ public:
     template<typename T> 
     T& dereference() const;  ///< Returns the referenced data, casting it to type `T`.
     
-    explicit operator bool() const noexcept;  // Returns `true` if the pointer does not reference `nullptr`.
+    explicit operator bool() const noexcept;  ///< Returns `true` if the pointer does not reference `nullptr`.
 
 private:
     std::shared_ptr<void> ptr_;

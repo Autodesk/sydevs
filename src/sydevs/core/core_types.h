@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SYDEVS_DATA_INFO_H_
-#define SYDEVS_DATA_INFO_H_
+#ifndef SYDEVS_CORE_TYPES_H_
+#define SYDEVS_CORE_TYPES_H_
 
 #include <sydevs/core/pointer.h>
 #include <sydevs/core/arraynd.h>
@@ -24,7 +24,6 @@ struct core_type {
     static constexpr bool valid = false;               ///< Indicates whether type `T` is a valid core type.
     static constexpr bool valid_and_sortable = false;  ///< Indicates whether type `T` is both a valid core type and a sortable type.
     static std::string tostring(const T& X);           ///< If `T` is a valid core type, converts `X` to a `std::string`.
-    static tostring_function tostring_func();          ///< If `T` is a valid core type, returns a function that converts a `pointer` to a `std::string`.
     static pointer copy(const T& X);                   ///< If `T` is a valid core type, returns a deep copy of `X`.
 };
 
@@ -33,7 +32,6 @@ struct core_type<pointer> {
     static constexpr bool valid = true;
     static constexpr bool valid_and_sortable = false;
     static std::string tostring(const pointer& X);
-    static tostring_function tostring_func();
     static pointer copy(const pointer& X);
 };
 
@@ -42,7 +40,6 @@ struct core_type<bool> {
     static constexpr bool valid = true;
     static constexpr bool valid_and_sortable = true;
     static std::string tostring(const bool& X);
-    static tostring_function tostring_func();
     static pointer copy(const bool& X);
 };
 
@@ -51,7 +48,6 @@ struct core_type<int64> {
     static constexpr bool valid = true;
     static constexpr bool valid_and_sortable = true;
     static std::string tostring(const int64& X);
-    static tostring_function tostring_func();
     static pointer copy(const int64& X);
 };
 
@@ -60,7 +56,6 @@ struct core_type<float64> {
     static constexpr bool valid = true;
     static constexpr bool valid_and_sortable = true;
     static std::string tostring(const float64& X);
-    static tostring_function tostring_func();
     static pointer copy(const float64& X);
 };
 
@@ -69,7 +64,6 @@ struct core_type<std::string> {
     static constexpr bool valid = true;
     static constexpr bool valid_and_sortable = true;
     static std::string tostring(const std::string& X);
-    static tostring_function tostring_func();
     static pointer copy(const std::string& X);
 };
 
@@ -78,7 +72,6 @@ struct core_type<quantity<U>> {
     static constexpr bool valid = true;
     static constexpr bool valid_and_sortable = true;
     static std::string tostring(const quantity<U>& X);
-    static tostring_function tostring_func();
     static pointer copy(const quantity<U>& X);
 };
 
@@ -87,7 +80,6 @@ struct core_type<arraynd<T, ndims>> {
     static constexpr bool valid = core_type<T>::valid;
     static constexpr bool valid_and_sortable = core_type<T>::valid_and_sortable && ndims == 1;
     static std::string tostring(const arraynd<T, ndims>& X);
-    static tostring_function tostring_func();
     static pointer copy(const arraynd<T, ndims>& X);
 };
 
@@ -96,7 +88,6 @@ struct core_type<std::pair<T1, T2>> {
     static constexpr bool valid = (core_type<T1>::valid && core_type<T2>::valid);
     static constexpr bool valid_and_sortable = (core_type<T1>::valid_and_sortable && core_type<T2>::valid_and_sortable);
     static std::string tostring(const std::pair<T1, T2>& X);
-    static tostring_function tostring_func();
     static pointer copy(const std::pair<T1, T2>& X);
 };
 
@@ -105,7 +96,6 @@ struct core_type<std::tuple<T>> {
     static constexpr bool valid = core_type<T>::valid;
     static constexpr bool valid_and_sortable = core_type<T>::valid_and_sortable;
     static std::string tostring(const std::tuple<T>& X);
-    static tostring_function tostring_func();
     static pointer copy(const std::tuple<T>& X);
 };
 
@@ -114,7 +104,6 @@ struct core_type<std::tuple<T, Ts...>> {
     static constexpr bool valid = (core_type<T>::valid && core_type<std::tuple<Ts...>>::valid);
     static constexpr bool valid_and_sortable = (core_type<T>::valid_and_sortable && core_type<std::tuple<Ts...>>::valid_and_sortable);
     static std::string tostring(const std::tuple<T, Ts...>& X);
-    static tostring_function tostring_func();
     static pointer copy(const std::tuple<T, Ts...>& X);
 };
 
@@ -123,7 +112,6 @@ struct core_type<std::vector<T>> {
     static constexpr bool valid = core_type<T>::valid;
     static constexpr bool valid_and_sortable = core_type<T>::valid_and_sortable;
     static std::string tostring(const std::vector<T>& X);
-    static tostring_function tostring_func();
     static pointer copy(const std::vector<T>& X);
 };
 
@@ -132,7 +120,6 @@ struct core_type<std::set<T>> {
     static constexpr bool valid = core_type<T>::valid;
     static constexpr bool valid_and_sortable = core_type<T>::valid_and_sortable;
     static std::string tostring(const std::set<T>& X);
-    static tostring_function tostring_func();
     static pointer copy(const std::set<T>& X);
 };
 
@@ -141,7 +128,6 @@ struct core_type<std::map<Key, T>> {
     static constexpr bool valid = core_type<Key>::valid_and_sortable && core_type<T>::valid;
     static constexpr bool valid_and_sortable = valid && core_type<T>::valid_and_sortable;
     static std::string tostring(const std::map<Key, T>& X);
-    static tostring_function tostring_func();
     static pointer copy(const std::map<Key, T>& X);
 };
 
@@ -150,7 +136,6 @@ struct core_type<std::shared_ptr<T>> {
     static constexpr bool valid = true;
     static constexpr bool valid_and_sortable = false;
     static std::string tostring(const std::shared_ptr<T>& X);
-    static tostring_function tostring_func();
     static pointer copy(const std::shared_ptr<T>& X);
 };
 
@@ -163,7 +148,23 @@ std::string tostring(const T& val)
     return core_type<T>::tostring(val);
 }
 
-   
+template<typename T>
+inline tostring_function tostring_converter()
+{
+    return [](const pointer& val) -> std::string {
+        return core_type<T>::tostring(val.dereference<T>());
+    };
+}
+
+template<>
+inline tostring_function tostring_converter<pointer>()
+{
+    return [](const pointer& val) -> std::string {
+        return core_type<pointer>::tostring(val);
+    };
+}
+
+
 // non core type trait definitions
 
 template<typename T>
@@ -171,15 +172,6 @@ inline std::string core_type<T>::tostring(const T& X)
 {
     throw std::logic_error("Conversion to string unavailable for a type that is not an sydevs core type");
     return "";
-}
-
-template<typename T>
-inline tostring_function core_type<T>::tostring_func()
-{
-    throw std::logic_error("Conversion to string function unavailable for a type that is not an sydevs core type");
-    return [](const pointer& val) -> std::string {
-        return "";
-    };
 }
 
 template<typename T>
@@ -200,13 +192,6 @@ inline std::string core_type<pointer>::tostring(const pointer& X)
         + ")";
 }
 
-inline tostring_function core_type<pointer>::tostring_func()
-{
-    return [](const pointer& val) -> std::string {
-        return core_type<pointer>::tostring(val);
-    };
-}
-
 inline pointer core_type<pointer>::copy(const pointer& X)
 {
     return pointer(new pointer(X));
@@ -218,13 +203,6 @@ inline pointer core_type<pointer>::copy(const pointer& X)
 inline std::string core_type<bool>::tostring(const bool& X)
 {
     return X ? std::string("true") : std::string("false");
-}
-
-inline tostring_function core_type<bool>::tostring_func()
-{
-    return [](const pointer& val) -> std::string {
-        return core_type<bool>::tostring(val.dereference<bool>());
-    };
 }
 
 inline pointer core_type<bool>::copy(const bool& X)
@@ -240,13 +218,6 @@ inline std::string core_type<int64>::tostring(const int64& X)
     return (string_builder() << X).str();
 }
 
-inline tostring_function core_type<int64>::tostring_func()
-{
-    return [](const pointer& val) -> std::string {
-        return core_type<int64>::tostring(val.dereference<int64>());
-    };
-}
-
 inline pointer core_type<int64>::copy(const int64& X)
 {
     return pointer(new int64(X));
@@ -258,13 +229,6 @@ inline pointer core_type<int64>::copy(const int64& X)
 inline std::string core_type<float64>::tostring(const float64& X)
 {
     return (string_builder() << X).str();
-}
-
-inline tostring_function core_type<float64>::tostring_func()
-{
-    return [](const pointer& val) -> std::string {
-        return core_type<float64>::tostring(val.dereference<float64>());
-    };
 }
 
 inline pointer core_type<float64>::copy(const float64& X)
@@ -280,13 +244,6 @@ inline std::string core_type<std::string>::tostring(const std::string& X)
     return "\"" + X + "\"";
 }
 
-inline tostring_function core_type<std::string>::tostring_func()
-{
-    return [](const pointer& val) -> std::string {
-        return core_type<std::string>::tostring(val.dereference<std::string>());
-    };
-}
-
 inline pointer core_type<std::string>::copy(const std::string& X)
 {
     return pointer(new std::string(X));
@@ -299,14 +256,6 @@ template<typename U>
 inline std::string core_type<quantity<U>>::tostring(const quantity<U>& X)
 {
     return (string_builder() << X).str();
-}
-
-template<typename U>
-inline tostring_function core_type<quantity<U>>::tostring_func()
-{
-    return [](const pointer& val) -> std::string {
-        return core_type<quantity<U>>::tostring(val.dereference<quantity<U>>());
-    };
 }
 
 template<typename U>
@@ -359,14 +308,6 @@ inline std::string core_type<arraynd<T, ndims>>::tostring(const arraynd<T, ndims
 }
 
 template<typename T, int64 ndims>
-inline tostring_function core_type<arraynd<T, ndims>>::tostring_func()
-{
-    return [](const pointer& val) -> std::string {
-        return core_type<arraynd<T, ndims>>::tostring(val.dereference<arraynd<T, ndims>>());
-    };
-}
-
-template<typename T, int64 ndims>
 inline pointer core_type<arraynd<T, ndims>>::copy(const arraynd<T, ndims>& X)
 {    
     return pointer(new arraynd<T, ndims>(X.copy()));
@@ -382,14 +323,6 @@ inline std::string core_type<std::pair<T1, T2>>::tostring(const std::pair<T1, T2
 }
 
 template<typename T1, typename T2>
-inline tostring_function core_type<std::pair<T1, T2>>::tostring_func()
-{
-    return [](const pointer& val) -> std::string {
-        return core_type<std::pair<T1, T2>>::tostring(val.dereference<std::pair<T1, T2>>());
-    };
-}
-
-template<typename T1, typename T2>
 inline pointer core_type<std::pair<T1, T2>>::copy(const std::pair<T1, T2>& X)
 {
     return pointer(new std::pair<T1, T2>(X));
@@ -402,14 +335,6 @@ template<typename T>
 inline std::string core_type<std::tuple<T>>::tostring(const std::tuple<T>& X)
 {
     return "{" + core_type<T>::tostring(std::get<0>(X)) + "}";
-}
-
-template<typename T>
-inline tostring_function core_type<std::tuple<T>>::tostring_func()
-{
-    return [](const pointer& val) -> std::string {
-        return core_type<std::tuple<T>>::tostring(val.dereference<std::tuple<T>>());
-    };
 }
 
 template<typename T>
@@ -442,14 +367,6 @@ inline std::string core_type<std::tuple<T, Ts...>>::tostring(const std::tuple<T,
 }
 
 template<typename T, typename... Ts>
-inline tostring_function core_type<std::tuple<T, Ts...>>::tostring_func()
-{
-    return [](const pointer& val) -> std::string {
-        return core_type<std::tuple<T, Ts...>>::tostring(val.dereference<std::tuple<T, Ts...>>());
-    };
-}
-
-template<typename T, typename... Ts>
 inline pointer core_type<std::tuple<T, Ts...>>::copy(const std::tuple<T, Ts...>& X)
 {
     return pointer(new std::tuple<T, Ts...>(X));
@@ -470,14 +387,6 @@ inline std::string core_type<std::vector<T>>::tostring(const std::vector<T>& X)
     }
     s += "}";
     return s;
-}
-
-template<typename T>
-inline tostring_function core_type<std::vector<T>>::tostring_func()
-{
-    return [](const pointer& val) -> std::string {
-        return core_type<std::vector<T>>::tostring(val.dereference<std::vector<T>>());
-    };
 }
 
 template<typename T>
@@ -504,14 +413,6 @@ inline std::string core_type<std::set<T>>::tostring(const std::set<T>& X)
 }
 
 template<typename T>
-inline tostring_function core_type<std::set<T>>::tostring_func()
-{
-    return [](const pointer& val) -> std::string {
-        return core_type<std::set<T>>::tostring(val.dereference<std::set<T>>());
-    };
-}
-
-template<typename T>
 inline pointer core_type<std::set<T>>::copy(const std::set<T>& X)
 {
     return pointer(new std::set<T>(X));
@@ -535,14 +436,6 @@ inline std::string core_type<std::map<Key, T>>::tostring(const std::map<Key, T>&
 }
 
 template<typename Key, typename T>
-inline tostring_function core_type<std::map<Key, T>>::tostring_func()
-{
-    return [](const pointer& val) -> std::string {
-        return core_type<std::map<Key, T>>::tostring(val.dereference<std::map<Key, T>>());
-    };
-}
-
-template<typename Key, typename T>
 inline pointer core_type<std::map<Key, T>>::copy(const std::map<Key, T>& X)
 {
     return pointer(new std::map<Key, T>(X));
@@ -558,14 +451,6 @@ inline std::string core_type<std::shared_ptr<T>>::tostring(const std::shared_ptr
         (X ? (core_type<T>::valid ? core_type<T>::tostring(*X) : std::string("...")) :
              std::string("nullptr"))
         + ")";
-}
-
-template<typename T>
-inline tostring_function core_type<std::shared_ptr<T>>::tostring_func()
-{
-    return [](const pointer& val) -> std::string {
-        return core_type<std::shared_ptr<T>>::tostring(val.dereference<std::shared_ptr<T>>());
-    };
 }
 
 template<typename T>

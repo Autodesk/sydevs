@@ -272,7 +272,7 @@ const T& port<flow, input, T>::value() const
 template<typename T>
 void port<flow, input, T>::print_on_use(bool flag) const
 {
-    auto tostring_func = flag ? core_type<T>::tostring_func() : nullptr;
+    auto tostring_func = flag ? tostring_converter<T>() : nullptr;
     const_cast<node_interface&>(this->external_interface()).set_flow_input_printable(this->port_index(), tostring_func);
 }
 
@@ -325,7 +325,7 @@ const T& port<message, input, T>::value() const
 template<typename T>
 void port<message, input, T>::print_on_use(bool flag) const
 {
-    auto tostring_func = flag ? core_type<T>::tostring_func() : nullptr;
+    auto tostring_func = flag ? tostring_converter<T>() : nullptr;
     const_cast<node_interface&>(this->external_interface()).set_message_input_printable(this->port_index(), tostring_func);
 }
 
@@ -360,7 +360,7 @@ void port<message, output, T>::send(const T& val)
 template<typename T>
 void port<message, output, T>::print_on_use(bool flag) const
 {
-    auto tostring_func = flag ? core_type<T>::tostring_func() : nullptr;
+    auto tostring_func = flag ? tostring_converter<T>() : nullptr;
     const_cast<node_interface&>(this->external_interface()).set_message_output_printable(this->port_index(), tostring_func);
 }
 
@@ -395,7 +395,7 @@ void port<flow, output, T>::assign(const T& val)
 template<typename T>
 void port<flow, output, T>::print_on_use(bool flag) const
 {
-    auto tostring_func = flag ? core_type<T>::tostring_func() : nullptr;
+    auto tostring_func = flag ? tostring_converter<T>() : nullptr;
     const_cast<node_interface&>(this->external_interface()).set_flow_output_printable(this->port_index(), tostring_func);
 }
 
