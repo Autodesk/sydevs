@@ -242,7 +242,11 @@ port_base<dmode, dgoal, T>::port_base(const std::string& port_name, int64 port_i
     , port_index_(port_index)
     , external_interface_(external_interface)
 {
-    if (!core_type<T>::valid) throw std::logic_error("Invalid data type for port");
+    if (!core_type<T>::valid) {
+        const auto& full_node_name = const_cast<node_interface&>(this->external_interface()).full_name();
+        throw std::logic_error("Invalid data type for port (" + this->port_name() + ") " +
+                               "of node (" + full_node_name + ")");
+    }
 }
 
 

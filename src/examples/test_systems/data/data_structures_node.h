@@ -28,7 +28,7 @@ public:
     port<flow, input, std::set<std::pair<float64, std::string>>> fi_set_pair_float64_string;
     port<flow, input, std::shared_ptr<quantity<decltype(_1/_s)>>> fi_rate_ptr;
     port<flow, input, std::shared_ptr<std::ostringstream>> fi_ostringstream_ptr;
-    port<flow, input, pointer> fi_vector_array_ptr;
+    port<flow, input, std::shared_ptr<std::vector<std::array<float64, 3>>>> fi_vector_array_ptr;
     port<message, input, std::vector<bool>> mi_vector_bool;
     port<message, input, std::vector<int64>> mi_vector_int64;
     port<message, input, std::vector<std::vector<duration>>> mi_vector_vector_duration;
@@ -36,7 +36,7 @@ public:
     port<message, input, std::set<std::pair<float64, std::string>>> mi_set_pair_float64_string;
     port<message, input, std::shared_ptr<quantity<decltype(_1/_s)>>> mi_rate_ptr;
     port<message, input, std::shared_ptr<std::ostringstream>> mi_ostringstream_ptr;
-    port<message, input, pointer> mi_vector_array_ptr;
+    port<message, input, std::shared_ptr<std::vector<std::array<float64, 3>>>> mi_vector_array_ptr;
     port<message, output, std::vector<bool>> mo_vector_bool;
     port<message, output, std::vector<int64>> mo_vector_int64;
     port<message, output, std::vector<std::vector<duration>>> mo_vector_vector_duration;
@@ -44,7 +44,7 @@ public:
     port<message, output, std::set<std::pair<float64, std::string>>> mo_set_pair_float64_string;
     port<message, output, std::shared_ptr<quantity<decltype(_1/_s)>>> mo_rate_ptr;
     port<message, output, std::shared_ptr<std::ostringstream>> mo_ostringstream_ptr;
-    port<message, output, pointer> mo_vector_array_ptr;
+    port<message, output, std::shared_ptr<std::vector<std::array<float64, 3>>>> mo_vector_array_ptr;
     port<flow, output, std::vector<bool>> fo_vector_bool;
     port<flow, output, std::vector<int64>> fo_vector_int64;
     port<flow, output, std::vector<std::vector<duration>>> fo_vector_vector_duration;
@@ -52,7 +52,7 @@ public:
     port<flow, output, std::set<std::pair<float64, std::string>>> fo_set_pair_float64_string;
     port<flow, output, std::shared_ptr<quantity<decltype(_1/_s)>>> fo_rate_ptr;
     port<flow, output, std::shared_ptr<std::ostringstream>> fo_ostringstream_ptr;
-    port<flow, output, pointer> fo_vector_array_ptr;
+    port<flow, output, std::shared_ptr<std::vector<std::array<float64, 3>>>> fo_vector_array_ptr;
 
 protected:
     // State Variables:
@@ -63,7 +63,7 @@ protected:
     std::set<std::pair<float64, std::string>> sv_set_pair_float64_string;
     std::shared_ptr<quantity<decltype(_1/_s)>> sv_rate_ptr;
     std::shared_ptr<std::ostringstream> sv_ostringstream_ptr;
-    pointer sv_vector_array_ptr;
+    std::shared_ptr<std::vector<std::array<float64, 3>>> sv_vector_array_ptr;
 
     // Event Handlers:
     virtual duration initialization_event();
@@ -123,7 +123,7 @@ inline duration data_structures_node::initialization_event()
     sv_vector_array_ptr = fi_vector_array_ptr.value();
 
     auto& ostringstream_var = *sv_ostringstream_ptr;
-    auto& vector_array_var = sv_vector_array_ptr.dereference<std::vector<std::array<float64, 3>>>();
+    auto& vector_array_var = *sv_vector_array_ptr;
 
     ostringstream_var << "initialized;";
 
@@ -162,7 +162,7 @@ inline duration data_structures_node::unplanned_event(duration elapsed_dt)
     }
 
     auto& ostringstream_var = *sv_ostringstream_ptr;
-    auto& vector_array_var = sv_vector_array_ptr.dereference<std::vector<std::array<float64, 3>>>();
+    auto& vector_array_var = *sv_vector_array_ptr;
 
     sv_vector_bool[1] = !sv_vector_bool[1];
     ++sv_vector_int64.back();
@@ -182,7 +182,7 @@ inline duration data_structures_node::unplanned_event(duration elapsed_dt)
 inline duration data_structures_node::planned_event(duration elapsed_dt)
 {
     auto& ostringstream_var = *sv_ostringstream_ptr;
-    auto& vector_array_var = sv_vector_array_ptr.dereference<std::vector<std::array<float64, 3>>>();
+    auto& vector_array_var = *sv_vector_array_ptr;
 
     sv_vector_bool[2] = !sv_vector_bool[2];
     sv_vector_int64.push_back(100);
@@ -210,7 +210,7 @@ inline duration data_structures_node::planned_event(duration elapsed_dt)
 inline void data_structures_node::finalization_event(duration elapsed_dt)
 {
     auto& ostringstream_var = *sv_ostringstream_ptr;
-    auto& vector_array_var = sv_vector_array_ptr.dereference<std::vector<std::array<float64, 3>>>();
+    auto& vector_array_var = *sv_vector_array_ptr;
 
     sv_vector_bool[3] = !sv_vector_bool[3];
     sv_vector_int64.clear();

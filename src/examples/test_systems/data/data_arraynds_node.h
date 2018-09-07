@@ -23,27 +23,27 @@ public:
     // Ports:
     port<flow, input, array2d<int64>> fi_a2d;
     port<flow, input, array1d<int64>> fi_s1d;
-    port<flow, input, pointer> fi_a2d_ptr;
-    port<flow, input, pointer> fi_s1d_ptr;
+    port<flow, input, std::shared_ptr<array2d<int64>>> fi_a2d_ptr;
+    port<flow, input, std::shared_ptr<array1d<int64>>> fi_s1d_ptr;
     port<message, input, array2d<int64>> mi_a2d;
     port<message, input, array1d<int64>> mi_s1d;
-    port<message, input, pointer> mi_a2d_ptr;
-    port<message, input, pointer> mi_s1d_ptr;
+    port<message, input, std::shared_ptr<array2d<int64>>> mi_a2d_ptr;
+    port<message, input, std::shared_ptr<array1d<int64>>> mi_s1d_ptr;
     port<message, output, array2d<int64>> mo_a2d;
     port<message, output, array1d<int64>> mo_s1d;
-    port<message, output, pointer> mo_a2d_ptr;
-    port<message, output, pointer> mo_s1d_ptr;
+    port<message, output, std::shared_ptr<array2d<int64>>> mo_a2d_ptr;
+    port<message, output, std::shared_ptr<array1d<int64>>> mo_s1d_ptr;
     port<flow, output, array2d<int64>> fo_a2d;
     port<flow, output, array1d<int64>> fo_s1d;
-    port<flow, output, pointer> fo_a2d_ptr;
-    port<flow, output, pointer> fo_s1d_ptr;
+    port<flow, output, std::shared_ptr<array2d<int64>>> fo_a2d_ptr;
+    port<flow, output, std::shared_ptr<array1d<int64>>> fo_s1d_ptr;
 
 protected:
     // State Variables:
     array2d<int64> sv_a2d;
     array1d<int64> sv_s1d;
-    pointer sv_a2d_ptr;
-    pointer sv_s1d_ptr;
+    std::shared_ptr<array2d<int64>> sv_a2d_ptr;
+    std::shared_ptr<array1d<int64>> sv_s1d_ptr;
 
     // Event Handlers:
     virtual duration initialization_event();
@@ -82,8 +82,8 @@ inline duration data_arraynds_node::initialization_event()
     sv_a2d_ptr = fi_a2d_ptr.value();
     sv_s1d_ptr = fi_s1d_ptr.value();
 
-    auto& a2d_var = sv_a2d_ptr.dereference<array2d<int64>>();
-    auto& s1d_var = sv_s1d_ptr.dereference<array1d<int64>>();
+    auto& a2d_var = *sv_a2d_ptr;
+    auto& s1d_var = *sv_s1d_ptr;
 
     print("sv_a2d  = " + tostring(sv_a2d));
     print("sv_s1d  = " + tostring(sv_s1d));
@@ -109,18 +109,18 @@ inline duration data_arraynds_node::unplanned_event(duration elapsed_dt)
     }
     else if (mi_a2d_ptr.received()) {
         sv_a2d_ptr = mi_a2d_ptr.value();
-        auto& a2d_var = sv_a2d_ptr.dereference<array2d<int64>>();
+        auto& a2d_var = *sv_a2d_ptr;
         a2d_var({1, 1}) = 200;
     }
     else if (mi_s1d_ptr.received()) {
         sv_s1d_ptr = mi_s1d_ptr.value();
-        auto& s1d_var = sv_s1d_ptr.dereference<array1d<int64>>();
+        auto& s1d_var = *sv_s1d_ptr;
         s1d_var[2] = 300;
     }
 
     {
-        auto& a2d_var = sv_a2d_ptr.dereference<array2d<int64>>();
-        auto& s1d_var = sv_s1d_ptr.dereference<array1d<int64>>();
+        auto& a2d_var = *sv_a2d_ptr;
+        auto& s1d_var = *sv_s1d_ptr;
 
         print("sv_a2d  = " + tostring(sv_a2d));
         print("sv_s1d  = " + tostring(sv_s1d));
@@ -134,13 +134,13 @@ inline duration data_arraynds_node::unplanned_event(duration elapsed_dt)
 
 inline duration data_arraynds_node::planned_event(duration elapsed_dt)
 {
-    auto& a2d_var = sv_a2d_ptr.dereference<array2d<int64>>();
-    auto& s1d_var = sv_s1d_ptr.dereference<array1d<int64>>();
+    auto& a2d_var = *sv_a2d_ptr;
+    auto& s1d_var = *sv_s1d_ptr;
 
     mo_a2d.send(sv_a2d);
     mo_s1d.send(sv_a2d[range()][1]);
     mo_a2d_ptr.send(sv_a2d_ptr);
-    mo_s1d_ptr.send(pointer(new array1d<int64>(a2d_var[range()][1])));
+    mo_s1d_ptr.send(std::make_shared<array1d<int64>>(a2d_var[range()][1]));
 
     print("a2d_var = " + tostring(a2d_var));
     print("s1d_var = " + tostring(s1d_var));
@@ -156,8 +156,8 @@ inline void data_arraynds_node::finalization_event(duration elapsed_dt)
     fo_a2d_ptr.assign(sv_a2d_ptr);
     fo_s1d_ptr.assign(sv_s1d_ptr);
 
-    auto& a2d_var = sv_a2d_ptr.dereference<array2d<int64>>();
-    auto& s1d_var = sv_s1d_ptr.dereference<array1d<int64>>();
+    auto& a2d_var = *sv_a2d_ptr;
+    auto& s1d_var = *sv_s1d_ptr;
 
     print("a2d_var = " + tostring(a2d_var));
     print("s1d_var = " + tostring(s1d_var));

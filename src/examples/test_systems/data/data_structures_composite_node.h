@@ -29,7 +29,8 @@ public:
     parameter_node<std::set<std::pair<float64, std::string>>> A_set_pair_float64_string;
     parameter_node<std::shared_ptr<quantity<decltype(_1/_s)>>> A_rate_ptr;
     parameter_node<std::shared_ptr<std::ostringstream>> A_ostringstream_ptr;
-    parameter_node<pointer> A_vector_array_ptr;
+    parameter_node<std::shared_ptr<std::vector<std::array<float64, 3>>>> A_vector_array_ptr;
+
     parameter_node<std::vector<bool>> B_vector_bool;
     parameter_node<std::vector<int64>> B_vector_int64;
     parameter_node<std::vector<std::vector<duration>>> B_vector_vector_duration;
@@ -37,7 +38,7 @@ public:
     parameter_node<std::set<std::pair<float64, std::string>>> B_set_pair_float64_string;
     parameter_node<std::shared_ptr<quantity<decltype(_1/_s)>>> B_rate_ptr;
     parameter_node<std::shared_ptr<std::ostringstream>> B_ostringstream_ptr;
-    parameter_node<pointer> B_vector_array_ptr;
+    parameter_node<std::shared_ptr<std::vector<std::array<float64, 3>>>> B_vector_array_ptr;
 
     // Flow Nodes:
 
@@ -56,7 +57,7 @@ data_structures_composite_node::data_structures_composite_node(const std::string
     , A_set_pair_float64_string("A_set_pair_float64_string", internal_context(), {{5.0, "five"}, {5.0, "zero"}, {0.0, "five"}})
     , A_rate_ptr("A_rate_ptr", internal_context())
     , A_ostringstream_ptr("A_ostringstream_ptr", internal_context())
-    , A_vector_array_ptr("A_vector_array_ptr", internal_context(), pointer())
+    , A_vector_array_ptr("A_vector_array_ptr", internal_context())
     , B_vector_bool("B_vector_bool", internal_context(), {false, false, false, false, true, true, true, true})
     , B_vector_int64("B_vector_int64", internal_context(), {10, 10, 10, 10, 10})
     , B_vector_vector_duration("B_vector_vector_duration", internal_context(), {{10_us, 10_ms}, {10_s}, {10_ks, 10_Ms, -duration::inf()}})
@@ -64,7 +65,7 @@ data_structures_composite_node::data_structures_composite_node(const std::string
     , B_set_pair_float64_string("B_set_pair_float64_string", internal_context(), {{10.0, "ten"}, {10.0, "eleven"}, {20.0, "ten"}})
     , B_rate_ptr("B_rate_ptr", internal_context())
     , B_ostringstream_ptr("B_ostringstream_ptr", internal_context())
-    , B_vector_array_ptr("B_vector_array_ptr", internal_context(), pointer())
+    , B_vector_array_ptr("B_vector_array_ptr", internal_context())
     , A("A", internal_context())
     , B("B", internal_context())
 {
@@ -75,10 +76,10 @@ data_structures_composite_node::data_structures_composite_node(const std::string
         auto ostringstream_ptr = std::make_shared<std::ostringstream>();
         (*ostringstream_ptr) << "5 created;";
         A_ostringstream_ptr.set_value(ostringstream_ptr);
-        auto* vector_array_ptr = new std::vector<std::array<float64, 3>>();
+        auto vector_array_ptr = std::make_shared<std::vector<std::array<float64, 3>>>();
         vector_array_ptr->push_back({{5.0, 5.0, 5.0}});
         vector_array_ptr->push_back({{5.0, 5.0, 5.0}});
-        A_vector_array_ptr.set_value(pointer(vector_array_ptr));
+        A_vector_array_ptr.set_value(vector_array_ptr);
     }
     {
         auto rate_ptr = std::make_shared<quantity<decltype(_1/_s)>>(-10/1_s);
@@ -86,10 +87,10 @@ data_structures_composite_node::data_structures_composite_node(const std::string
         auto ostringstream_ptr = std::make_shared<std::ostringstream>();
         (*ostringstream_ptr) << "10 created;";
         B_ostringstream_ptr.set_value(ostringstream_ptr);
-        auto* vector_array_ptr = new std::vector<std::array<float64, 3>>();
+        auto vector_array_ptr = std::make_shared<std::vector<std::array<float64, 3>>>();
         vector_array_ptr->push_back({{10.0, 10.0, 10.0}});
         vector_array_ptr->push_back({{10.0, 10.0, 10.0}});
-        B_vector_array_ptr.set_value(pointer(vector_array_ptr));
+        B_vector_array_ptr.set_value(vector_array_ptr);
     }
 
     // Initialization Links

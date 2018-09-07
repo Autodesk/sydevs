@@ -24,12 +24,12 @@ public:
     // Parameters:
     parameter_node<array2d<int64>> A_a2d;
     parameter_node<array1d<int64>> A_s1d;
-    parameter_node<pointer> A_a2d_ptr;
-    parameter_node<pointer> A_s1d_ptr;
+    parameter_node<std::shared_ptr<array2d<int64>>> A_a2d_ptr;
+    parameter_node<std::shared_ptr<array1d<int64>>> A_s1d_ptr;
     parameter_node<array2d<int64>> B_a2d;
     parameter_node<array1d<int64>> B_s1d;
-    parameter_node<pointer> B_a2d_ptr;
-    parameter_node<pointer> B_s1d_ptr;
+    parameter_node<std::shared_ptr<array2d<int64>>> B_a2d_ptr;
+    parameter_node<std::shared_ptr<array1d<int64>>> B_s1d_ptr;
 
     // Flow Nodes:
 
@@ -43,12 +43,12 @@ data_arraynds_composite_node::data_arraynds_composite_node(const std::string& no
     : composite_node(node_name, external_context)
     , A_a2d("A_a2d", internal_context(), array2d<int64>())
     , A_s1d("A_s1d", internal_context(), array1d<int64>())
-    , A_a2d_ptr("A_a2d_ptr", internal_context(), pointer())
-    , A_s1d_ptr("A_s1d_ptr", internal_context(), pointer())
+    , A_a2d_ptr("A_a2d_ptr", internal_context())
+    , A_s1d_ptr("A_s1d_ptr", internal_context())
     , B_a2d("B_a2d", internal_context(), array2d<int64>())
     , B_s1d("B_s1d", internal_context(), array1d<int64>())
-    , B_a2d_ptr("B_a2d_ptr", internal_context(), pointer())
-    , B_s1d_ptr("B_s1d_ptr", internal_context(), pointer())
+    , B_a2d_ptr("B_a2d_ptr", internal_context())
+    , B_s1d_ptr("B_s1d_ptr", internal_context())
     , A("A", internal_context())
     , B("B", internal_context())
 {
@@ -56,17 +56,17 @@ data_arraynds_composite_node::data_arraynds_composite_node(const std::string& no
         auto a2d = array2d<int64>({4, 3}, {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11});
         A_a2d.set_value(a2d);
         A_s1d.set_value(a2d[range()][0]);
-        A_a2d_ptr.set_value(pointer(new array2d<int64>(a2d.copy())));
-        auto& a2d_var = A_a2d_ptr.value().dereference<array2d<int64>>();
-        A_s1d_ptr.set_value(pointer(new array1d<int64>(a2d_var[range()][0])));
+        A_a2d_ptr.set_value(std::make_shared<array2d<int64>>(a2d.copy()));
+        auto& a2d_var = *A_a2d_ptr.value();
+        A_s1d_ptr.set_value(std::make_shared<array1d<int64>>(a2d_var[range()][0]));
     }
     {
         auto a2d = array2d<int64>({4, 3}, {0, -1, -2, -3, -4, -5, -6, -7, -8, -9, -10, -11});
         B_a2d.set_value(a2d);
         B_s1d.set_value(a2d[range()][0]);
-        B_a2d_ptr.set_value(pointer(new array2d<int64>(a2d.copy())));
-        auto& a2d_var = B_a2d_ptr.value().dereference<array2d<int64>>();
-        B_s1d_ptr.set_value(pointer(new array1d<int64>(a2d_var[range()][0])));
+        B_a2d_ptr.set_value(std::make_shared<array2d<int64>>(a2d.copy()));
+        auto& a2d_var = *B_a2d_ptr.value();
+        B_s1d_ptr.set_value(std::make_shared<array1d<int64>>(a2d_var[range()][0]));
     }
 
     // Initialization Links

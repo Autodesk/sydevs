@@ -28,14 +28,6 @@ struct core_type {
 };
 
 template<>
-struct core_type<pointer> {
-    static constexpr bool valid = true;
-    static constexpr bool valid_and_sortable = false;
-    static std::string tostring(const pointer& X);
-    static pointer copy(const pointer& X);
-};
-
-template<>
 struct core_type<bool> {
     static constexpr bool valid = true;
     static constexpr bool valid_and_sortable = true;
@@ -179,22 +171,6 @@ inline pointer core_type<T>::copy(const T& X)
 {
     throw std::logic_error("Copying unavailable for a type that is not an sydevs core type");
     return X;
-}
-
-
-// pointer trait definitions
-
-inline std::string core_type<pointer>::tostring(const pointer& X)
-{
-    return "(pointer:" + 
-        (X ? std::string("...") : 
-             std::string("nullptr"))
-        + ")";
-}
-
-inline pointer core_type<pointer>::copy(const pointer& X)
-{
-    return pointer(new pointer(X));
 }
 
 
