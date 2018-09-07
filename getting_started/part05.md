@@ -174,29 +174,19 @@ Also observe the new initialization link, which supplies a value from the new pa
 
 Note that initialization and finalization links, which connect flow ports, must form a directed acyclic graph. You must not have any cycles where, for example, Node `A` supplies information to Node `B`, Node `B` supplies information to Node `C`, and Node `C` supplies information to Node `A`. Simulation links, which connect message ports, are permitted to form cycles.
 
-To complete the example, open `square_wave.h` and in the `simulate_square_wave_integration_closed_system` function, replace the instructions above `try` block with the following.
+To complete the example, open `square_wave.h` and replace the instructions in the `try` block of the `simulate_square_wave_integration_closed_system` function. The new code sets the time step of the integrator output, and also obtains the final value of the integrated signal (the accumulated area under the square wave).
 
 ```cpp
-    simulation<square_wave_integration_closed_system> sim(1_min, 0, std::cout);
-    sim.top.period_dt.set_value(10_s);
-    sim.top.duty_ratio.set_value(0.3);
-    sim.top.integrator_step_dt.set_value(1500_ms);
-    sim.top.generator.y_output.print_on_use();
-    sim.top.integrator.Y_output.print_on_use();
-```
-
-The new code sets the time step of the integrator output, and prints it.
-
-Also, add the following lines to the bottom of the function.
-
-```cpp	
-    if (sim.finished()) {
+        simulation<square_wave_integration_closed_system> sim(1_min, 0, std::cout);
+        sim.top.period_dt.set_value(10_s);
+        sim.top.duty_ratio.set_value(0.3);
+        sim.top.integrator_step_dt.set_value(1500_ms);
+        sim.top.generator.y_output.print_on_use();
+        sim.top.integrator.Y_output.print_on_use();
+        sim.process_remaining_events();
         float64 Y_final = sim.top.Y_final.value();
         std::cout << "Y_final = " << Y_final << std::endl;
-    }		
 ```
-
-This code obtains the final value of the integrated signal (the accumulated area under the square wave).
 
 Save the file.
 
