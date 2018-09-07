@@ -16,6 +16,19 @@ namespace sydevs {
 
 using tostring_function = std::function<std::string(const pointer&)>;
 
+// core type trait declaration
+
+template<typename T>
+struct core_type {
+    static constexpr bool valid = false;               ///< Indicates whether type `T` is a valid core type.
+    static constexpr bool valid_and_sortable = false;  ///< Indicates whether type `T` is both a valid core type and a sortable type.
+    static std::string tostring(const T& X);           ///< If `T` is a valid core type, converts `X` to a `std::string`.
+    static pointer copy(const T& X);                   ///< If `T` is a valid core type, returns a deep copy of `X`.
+};
+
+
+// core type trait dependent function
+
 template<typename T>
 std::string tostring(const T& val)
 {
@@ -31,15 +44,7 @@ inline tostring_function tostring_converter()
 }
 
 
-// core type trait declarations
-
-template<typename T>
-struct core_type {
-    static constexpr bool valid = false;               ///< Indicates whether type `T` is a valid core type.
-    static constexpr bool valid_and_sortable = false;  ///< Indicates whether type `T` is both a valid core type and a sortable type.
-    static std::string tostring(const T& X);           ///< If `T` is a valid core type, converts `X` to a `std::string`.
-    static pointer copy(const T& X);                   ///< If `T` is a valid core type, returns a deep copy of `X`.
-};
+// core type trait specialization declarations
 
 template<>
 struct core_type<bool> {
