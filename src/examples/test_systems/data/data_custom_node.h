@@ -14,19 +14,19 @@ public:
 };
 
 template<>
-struct core_type<foo> {
+struct qualified_type<foo> {
     static constexpr bool valid = true;
     static constexpr bool valid_and_sortable = true;
     static std::string tostring(const foo& X);
     static pointer copy(const foo& X);
 };
 
-inline std::string core_type<foo>::tostring(const foo& X)
+inline std::string qualified_type<foo>::tostring(const foo& X)
 {
-    return "{" + core_type<int64>::tostring(X.n) + "}";
+    return "{" + qualified_type<int64>::tostring(X.n) + "}";
 }
 
-inline pointer core_type<foo>::copy(const foo& X)
+inline pointer qualified_type<foo>::copy(const foo& X)
 {
     auto ptr = pointer(new foo());
     ptr.dereference<foo>().n = X.n;

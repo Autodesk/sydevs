@@ -242,7 +242,7 @@ port_base<dmode, dgoal, T>::port_base(const std::string& port_name, int64 port_i
     , port_index_(port_index)
     , external_interface_(external_interface)
 {
-    if (!core_type<T>::valid) {
+    if (!qualified_type<T>::valid) {
         const auto& full_node_name = const_cast<node_interface&>(this->external_interface()).full_name();
         throw std::logic_error("Invalid data type for port (" + this->port_name() + ") " +
                                "of node (" + full_node_name + ")");
@@ -357,7 +357,7 @@ void port<message, output, T>::send(const T& val)
         throw std::logic_error("Attempt to send value on message output port (" + this->port_name() + ") " +
                                "of node (" + full_node_name + ") outside of planned event");
     }
-    const_cast<node_interface&>(this->external_interface()).append_message_output(this->port_index(), core_type<T>::copy(val));
+    const_cast<node_interface&>(this->external_interface()).append_message_output(this->port_index(), qualified_type<T>::copy(val));
 }
 
 
@@ -392,7 +392,7 @@ void port<flow, output, T>::assign(const T& val)
         throw std::logic_error("Attempt to assign value on flow output port (" + this->port_name() + ") " +
                                "of node (" + full_node_name + ") outside of initialization or finalization event");
     }
-    const_cast<node_interface&>(this->external_interface()).assign_flow_output(this->port_index(), core_type<T>::copy(val));
+    const_cast<node_interface&>(this->external_interface()).assign_flow_output(this->port_index(), qualified_type<T>::copy(val));
 }
 
 

@@ -199,9 +199,9 @@ private:
     void erase_removed_agents();
 
     template<typename T>
-    std::string agent_name_from_id(core_type<T> agent_id_type, const AgentID& agent_id);
+    std::string agent_name_from_id(qualified_type<T> agent_id_type, const AgentID& agent_id);
 
-    std::string agent_name_from_id(core_type<std::string> agent_id_type, const AgentID& agent_id);
+    std::string agent_name_from_id(qualified_type<std::string> agent_id_type, const AgentID& agent_id);
 
     void adopt_component_print_flags(const system_node& node) const;
 
@@ -313,7 +313,7 @@ inline collection_node<AgentID, Node>::collection_node(const std::string& node_n
     , initialized_(false)
     , finalized_(false)
 {
-    static_assert(core_type<AgentID>::valid_and_sortable, "typename AgentID must be a valid and sortable core type");
+    static_assert(qualified_type<AgentID>::valid_and_sortable, "typename AgentID must be a sortable qualified type");
 }
 
 
@@ -555,7 +555,7 @@ inline void collection_node<AgentID, Node>::create_agent(const AgentID& agent_id
         throw std::logic_error("Attempt to use \"create_agent\" to create a flow node agent; use \"invoke_agent\" instead");
     }
     event_time().advance();
-    auto agent_name = agent_name_from_id(core_type<AgentID>(), agent_id);
+    auto agent_name = agent_name_from_id(qualified_type<AgentID>(), agent_id);
     std::unique_ptr<Node> agent_ptr(new AgentNode(agent_name, internal_context_));
     auto& agent = *agent_ptr;
     agent.adopt_print_flags(prototype);
@@ -684,7 +684,7 @@ inline void collection_node<AgentID, Node>::invoke_agent(const AgentID& agent_id
                                            "use \"create_agent\", \"affect_agent\", and \"remove_agent\" instead");
     }
     event_time().advance();
-    std::string agent_name = agent_name_from_id(core_type<AgentID>(), agent_id);
+    std::string agent_name = agent_name_from_id(qualified_type<AgentID>(), agent_id);
     auto agent_ptr = std::make_unique<Node>(agent_name, internal_context_);
     auto& agent = *agent_ptr;
     int64 agent_index = agent.node_index();
@@ -838,14 +838,14 @@ inline void collection_node<AgentID, Node>::erase_removed_agents()
 
 template<typename AgentID, typename Node>
 template<typename T>
-inline std::string collection_node<AgentID, Node>::agent_name_from_id(core_type<T> agent_id_type, const AgentID& agent_id)
+inline std::string collection_node<AgentID, Node>::agent_name_from_id(qualified_type<T> agent_id_type, const AgentID& agent_id)
 {
     return tostring(agent_id);
 }
 
 
 template<typename AgentID, typename Node>
-inline std::string collection_node<AgentID, Node>::agent_name_from_id(core_type<std::string> agent_id_type, const AgentID& agent_id)
+inline std::string collection_node<AgentID, Node>::agent_name_from_id(qualified_type<std::string> agent_id_type, const AgentID& agent_id)
 {
     return agent_id;
 }
@@ -874,7 +874,7 @@ template<typename T>
     inline typename collection_node<AgentID, Node>::template flow_port_proxy<T>& collection_node<AgentID, Node>::flow_port_proxy<T>::operator=(const T& rhs)
 #endif
 {
-    external_interface_.assign_flow_input(port_index_, core_type<T>::copy(rhs));
+    external_interface_.assign_flow_input(port_index_, qualified_type<T>::copy(rhs));
     return *this;
 }
 
@@ -912,7 +912,7 @@ template<typename T>
     inline typename collection_node<AgentID, Node>::template message_port_proxy<T>& collection_node<AgentID, Node>::message_port_proxy<T>::operator=(const T& rhs)
 #endif
 {
-    external_interface_.set_message_input(port_index_, core_type<T>::copy(rhs));
+    external_interface_.set_message_input(port_index_, qualified_type<T>::copy(rhs));
     return *this;
 }
 

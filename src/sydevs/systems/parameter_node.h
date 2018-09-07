@@ -74,7 +74,7 @@ template<typename T>
 inline parameter_node<T>::parameter_node(const std::string& node_name, const node_context& external_context, const T& X)
     : function_node(node_name, external_context)
     , parameter("parameter", external_interface())
-    , val_(core_type<T>::copy(X))
+    , val_(qualified_type<T>::copy(X))
 {
 }
 
@@ -90,7 +90,7 @@ inline const T& parameter_node<T>::value() const
 template<typename T>
 inline void parameter_node<T>::set_value(const T& X)
 {
-    val_ = core_type<T>::copy(X);
+    val_ = qualified_type<T>::copy(X);
 }
 
     

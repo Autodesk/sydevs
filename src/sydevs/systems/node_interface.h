@@ -3,7 +3,7 @@
 #define SYDEVS_SYSTEMS_NODE_INTERFACE_H_
 
 #include <sydevs/systems/node_context.h>
-#include <sydevs/core/core_types.h>
+#include <sydevs/core/qualified_type.h>
 #include <sydevs/systems/data_mode.h>
 #include <sydevs/systems/data_goal.h>
 

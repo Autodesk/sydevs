@@ -382,7 +382,7 @@ void node_interface::print_on_elapsed_duration(bool flag)
 void node_interface::print_elapsed_duration(duration elapsed_dt)
 {
     if (print_on_elapsed_duration_) {
-        print_command_text("elapsed_dt", core_type<duration>::tostring(elapsed_dt));
+        print_command_text("elapsed_dt", qualified_type<duration>::tostring(elapsed_dt));
     }
 }
 
@@ -402,7 +402,7 @@ void node_interface::print_on_planned_duration(bool flag)
 void node_interface::print_planned_duration(duration planned_dt)
 {
     if (print_on_planned_duration_) {
-        print_command_text("planned_dt", core_type<duration>::tostring(planned_dt));
+        print_command_text("planned_dt", qualified_type<duration>::tostring(planned_dt));
     }
 }
 

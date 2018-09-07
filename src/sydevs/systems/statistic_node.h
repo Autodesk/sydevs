@@ -64,7 +64,7 @@ inline const T& statistic_node<T>::value() const
 template<typename T>
 inline void statistic_node<T>::flow_event()
 {
-    val_ = core_type<T>::copy(statistic.value());
+    val_ = qualified_type<T>::copy(statistic.value());
 }
 
 
