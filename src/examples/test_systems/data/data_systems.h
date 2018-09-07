@@ -6,6 +6,7 @@
 #include <examples/test_systems/data/data_structures_composite_node.h>
 #include <examples/test_systems/data/data_arraynds_composite_node.h>
 #include <examples/test_systems/data/data_tuples_composite_node.h>
+#include <examples/test_systems/data/data_custom_composite_node.h>
 #include <sydevs/systems/simulation.h>
 #include <iostream>
 
@@ -164,6 +165,29 @@ void data_systems()
         sim.top.B.fo_tuple_int64.print_on_use();
         sim.top.B.fo_tuple_string_bool_float64.print_on_use();
         sim.top.B.fo_tuple_mass_speed_pair_bool_bool.print_on_use();
+        sim.process_remaining_events();
+    }
+    catch (const system_node::error& e) {
+        std::cout << "SYSTEM NODE ERROR: " << e.what() << std::endl;
+    }
+    catch (const std::exception& e) {
+        std::cout << "OTHER ERROR: " << e.what() << std::endl;
+    }
+    std::cout << std::endl;
+    std::cout << "data_custom_composite_node" << std::endl;
+    try {
+        simulation<data_custom_composite_node> sim(10_s, 0, std::cout);
+        sim.top.print_on_event();
+        sim.top.A.print_on_event();
+        sim.top.A.print_on_elapsed_duration();
+        sim.top.A.print_on_planned_duration();
+        sim.top.B.print_on_event();
+        sim.top.B.print_on_elapsed_duration();
+        sim.top.B.print_on_planned_duration();
+        sim.top.A.mo_foo.print_on_use();
+        sim.top.A.fo_foo.print_on_use();
+        sim.top.B.mo_foo.print_on_use();
+        sim.top.B.fo_foo.print_on_use();
         sim.process_remaining_events();
     }
     catch (const system_node::error& e) {

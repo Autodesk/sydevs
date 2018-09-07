@@ -164,7 +164,7 @@ template<typename T>
 inline pointer core_type<T>::copy(const T& X)
 {
     throw std::logic_error("Copying unavailable for a type that is not an sydevs core type");
-    return X;
+    return pointer();
 }
 
 
