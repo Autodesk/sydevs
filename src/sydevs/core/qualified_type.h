@@ -3,6 +3,7 @@
 #define SYDEVS_QUALIFIED_TYPE_H_
 
 #include <sydevs/core/pointer.h>
+#include <sydevs/core/identity.h>
 #include <sydevs/core/arraynd.h>
 #include <sydevs/core/string_builder.h>
 #include <string>
@@ -84,6 +85,14 @@ struct qualified_type<quantity<U>> {
     static constexpr bool valid_and_sortable = true;
     static std::string tostring(const quantity<U>& X);
     static pointer copy(const quantity<U>& X);
+};
+
+template<typename U>
+struct qualified_type<identity<U>> {
+    static constexpr bool valid = true;
+    static constexpr bool valid_and_sortable = true;
+    static std::string tostring(const identity<U>& X);
+    static pointer copy(const identity<U>& X);
 };
 
 template<typename T, int64 ndims>
@@ -232,6 +241,21 @@ template<typename U>
 inline pointer qualified_type<quantity<U>>::copy(const quantity<U>& X)
 {
     return pointer(new quantity<U>(X));
+}
+
+
+// identity<U> trait definitions
+
+template<typename U>
+inline std::string qualified_type<identity<U>>::tostring(const identity<U>& X)
+{
+    return (string_builder() << X).str();
+}
+
+template<typename U>
+inline pointer qualified_type<identity<U>>::copy(const identity<U>& X)
+{
+    return pointer(new identity<U>(X));
 }
 
 

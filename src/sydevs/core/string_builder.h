@@ -2,7 +2,7 @@
 #ifndef SYDEVS_STRING_BUILDER_H_
 #define SYDEVS_STRING_BUILDER_H_
 
-#include <sydevs/core/quantity.h>
+#include <sydevs/core/number_types.h>
 #include <sstream>
 
 namespace sydevs {

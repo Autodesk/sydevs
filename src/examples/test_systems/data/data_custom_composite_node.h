@@ -23,7 +23,9 @@ public:
 
     // Parameters:
     parameter_node<foo> A_foo;
+    parameter_node<apple_id> A_apple_id;
     parameter_node<foo> B_foo;
+    parameter_node<apple_id> B_apple_id;
 
     // Flow Nodes:
 
@@ -36,7 +38,9 @@ public:
 data_custom_composite_node::data_custom_composite_node(const std::string& node_name, const node_context& external_context)
     : composite_node(node_name, external_context)
     , A_foo("A_foo", internal_context())
+    , A_apple_id("A_apple_id", internal_context())
     , B_foo("B_foo", internal_context())
+    , B_apple_id("B_apple_id", internal_context())
     , A("A", internal_context())
     , B("B", internal_context())
 {
@@ -47,14 +51,19 @@ data_custom_composite_node::data_custom_composite_node(const std::string& node_n
     foo_B.n = 25;
 
     A_foo.set_value(foo_A);
+    A_apple_id.set_value(apple_id(0));
     B_foo.set_value(foo_B);
+    B_apple_id.set_value(apple_id(40));
 
     // Initialization Links
     inner_link(A_foo.parameter, A.fi_foo);
+    inner_link(A_apple_id.parameter, A.fi_apple_id);
     inner_link(B_foo.parameter, B.fi_foo);
+    inner_link(B_apple_id.parameter, B.fi_apple_id);
 
     // Simulation Links
     inner_link(A.mo_foo, B.mi_foo);
+    inner_link(A.mo_apple_id, B.mi_apple_id);
  }
 
 

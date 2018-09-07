@@ -27,7 +27,7 @@ class arraynd_base
 friend class arraynd_base<T, ndims-1>;
 friend class arraynd_base<T, ndims+1>;
 public:
-    virtual ~arraynd_base() = default;  ///< Destructor
+    ~arraynd_base() = default;  ///< Destructor
 
     std::array<int64, ndims> dims() const;     ///< Returns the lengths of each dimension.
     std::array<int64, ndims> strides() const;  ///< Returns the number of element-size steps in memory between successive elements for each dimension.

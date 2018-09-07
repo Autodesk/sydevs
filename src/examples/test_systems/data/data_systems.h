@@ -185,9 +185,13 @@ void data_systems()
         sim.top.B.print_on_elapsed_duration();
         sim.top.B.print_on_planned_duration();
         sim.top.A.mo_foo.print_on_use();
+        sim.top.A.mo_apple_id.print_on_use();
         sim.top.A.fo_foo.print_on_use();
+        sim.top.A.fo_apple_id.print_on_use();
         sim.top.B.mo_foo.print_on_use();
+        sim.top.B.mo_apple_id.print_on_use();
         sim.top.B.fo_foo.print_on_use();
+        sim.top.B.fo_apple_id.print_on_use();
         sim.process_remaining_events();
     }
     catch (const system_node::error& e) {
