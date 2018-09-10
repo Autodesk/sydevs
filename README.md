@@ -8,7 +8,7 @@ Multiscale Simulation and Systems Modeling Library
 
 ## About
 
-This library provides a framework for implementing complex systems analysis and simulation code in a modular/hierarchical fashion. The framework combines three modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model), and [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming). The discrete event simulation aspect is based on [DEVS](https://en.wikipedia.org/wiki/DEVS), a well-regarded modeling formalism involving two types of models that correspond with the library's ***atomic*** and ***composite*** nodes. The library also includes ***collection*** nodes, which extend DEVS with agent-based modeling capabilities. The atomic nodes, composite nodes, collection nodes, and a fourth type, the ***function*** nodes, can communicate through flow ports as part of a dataflow programming network. The atomic nodes, composite nodes, and collection nodes can also communicate in a DEVS-like fashion through message ports.
+This library provides a framework for implementing complex systems analysis and simulation code in a modular/hierarchical fashion. The framework combines three modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model), and [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming). The discrete event simulation aspect is based on [DEVS](https://en.wikipedia.org/wiki/DEVS), a well-regarded modeling formalism involving two types of models that correspond with the library's ***atomic*** and ***composite*** nodes. The library also includes ***collection*** nodes, which extend DEVS with agent-based modeling capabilities, and ***function*** nodes, which simply compute outputs from inputs. The atomic, composite, collection, and function nodes can communicate through flow ports as part of a dataflow programming network. With the exception of function nodes, they can also communicate in a DEVS-like fashion through message ports.
 
 In addition to supporting multiple modeling paradigms, the SyDEVS library provides comprehensive and reusable Modern C++ implementations of multidimensional arrays, Standard International (SI) units, a multiscale time representation, and other technical computing elements.
 
@@ -56,7 +56,7 @@ This folder contains the elements from which dataflow + message-passing networks
   - [`interactive_system`](src/sydevs/systems/interactive_system.h) (derived from [`collection_node`](src/sydevs/systems/collection_node.h)): A base class template for all interactive closed system nodes intended to be used at the highest level of a real time simulation model.  
   - [`port`](src/sydevs/systems/port.h) (related class): A base class for the four types of ports (flow input, message input, message output, flow output).
 - [`simulation`](src/sydevs/systems/simulation.h): Class template for simulations performed using a top-level (port-free) system node.
-  - [`real_time_simulation`](src/sydevs/systems/real_time_simulation.h) (derived from [simulation](src/sydevs/systems/simulation.h)): A class template for running simulations in real time.
+  - [`real_time_simulation`](src/sydevs/systems/real_time_simulation.h) (derived from [`simulation`](src/sydevs/systems/simulation.h)): A class template for running simulations in real time.
     - [`real_time_buffer`](src/sydevs/systems/real_time_buffer.h) (related class): A data structure which suggests event wallclock times to aid in the synchronization of a simulation's execution.
   - [`discrete_event_time`](src/sydevs/systems/discrete_event_time.h) (related class): Represents progress through a simulation, encapsulating both simulated time and a counter of events within a single point in simulated time.
 
@@ -111,8 +111,9 @@ You should update the documentation on a regular basis to keep it in sync with t
 
 #### PowerPoint
 
-There are two PowerPoint documents located in the [`doc`](doc) folder:
+There are three PowerPoint documents located in the [`doc`](doc) folder:
 
+- [`SyDEVS_Introduction.pptx`](doc/SyDEVS_Introduction.pptx): An introduction to the theory, paradigm, and code associated with SyDEVS.
 - [`SyDEVS_Framework_Overview.pptx`](doc/SyDEVS_Framework_Overview.pptx): An overview of the systems modeling framework and related snippets of code.
 - [`SyDEVS_Building7m_Tutorial.pptx`](doc/SyDEVS_Building7m_Tutorial.pptx): A tutorial that challenges developers to enhance the [`building7m`](src/examples/demo/building7m) example.
 
@@ -122,7 +123,7 @@ Examples of SyDEVS-based simulations are found in the [`src/examples`](src/examp
 
 The best examples for learning the library are those in [`demo`](src/examples/demo).
 
-In particular, the [`queueing`](src/examples/demo/queueing) project features one well-commented example of each of the four types of nodes:
+In particular, the [`queueing`](src/examples/demo/queueing) project features one well-commented example of each of the four main types of nodes:
 
 - [`queueing_node.h`](src/examples/demo/queueing/queueing_node.h) (atomic)
 - [`two_stage_queueing_node.h`](src/examples/demo/queueing/two_stage_queueing_node.h) (composite)
