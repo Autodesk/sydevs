@@ -16,9 +16,10 @@ Namespace: [sydevs](@ref sydevs)
     * [number_types.h](@ref sydevs/core/number_types.h) - related header file with number type aliases, pi constant
   * [quantity](@ref sydevs::quantity) ([quantity.h](@ref sydevs/core/quantity.h)) - Standard International (SI) quantity (e.g. mass, acceleration)
     * [units](@ref sydevs::units) ([units.h](@ref sydevs/core/units.h)) - related template for SI units (e.g. grams, meters/second^2)
+  * [identity](@ref sydevs::identity) ([identity.h](@ref sydevs/core/identity.h)) - dimensioned integer for identifying items
   * [arraynd](@ref sydevs::arraynd) ([arraynd.h](@ref sydevs/core/arraynd.h)) - multidimensional array
     * [range](@ref sydevs::range) ([range.h](@ref sydevs/core/range.h)) - related class for representing range of array indices
-  * [core_type](@ref sydevs::core_type) ([core_types.h](@ref sydevs/core/core_types.h)) - traits for types exchanged between system nodes
+  * [qualified_type](@ref sydevs::qualified_type) ([qualified_type.h](@ref sydevs/core/qualified_type.h)) - traits for types exchanged between system nodes
     * [pointer](@ref sydevs::pointer) ([pointer.h](@ref sydevs/core/pointer.h)) - related class for pointers to any type of data
     * [string_builder](@ref sydevs::string_builder) ([string_builder.h](@ref sydevs/core/string_builder.h)) - related class for value-to-string conversion
 

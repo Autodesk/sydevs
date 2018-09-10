@@ -8,11 +8,47 @@
 namespace sydevs {
 
 
+/**
+ * @brief A data type which identifies an item by combining an encapsulated
+ *        integer-valued index with a dimension supplied by a template
+ *        parameter.
+ *
+ * @details
+ * An `identity` value is essentially a dimensioned integer, where the units
+ * are provided by the template parameter `U`. An simple example of how to
+ * instantiate an `identity` value is below.
+ *
+ * ~~~
+ * class apple_unit;
+ * using apple_id = identity<apple_unit>;
+ * apple_id my_gala_apple(79);
+ * ~~~
+ *
+ * A default-constructed `identity` value is invalid. For these values, the 
+ * `valid` member function returns `false` and the `index` member function
+ * returns the most negative representable 64-bit signed integer. For valid
+ * `identity` values, the class supports increment and decrement operations, as
+ * well as standard plus and minus operators that offset the encapsulated index
+ * by an integer.
+ *
+ * ~~~
+ * apple_id(555) + 10    // apple_id(565)
+ * apple_id(555) - 1000  // apple_id(-445)
+ * 215 + apple_id(555)   // apple_id(770)
+ * ~~~
+ */
 template<typename U>
 class identity 
 {
 public:
+    /**
+     * @brief Constructs an invalid `identity` value.
+     */
     constexpr identity();
+
+    /**
+     * @brief Constructs an `identity` value with the specified `index`.
+     */
     constexpr explicit identity(int64 index);
 
     constexpr identity(const identity&)  = default;  ///< Copy constructor
@@ -28,12 +64,12 @@ public:
     identity  operator++(int);           ///< Increments (postfix) the internal index.
     identity& operator--();              ///< Decrements (prefix) the internal index.
     identity  operator--(int);           ///< Decrements (postfix) the internal index.
-    identity& operator+=(identity rhs);  ///< Adds `rhs` to the `identity` value.
-    identity& operator-=(identity rhs);  ///< Subtracts `rhs` from the `identity` value.
+
+    identity& operator+=(int64 rhs);  ///< Adds `rhs` to the `identity` value.
+    identity& operator-=(int64 rhs);  ///< Subtracts `rhs` from the `identity` value.
 
     constexpr const identity operator+() const;  ///< Returns a copy of the `identity` value.
-    constexpr const identity operator-() const;  ///< Returns the negation of the `identity` value.
-
+    
     constexpr const identity operator+(int64 rhs) const;  ///< Returns a new `identity` value with `rhs` added.
     constexpr const identity operator-(int64 rhs) const;  ///< Returns a new `identity` value with `rhs` subtracted.
 
@@ -83,7 +119,9 @@ constexpr int64 identity<U>::index() const
 template<typename U>
 identity<U>& identity<U>::operator++()
 {
-    ++index_;
+    if (valid()) {
+        ++index_;
+    }
     return *this;
 }
 
@@ -100,7 +138,9 @@ identity<U> identity<U>::operator++(int)
 template<typename U>
 identity<U>& identity<U>::operator--()
 {
-    --index_;
+    if (valid()) {
+        --index_;
+    }
     return *this;
 }
 
@@ -115,7 +155,7 @@ identity<U> identity<U>::operator--(int)
 
 
 template<typename U>
-identity<U>& identity<U>::operator+=(identity rhs)
+identity<U>& identity<U>::operator+=(int64 rhs)
 {
     *this = *this + rhs;
     return *this;
@@ -123,7 +163,7 @@ identity<U>& identity<U>::operator+=(identity rhs)
 
 
 template<typename U>
-identity<U>& identity<U>::operator-=(identity rhs)
+identity<U>& identity<U>::operator-=(int64 rhs)
 {
     *this = *this - rhs;
     return *this;
@@ -133,28 +173,21 @@ identity<U>& identity<U>::operator-=(identity rhs)
 template<typename U>
 constexpr const identity<U> identity<U>::operator+() const
 {
-    return identity<U>(index_);
+    return *this;
 }
 
 
-template<typename U>
-constexpr const identity<U> identity<U>::operator-() const
-{
-    return valid ? identity<U>(-index_) : identity<U>();
-}
-
-    
 template<typename U>
 constexpr const identity<U> identity<U>::operator+(int64 rhs) const
 {
-    return valid && rhs.valid ? identity<U>(index_ + rhs.index_) : identity<U>();
+    return valid() ? identity<U>(index_ + rhs) : identity<U>();
 }
 
 
 template<typename U>
 constexpr const identity<U> identity<U>::operator-(int64 rhs) const
 {
-    return valid && rhs.valid ? identity<U>(index_ - rhs.index_) : identity<U>();
+    return valid() ? identity<U>(index_ - rhs) : identity<U>();
 }
 
 
@@ -200,6 +233,13 @@ constexpr bool identity<U>::operator>=(identity rhs) const
 }
 
     
+template<typename U>
+constexpr const identity<U> operator+(int64 lhs, identity<U> rhs)
+{
+    return rhs + lhs;
+}
+
+
 template<typename U>
 inline std::ostream& operator<<(std::ostream& os, const identity<U>& rhs)
 {
