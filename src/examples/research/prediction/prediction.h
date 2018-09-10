@@ -26,10 +26,15 @@ void prediction_systems(const std::string& task, int64 upper_scale, int64 lower_
             auto chrono_tp_0 = std::chrono::system_clock::now();
             {
                 auto now = std::chrono::system_clock::to_time_t(chrono_tp_0);
+                char buffer[26];
+#if _WIN32
                 struct tm local_now;
                 localtime_s(&local_now, &now);
-                char buffer[26];
                 strftime(buffer, sizeof(buffer), "%c", &local_now);
+#else
+                auto local_now = localtime(&now);
+                strftime(buffer, sizeof(buffer), "%c", local_now);
+#endif
                 std::cout << buffer << std::endl;
                 std::cout << std::endl;
             }
@@ -65,10 +70,15 @@ void prediction_systems(const std::string& task, int64 upper_scale, int64 lower_
             auto chrono_tp_1 = std::chrono::system_clock::now();
             {
                 auto now = std::chrono::system_clock::to_time_t(chrono_tp_1);
+                char buffer[26];
+#if _WIN32
                 struct tm local_now;
                 localtime_s(&local_now, &now);
-                char buffer[26];
                 strftime(buffer, sizeof(buffer), "%c", &local_now);
+#else
+                auto local_now = localtime(&now);
+                strftime(buffer, sizeof(buffer), "%c", local_now);
+#endif
                 std::cout << buffer << std::endl;
                 std::cout << std::endl;
                 auto chono_dt = std::chrono::duration_cast<std::chrono::microseconds>(chrono_tp_1 - chrono_tp_0);
