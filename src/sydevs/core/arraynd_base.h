@@ -169,7 +169,9 @@ arraynd_base<T, ndims>::arraynd_base(const std::array<int64, ndims>& dims, const
     compute_strides_and_size();
     if (data.size() != size_) throw std::domain_error("Length of multidimensional array data must match product of array dimensions");
     data_ptr_ = std::shared_ptr<T>(new T[size_], std::default_delete<T[]>());
-    std::copy(std::begin(data), std::end(data), data_ptr_.get());
+    for (int64 i = 0; i < size_; ++i){
+        data_ptr_.get()[i] = data[i];
+    }
 }
 
 

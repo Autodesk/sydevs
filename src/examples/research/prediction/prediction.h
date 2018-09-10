@@ -26,10 +26,12 @@ void prediction_systems(const std::string& task, int64 upper_scale, int64 lower_
             auto chrono_tp_0 = std::chrono::system_clock::now();
             {
                 auto now = std::chrono::system_clock::to_time_t(chrono_tp_0);
-                auto local_now = localtime(&now);
+                struct tm local_now;
+                localtime_s(&local_now, &now);
                 char buffer[26];
-                strftime(buffer, sizeof(buffer), "%c", local_now);
+                strftime(buffer, sizeof(buffer), "%c", &local_now);
                 std::cout << buffer << std::endl;
+                std::cout << std::endl;
             }
             int64 configurations = upper_scale*lower_scale;
             std::vector<float64> noise_grid(configurations, 0.0);
@@ -63,9 +65,10 @@ void prediction_systems(const std::string& task, int64 upper_scale, int64 lower_
             auto chrono_tp_1 = std::chrono::system_clock::now();
             {
                 auto now = std::chrono::system_clock::to_time_t(chrono_tp_1);
-                auto local_now = localtime(&now);
+                struct tm local_now;
+                localtime_s(&local_now, &now);
                 char buffer[26];
-                strftime(buffer, sizeof(buffer), "%c", local_now);
+                strftime(buffer, sizeof(buffer), "%c", &local_now);
                 std::cout << buffer << std::endl;
                 std::cout << std::endl;
                 auto chono_dt = std::chrono::duration_cast<std::chrono::microseconds>(chrono_tp_1 - chrono_tp_0);
