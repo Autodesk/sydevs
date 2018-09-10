@@ -4,9 +4,13 @@ API Reference Overview {#mainpage}
 About SyDEVS
 ------------
 
-This library provides a framework for implementating complex systems analysis and simulation code in a modular/hierarchical fashion. The framework combines three modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model), and [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming). The discrete event simulation aspect is based on [DEVS](https://en.wikipedia.org/wiki/DEVS), a well-regarded modeling formalism involving two types of models that correspond with the library's ***atomic*** and ***composite*** nodes. The library also includes ***collection*** nodes, which extend DEVS with agent-based modeling capabilities. The atomic nodes, composite nodes, collection nodes, and a fourth type, the ***function*** nodes, can communicate through flow ports as part of a dataflow programming network. The atomic nodes, composite nodes, and collection nodes can also communicate in a DEVS-like fashion through message ports.
+This library provides a framework for implementing complex systems analysis and simulation code in a modular/hierarchical fashion. The framework combines three modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model), and [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming). The discrete event simulation aspect is based on [DEVS](https://en.wikipedia.org/wiki/DEVS), a well-regarded modeling formalism involving two types of models that correspond with the library's ***atomic*** and ***composite*** nodes. The library also includes ***collection*** nodes, which extend DEVS with agent-based modeling capabilities. The atomic nodes, composite nodes, collection nodes, and a fourth type, the ***function*** nodes, can communicate through flow ports as part of a dataflow programming network. The atomic nodes, composite nodes, and collection nodes can also communicate in a DEVS-like fashion through message ports.
 
 In addition to supporting multiple modeling paradigms, the SyDEVS library provides comprehensive and reusable Modern C++ implementations of multidimensional arrays, Standard International (SI) units, a multiscale time representation, and other technical computing elements.
+
+The main SyDEVS website is at [https://autodesk.github.io/sydevs](https://autodesk.github.io/sydevs).
+
+The SyDEVS repository is at [https://github.com/Autodesk/sydevs](https://github.com/Autodesk/sydevs).
 
 Main Classes
 ------------
@@ -39,7 +43,7 @@ Namespace: [sydevs](@ref sydevs)
     * [function_node](@ref sydevs::systems::function_node) ([function_node.h](@ref sydevs/systems/function_node.h)) - derived from [system_node](@ref sydevs::systems::system_node), supports functions
       * [parameter_node](@ref sydevs::systems::parameter_node) ([parameter_node.h](@ref sydevs/systems/parameter_node.h)) - derived from [function_node](@ref sydevs::systems::function_node), handles parameter values
       * [statistic_node](@ref sydevs::systems::statistic_node) ([statistic_node.h](@ref sydevs/systems/statistic_node.h)) - derived from [function_node](@ref sydevs::systems::function_node), handles statistic values
-    * [interactive_system](@ref sydevs::systems::interactive_system) ([interactive_system.h](@ref sydevs/systems/interactive_system.h)) - derived from [system_node](@ref sydevs::systems::system_node), supports real time simulations
+    * [interactive_system](@ref sydevs::systems::interactive_system) ([interactive_system.h](@ref sydevs/systems/interactive_system.h)) - derived from [collection_node](@ref sydevs::systems::collection_node), supports real time simulations
     * port<[data_mode](@ref sydevs::systems::data_mode), [data_goal](@ref sydevs::systems::data_goal)> ([port.h](@ref sydevs/systems/port.h)) - related classes for node ports
   * [simulation](@ref sydevs::systems::simulation) ([simulation.h](@ref sydevs/systems/simulation.h)) - template for simulations based on a port-free [system_node](@ref sydevs::systems::system_node)
     * [real_time_simulation](@ref sydevs::systems::real_time_simulation) ([real_time_simulation.h](@ref sydevs/systems/real_time_simulation.h)) - derived from [simulation](@ref sydevs::systems::simulation), supports real time simulations

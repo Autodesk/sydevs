@@ -8,9 +8,11 @@ Multiscale Simulation and Systems Modeling Library
 
 ## About
 
-This library provides a framework for implementating complex systems analysis and simulation code in a modular/hierarchical fashion. It was originally developed to serve as a backend for the visual programming interfaces described by [Maleki et al. (2015)](https://www.autodeskresearch.com/publications/designingdevs), but the same functionality can be achieved without a GUI by defining C++ classes that derive from one of the system node base classes ([`atomic_node`](src/sydevs/systems/atomic_node.h), [`composite_node`](src/sydevs/systems/composite_node.h), [`collection_node`](src/sydevs/systems/collection_node.h), [`function_node`](src/sydevs/systems/function_node.h)). The framework combines two programming paradigms: [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) as exemplified by Autodesk's [Dynamo](http://dynamobim.org/) tool, and the [DEVS](https://en.wikipedia.org/wiki/DEVS) message-passing paradigm implemented in tools such as DesignDEVS (see [software](http://simaud.com/resources.php#software), [conference paper](https://www.autodeskresearch.com/designdevs), [journal paper](https://www.autodeskresearch.com/publications/practical-aspects-designdevs-simulation-environment)). These foundations give the framework the generality neeeded to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
+This library provides a framework for implementing complex systems analysis and simulation code in a modular/hierarchical fashion. The framework combines three modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model), and [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming). The discrete event simulation aspect is based on [DEVS](https://en.wikipedia.org/wiki/DEVS), a well-regarded modeling formalism involving two types of models that correspond with the library's ***atomic*** and ***composite*** nodes. The library also includes ***collection*** nodes, which extend DEVS with agent-based modeling capabilities. The atomic nodes, composite nodes, collection nodes, and a fourth type, the ***function*** nodes, can communicate through flow ports as part of a dataflow programming network. The atomic nodes, composite nodes, and collection nodes can also communicate in a DEVS-like fashion through message ports.
 
-Main SyDEVS Website: [https://autodesk.github.io/sydevs](https://autodesk.github.io/sydevs)
+In addition to supporting multiple modeling paradigms, the SyDEVS library provides comprehensive and reusable Modern C++ implementations of multidimensional arrays, Standard International (SI) units, a multiscale time representation, and other technical computing elements.
+
+The main SyDEVS website is at [https://autodesk.github.io/sydevs](https://autodesk.github.io/sydevs).
 
 ## Main Classes
 
@@ -24,9 +26,10 @@ This folder contains generic classes that may be useful for a variety of applica
   - [`number_types.h`](src/sydevs/core/number_types.h) (related header file): Defines the constant `pi` and type aliases for integers and floating-point numbers.
 - [`quantity`](src/sydevs/core/quantity.h): A data type template which represents a Standard International (SI) quantity (e.g. mass, distance, duration, acceleration) as a multiple of a base-1000 precision level.
   - [`units`](src/sydevs/core/units.h) (related struct template): Represents SI units including the base units such as grams, meters, and seconds, and derived units such as meters-per-second-squared.
+- [identity](src/sydevs/core/identity.h): A data type which identifies an item by combining an encapsulated integer-valued index with a dimension supplied by a template parameter.
 - [`arraynd`](src/sydevs/core/arraynd.h): A multidimensional array with features similar to those of the [NumPy Python Library](http://www.numpy.org/).
   - [`range`](src/sydevs/core/range.h) (related class): Represents a range of array indices along a single dimension.
-- [`core_types`](src/sydevs/core/core_types.h): Traits for the set of data types that can be passed among system nodes.
+- [`qualified_type`](src/sydevs/core/qualified_type.h): Traits for data types that can be passed among system nodes.
   - [`pointer`](src/sydevs/core/pointer.h) (related class): Points to any type of data.
   - [`string_builder`](src/sydevs/core/string_builder.h) (related class): Faciliates value-to-string conversions.
 
@@ -50,8 +53,11 @@ This folder contains the elements from which dataflow + message-passing networks
   - [`function_node`](src/sydevs/systems/function_node.h) (derived from [`system_node`](src/sydevs/systems/system_node.h)): A base class for indivisible nodes in which function behavior is procedurally encoded.
     - [`parameter_node`](src/sydevs/systems/parameter_node.h) (derived from [`function_node`](src/sydevs/systems/function_node.h)): A function node template for supplying parameters.
     - [`statistic_node`](src/sydevs/systems/statistic_node.h) (derived from [`function_node`](src/sydevs/systems/function_node.h)): A function node template for retrieving statistics.
+  - [`interactive_system`](src/sydevs/systems/interactive_system.h) (derived from [`collection_node`](src/sydevs/systems/collection_node.h)): A base class template for all interactive closed system nodes intended to be used at the highest level of a real time simulation model.  
   - [`port`](src/sydevs/systems/port.h) (related class): A base class for the four types of ports (flow input, message input, message output, flow output).
 - [`simulation`](src/sydevs/systems/simulation.h): Class template for simulations performed using a top-level (port-free) system node.
+  - [`real_time_simulation`](src/sydevs/systems/real_time_simulation.h) (derived from [simulation](src/sydevs/systems/simulation.h)): A class template for running simulations in real time.
+    - [`real_time_buffer`](src/sydevs/systems/real_time_buffer.h) (related class): A data structure which suggests event wallclock times to aid in the synchronization of a simulation's execution.
   - [`discrete_event_time`](src/sydevs/systems/discrete_event_time.h) (related class): Represents progress through a simulation, encapsulating both simulated time and a counter of events within a single point in simulated time.
 
 ## Building
