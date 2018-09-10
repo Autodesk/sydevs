@@ -26,7 +26,7 @@ This folder contains generic classes that may be useful for a variety of applica
   - [`number_types.h`](src/sydevs/core/number_types.h) (related header file): Defines the constant `pi` and type aliases for integers and floating-point numbers.
 - [`quantity`](src/sydevs/core/quantity.h): A data type template which represents a Standard International (SI) quantity (e.g. mass, distance, duration, acceleration) as a multiple of a base-1000 precision level.
   - [`units`](src/sydevs/core/units.h) (related struct template): Represents SI units including the base units such as grams, meters, and seconds, and derived units such as meters-per-second-squared.
-- [identity](src/sydevs/core/identity.h): A data type which identifies an item by combining an encapsulated integer-valued index with a dimension supplied by a template parameter.
+- [`identity`](src/sydevs/core/identity.h): A data type which identifies an item by combining an encapsulated integer-valued index with a dimension supplied by a template parameter.
 - [`arraynd`](src/sydevs/core/arraynd.h): A multidimensional array with features similar to those of the [NumPy Python Library](http://www.numpy.org/).
   - [`range`](src/sydevs/core/range.h) (related class): Represents a range of array indices along a single dimension.
 - [`qualified_type`](src/sydevs/core/qualified_type.h): Traits for data types that can be passed among system nodes.
