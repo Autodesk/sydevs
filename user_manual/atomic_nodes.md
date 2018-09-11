@@ -7,9 +7,9 @@ The ***atomic node*** provides a general structure for representing behavior tha
 
 The atomic node source code can be found in [atomic_node.h](https://github.com/Autodesk/sydevs/blob/master/src/sydevs/systems/atomic_node.h).
 
-## Sample Declaration
+## Example Declarations
 
-An example of an atomic node is the `queueing_node` class found in [queueing_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/queueing_node.h), which is part of the [queueing](https://github.com/Autodesk/sydevs/tree/master/src/examples/demo/queueing) demonstration project. Below is the class declaration.
+An example of an atomic node is the `queueing_node` class found in [queueing_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/queueing_node.h), which is part of the [queueing](https://github.com/Autodesk/sydevs/tree/master/src/examples/demo/queueing) demonstration project. Below is the class declaration, which inherits from `atomic_node`.
 
 ```cpp
 /**
@@ -50,9 +50,9 @@ protected:
 };
 ```
 
-## Constructor/Destructor
+## Constructor/Destructor Declarations
 
-The following constructor and destructor public declarations should appear for all types of nodes, except that the name `queueing_node` should of course be replaced with the name of the node being specified.
+The following constructor and destructor public declarations should appear for all types of nodes, except that the name `queueing_node` must of course be replaced with the name of the node being specified.
 
 ```cpp
     queueing_node(const std::string& node_name, const node_context& external_context);
@@ -108,7 +108,7 @@ Ports are the primary means by which a SyDEVS node interacts with external entit
     port<flow, output, duration> idle_dt_output;  // idle duration
 ```
 
-It is possible for a node to have more than one port of the same type, and no ports of a different type. For example, the [building_dynamics_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/building_dynamics_node.h) has 5 flow input ports, 2 message output ports, and no ports of the other two types.
+It is possible for a node to have more than one port of the same type, and no ports of a different type. For example, the [building_dynamics_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/building_dynamics_node.h) from the [building7m](https://github.com/Autodesk/sydevs/tree/master/src/examples/demo/building7m) project has 5 flow input ports, 2 message output ports, and no ports of the other two types.
 
 ```cpp
     port<flow, input, thermodynamic_temperature> initial_temperature_input;
@@ -120,7 +120,7 @@ It is possible for a node to have more than one port of the same type, and no po
     port<message, output, array1d<int64>> occupant_position_output;
 ```
 
-By convention, flow input and message input ports usually have names that end in `_input`, and message output and flow output ports have names that end in `_output`.
+By convention, flow input and message input ports usually have names that end in `_input`, and message output and flow output ports have names that end in `_output`. Ports are declared in the public section of a node, ensuring that they can be referenced by the encompassing node. 
 
 Note that every port has a data type, which must be one of the following core types:
 
@@ -170,6 +170,23 @@ print(const T& X)                 // prints X along with the simulation time and
 ```
 
 Whenever appropriate, the SyDEVS convention is to assign initial values to state variables in the `initialization_event` event handler instead of the constructor.
+
+## Constructor Definitions
+
+The constructor of an atomic node is generally used only to initialize the base class (`atomic_node`) and the ports. The ports are initialized with two arguments: a name (e.g. `"serv_dt_input"`), which by convention matches the name of the member variable (e.g. `serv_dt_input`); and the `external_interface()` object, which associates them with the external interface of the node.
+
+Below is the constructor definition for in [queueing_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/queueing_node.h).
+
+```cpp
+inline queueing_node::queueing_node(const std::string& node_name, const node_context& external_context)
+    : atomic_node(node_name, external_context)
+    , serv_dt_input("serv_dt_input", external_interface())
+    , job_id_input("job_id_input", external_interface())
+    , job_id_output("job_id_output", external_interface())
+    , idle_dt_output("idle_dt_output", external_interface())
+{
+}
+```
 
 ## Event Handlers
 

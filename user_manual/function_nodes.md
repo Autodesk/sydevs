@@ -1,15 +1,15 @@
 | [Prev](atomic_nodes.html) | [User Manual -- Table of Contents](index.html) | [Next](composite_nodes.html) |
 # Function Nodes
 
-The ***function node*** represents a single function that reads a set of input values and calculates a set of output values. It is placed in a dataflow network in the initialization or finalization phase of a composite node. In general, the purpose of a function node is to perform some or all of the data processing needed to prepare parameter values for a simulation, or extract statistics from a simulation.
+The ***function node*** represents a single function that reads a set of input values and calculates a set of output values. It is placed in the dataflow network associated with the initialization or finalization phase of a composite node. In general, the purpose of a function node is to perform some or all of the data processing needed to either prepare parameter values for a simulation or extract statistics from the simulation.
 
 ![Function Node](../doc/images/sydevs_function_node.png "SyDEVS function node")
 
 The function node source code can be found in [function_node.h](https://github.com/Autodesk/sydevs/blob/master/src/sydevs/systems/function_node.h).
 
-## Sample Declaration
+## Sample Declarations
 
-An example of a function node is the `initial_position_node` class found in [initial_position_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/initial_position_node.h), which is part of the [building7m](https://github.com/Autodesk/sydevs/tree/master/src/examples/demo/building7m) demonstration project.  Below is the class declaration.
+An example of a function node is the `initial_position_node` class found in [initial_position_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/initial_position_node.h), which is part of the [building7m](https://github.com/Autodesk/sydevs/tree/master/src/examples/demo/building7m) demonstration project. Below is the class declaration, which inherits from `function_node`.
 
 ```cpp
 class initial_position_node : public function_node
@@ -54,13 +54,26 @@ private:
 };
 ```
 
-## Constructor/Destructor
+## Constructor/Destructor Declarations
 
-Constructors and destructors are the same for all types of nodes (see [Atomic Nodes -- Constructor/Destructor](atomic_nodes.html#constructordestructor)).
+Constructors and destructor declarations are the same for all types of nodes (see [Atomic Nodes -- Constructor/Destructor](atomic_nodes.html#constructordestructor-declarations)).
 
 ## Ports
 
 Function node ports are the same as ports on atomic nodes (see [Atomic Nodes -- Ports](atomic_nodes.html#ports)), except that function nodes use flow ports only.
+
+## Constructor Definitions
+
+Constructor definitions are the same as for atomic nodes (see [Atomic Nodes -- Constructor Definitions](atomic_nodes.html#constructor-definitions)), except that the base class is `function_node`. Below is the example from [initial_position_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/initial_position_node.h)
+
+```cpp
+inline initial_position_node::initial_position_node(const std::string& node_name, const node_context& external_context)
+    : function_node(node_name, external_context)
+    , building_layout_input("building_layout_input", external_interface())
+    , initial_position_output("initial_position_output", external_interface())
+{
+}
+```
 
 ## Event Handlers
 
@@ -74,7 +87,7 @@ Function nodes must override the pure virtual member function `flow_event`.
 
 The `flow_event` function is invoked once, at any point after all flow input ports have values. These values are obtained using the port member function `value`. The event handler then processes the data and supplies values for all the flow output ports using the `assign` member function.
 
-Below is the flow event handler from [initial_position_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/initial_position_node.h). It obtains an array representing the layout of one floor of a simplified building. It then finds a single location inside the exterior walls of the building.
+Below is the flow event handler from [initial_position_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/initial_position_node.h). It obtains as an input an array representing the layout of one floor of a simplified building. It then finds a single location inside the exterior walls of the building, and outputs the coordinates of that location.
 
 ```cpp
 inline void initial_position_node::flow_event()
@@ -101,7 +114,7 @@ inline void initial_position_node::flow_event()
 }
 ```
 
-The following flow event handler is from the `plus_node` ([plus_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/plus_node.h)). It outputs the sum of the values of the inputs.
+The following flow event handler is from [plus_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/plus_node.h). It outputs the sum of the values of the inputs.
 
 ```cpp
 template<typename T>
