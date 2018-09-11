@@ -39,7 +39,7 @@ public:
 
 ## Constructor/Destructor Declarations
 
-Constructors and destructor declarations are the same for all types of nodes (see [Atomic Nodes -- Constructor/Destructor](atomic_nodes.html#constructordestructor)).
+Constructors and destructor declarations are the same for all types of nodes (see [Atomic Nodes -- Constructor/Destructor Declarations](atomic_nodes.html#constructordestructor-declarations)).
 
 ## Ports
 
