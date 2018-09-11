@@ -23,7 +23,7 @@ public:
 
 private:
     // Event Handlers:
-    void flow_event();
+    virtual void flow_event();
 };
 
 

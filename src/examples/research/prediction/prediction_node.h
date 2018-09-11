@@ -44,7 +44,7 @@ public:
         port<flow, output, duration> dense_dt_output;
         port<flow, output, duration> avg_noise_dt_output;
     protected:
-        void flow_event();
+        virtual void flow_event();
     };
 
     // Components:

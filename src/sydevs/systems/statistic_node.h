@@ -41,7 +41,7 @@ public:
 private:
     pointer val_;
 
-    void flow_event();
+    virtual void flow_event();
 };
 
 

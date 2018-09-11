@@ -34,7 +34,7 @@ public:
         port<flow, input, int64> miss_count_B_input;
         port<flow, output, int64> miss_count_output;
     protected:
-        void flow_event();
+        virtual void flow_event();
     };
 
     // Components:
