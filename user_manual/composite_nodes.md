@@ -127,7 +127,7 @@ Parameter and statistic nodes are declared as components.
     statistic_node<float64> percent_growth;
 ```
 
-They are initialized as other components, except that parameters allow a default value to be specified as the third argument.
+They are initialized in the same manner as other types of components, except that parameter nodes allow a default value to be specified as the third argument.
 
 ```cpp
     , number_of_apples("number_of_apples", internal_context())
