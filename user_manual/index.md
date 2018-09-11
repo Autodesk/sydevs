@@ -1,7 +1,7 @@
 | Prev | User Manual -- Table of Contents | [Next](atomic_nodes.html) |
 # User Manual
 
-The Elements of SyDEVS Explained using Examples
+The Elements of SyDEVS, Explained
 
 ## Table of Contents
 
@@ -13,10 +13,10 @@ The Elements of SyDEVS Explained using Examples
 
 ## New to SyDEVS?
 
-This user's manual provides a detailed description of the main elements of SyDEVS.
+This user manual provides a detailed description of the main elements of SyDEVS.
 
 If you're looking for a general introduction to the framework, first read the [Overview](overview.html) or download and play through the [SyDEVS Introduction](doc/downloads/SyDEVS_Introduction.pptx) PowerPoint deck.
 
-If you want to start building your own simulation projects using SyDEVS, work through the [Getting Started](getting_started/) tutorial and then return here for more comprehensive information.
+If you want to start building your own simulation projects using SyDEVS, work through the [Getting Started](getting_started/) tutorial and then return here for more detailed information about the different types of nodes and simulation elements.
 
 | [***Continue to Atomic Nodes***](atomic_nodes.html) |

@@ -52,7 +52,7 @@ protected:
 
 ## Constructor/Destructor
 
-The following constructor and destructor public declarations should appear for all atomic nodes, except that the name `queueing_node` should of course be replaced with the name of the node being specified.
+The following constructor and destructor public declarations should appear for all types of nodes, except that the name `queueing_node` should of course be replaced with the name of the node being specified.
 
 ```cpp
     queueing_node(const std::string& node_name, const node_context& external_context);
@@ -131,7 +131,7 @@ float64      // 64-bit floating-point number (`double`)
 std::string  // standard library string
 
 quantity<U>        // base-1000 amount of any Standard International (SI) unit `U`
-arraynd<T, ndims>  // multi-dimensional array of data type `T` and `ndims` dimensions
+arraynd<T, ndims>  // multidimensional array of data type `T` and `ndims` dimensions
 
 std::pair<T1, T2>  // standard library pair of values of data types `T1` and `T2`
 std::tuple<...>    // standard library tuple of values of the specified data types
@@ -145,7 +145,7 @@ pointer             // untyped shared pointer (not recommended)
 
 The first 4 core types are standard C++ data types.
 
-The next 2 core types are elements of the SyDEVS library. More information on the `quantity` class can be found [here](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1quantity.html) (see Detailed Description). More information on the `arraynd` class can be found [here](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1arraynd.html) (see Detailed Description).
+The next 2 core types are elements of the SyDEVS library. More information on the `quantity` class can be found [here](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1quantity.html#details). More information on the `arraynd` class can be found [here](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1arraynd.html#details).
 
 Some of the core types include a template parameter specifying another data type (`T`, `T1`, `T2`). These data types must also be core types, with one exception. The exception is `std::shared_ptr<T>`, for which `T` can be any C++ data type. The `std::shared_ptr<T>` can therefore be used to transfer user-defined classes between nodes, or any C++ data type not in the list. However, there is a cost to this in terms of safety, since the same data may end up being referenced by multiple nodes.
 
@@ -303,11 +303,11 @@ inline void queueing_node::finalization_event(duration elapsed_dt)
 
 The examples below are from the [building7m](https://github.com/Autodesk/sydevs/tree/master/src/examples/demo/building7m) demonstration project.
 
-The `weather_node` class found in [`weather_node_node.h`](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/weather_node.h) performs a simple numerical integration using a fixed time step.
+The `weather_node` class found in [weather_node_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/weather_node.h) performs a simple numerical integration using a fixed time step.
 
-The `thermodynamics_node` class found in [`thermodynamics_node.h`](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/thermodynamics_node.h) is an example of an atomic node that maintains a fixed time step between output messages regardless of when it receives input messages.
+The `thermodynamics_node` class found in [thermodynamics_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/thermodynamics_node.h) is an example of an atomic node that maintains a fixed time step between output messages regardless of when it receives input messages.
 
-The `occupant_node` class found in [`occupant_node.h`](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/occupant_node.h) provides an example of stocasticity, where a simulated individual performs a random walk within a building.
+The `occupant_node` class found in [occupant_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/occupant_node.h) provides an example of stocasticity, where a simulated individual performs a random walk within a building.
 
 | [***Continue to Function Nodes***](function_nodes.html) |
 
