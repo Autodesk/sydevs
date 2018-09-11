@@ -5,7 +5,11 @@ The ***atomic node*** provides a general structure for representing behavior tha
 
 ![Atomic Node](../doc/images/sydevs_atomic_node.png "SyDEVS atomic node")
 
-The atomic node source code can be found in [atomic_node.h](https://github.com/Autodesk/sydevs/blob/master/src/sydevs/systems/atomic_node.h).
+The atomic node base class is defined in [atomic_node.h](https://github.com/Autodesk/sydevs/blob/master/src/sydevs/systems/atomic_node.h), which must be included by all atomic nodes.
+
+```cpp
+#include <sydevs/systems/atomic_node.h>
+```
 
 ## Example Declarations
 

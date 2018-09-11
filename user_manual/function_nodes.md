@@ -5,7 +5,11 @@ The ***function node*** represents a single function that reads a set of input v
 
 ![Function Node](../doc/images/sydevs_function_node.png "SyDEVS function node")
 
-The function node source code can be found in [function_node.h](https://github.com/Autodesk/sydevs/blob/master/src/sydevs/systems/function_node.h).
+The function node base class is defined in [function_node.h](https://github.com/Autodesk/sydevs/blob/master/src/sydevs/systems/function_node.h), which must be included by all function nodes.
+
+```cpp
+#include <sydevs/systems/function_node.h>
+```
 
 ## Sample Declarations
 

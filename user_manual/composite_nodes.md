@@ -5,7 +5,11 @@ The ***composite node*** integrates other nodes by linking their ports. There ar
 
 ![Composite Node](../doc/images/sydevs_composite_node.png "SyDEVS composite node")
 
-The composite node source code can be found in [composite_node.h](https://github.com/Autodesk/sydevs/blob/master/src/sydevs/systems/composite_node.h).
+The composite node base class is defined in [composite_node.h](https://github.com/Autodesk/sydevs/blob/master/src/sydevs/systems/composite_node.h), which must be included by all composite nodes.
+
+```cpp
+#include <sydevs/systems/composite_node.h>
+```
 
 ## Sample Declarations
 
@@ -106,4 +110,37 @@ two_stage_queueing_node::two_stage_queueing_node(const std::string& node_name, c
 }
 ```
 
+## Parameter and Statistic Nodes
+
+Parameter and statistic nodes are a special type of function node designed to provide a convenient way to handle parameters and statistics in the context of a composite node. Parameter nodes, which supply values to a simulation, are defined in [parameter_node.h](https://github.com/Autodesk/sydevs/blob/master/src/sydevs/systems/parameter_node.h). Statistics nodes, which extract values from a simulation, are defined in [statistic_node.h](https://github.com/Autodesk/sydevs/blob/master/src/sydevs/systems/statistic_node.h). These header files can be included as follows.
+
+```cpp
+#include <sydevs/systems/parameter_node.h>
+#include <sydevs/systems/statistic_node.h>
+```
+
+Parameter and statistic nodes are declared as components.
+
+```cpp
+    parameter_node<int64> number_of_apples;
+    parameter_node<duration> service_dt;
+    statistic_node<float64> percent_growth;
+```
+
+They are initialized as other components, except that parameters allow a default value to be specified as the third argument.
+
+```cpp
+    , number_of_apples("number_of_apples", internal_context())
+    , service_dt("service_dt", internal_context(), 17500_ms)
+    , percent_growth("percent_growth", internal_context())
+```
+
+Parameter and statistic nodes have a port of the same name (i.e. `parameter` or `statistic`) that can be connected to other nodes via inner links.
+
+```cpp
+    inner_link(number_of_apples.parameter, other_node.number_of_apples);
+    inner_link(service_dt.parameter, other_node.service_dt);
+    inner_link(other_node.percent_growth, percent_growth.statistic);
+```
+ 
 | [***Continue to Collection Nodes***](collection_nodes.html) |
