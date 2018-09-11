@@ -60,7 +60,7 @@ Constructors and destructors are the same for all types of nodes (see [Atomic No
 
 ## Ports
 
-Function node ports are the same as ports on atomic nodes (see [Atomic Nodes -- Ports](atomic_nodes.html#constructordestructor)), except that function nodes use flow ports only.
+Function node ports are the same as ports on atomic nodes (see [Atomic Nodes -- Ports](atomic_nodes.html#ports)), except that function nodes use flow ports only.
 
 ## Event Handlers
 
