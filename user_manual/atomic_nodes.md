@@ -103,7 +103,7 @@ Different nodes can have different levels of time precision, and can be integrat
 
 ## Ports
 
-Ports are the primary means by which a SyDEVS node interacts with external entities. There are four types of ports: flow input, message input, message output, and flow output. The [queueing_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/queueing_node.h) example has one port of each type.
+Ports are the primary means by which a SyDEVS node interacts with external entities. There are four types of ports: flow input ports, which take in parameters during initialization; message input ports, which receive messages during unplanned events; message output ports, which send messages during planned events; and flow output ports, which give out statistics during finalization. The [queueing_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/queueing_node.h) example has one port of each type.
 
 ```cpp
     port<flow, input, duration> serv_dt_input;    // service duration
@@ -112,7 +112,7 @@ Ports are the primary means by which a SyDEVS node interacts with external entit
     port<flow, output, duration> idle_dt_output;  // idle duration
 ```
 
-It is possible for a node to have more than one port of the same type, and no ports of a different type. For example, the [building_dynamics_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/building_dynamics_node.h) from the [building7m](https://github.com/Autodesk/sydevs/tree/master/src/examples/demo/building7m) project has 5 flow input ports, 2 message output ports, and no ports of the other two types.
+Ports are declared in essentially the same manner regardless of whether the node is an atomic node, a function node (flow ports only), a composite node, or a collection node. It is possible for a node to have more than one port of the same type, and no ports of a different type. The composite node [building_dynamics_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/building_dynamics_node.h), from the [building7m](https://github.com/Autodesk/sydevs/tree/master/src/examples/demo/building7m) project, has 5 flow input ports, 2 message output ports, and no ports of the other two types, as can be seen below.
 
 ```cpp
     port<flow, input, thermodynamic_temperature> initial_temperature_input;
@@ -179,7 +179,7 @@ Whenever appropriate, the SyDEVS convention is to assign initial values to state
 
 The constructor of an atomic node is generally used only to initialize the base class (`atomic_node`) and the ports. The ports are initialized with two arguments: a name (e.g. `"serv_dt_input"`), which by convention matches the name of the member variable (e.g. `serv_dt_input`); and the `external_interface()` object, which associates them with the external interface of the node.
 
-Below is the constructor definition for in [queueing_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/queueing_node.h).
+Below is the constructor definition for [queueing_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/queueing_node.h).
 
 ```cpp
 inline queueing_node::queueing_node(const std::string& node_name, const node_context& external_context)
