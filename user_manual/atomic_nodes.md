@@ -126,7 +126,7 @@ Ports are declared in essentially the same manner regardless of whether the node
 
 By convention, flow input and message input ports usually have names that end in `_input`, and message output and flow output ports have names that end in `_output`. Ports are declared in the public section of a node, ensuring that they can be referenced by the encompassing node. 
 
-Note that every port has a data type, which must be one of the following core types:
+Note that every port has a data type, which must be a SyDEVS qualified type. The library includes a set of core types that are qualified by default. These are listed below.
 
 ```cpp
 bool         // boolean, `true` or `false`
@@ -135,6 +135,7 @@ float64      // 64-bit floating-point number (`double`)
 std::string  // standard library string
 
 quantity<U>        // base-1000 amount of any Standard International (SI) unit `U`
+identity<U>        // encapsulated 64-bit integer with a generic unit `U`
 arraynd<T, ndims>  // multidimensional array of data type `T` and `ndims` dimensions
 
 std::pair<T1, T2>  // standard library pair of values of data types `T1` and `T2`
@@ -144,14 +145,15 @@ std::set<T>        // standard library set of values of data type `T`
 std::map<T>        // standard library map of values of data type `T`
 
 std::shared_ptr<T>  // standard library shared pointer to value of data type `T`
-pointer             // untyped shared pointer (not recommended)
 ```
 
-The first 4 core types are standard C++ data types.
+The first 4 qualified types are standard C++ data types.
 
-The next 2 core types are elements of the SyDEVS library. More information on the `quantity` class can be found [here](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1quantity.html#details). More information on the `arraynd` class can be found [here](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1arraynd.html#details).
+The next 3 qualified types are elements of the SyDEVS library. See the [quantity](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1quantity.html#details), [identity](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1identity.html#details), and [arraynd](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1arraynd.html#details) class references for more details.
 
-Some of the core types include a template parameter specifying another data type (`T`, `T1`, `T2`). These data types must also be core types, with one exception. The exception is `std::shared_ptr<T>`, for which `T` can be any C++ data type. The `std::shared_ptr<T>` can therefore be used to transfer user-defined classes between nodes, or any C++ data type not in the list. However, there is a cost to this in terms of safety, since the same data may end up being referenced by multiple nodes.
+Some of the qualified types include a template parameter specifying another data type (`T`, `T1`, `T2`). These data types must also be qualified types, with one exception. The exception is `std::shared_ptr<T>`, for which `T` can be any C++ data type. The catch is that `std::shared_ptr<T>` will transfer data by reference instead of performing a deep copy. If a reference is passed between nodes, it may introduce a communication channel that bypasses the nodes' ports. This can lead to bugs.
+
+Any C++ type can be converted into a qualified type by specializing the `qualified_type` trait class. The technique is demonstrated in [data_custom_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/test_systems/data/data_custom_node.h).
 
 ## State Variables
 
@@ -166,7 +168,7 @@ Below are the state variables declared in [queueing_node.h](https://github.com/A
     duration planned_dt;   // planned duration
 ```
 
-A state variable's data type does not have to be a core type. However, using core types for state variables may make the variables more consistent with port values. Also, instances of core types are convenient to work with because they can be converted to strings or printed using the functions below.
+A state variable's data type does not have to be a qualified type. However, using qualified types for state variables may make the variables more consistent with port values. Also, instances of qualified types are convenient to work with because they can be converted to strings or printed using the functions below.
 
 ```cpp
 std::string tostring(const T& X)  // converts X to a string
