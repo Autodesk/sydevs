@@ -5,7 +5,7 @@ The ***collection node*** contains an arbtrary number of agents, which are insta
 
 ![Collection Node](../doc/images/sydevs_collection_node.png "SyDEVS collection node")
 
-The collection node source code can be found in [collection_node.h](https://github.com/Autodesk/sydevs/blob/master/src/sydevs/systems/collection_node.h).
+The collection node base class is defined in [collection_node.h](https://github.com/Autodesk/sydevs/blob/master/src/sydevs/systems/collection_node.h), which must be included by all collection nodes.
 
 ```cpp
 #include <sydevs/systems/collection_node.h>
@@ -266,5 +266,28 @@ inline void parallel_queueing_node::macro_finalization_event(duration elapsed_dt
 Removing an agent in a macro finalization event is only necessary if the agent's flow output port values need to be accessed. All unremoved agent node instances will be destructed regardless soon after the finalization event completes. Agents are removed by applying the `remove_agent` function to the ID of the agent. It is subsequently possible to obtain the removed agent's flow output values by applying the `access` function to each of the flow output ports on the prototype.
 
 Macro finalization events can create and send messages to agents, if needed.
+
+## Agent Subtypes
+
+When creating an agent, it is possible to supply a template type to the `create_agent` function. The supplied type must be a node that inherits from the agent type associated with the collection node.
+
+This approach is called agent subtyping, and it allows a single collection node to support a heterogeneous set of agents. The restriction is that all agent types must inherit from the same agent base class.
+
+An example of a collection node with agent subtyping can be found in [subtyping_closed_system.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/research/subtyping/subtyping_closed_system.h). Below is the macro initialization event where `create_agent` is invoked with different derived types.
+
+```cpp
+inline duration subtyping_closed_system::macro_initialization_event()
+{
+    int64 agent_id = 0;
+    for (float64 y0 = 0.0; y0 < 5.0; ++y0) {
+        access(prototype.y0_input) = y0;
+        create_agent<agent_derived_A_node>(agent_id);
+        ++agent_id;
+        create_agent<agent_derived_B_node>(agent_id);
+        ++agent_id;
+    }
+    return 5_s;
+}
+```
 
 | [***Continue to Simulations***](simulations.html) |
