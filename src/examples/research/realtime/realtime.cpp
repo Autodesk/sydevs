@@ -1,5 +1,4 @@
 #include <examples/research/realtime/realtime.h>
-#include <examples/research/realtime/bouncing_ball_interactive_system.h>
 #include <iostream>
 
 namespace sydevs_examples {

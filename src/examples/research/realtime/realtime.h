@@ -2,6 +2,7 @@
 #ifndef SYDEVS_EXAMPLES_REALTIME_H_
 #define SYDEVS_EXAMPLES_REALTIME_H_
 
+#include <examples/research/realtime/bouncing_ball_interactive_system.h>
 #include <sydevs/systems/real_time_simulation.h>
 
 namespace sydevs_examples {
@@ -9,10 +10,9 @@ namespace sydevs_examples {
 using namespace sydevs;
 using namespace sydevs::systems;
 
-class bouncing_ball_interactive_system;
 
-
-class realtime {
+class realtime
+{
 public:
     realtime();
 
