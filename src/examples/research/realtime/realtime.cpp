@@ -1,4 +1,5 @@
 #include <examples/research/realtime/realtime.h>
+#include <examples/research/realtime/bouncing_ball_interactive_system.h>
 #include <iostream>
 
 namespace sydevs_examples {
@@ -8,21 +9,22 @@ using namespace sydevs::systems;
 
 
 realtime::realtime()
-    : sim_(duration::inf(), 0, std::cout)
+    : sim_ptr_()
     , clock_t0_()
     , t_(0_s)
     , high_g_(false)
     , fast_as_possible_(false)
     , t_syn_rate_(0)
 {
-    sim_.update_time_advancement_rate(1);
-    sim_.update_time_synchronization_rate(t_syn_rate_);
 }
 
 
 void realtime::mainloop()
 {
     try {
+        sim_ptr_ = std::make_unique<real_time_simulation<bouncing_ball_interactive_system>>(duration::inf(), 0, std::cout);
+        sim_ptr_->update_time_advancement_rate(1);
+        sim_ptr_->update_time_synchronization_rate(t_syn_rate_);
         while (true) {
             observation_phase();
             interaction_phase();
@@ -45,14 +47,14 @@ void realtime::observation_phase()
     auto prev_prev_x = distance();
     auto prev_x = distance();
     while (!done) {
-        int64 event_count = sim_.process_frame_if_time_reached();
+        int64 event_count = sim_ptr_->process_frame_if_time_reached();
         if (event_count > 0) {
-            if (sim_.frame_index() == 0) {
-                clock_t0_ = sim_.frame_clock_time();
-                sim_.update_synchronization_time(sim_.frame_time(), clock_t0_);
+            if (sim_ptr_->frame_index() == 0) {
+                clock_t0_ = sim_ptr_->frame_clock_time();
+                sim_ptr_->update_synchronization_time(sim_ptr_->frame_time(), clock_t0_);
             }
-            t_ = sim_.frame_time().gap(time_point()).rescaled(milli);
-            distance x = sim_.observation();
+            t_ = sim_ptr_->frame_time().gap(time_point()).rescaled(milli);
+            distance x = sim_ptr_->observation();
             print_frame(x);
             if (t_ >= pause_t) {
                 done = ((x > prev_x) && (prev_x <= prev_prev_x));
@@ -73,19 +75,19 @@ void realtime::interaction_phase()
     if (input_ch == 'g') {
         high_g_ = !high_g_;
         if (high_g_) {
-            sim_.injection() = 19620_mm/_s/_s;
+            sim_ptr_->injection() = 19620_mm/_s/_s;
         }
         else {
-            sim_.injection() = 9810_mm/_s/_s;
+            sim_ptr_->injection() = 9810_mm/_s/_s;
         }
     }
     else if (input_ch == 'f') {
         fast_as_possible_ = !fast_as_possible_;
         if (fast_as_possible_) {
-            sim_.update_time_advancement_rate(std::numeric_limits<float64>::infinity());
+            sim_ptr_->update_time_advancement_rate(std::numeric_limits<float64>::infinity());
         }
         else {
-            sim_.update_time_advancement_rate(1);
+            sim_ptr_->update_time_advancement_rate(1);
         }
     }
     else if (isdigit(input_ch)) {
@@ -96,7 +98,7 @@ void realtime::interaction_phase()
         else {
             t_syn_rate_ = pow(10, input_int - 5);
         }
-        sim_.update_time_synchronization_rate(t_syn_rate_);
+        sim_ptr_->update_time_synchronization_rate(t_syn_rate_);
     }
 }
 
@@ -118,7 +120,7 @@ void realtime::print_footer()
 
 void realtime::print_frame(distance x)
 {
-    auto clock_t = sim_.frame_clock_time();
+    auto clock_t = sim_ptr_->frame_clock_time();
     int64 pos = int64(x/250_mm + 0.5);
     int64 flight_chars = std::min(pos, int64(48));
     int64 ball_chars = (flight_chars < 48 ? 1 : 0);

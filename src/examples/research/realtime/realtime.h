@@ -2,13 +2,14 @@
 #ifndef SYDEVS_EXAMPLES_REALTIME_H_
 #define SYDEVS_EXAMPLES_REALTIME_H_
 
-#include <examples/research/realtime/bouncing_ball_interactive_system.h>
 #include <sydevs/systems/real_time_simulation.h>
 
 namespace sydevs_examples {
 
 using namespace sydevs;
 using namespace sydevs::systems;
+
+class bouncing_ball_interactive_system;
 
 
 class realtime {
@@ -26,7 +27,8 @@ private:
     void print_frame(distance x);
     void print_menu();
 
-    real_time_simulation<bouncing_ball_interactive_system> sim_;
+    std::unique_ptr<real_time_simulation<bouncing_ball_interactive_system>> sim_ptr_;
+
     clock_time clock_t0_;
     duration t_;
     bool high_g_;
