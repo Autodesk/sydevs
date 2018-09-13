@@ -63,6 +63,8 @@ The `two_stage_queueing_node` in [two_stage_queueing_node.h](https://github.com/
 
 Note that if two nodes are scheduled to undergo events at the same time, the component declared above the other will have its event occur first. In some cases this may cause the other node's event not to occur at all.
 
+If a composite node's components are all function nodes (or composite or collection nodes that contain only function nodes), then for all intents and purposes the composite node will behave like a function node.
+
 ## Constructor Definitions
 
 The constructor of a composite node initializes both its external ports and its components, and specifies the links that connect all of the ports including the ports of the components. 

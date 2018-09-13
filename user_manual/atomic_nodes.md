@@ -301,7 +301,7 @@ inline duration queueing_node::planned_event(duration elapsed_dt)
 
 ### Finalization Events
 
-The `finalization_event` function is invoked once, after all other events. Typically it is invoked at the end of the simulation (unless the node is an agent; see [Collection Nodes](collection_nodes.html)). The main purpose of the function is to assign statistic values to all the flow output ports. This statistic values sometimes depend on the elapsed duration, which is available as an argument.
+The `finalization_event` function is invoked once, after all other events. Typically it is invoked at the end of the simulation (unless the node is an agent; see [Collection Nodes](collection_nodes.html)). The main purpose of the function is to assign statistic values to all the flow output ports. These statistic values sometimes depend on the elapsed duration, which is available as an argument.
 
 Flow output port values are assigned using the port member function `assign`.
 
