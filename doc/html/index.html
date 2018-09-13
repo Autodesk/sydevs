@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname"><a href="https://autodesk.github.io/sydevs/">SyDEVS</a>
-   &#160;<span id="projectnumber">v0.5</span>
+   &#160;<span id="projectnumber">v0.6</span>
    </div>
    <div id="projectbrief">Multiscale Simulation and Systems Modeling Library</div>
   </td>
@@ -108,7 +108,10 @@ $(document).ready(function(){initNavTree('index.html','');});
 </div><!--header-->
 <div class="contents">
 <div class="textblock"><h2>About SyDEVS </h2>
-<p>This library provides a framework for implementating complex systems analysis and simulation code in a modular/hierarchical fashion. It was originally developed to serve as a backend for the visual programming interfaces described by <a href="https://www.autodeskresearch.com/publications/designingdevs">Maleki et al. (2015)</a>, but the same functionality can be achieved without a GUI by defining C++ classes that derive from one of the system node base classes (<a class="el" href="classsydevs_1_1systems_1_1atomic__node.html">atomic_node</a>, <a class="el" href="classsydevs_1_1systems_1_1composite__node.html">composite_node</a>, <a class="el" href="classsydevs_1_1systems_1_1collection__node.html">collection_node</a>, <a class="el" href="classsydevs_1_1systems_1_1function__node.html">function_node</a>). The framework combines two programming paradigms: <a href="https://en.wikipedia.org/wiki/Dataflow_programming">dataflow programming</a> as exemplified by Autodesk's <a href="http://dynamobim.org/">Dynamo</a> tool, and the <a href="https://en.wikipedia.org/wiki/DEVS">DEVS</a> message-passing paradigm implemented in tools such as DesignDEVS (see <a href="http://simaud.com/resources.php#software">software</a>, <a href="https://www.autodeskresearch.com/designdevs">conference paper</a>, <a href="https://www.autodeskresearch.com/publications/practical-aspects-designdevs-simulation-environment">journal paper</a>). These foundations give the framework the generality neeeded to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.</p>
+<p>This library provides a framework for implementing complex systems analysis and simulation code in a modular/hierarchical fashion. The framework combines three modeling paradigms: <a href="https://en.wikipedia.org/wiki/Discrete_event_simulation">discrete event simulation</a>, <a href="https://en.wikipedia.org/wiki/Agent-based_model">agent-based modeling</a>, and <a href="https://en.wikipedia.org/wiki/Dataflow_programming">dataflow programming</a>. The discrete event simulation aspect is based on <a href="https://en.wikipedia.org/wiki/DEVS">DEVS</a>, a well-regarded modeling formalism involving two types of models that correspond with the library's ***atomic*** and ***composite*** nodes. The library also includes ***collection*** nodes, which extend DEVS with agent-based modeling capabilities, and ***function*** nodes, which simply compute outputs from inputs. The atomic, composite, collection, and function nodes can communicate through flow ports as part of a dataflow programming network. With the exception of function nodes, they can also communicate in a DEVS-like fashion through message ports.</p>
+<p>In addition to supporting multiple modeling paradigms, the SyDEVS library provides comprehensive and reusable Modern C++ implementations of multidimensional arrays, Standard International (SI) units, a multiscale time representation, and other technical computing elements.</p>
+<p>The main SyDEVS website is at <a href="https://autodesk.github.io/sydevs">https://autodesk.github.io/sydevs</a>.</p>
+<p>The SyDEVS repository is at <a href="https://github.com/Autodesk/sydevs">https://github.com/Autodesk/sydevs</a>.</p>
 <h2>Main Classes </h2>
 <p>Namespace: <a class="el" href="namespacesydevs.html">sydevs</a></p>
 <ul>
@@ -121,11 +124,12 @@ $(document).ready(function(){initNavTree('index.html','');});
 <li><a class="el" href="structsydevs_1_1units.html">units</a> (<a class="el" href="units_8h.html">units.h</a>) - related template for SI units (e.g. grams, meters/second^2)</li>
 </ul>
 </li>
+<li><a class="el" href="classsydevs_1_1identity.html">identity</a> (<a class="el" href="identity_8h.html">identity.h</a>) - dimensioned integer for identifying items</li>
 <li><a class="el" href="classsydevs_1_1arraynd.html">arraynd</a> (<a class="el" href="arraynd_8h.html">arraynd.h</a>) - multidimensional array<ul>
-<li><a class="el" href="classsydevs_1_1range.html">range</a> (<a class="el" href="range_8h.html">range.h</a>) - related class for representing range of array indices</li>
+<li><a class="el" href="classsydevs_1_1range.html">range</a> (<a class="el" href="range_8h.html">range.h</a>) - related class for representing ranges of array indices</li>
 </ul>
 </li>
-<li><a class="el" href="structsydevs_1_1core__type.html">core_type</a> (<a class="el" href="core__types_8h.html">core_types.h</a>) - traits for types exchanged between system nodes<ul>
+<li><a class="el" href="structsydevs_1_1qualified__type.html">qualified_type</a> (<a class="el" href="qualified__type_8h.html">qualified_type.h</a>) - traits for types exchanged between system nodes<ul>
 <li><a class="el" href="classsydevs_1_1pointer.html">pointer</a> (<a class="el" href="pointer_8h.html">pointer.h</a>) - related class for pointers to any type of data</li>
 <li><a class="el" href="classsydevs_1_1string__builder.html">string_builder</a> (<a class="el" href="string__builder_8h.html">string_builder.h</a>) - related class for value-to-string conversion</li>
 </ul>
@@ -149,13 +153,13 @@ $(document).ready(function(){initNavTree('index.html','');});
 <li><a class="el" href="classsydevs_1_1systems_1_1statistic__node.html">statistic_node</a> (<a class="el" href="statistic__node_8h.html">statistic_node.h</a>) - derived from <a class="el" href="classsydevs_1_1systems_1_1function__node.html">function_node</a>, handles statistic values</li>
 </ul>
 </li>
-<li><a class="el" href="classsydevs_1_1systems_1_1interactive__system.html">interactive_system</a> (<a class="el" href="interactive__system_8h.html">interactive_system.h</a>) - derived from <a class="el" href="classsydevs_1_1systems_1_1system__node.html">system_node</a>, supports interactive real time simulations</li>
+<li><a class="el" href="classsydevs_1_1systems_1_1interactive__system.html">interactive_system</a> (<a class="el" href="interactive__system_8h.html">interactive_system.h</a>) - derived from <a class="el" href="classsydevs_1_1systems_1_1collection__node.html">collection_node</a>, supports real time simulations</li>
 <li>port&lt;<a class="el" href="namespacesydevs_1_1systems.html#a1852ea7ca1d57fd679e01369acb054b8">data_mode</a>, <a class="el" href="namespacesydevs_1_1systems.html#add51536d479991dea5779172e185bacc">data_goal</a>&gt; (<a class="el" href="port_8h.html">port.h</a>) - related classes for node ports</li>
 </ul>
 </li>
 <li><a class="el" href="classsydevs_1_1systems_1_1simulation.html">simulation</a> (<a class="el" href="simulation_8h.html">simulation.h</a>) - template for simulations based on a port-free <a class="el" href="classsydevs_1_1systems_1_1system__node.html">system_node</a><ul>
-<li><a class="el" href="classsydevs_1_1systems_1_1real__time__simulation.html">real_time_simulation</a> (<a class="el" href="real__time__simulation_8h.html">real_time_simulation.h</a>) - derived from <a class="el" href="classsydevs_1_1systems_1_1simulation.html">simulation</a>, supports real time interactive simulations based on a port-free <a class="el" href="classsydevs_1_1systems_1_1interactive__system.html">interactive_system</a> node<ul>
-<li><a class="el" href="classsydevs_1_1systems_1_1real__time__buffer.html">real_time_buffer</a> (<a class="el" href="real__time__buffer_8h.html">real_time_buffer.h</a>) - related class for associating simulated time points with wallclock time points</li>
+<li><a class="el" href="classsydevs_1_1systems_1_1real__time__simulation.html">real_time_simulation</a> (<a class="el" href="real__time__simulation_8h.html">real_time_simulation.h</a>) - derived from <a class="el" href="classsydevs_1_1systems_1_1simulation.html">simulation</a>, supports real time simulations<ul>
+<li><a class="el" href="classsydevs_1_1systems_1_1real__time__buffer.html">real_time_buffer</a> (<a class="el" href="real__time__buffer_8h.html">real_time_buffer.h</a>) - related class for linking simulated time with wall clock time</li>
 </ul>
 </li>
 <li><a class="el" href="classsydevs_1_1systems_1_1discrete__event__time.html">discrete_event_time</a> (<a class="el" href="discrete__event__time_8h.html">discrete_event_time.h</a>) - related class for tracking progress through a simulation </li>
@@ -169,7 +173,7 @@ $(document).ready(function(){initNavTree('index.html','');});
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
-    <li class="footer">Generated on Tue Sep 4 2018 19:19:45 for SyDEVS by
+    <li class="footer">Generated on Thu Sep 13 2018 19:46:03 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

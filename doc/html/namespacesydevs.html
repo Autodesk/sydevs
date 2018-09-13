@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname"><a href="https://autodesk.github.io/sydevs/">SyDEVS</a>
-   &#160;<span id="projectnumber">v0.5</span>
+   &#160;<span id="projectnumber">v0.6</span>
    </div>
    <div id="projectbrief">Multiscale Simulation and Systems Modeling Library</div>
   </td>
@@ -136,42 +136,45 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1arraynd__base.html">arraynd_base</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A base class template for a multidimensional array with elements of type <code>T</code> arranged in a lattice of <code>ndim</code> dimensions.  <a href="classsydevs_1_1arraynd__base.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1core__type.html">core_type</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1identity.html">identity</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A data type which identifies an item by combining an encapsulated integer-valued index with a dimension supplied by a template parameter.  <a href="classsydevs_1_1identity.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1core__type_3_01pointer_01_4.html">core_type&lt; pointer &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1pointer.html">pointer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A data type which represents a pointer to anything.  <a href="classsydevs_1_1pointer.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1core__type_3_01bool_01_4.html">core_type&lt; bool &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1qualified__type.html">qualified_type</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1core__type_3_01int64_01_4.html">core_type&lt; int64 &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1qualified__type_3_01bool_01_4.html">qualified_type&lt; bool &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1core__type_3_01float64_01_4.html">core_type&lt; float64 &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1qualified__type_3_01int64_01_4.html">qualified_type&lt; int64 &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1core__type_3_01std_1_1string_01_4.html">core_type&lt; std::string &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1qualified__type_3_01float64_01_4.html">qualified_type&lt; float64 &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1core__type_3_01quantity_3_01_u_01_4_01_4.html">core_type&lt; quantity&lt; U &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1qualified__type_3_01std_1_1string_01_4.html">qualified_type&lt; std::string &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1core__type_3_01arraynd_3_01_t_00_01ndims_01_4_01_4.html">core_type&lt; arraynd&lt; T, ndims &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1qualified__type_3_01quantity_3_01_u_01_4_01_4.html">qualified_type&lt; quantity&lt; U &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1core__type_3_01std_1_1pair_3_01_t1_00_01_t2_01_4_01_4.html">core_type&lt; std::pair&lt; T1, T2 &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1qualified__type_3_01identity_3_01_u_01_4_01_4.html">qualified_type&lt; identity&lt; U &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1core__type_3_01std_1_1tuple_3_01_t_01_4_01_4.html">core_type&lt; std::tuple&lt; T &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1qualified__type_3_01arraynd_3_01_t_00_01ndims_01_4_01_4.html">qualified_type&lt; arraynd&lt; T, ndims &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1core__type_3_01std_1_1tuple_3_01_t_00_01_ts_8_8_8_4_01_4.html">core_type&lt; std::tuple&lt; T, Ts...&gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1qualified__type_3_01std_1_1pair_3_01_t1_00_01_t2_01_4_01_4.html">qualified_type&lt; std::pair&lt; T1, T2 &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1core__type_3_01std_1_1vector_3_01_t_01_4_01_4.html">core_type&lt; std::vector&lt; T &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1qualified__type_3_01std_1_1tuple_3_01_t_01_4_01_4.html">qualified_type&lt; std::tuple&lt; T &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1core__type_3_01std_1_1set_3_01_t_01_4_01_4.html">core_type&lt; std::set&lt; T &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1qualified__type_3_01std_1_1tuple_3_01_t_00_01_ts_8_8_8_4_01_4.html">qualified_type&lt; std::tuple&lt; T, Ts...&gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1core__type_3_01std_1_1map_3_01_key_00_01_t_01_4_01_4.html">core_type&lt; std::map&lt; Key, T &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1qualified__type_3_01std_1_1vector_3_01_t_01_4_01_4.html">qualified_type&lt; std::vector&lt; T &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1core__type_3_01std_1_1shared__ptr_3_01_t_01_4_01_4.html">core_type&lt; std::shared_ptr&lt; T &gt; &gt;</a></td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1qualified__type_3_01std_1_1set_3_01_t_01_4_01_4.html">qualified_type&lt; std::set&lt; T &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1qualified__type_3_01std_1_1map_3_01_key_00_01_t_01_4_01_4.html">qualified_type&lt; std::map&lt; Key, T &gt; &gt;</a></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1qualified__type_3_01std_1_1shared__ptr_3_01_t_01_4_01_4.html">qualified_type&lt; std::shared_ptr&lt; T &gt; &gt;</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1tuple__tostring__helper.html">tuple_tostring_helper</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1tuple__tostring__helper_3_01_tuple_00_011_01_4.html">tuple_tostring_helper&lt; Tuple, 1 &gt;</a></td></tr>
-<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1pointer.html">pointer</a></td></tr>
-<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A data type which represents a pointer to anything.  <a href="classsydevs_1_1pointer.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1quantity__base.html">quantity_base</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A base class for quantities, defining operations that do not depend on the dimension.  <a href="classsydevs_1_1quantity__base.html#details">More...</a><br/></td></tr>
@@ -236,8 +239,6 @@ Typedefs</h2></td></tr>
 <tr class="memitem:a56b5e06bd6ca1974ae235c2a750fca0c"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:a56b5e06bd6ca1974ae235c2a750fca0c"><td class="memTemplItemLeft" align="right" valign="top">using&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#a56b5e06bd6ca1974ae235c2a750fca0c">array9d</a> = <a class="el" href="classsydevs_1_1arraynd.html">arraynd</a>&lt; T, 9 &gt;</td></tr>
 <tr class="separator:a56b5e06bd6ca1974ae235c2a750fca0c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8ebaa640b78b3ca825720182584d76fc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#a8ebaa640b78b3ca825720182584d76fc">tostring_function</a> = std::function&lt; std::string(const <a class="el" href="classsydevs_1_1pointer.html">pointer</a> &amp;)&gt;</td></tr>
-<tr class="separator:a8ebaa640b78b3ca825720182584d76fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a4449410aa44896979a15414f25776046"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#a4449410aa44896979a15414f25776046">int8</a> = int8_t</td></tr>
 <tr class="separator:a4449410aa44896979a15414f25776046"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0142ae3b3b9fadbc415054ac62fb72dc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#a0142ae3b3b9fadbc415054ac62fb72dc">int16</a> = int16_t</td></tr>
@@ -258,6 +259,8 @@ Typedefs</h2></td></tr>
 <tr class="separator:ac6931fd355a1674333ac66119365fe09"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6ad89989cc401c02d2e6280a59686c31"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#a6ad89989cc401c02d2e6280a59686c31">float64</a> = double</td></tr>
 <tr class="separator:a6ad89989cc401c02d2e6280a59686c31"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8ebaa640b78b3ca825720182584d76fc"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#a8ebaa640b78b3ca825720182584d76fc">tostring_function</a> = std::function&lt; std::string(const <a class="el" href="classsydevs_1_1pointer.html">pointer</a> &amp;)&gt;</td></tr>
+<tr class="separator:a8ebaa640b78b3ca825720182584d76fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a9be8ece17aeddaa08aef1d24f30f1897"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#a9be8ece17aeddaa08aef1d24f30f1897">mass</a> = <a class="el" href="classsydevs_1_1quantity.html">quantity</a>&lt; <a class="el" href="namespacesydevs.html#ac83621fef6d7a29848462ea3a3766941">grams</a> &gt;</td></tr>
 <tr class="separator:a9be8ece17aeddaa08aef1d24f30f1897"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ad963c53df003d9ce6d1299c1b1524ac9"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#ad963c53df003d9ce6d1299c1b1524ac9">distance</a> = <a class="el" href="classsydevs_1_1quantity.html">quantity</a>&lt; <a class="el" href="namespacesydevs.html#afe45753433eba9fe199d1d0a81fceb80">meters</a> &gt;</td></tr>
@@ -434,9 +437,18 @@ Functions</h2></td></tr>
 <tr class="memitem:ad45c97231a21839bbee02f6ca2bd94bc"><td class="memTemplParams" colspan="2">template&lt;typename T , int64 ndims&gt; </td></tr>
 <tr class="memitem:ad45c97231a21839bbee02f6ca2bd94bc"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#ad45c97231a21839bbee02f6ca2bd94bc">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classsydevs_1_1arraynd.html">arraynd</a>&lt; T, ndims &gt; &amp;rhs)</td></tr>
 <tr class="separator:ad45c97231a21839bbee02f6ca2bd94bc"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aaf24954a5b1963e2341996cc9e603448"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr class="memitem:aaf24954a5b1963e2341996cc9e603448"><td class="memTemplItemLeft" align="right" valign="top">constexpr const <a class="el" href="classsydevs_1_1identity.html">identity</a>&lt; U &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#aaf24954a5b1963e2341996cc9e603448">operator+</a> (<a class="el" href="namespacesydevs.html#ad6a8f0e4a4fad0df62be1cb702f25de7">int64</a> lhs, <a class="el" href="classsydevs_1_1identity.html">identity</a>&lt; U &gt; rhs)</td></tr>
+<tr class="separator:aaf24954a5b1963e2341996cc9e603448"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2bcde152995c52f5ce03f06165cec382"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
+<tr class="memitem:a2bcde152995c52f5ce03f06165cec382"><td class="memTemplItemLeft" align="right" valign="top">std::ostream &amp;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#a2bcde152995c52f5ce03f06165cec382">operator&lt;&lt;</a> (std::ostream &amp;os, const <a class="el" href="classsydevs_1_1identity.html">identity</a>&lt; U &gt; &amp;rhs)</td></tr>
+<tr class="separator:a2bcde152995c52f5ce03f06165cec382"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae7312101dafb88cafec714d9727000eb"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
 <tr class="memitem:ae7312101dafb88cafec714d9727000eb"><td class="memTemplItemLeft" align="right" valign="top">std::string&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#ae7312101dafb88cafec714d9727000eb">tostring</a> (const T &amp;val)</td></tr>
 <tr class="separator:ae7312101dafb88cafec714d9727000eb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a4048839cf7ac60009cc38fc062eb9f9d"><td class="memTemplParams" colspan="2">template&lt;typename T &gt; </td></tr>
+<tr class="memitem:a4048839cf7ac60009cc38fc062eb9f9d"><td class="memTemplItemLeft" align="right" valign="top"><a class="el" href="namespacesydevs.html#a8ebaa640b78b3ca825720182584d76fc">tostring_function</a>&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#a4048839cf7ac60009cc38fc062eb9f9d">tostring_converter</a> ()</td></tr>
+<tr class="separator:a4048839cf7ac60009cc38fc062eb9f9d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:afb0cf233f3d44384ec1d1e5b7b1e6c52"><td class="memTemplParams" colspan="2">template&lt;typename U &gt; </td></tr>
 <tr class="memitem:afb0cf233f3d44384ec1d1e5b7b1e6c52"><td class="memTemplItemLeft" align="right" valign="top">constexpr const <a class="el" href="classsydevs_1_1quantity.html">quantity</a>&lt; U &gt;&#160;</td><td class="memTemplItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#afb0cf233f3d44384ec1d1e5b7b1e6c52">operator*</a> (<a class="el" href="namespacesydevs.html#a6ad89989cc401c02d2e6280a59686c31">float64</a> lhs, <a class="el" href="classsydevs_1_1quantity.html">quantity</a>&lt; U &gt; rhs)</td></tr>
 <tr class="separator:afb0cf233f3d44384ec1d1e5b7b1e6c52"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -3588,6 +3600,34 @@ template&lt;typename U &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="aaf24954a5b1963e2341996cc9e603448"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename U &gt; </div>
+      <table class="memname">
+        <tr>
+          <td class="memname">constexpr const <a class="el" href="classsydevs_1_1identity.html">identity</a>&lt;U&gt; sydevs::operator+ </td>
+          <td>(</td>
+          <td class="paramtype">int64&#160;</td>
+          <td class="paramname"><em>lhs</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">identity&lt; U &gt;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a class="anchor" id="a59b3e60a85a67458bd150acbf25bace0"></a>
 <div class="memitem">
 <div class="memproto">
@@ -4062,6 +4102,42 @@ template&lt;typename T , int64 ndims, typename U &gt; </div>
           <td></td><td></td>
         </tr>
       </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a2bcde152995c52f5ce03f06165cec382"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename U &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::ostream&amp; sydevs::operator&lt;&lt; </td>
+          <td>(</td>
+          <td class="paramtype">std::ostream &amp;&#160;</td>
+          <td class="paramname"><em>os</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const identity&lt; U &gt; &amp;&#160;</td>
+          <td class="paramname"><em>rhs</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
 </div><div class="memdoc">
 
 </div>
@@ -5062,6 +5138,31 @@ template&lt;typename T &gt; </div>
 
 </div>
 </div>
+<a class="anchor" id="a4048839cf7ac60009cc38fc062eb9f9d"></a>
+<div class="memitem">
+<div class="memproto">
+<div class="memtemplate">
+template&lt;typename T &gt; </div>
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="namespacesydevs.html#a8ebaa640b78b3ca825720182584d76fc">tostring_function</a> sydevs::tostring_converter </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <h2 class="groupheader">Variable Documentation</h2>
 <a class="anchor" id="ab03d1ec4cbc02fcdf17ea584493fbaad"></a>
 <div class="memitem">
@@ -5407,7 +5508,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesydevs.html">sydevs</a></li>
-    <li class="footer">Generated on Tue Sep 4 2018 19:19:45 for SyDEVS by
+    <li class="footer">Generated on Thu Sep 13 2018 19:46:03 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

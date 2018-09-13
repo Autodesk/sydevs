@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname"><a href="https://autodesk.github.io/sydevs/">SyDEVS</a>
-   &#160;<span id="projectnumber">v0.5</span>
+   &#160;<span id="projectnumber">v0.6</span>
    </div>
    <div id="projectbrief">Multiscale Simulation and Systems Modeling Library</div>
   </td>
@@ -172,7 +172,7 @@ Public Member Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>A data type which represents a range of array indices along a single dimension. </p>
 <p>A <code>range</code> object can be used to create a slice of a multidimensional array (<code>arraynd</code>) according to an arithmetic sequence of indices along a single dimension.</p>
-<p>The arithmetic sequence represented by a <code>range</code> object starts either at or immediately after a start index, increments according to a given stride, and terminates either at or immediately before a stop index. The stop index can be <code>std::numeric_limits&lt;int64&gt;::max()</code> (increasing sequences) or <code>std::numeric_limits&lt;int64&gt;::min()</code> (decreasing sequences), indicating that the sequence continues until the end of the array.</p>
+<p>The arithmetic sequence represented by a <code>range</code> object starts either at or immediately after a start index, increments according to a given stride, and terminates either at or immediately before a stop index. The stop index is permitted to be the maximum 64-bit signed integer (increasing sequences) or the minimum 64-bit signed integer (decreasing sequences), indicating that the sequence continues until the end of the array.</p>
 <p>A <code>range</code> object is defined using a chain of member function calls, as demonstrated below.</p>
 <div class="fragment"><div class="line"><a class="code" href="classsydevs_1_1range.html#a35344b2e3f597767e078758f64344105">range</a>()                                          <span class="comment">// 0, 1, 2, 3, ...</span></div>
 <div class="line"><a class="code" href="classsydevs_1_1range.html#a35344b2e3f597767e078758f64344105">range</a>().<a class="code" href="classsydevs_1_1range.html#aa4f3d1b67f74fb279152901a83354af2">stop_before</a>(7)                           <span class="comment">// 0, 1, 2, 3, 4, 5, 6</span></div>
@@ -483,7 +483,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesydevs.html">sydevs</a></li><li class="navelem"><a class="el" href="classsydevs_1_1range.html">range</a></li>
-    <li class="footer">Generated on Tue Sep 4 2018 19:19:45 for SyDEVS by
+    <li class="footer">Generated on Thu Sep 13 2018 19:46:03 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -1,7 +1,7 @@
 var searchData=
 [
   ['_7earraynd',['~arraynd',['../classsydevs_1_1arraynd.html#a7599666eecab297e8bbd9700b59684f8',1,'sydevs::arraynd::~arraynd()'],['../classsydevs_1_1arraynd_3_01_t_00_011_01_4.html#a377843a66e3718c265667f0346e5cc4a',1,'sydevs::arraynd&lt; T, 1 &gt;::~arraynd()']]],
-  ['_7earraynd_5fbase',['~arraynd_base',['../classsydevs_1_1arraynd__base.html#aa7c5b4c711088ee86de63372b2b38e16',1,'sydevs::arraynd_base']]],
+  ['_7earraynd_5fbase',['~arraynd_base',['../classsydevs_1_1arraynd__base.html#a95e5005d47d1aa647bab8282304cff16',1,'sydevs::arraynd_base']]],
   ['_7eatomic_5fnode',['~atomic_node',['../classsydevs_1_1systems_1_1atomic__node.html#a7abaa4f8d1408f38416554e4e144d21c',1,'sydevs::systems::atomic_node']]],
   ['_7ecollection_5fnode',['~collection_node',['../classsydevs_1_1systems_1_1collection__node.html#ab80739403b53115d3895e0482753ef16',1,'sydevs::systems::collection_node']]],
   ['_7ecollection_5fnode_5fbase',['~collection_node_base',['../classsydevs_1_1systems_1_1collection__node__base.html#abc778870bb9f72b957d667ea7f134d65',1,'sydevs::systems::collection_node_base']]],
@@ -9,6 +9,7 @@ var searchData=
   ['_7ediscrete_5fevent_5ftime',['~discrete_event_time',['../classsydevs_1_1systems_1_1discrete__event__time.html#a82b68993909563b2ed33fd9252b9d1a5',1,'sydevs::systems::discrete_event_time']]],
   ['_7eflow_5fport_5fproxy',['~flow_port_proxy',['../classsydevs_1_1systems_1_1collection__node_1_1flow__port__proxy.html#a5cf1434a3b8c62b06e08b4d558575d96',1,'sydevs::systems::collection_node::flow_port_proxy']]],
   ['_7efunction_5fnode',['~function_node',['../classsydevs_1_1systems_1_1function__node.html#ab6883b754b02821db4052cb02b1720de',1,'sydevs::systems::function_node']]],
+  ['_7eidentity',['~identity',['../classsydevs_1_1identity.html#a7c81c5741dce8083f52171e2cb8cb98a',1,'sydevs::identity']]],
   ['_7einteractive_5fsystem',['~interactive_system',['../classsydevs_1_1systems_1_1interactive__system.html#a6a7f4f32ec58e722bae81f3f89612b90',1,'sydevs::systems::interactive_system']]],
   ['_7emessage_5fport_5fproxy',['~message_port_proxy',['../classsydevs_1_1systems_1_1collection__node_1_1message__port__proxy.html#aad9b1d0f67f683ccff945f97e0767d19',1,'sydevs::systems::collection_node::message_port_proxy']]],
   ['_7enode_5fcontext',['~node_context',['../classsydevs_1_1systems_1_1node__context.html#ac473ea82d4df36c42b74a98b68c4dc45',1,'sydevs::systems::node_context']]],
