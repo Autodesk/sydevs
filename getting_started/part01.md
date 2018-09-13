@@ -17,12 +17,12 @@ This is the project you will use for the Getting Started tutorial.
 
 Now download and extract a SyDEVS release from [github.com/Autodesk/sydevs/releases](https://github.com/Autodesk/sydevs/releases) (version 0.4.1 or later, recent versions are preferred). Choose a zip file that matches your operating system and C++ compiler. On Windows, prefer archives with the suffix `_All` to those that end with `_Debug` or `_Release`.
 
-In the extracted package should be folder with a name similar to `sydevs-v0.5` (the version number may be different). Copy this folder into `external` folder of your project. The resulting directory structure should be as follows (except possibly with a different version number in the `sydevs-v0.5` folder name). The `core`, `systems` and `time` folders should each contain a number of header files, and the `lib` folder should contain several pre-compiled libraries.
+In the extracted package should be folder with a name similar to `sydevs-v0.6` (the version number may be different). Copy this folder into `external` folder of your project. The resulting directory structure should be as follows (except possibly with a different version number in the `sydevs-v0.6` folder name). The `core`, `systems` and `time` folders should each contain a number of header files, and the `lib` folder should contain several pre-compiled libraries.
 ```
 sydevs-examples/
     bin/
     external/
-        sydevs-v0.5/
+        sydevs-v0.6/
             include/
                 sydevs/
                     core/
@@ -77,7 +77,7 @@ include_directories(src)
 #   SyDEVS
 #
 # ------------------------------------------------------------------------------
-set(SYDEVS_DIR external/sydevs-v0.5)
+set(SYDEVS_DIR external/sydevs-v0.6)
 include_directories(${SYDEVS_DIR}/include)
 link_directories(${SYDEVS_DIR}/lib)
 

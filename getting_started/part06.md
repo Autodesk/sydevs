@@ -3,7 +3,7 @@
 
 Let's extend the `sydevs-examples` project with two existing examples.
 
-1. Return to the [SyDEVS releases](https://github.com/Autodesk/sydevs/releases) page and download `SyDEVS-v0.4_demo-examples.zip` (instead of v0.5, download the version of `demo-examples` that corresponds with the SyDEVS library you selected in [Part 1](part01.html)).
+1. Return to the [SyDEVS releases](https://github.com/Autodesk/sydevs/releases) page and download `SyDEVS-v0.6_demo-examples.zip` (instead of v0.6, download the version of `demo-examples` that corresponds with the SyDEVS library you selected in [Part 1](part01.html)).
 2. Extract the archive, find the folder named `demo` inside, and copy it into your `sydevs-examples/src/examples` directory.
 2. In the `demo/queueing` folder, find `main.cpp` and move it into a new `queueing_simulation` folder within `sydevs-examples/src/simulations`.
 3. In the `demo/building7m` folder, find `main.cpp` and move it into a new `building7m_simulation` folder within `sydevs-examples/src/simulations`.
