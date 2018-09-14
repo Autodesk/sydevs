@@ -153,7 +153,7 @@ The next 3 qualified types are elements of the SyDEVS library. See the [quantity
 
 Some of the qualified types include a template parameter specifying another data type (`T`, `T1`, `T2`). These data types must also be qualified types, with one exception. The exception is `std::shared_ptr<T>`, for which `T` can be any C++ data type. The catch is that `std::shared_ptr<T>` will transfer data by reference instead of performing a deep copy. If a reference is passed between nodes, it may introduce a communication channel that bypasses the nodes' ports. This can lead to bugs.
 
-Any C++ type can be converted into a qualified type by specializing the `qualified_type` trait class. The technique is demonstrated in [data_custom_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/test_systems/data/data_custom_node.h).
+Any C++ type can be turned into a qualified type by specializing the `qualified_type` trait class. The technique is non-invasive in that the original C++ type does not have to be modified. For a demonstration, see [data_custom_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/test_systems/data/data_custom_node.h) where a user-defined class named `foo` is turned into a qualified type by defining the specialization `sydevs::qualified_type<foo>`.
 
 ## State Variables
 
