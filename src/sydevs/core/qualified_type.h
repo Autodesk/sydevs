@@ -3,6 +3,7 @@
 #define SYDEVS_QUALIFIED_TYPE_H_
 
 #include <sydevs/core/pointer.h>
+#include <sydevs/core/quantity.h>
 #include <sydevs/core/identity.h>
 #include <sydevs/core/arraynd.h>
 #include <sydevs/core/string_builder.h>
