@@ -155,6 +155,12 @@ add_custom_command(TARGET building7m POST_BUILD
                    ${PROJECT_SOURCE_DIR}/${BUILDING7M_DIR}/building7m.png
                    $<TARGET_FILE_DIR:building7m>/.)
 
+set(BUILDING7M_ADVANCED_DIR ${DEMO_EXAMPLES_DIR}/building7m_advanced)
+file(GLOB BUILDING7M_ADVANCED_HDRS "${BUILDING7M_ADVANCED_DIR}/*.h")
+aux_source_directory(${BUILDING7M_ADVANCED_DIR} BUILDING7M_ADVANCED_SRCS)
+add_executable(building7m_advanced ${BUILDING7M_ADVANCED_SRCS} ${BUILDING7M_ADVANCED_HDRS})
+target_link_libraries(building7m_advanced SyDEVS-static)
+
 set(QUEUEING_DIR ${DEMO_EXAMPLES_DIR}/queueing)
 file(GLOB QUEUEING_HDRS "${QUEUEING_DIR}/*.h")
 aux_source_directory(${QUEUEING_DIR} QUEUEING_SRCS)
