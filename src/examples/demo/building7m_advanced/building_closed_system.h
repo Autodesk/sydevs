@@ -35,7 +35,6 @@ public:
     initial_position_node initial_position;
     building_dynamics_node building_dynamics;
     building_vis_node building_vis;
-    statistic_node<thermodynamic_temperature> average_temperature;
 };
 
 
@@ -52,7 +51,6 @@ building_closed_system::building_closed_system(const std::string& node_name, con
     , initial_position("initial_position", internal_context())
     , building_dynamics("building_dynamics", internal_context())
     , building_vis("building_vis", internal_context())
-    , average_temperature("average_temperature", internal_context())
 {
     // Initialization Links
     inner_link(frame_duration.parameter, building_vis.frame_duration_input);
@@ -72,7 +70,6 @@ building_closed_system::building_closed_system(const std::string& node_name, con
     inner_link(building_dynamics.occupant_position_output, building_vis.occupant_position_input);
 
     // Finalization Links
-    inner_link(building_dynamics.average_temperature_output, average_temperature.statistic);
 }
 
 

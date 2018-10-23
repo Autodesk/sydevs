@@ -2,6 +2,7 @@
 #ifndef SYDEVS_EXAMPLES_ADVANCED_BUILDING_OCCUPANT_NODE_H_
 #define SYDEVS_EXAMPLES_ADVANCED_BUILDING_OCCUPANT_NODE_H_
 
+#include <examples/demo/building7m_advanced/building_occupant_ids.h>
 #include <examples/demo/building7m_advanced/building_layout_codes.h>
 #include <sydevs/systems/atomic_node.h>
 
@@ -26,9 +27,8 @@ public:
     port<flow, input, std::pair<array2d<int64>, distance>> building_layout_input;
     port<flow, input, array1d<int64>> initial_position_input;
     port<flow, input, quantity<decltype(_m/_s)>> walking_speed_input;
-    port<message, input, thermodynamic_temperature> occupant_temperature_input;
-    port<message, output, array1d<int64>> occupant_position_output;
-    port<flow, output, thermodynamic_temperature> average_temperature_output;
+    port<message, input, std::pair<occupant_id, thermodynamic_temperature>> occupant_temperature_input;
+    port<message, output, std::pair<occupant_id, array1d<int64>>> occupant_position_output;
 
 protected:
     // State Variables:
@@ -40,8 +40,6 @@ protected:
     array1d<int64> pos;                       // occupant position
     array1d<int64> dest_pos;                  // destination occupant position
     quantity<decltype(_m/_s)> walking_speed;  // occupant walking speed
-    quantity<decltype(_K*_s)> cummulative_T;  // cummulative occupant temperature times time
-    duration cummulative_dt;                  // cummulative duration elapsed 
     duration planned_dt;                      // duration until the next position change
 
     // Event Handlers:
@@ -63,7 +61,6 @@ inline occupant_node::occupant_node(const std::string& node_name, const node_con
     , walking_speed_input("walking_speed_input", external_interface())
     , occupant_temperature_input("occupant_temperature_input", external_interface())
     , occupant_position_output("occupant_position_output", external_interface())
-    , average_temperature_output("average_temperature_output", external_interface())
 {
 }
 
@@ -78,21 +75,15 @@ inline duration occupant_node::initialization_event()
     pos = initial_position_input.value();
     dest_pos = pos;
     walking_speed = walking_speed_input.value();
-    cummulative_T = (0_K*_s).fixed_at(unit);
-    cummulative_dt = (0_s).fixed_at(micro);
     planned_dt = 0_s;
-    print(cummulative_T);
-    print(cummulative_dt);
     return planned_dt;
 }
 
 
 inline duration occupant_node::unplanned_event(duration elapsed_dt)
 {
-    cummulative_T += elapsed_dt*T;
-    cummulative_dt += elapsed_dt.fixed_at(micro);
     if (occupant_temperature_input.received()) {
-        T = occupant_temperature_input.value();
+        T = occupant_temperature_input.value().second;
     }
     planned_dt -= elapsed_dt;
     return planned_dt;
@@ -101,12 +92,9 @@ inline duration occupant_node::unplanned_event(duration elapsed_dt)
 
 inline duration occupant_node::planned_event(duration elapsed_dt)
 {
-    cummulative_T += elapsed_dt*T;
-    cummulative_dt += elapsed_dt.fixed_at(micro);
-
     // Update current position.
     pos = dest_pos;
-    occupant_position_output.send(pos);
+    occupant_position_output.send(std::make_pair(occupant_id(0), pos));
 
     // Determine potential destination and travel time.
     array1d<int64> delta = sample_position_change();               // random change in position
@@ -130,10 +118,6 @@ inline duration occupant_node::planned_event(duration elapsed_dt)
 
 inline void occupant_node::finalization_event(duration elapsed_dt)
 {
-    cummulative_T += elapsed_dt*T;
-    cummulative_dt += elapsed_dt.fixed_at(micro);
-    thermodynamic_temperature average_T = (cummulative_T/cummulative_dt).fixed_at(milli);
-    average_temperature_output.assign(average_T);
 }
 
 

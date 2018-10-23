@@ -2,6 +2,7 @@
 #ifndef SYDEVS_EXAMPLES_ADVANCED_BUILDING_COMFORT_NODE_H_
 #define SYDEVS_EXAMPLES_ADVANCED_BUILDING_COMFORT_NODE_H_
 
+#include <examples/demo/building7m_advanced/building_occupant_ids.h>
 #include <sydevs/systems/atomic_node.h>
 
 namespace sydevs_examples {
@@ -23,8 +24,8 @@ public:
     // Ports:
     port<flow, input, thermodynamic_temperature> initial_temperature_input;
     port<message, input, array2d<thermodynamic_temperature>> temperature_field_input;
-    port<message, input, array1d<int64>> occupant_position_input;
-    port<message, output, thermodynamic_temperature> occupant_temperature_output;
+    port<message, input, std::pair<occupant_id, array1d<int64>>> occupant_position_input;
+    port<message, output, std::pair<occupant_id, thermodynamic_temperature>> occupant_temperature_output;
  
 protected:
     // State Variables:
@@ -70,7 +71,7 @@ inline duration comfort_node::unplanned_event(duration elapsed_dt)
         }
     }
     else if (occupant_position_input.received()) {
-        pos = occupant_position_input.value();
+        pos = occupant_position_input.value().second;
         if (!TF.empty()) {
             curr_T = TF(pos);
         }
@@ -81,7 +82,7 @@ inline duration comfort_node::unplanned_event(duration elapsed_dt)
 
 inline duration comfort_node::planned_event(duration elapsed_dt)
 {
-    occupant_temperature_output.send(curr_T);
+    occupant_temperature_output.send(std::make_pair(occupant_id(0), curr_T));
     prev_T = curr_T;
     return duration::inf();
 }

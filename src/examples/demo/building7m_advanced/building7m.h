@@ -22,9 +22,6 @@ void building7m()
         //sim.top.initial_temperature.parameter.print_on_use();
         //sim.top.building_dynamics.weather.outdoor_temperature_output.print_on_use();
         sim.process_remaining_events();
-        average_T = sim.top.average_temperature.value();
-        float64 average_T_deg_C = (average_T - 273150_mK)/1_K;
-        std::cout << "Average Occupant Temperature: " << average_T_deg_C << " deg. Celsius";
     }
     catch (const system_node::error& e) {
         std::cout << "SYSTEM NODE ERROR: " << e.what() << std::endl;

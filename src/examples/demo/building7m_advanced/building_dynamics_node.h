@@ -32,8 +32,7 @@ public:
     port<flow, input, array1d<int64>> initial_position_input;
     port<flow, input, quantity<decltype(_m/_s)>> walking_speed_input;
     port<message, output, array2d<thermodynamic_temperature>> temperature_field_output;
-    port<message, output, array1d<int64>> occupant_position_output;
-    port<flow, output, thermodynamic_temperature> average_temperature_output;
+    port<message, output, std::pair<occupant_id, array1d<int64>>> occupant_position_output;
 
     // Components:
     weather_node weather;
@@ -56,7 +55,6 @@ building_dynamics_node::building_dynamics_node(const std::string& node_name, con
     , walking_speed_input("walking_speed_input", external_interface())
     , temperature_field_output("temperature_field_output", external_interface())
     , occupant_position_output("occupant_position_output", external_interface())
-    , average_temperature_output("average_temperature_output", external_interface())
     , weather("weather", internal_context())
     , thermodynamics("thermodynamics", internal_context())
     , comfort("comfort", internal_context())
@@ -85,8 +83,7 @@ building_dynamics_node::building_dynamics_node(const std::string& node_name, con
     outward_link(thermodynamics.temperature_field_output, temperature_field_output);
     outward_link(occupant.occupant_position_output, occupant_position_output);
 
-    // Flow Output Links
-    outward_link(occupant.average_temperature_output, average_temperature_output);
+    // Finalization Links
 }
 
 

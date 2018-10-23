@@ -2,6 +2,7 @@
 #ifndef SYDEVS_EXAMPLES_ADVANCED_BUILDING_VIS_NODE_H_
 #define SYDEVS_EXAMPLES_ADVANCED_BUILDING_VIS_NODE_H_
 
+#include <examples/demo/building7m_advanced/building_occupant_ids.h>
 #include <sydevs/systems/atomic_node.h>
 #include <iostream>
 
@@ -24,7 +25,7 @@ public:
     // Ports:
     port<flow, input, duration> frame_duration_input;
     port<message, input, array2d<thermodynamic_temperature>> temperature_field_input;
-    port<message, input, array1d<int64>> occupant_position_input;
+    port<message, input, std::pair<occupant_id, array1d<int64>>> occupant_position_input;
 
 protected:
     // State Variables:
@@ -66,7 +67,7 @@ inline duration building_vis_node::unplanned_event(duration elapsed_dt)
         TF = temperature_field_input.value();
     }
     else if (occupant_position_input.received()) {
-        pos = occupant_position_input.value();
+        pos = occupant_position_input.value().second;
     }
     planned_dt -= elapsed_dt;
     return planned_dt;
