@@ -3,7 +3,7 @@
 #define SYDEVS_EXAMPLES_ADVANCED_BUILDING_CLOSED_SYSTEM_H_
 
 #include <examples/demo/building7m_advanced/building_info_node.h>
-#include <examples/demo/building7m_advanced/initial_position_node.h>
+#include <examples/demo/building7m_advanced/initial_positions_node.h>
 #include <examples/demo/building7m_advanced/building_dynamics_node.h>
 #include <examples/demo/building7m_advanced/building_vis_node.h>
 #include <sydevs/systems/composite_node.h>
@@ -32,7 +32,7 @@ public:
     parameter_node<quantity<decltype(_K/_s)>> initial_temperature_rate;
     parameter_node<quantity<decltype(_m/_s)>> walking_speed;
     building_info_node building_info;
-    initial_position_node initial_position;
+    initial_positions_node initial_positions;
     building_dynamics_node building_dynamics;
     building_vis_node building_vis;
 };
@@ -48,7 +48,7 @@ building_closed_system::building_closed_system(const std::string& node_name, con
     , initial_temperature_rate("initial_temperature_rate", internal_context(), 200_mK/_s)
     , walking_speed("walking_speed", internal_context(), 1400_mm/_s)
     , building_info("building_info", internal_context())
-    , initial_position("initial_position", internal_context())
+    , initial_positions("initial_positions", internal_context())
     , building_dynamics("building_dynamics", internal_context())
     , building_vis("building_vis", internal_context())
 {
@@ -60,9 +60,9 @@ building_closed_system::building_closed_system(const std::string& node_name, con
     inner_link(initial_temperature.parameter, building_dynamics.initial_temperature_input);
     inner_link(initial_temperature_rate.parameter, building_dynamics.initial_temperature_rate_input);
     inner_link(building_info.building_layout_output, building_dynamics.building_layout_input);
-    inner_link(building_info.building_layout_output, initial_position.building_layout_input);
+    inner_link(building_info.building_layout_output, initial_positions.building_layout_input);
     inner_link(building_info.wall_resistance_output, building_dynamics.wall_resistance_input);
-    inner_link(initial_position.initial_position_output, building_dynamics.initial_position_input);
+    inner_link(initial_positions.initial_positions_output, building_dynamics.initial_positions_input);
     inner_link(walking_speed.parameter, building_dynamics.walking_speed_input);
 
     // Simulation Links

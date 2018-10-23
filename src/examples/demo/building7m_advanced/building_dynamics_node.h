@@ -29,7 +29,7 @@ public:
     port<flow, input, quantity<decltype(_K/_s)>> initial_temperature_rate_input;
     port<flow, input, std::pair<array2d<int64>, distance>> building_layout_input;
     port<flow, input, float64> wall_resistance_input;
-    port<flow, input, array1d<int64>> initial_position_input;
+    port<flow, input, std::map<occupant_id, array1d<int64>>> initial_positions_input;
     port<flow, input, quantity<decltype(_m/_s)>> walking_speed_input;
     port<message, output, array2d<thermodynamic_temperature>> temperature_field_output;
     port<message, output, std::pair<occupant_id, array1d<int64>>> occupant_position_output;
@@ -51,7 +51,7 @@ building_dynamics_node::building_dynamics_node(const std::string& node_name, con
     , initial_temperature_rate_input("initial_temperature_rate_input", external_interface())
     , building_layout_input("building_layout_input", external_interface())
     , wall_resistance_input("wall_resistance_input", external_interface())
-    , initial_position_input("initial_position_input", external_interface())
+    , initial_positions_input("initial_positions_input", external_interface())
     , walking_speed_input("walking_speed_input", external_interface())
     , temperature_field_output("temperature_field_output", external_interface())
     , occupant_position_output("occupant_position_output", external_interface())
@@ -72,7 +72,7 @@ building_dynamics_node::building_dynamics_node(const std::string& node_name, con
     inward_link(building_layout_input, thermodynamics.building_layout_input);
     inward_link(building_layout_input, occupant.building_layout_input);
     inward_link(wall_resistance_input, thermodynamics.wall_resistance_input);
-    inward_link(initial_position_input, occupant.initial_position_input);
+    inward_link(initial_positions_input, occupant.initial_positions_input);
     inward_link(walking_speed_input, occupant.walking_speed_input);
 
     // Message Links

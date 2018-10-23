@@ -25,22 +25,22 @@ public:
     // Ports:
     port<flow, input, thermodynamic_temperature> initial_temperature_input;
     port<flow, input, std::pair<array2d<int64>, distance>> building_layout_input;
-    port<flow, input, array1d<int64>> initial_position_input;
+    port<flow, input, std::map<occupant_id, array1d<int64>>> initial_positions_input;
     port<flow, input, quantity<decltype(_m/_s)>> walking_speed_input;
     port<message, input, std::pair<occupant_id, thermodynamic_temperature>> occupant_temperature_input;
     port<message, output, std::pair<occupant_id, array1d<int64>>> occupant_position_output;
 
 protected:
     // State Variables:
-    array2d<int64> L;                         // building layout
-    int64 nx;                                 // number of cells in the x dimension
-    int64 ny;                                 // number of cells in the y dimension
-    distance d;                               // distance between cells
-    thermodynamic_temperature T;              // occupant temperature
-    array1d<int64> pos;                       // occupant position
-    array1d<int64> dest_pos;                  // destination occupant position
-    quantity<decltype(_m/_s)> walking_speed;  // occupant walking speed
-    duration planned_dt;                      // duration until the next position change
+    array2d<int64> L;                                      // building layout
+    int64 nx;                                              // number of cells in the x dimension
+    int64 ny;                                              // number of cells in the y dimension
+    distance d;                                            // distance between cells
+    thermodynamic_temperature T;                           // occupant temperature
+    std::map<occupant_id, array1d<int64>> positions;       // occupant position
+    std::map<occupant_id, array1d<int64>> dest_positions;  // destination occupant position
+    quantity<decltype(_m/_s)> walking_speed;               // occupant walking speed
+    duration planned_dt;                                   // duration until the next position change
 
     // Event Handlers:
     virtual duration initialization_event();
@@ -57,7 +57,7 @@ inline occupant_node::occupant_node(const std::string& node_name, const node_con
     : atomic_node(node_name, external_context)
     , initial_temperature_input("initial_temperature_input", external_interface())
     , building_layout_input("building_layout_input", external_interface())
-    , initial_position_input("initial_position_input", external_interface())
+    , initial_positions_input("initial_positions_input", external_interface())
     , walking_speed_input("walking_speed_input", external_interface())
     , occupant_temperature_input("occupant_temperature_input", external_interface())
     , occupant_position_output("occupant_position_output", external_interface())
@@ -72,8 +72,8 @@ inline duration occupant_node::initialization_event()
     ny = L.dims()[1];
     d = building_layout_input.value().second;
     T = initial_temperature_input.value();
-    pos = initial_position_input.value();
-    dest_pos = pos;
+    positions = initial_positions_input.value();
+    dest_positions = positions;
     walking_speed = walking_speed_input.value();
     planned_dt = 0_s;
     return planned_dt;
@@ -93,23 +93,26 @@ inline duration occupant_node::unplanned_event(duration elapsed_dt)
 inline duration occupant_node::planned_event(duration elapsed_dt)
 {
     // Update current position.
-    pos = dest_pos;
-    occupant_position_output.send(std::make_pair(occupant_id(0), pos));
+    positions = dest_positions;
+    occupant_position_output.send(std::make_pair(occupant_id(0), positions[occupant_id(0)]));
 
     // Determine potential destination and travel time.
-    array1d<int64> delta = sample_position_change();               // random change in position
-    dest_pos = pos + delta;                                        // potential destination
-    distance r = d*sqrt(std::abs(delta(0)) + std::abs(delta(1)));  // distance to potential destination
-    planned_dt = (r/walking_speed).fixed_at(time_precision());     // time before arrival at destination
+    array1d<int64> delta = sample_position_change();                     // random change in position
+    dest_positions[occupant_id(0)] = positions[occupant_id(0)] + delta;  // potential destination
+    distance r = d*sqrt(std::abs(delta(0)) + std::abs(delta(1)));        // distance to potential destination
+    planned_dt = (r/walking_speed).fixed_at(time_precision());           // time before arrival at destination
 
     // Ensure that the destination is valid.
-    if (dest_pos(0) <= -1 || dest_pos(0) >= nx || dest_pos(1) <= -1 || dest_pos(1) >= ny) {
+    if (dest_positions[occupant_id(0)](0) <= -1 || 
+        dest_positions[occupant_id(0)](0) >= nx || 
+        dest_positions[occupant_id(0)](1) <= -1 || 
+        dest_positions[occupant_id(0)](1) >= ny) {
         // dest_pos is off the grid, so remain stationary.
-        dest_pos = pos;
+        dest_positions[occupant_id(0)] = positions[occupant_id(0)];
     }
-    else if (L(dest_pos) == wall_code) {
+    else if (L(dest_positions[occupant_id(0)]) == wall_code) {
         // dest_pos is in a wall, so remain stationary.
-        dest_pos = pos;
+        dest_positions[occupant_id(0)] = positions[occupant_id(0)];
     }
 
     return planned_dt;

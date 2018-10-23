@@ -2,6 +2,7 @@
 #ifndef SYDEVS_EXAMPLES_ADVANCED_BUILDING_INITIAL_POSITION_NODE_H_
 #define SYDEVS_EXAMPLES_ADVANCED_BUILDING_INITIAL_POSITION_NODE_H_
 
+#include <examples/demo/building7m_advanced/building_occupant_ids.h>
 #include <sydevs/systems/function_node.h>
 
 namespace sydevs_examples {
@@ -10,16 +11,16 @@ using namespace sydevs;
 using namespace sydevs::systems;
 
 
-class initial_position_node : public function_node
+class initial_positions_node : public function_node
 {
 public:
     // Constructor/Destructor:
-    initial_position_node(const std::string& node_name, const node_context& external_context);
-    virtual ~initial_position_node() = default;
+    initial_positions_node(const std::string& node_name, const node_context& external_context);
+    virtual ~initial_positions_node() = default;
 
     // Ports:
     port<flow, input, std::pair<array2d<int64>, distance>> building_layout_input;
-    port<flow, output, array1d<int64>> initial_position_output;
+    port<flow, output, std::map<occupant_id, array1d<int64>>> initial_positions_output;
 
 private:
     // Event Handlers:
@@ -27,15 +28,15 @@ private:
 };
 
 
-inline initial_position_node::initial_position_node(const std::string& node_name, const node_context& external_context)
+inline initial_positions_node::initial_positions_node(const std::string& node_name, const node_context& external_context)
     : function_node(node_name, external_context)
     , building_layout_input("building_layout_input", external_interface())
-    , initial_position_output("initial_position_output", external_interface())
+    , initial_positions_output("initial_positions_output", external_interface())
 {
 }
 
 
-inline void initial_position_node::flow_event()
+inline void initial_positions_node::flow_event()
 {
     array2d<int64> L = building_layout_input.value().first;
     int64 nx = L.dims()[0];
@@ -55,7 +56,9 @@ inline void initial_position_node::flow_event()
     if (!done) {
         throw std::domain_error("The building has no indoor space.");
     }
-    initial_position_output.assign(pos);
+    std::map<occupant_id, array1d<int64>> positions;
+    positions[occupant_id(0)] = pos;
+    initial_positions_output.assign(positions);
 }
 
 
