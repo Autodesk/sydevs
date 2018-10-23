@@ -22,7 +22,11 @@ public:
     virtual ~building_dynamics_node() = default;
 
     // Ports:
+    port<flow, input, thermodynamic_temperature> outdoor_mean_temperature_input;
+    port<flow, input, duration> outdoor_temperature_period_input;
+    port<flow, input, duration> outdoor_temperature_time_step_input;
     port<flow, input, thermodynamic_temperature> initial_temperature_input;
+    port<flow, input, quantity<decltype(_K/_s)>> initial_temperature_rate_input;
     port<flow, input, std::pair<array2d<int64>, distance>> building_layout_input;
     port<flow, input, float64> wall_resistance_input;
     port<flow, input, array1d<int64>> initial_position_input;
@@ -41,7 +45,11 @@ public:
 
 building_dynamics_node::building_dynamics_node(const std::string& node_name, const node_context& external_context)
     : composite_node(node_name, external_context)
+    , outdoor_mean_temperature_input("outdoor_mean_temperature_input", external_interface())
+    , outdoor_temperature_period_input("outdoor_temperature_period_input", external_interface())
+    , outdoor_temperature_time_step_input("outdoor_temperature_time_step_input", external_interface())
     , initial_temperature_input("initial_temperature_input", external_interface())
+    , initial_temperature_rate_input("initial_temperature_rate_input", external_interface())
     , building_layout_input("building_layout_input", external_interface())
     , wall_resistance_input("wall_resistance_input", external_interface())
     , initial_position_input("initial_position_input", external_interface())
@@ -55,10 +63,14 @@ building_dynamics_node::building_dynamics_node(const std::string& node_name, con
     , occupant("occupant", internal_context())
 {
     // Flow Input Links
+    inward_link(outdoor_mean_temperature_input, weather.outdoor_mean_temperature_input);
+    inward_link(outdoor_temperature_period_input, weather.outdoor_temperature_period_input);
+    inward_link(outdoor_temperature_time_step_input, weather.outdoor_temperature_time_step_input);
     inward_link(initial_temperature_input, weather.initial_temperature_input);
     inward_link(initial_temperature_input, thermodynamics.initial_temperature_input);
     inward_link(initial_temperature_input, comfort.initial_temperature_input);
     inward_link(initial_temperature_input, occupant.initial_temperature_input);
+    inward_link(initial_temperature_rate_input, weather.initial_temperature_rate_input);
     inward_link(building_layout_input, thermodynamics.building_layout_input);
     inward_link(building_layout_input, occupant.building_layout_input);
     inward_link(wall_resistance_input, thermodynamics.wall_resistance_input);

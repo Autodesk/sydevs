@@ -25,7 +25,11 @@ public:
 
     // Components:
     parameter_node<duration> frame_duration;
+    parameter_node<thermodynamic_temperature> outdoor_mean_temperature;
+    parameter_node<duration> outdoor_temperature_period;
+    parameter_node<duration> outdoor_temperature_time_step;
     parameter_node<thermodynamic_temperature> initial_temperature;
+    parameter_node<quantity<decltype(_K/_s)>> initial_temperature_rate;
     parameter_node<quantity<decltype(_m/_s)>> walking_speed;
     building_info_node building_info;
     initial_position_node initial_position;
@@ -38,7 +42,11 @@ public:
 building_closed_system::building_closed_system(const std::string& node_name, const node_context& external_context)
     : composite_node(node_name, external_context)
     , frame_duration("frame_duration", internal_context(), 30_s)
+    , outdoor_mean_temperature("outdoor_mean_temperature", internal_context(), 293150_mK)
+    , outdoor_temperature_period("outdoor_temperature_period", internal_context(), 5_min)
+    , outdoor_temperature_time_step("outdoor_temperature_time_step", internal_context(), 15_s)
     , initial_temperature("initial_temperature", internal_context(), 293150_mK)
+    , initial_temperature_rate("initial_temperature_rate", internal_context(), 200_mK/_s)
     , walking_speed("walking_speed", internal_context(), 1400_mm/_s)
     , building_info("building_info", internal_context())
     , initial_position("initial_position", internal_context())
@@ -48,7 +56,11 @@ building_closed_system::building_closed_system(const std::string& node_name, con
 {
     // Initialization Links
     inner_link(frame_duration.parameter, building_vis.frame_duration_input);
+    inner_link(outdoor_mean_temperature.parameter, building_dynamics.outdoor_mean_temperature_input);
+    inner_link(outdoor_temperature_period.parameter, building_dynamics.outdoor_temperature_period_input);
+    inner_link(outdoor_temperature_time_step.parameter, building_dynamics.outdoor_temperature_time_step_input);
     inner_link(initial_temperature.parameter, building_dynamics.initial_temperature_input);
+    inner_link(initial_temperature_rate.parameter, building_dynamics.initial_temperature_rate_input);
     inner_link(building_info.building_layout_output, building_dynamics.building_layout_input);
     inner_link(building_info.building_layout_output, initial_position.building_layout_input);
     inner_link(building_info.wall_resistance_output, building_dynamics.wall_resistance_input);
