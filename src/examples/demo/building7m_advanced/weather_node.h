@@ -33,11 +33,11 @@ protected:
     thermodynamic_temperature mean_T;            // mean outdoor temperature
     duration period_dt;                          // duration of full outdoor temperature cycle
     quantity<decltype(_1/_s/_s)> omega_squared;  // angular frequency of outdoor temperature fluctuation, squared
+    duration step_dt;                            // time step
     thermodynamic_temperature T0;                // initial outdoor temperature
     quantity<decltype(_K/_s)> rate0;             // initial rate of change in outdoor temperature
     thermodynamic_temperature T;                 // outdoor temperature
     quantity<decltype(_K/_s)> rate;              // rate of change in outdoor temperature
-    duration step_dt;                            // time step
 
     // Event Handlers:
     virtual duration initialization_event();

@@ -19,7 +19,8 @@ void building7m()
         simulation<building_closed_system> sim(5_min, 0, std::cout);
         sim.top.initial_temperature.set_value(294150_mK);
         sim.top.initial_temperature_rate.set_value(50_mK/_s);
-        //sim.top.initial_temperature.parameter.print_on_use();
+        sim.top.occupant_count.parameter.print_on_use();
+        sim.top.initial_positions.initial_positions_output.print_on_use();
         //sim.top.building_dynamics.weather.outdoor_temperature_output.print_on_use();
         sim.process_remaining_events();
     }

@@ -31,6 +31,7 @@ public:
     parameter_node<thermodynamic_temperature> initial_temperature;
     parameter_node<quantity<decltype(_K/_s)>> initial_temperature_rate;
     parameter_node<quantity<decltype(_m/_s)>> walking_speed;
+    parameter_node<int64> occupant_count;
     building_info_node building_info;
     initial_positions_node initial_positions;
     building_dynamics_node building_dynamics;
@@ -47,6 +48,7 @@ building_closed_system::building_closed_system(const std::string& node_name, con
     , initial_temperature("initial_temperature", internal_context(), 293150_mK)
     , initial_temperature_rate("initial_temperature_rate", internal_context(), 200_mK/_s)
     , walking_speed("walking_speed", internal_context(), 1400_mm/_s)
+    , occupant_count("occupant_count", internal_context(), 5)
     , building_info("building_info", internal_context())
     , initial_positions("initial_positions", internal_context())
     , building_dynamics("building_dynamics", internal_context())
@@ -59,11 +61,12 @@ building_closed_system::building_closed_system(const std::string& node_name, con
     inner_link(outdoor_temperature_time_step.parameter, building_dynamics.outdoor_temperature_time_step_input);
     inner_link(initial_temperature.parameter, building_dynamics.initial_temperature_input);
     inner_link(initial_temperature_rate.parameter, building_dynamics.initial_temperature_rate_input);
+    inner_link(walking_speed.parameter, building_dynamics.walking_speed_input);
+    inner_link(occupant_count.parameter, initial_positions.occupant_count_input);
     inner_link(building_info.building_layout_output, building_dynamics.building_layout_input);
     inner_link(building_info.building_layout_output, initial_positions.building_layout_input);
     inner_link(building_info.wall_resistance_output, building_dynamics.wall_resistance_input);
     inner_link(initial_positions.initial_positions_output, building_dynamics.initial_positions_input);
-    inner_link(walking_speed.parameter, building_dynamics.walking_speed_input);
 
     // Simulation Links
     inner_link(building_dynamics.temperature_field_output, building_vis.temperature_field_input);

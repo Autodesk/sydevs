@@ -23,10 +23,10 @@ public:
     virtual scale time_precision() const { return nano; }
 
     // Ports:
-    port<flow, input, thermodynamic_temperature> initial_temperature_input;
     port<flow, input, std::pair<array2d<int64>, distance>> building_layout_input;
-    port<flow, input, std::map<occupant_id, array1d<int64>>> initial_positions_input;
     port<flow, input, quantity<decltype(_m/_s)>> walking_speed_input;
+    port<flow, input, thermodynamic_temperature> initial_temperature_input;
+    port<flow, input, std::map<occupant_id, array1d<int64>>> initial_positions_input;
     port<message, input, std::pair<occupant_id, thermodynamic_temperature>> occupant_temperature_input;
     port<message, output, std::pair<occupant_id, array1d<int64>>> occupant_position_output;
 
@@ -36,10 +36,10 @@ protected:
     int64 nx;                                              // number of cells in the x dimension
     int64 ny;                                              // number of cells in the y dimension
     distance d;                                            // distance between cells
-    thermodynamic_temperature T;                           // occupant temperature
-    std::map<occupant_id, array1d<int64>> positions;       // occupant position
-    std::map<occupant_id, array1d<int64>> dest_positions;  // destination occupant position
-    quantity<decltype(_m/_s)> walking_speed;               // occupant walking speed
+    duration step_dt;                                      // time_step
+    std::map<occupant_id, thermodynamic_temperature> OT;   // occupant temperatures
+    std::map<occupant_id, array1d<int64>> OP;              // occupant positions
+    std::map<occupant_id, array1d<int64>> next_OP;         // next_occupant positions
     duration planned_dt;                                   // duration until the next position change
 
     // Event Handlers:
@@ -55,10 +55,10 @@ protected:
 
 inline occupant_node::occupant_node(const std::string& node_name, const node_context& external_context)
     : atomic_node(node_name, external_context)
-    , initial_temperature_input("initial_temperature_input", external_interface())
     , building_layout_input("building_layout_input", external_interface())
-    , initial_positions_input("initial_positions_input", external_interface())
     , walking_speed_input("walking_speed_input", external_interface())
+    , initial_temperature_input("initial_temperature_input", external_interface())
+    , initial_positions_input("initial_positions_input", external_interface())
     , occupant_temperature_input("occupant_temperature_input", external_interface())
     , occupant_position_output("occupant_position_output", external_interface())
 {
@@ -71,10 +71,15 @@ inline duration occupant_node::initialization_event()
     nx = L.dims()[0];
     ny = L.dims()[1];
     d = building_layout_input.value().second;
-    T = initial_temperature_input.value();
-    positions = initial_positions_input.value();
-    dest_positions = positions;
-    walking_speed = walking_speed_input.value();
+    auto walking_speed = walking_speed_input.value();
+    step_dt = (d/walking_speed).fixed_at(time_precision());
+    thermodynamic_temperature T0 = initial_temperature_input.value();
+    OP = initial_positions_input.value();
+    next_OP = OP;
+    for (auto occ_pos : OP) {
+        auto occ_id = occ_pos.first;
+        OT[occ_id] = T0;
+    }
     planned_dt = 0_s;
     return planned_dt;
 }
@@ -83,7 +88,10 @@ inline duration occupant_node::initialization_event()
 inline duration occupant_node::unplanned_event(duration elapsed_dt)
 {
     if (occupant_temperature_input.received()) {
-        T = occupant_temperature_input.value().second;
+        const std::pair<occupant_id, thermodynamic_temperature>& occ_T = occupant_temperature_input.value();
+        auto occ_id = occ_T.first;
+        auto T = occ_T.second;
+        OT[occ_id] = T;
     }
     planned_dt -= elapsed_dt;
     return planned_dt;
@@ -93,28 +101,17 @@ inline duration occupant_node::unplanned_event(duration elapsed_dt)
 inline duration occupant_node::planned_event(duration elapsed_dt)
 {
     // Update current position.
-    positions = dest_positions;
-    occupant_position_output.send(std::make_pair(occupant_id(0), positions[occupant_id(0)]));
-
-    // Determine potential destination and travel time.
-    array1d<int64> delta = sample_position_change();                     // random change in position
-    dest_positions[occupant_id(0)] = positions[occupant_id(0)] + delta;  // potential destination
-    distance r = d*sqrt(std::abs(delta(0)) + std::abs(delta(1)));        // distance to potential destination
-    planned_dt = (r/walking_speed).fixed_at(time_precision());           // time before arrival at destination
-
-    // Ensure that the destination is valid.
-    if (dest_positions[occupant_id(0)](0) <= -1 || 
-        dest_positions[occupant_id(0)](0) >= nx || 
-        dest_positions[occupant_id(0)](1) <= -1 || 
-        dest_positions[occupant_id(0)](1) >= ny) {
-        // dest_pos is off the grid, so remain stationary.
-        dest_positions[occupant_id(0)] = positions[occupant_id(0)];
+    OP = next_OP;
+    for (auto occ_pos : OP) {
+        auto occ_id = occ_pos.first;
+        auto pos = occ_pos.second;
+        occupant_position_output.send(std::make_pair(occ_id, pos));
+        auto next_pos = pos + sample_position_change();
+        if (L(next_pos) == indoor_code) {
+            next_OP[occ_id] = next_pos;
+        }
     }
-    else if (L(dest_positions[occupant_id(0)]) == wall_code) {
-        // dest_pos is in a wall, so remain stationary.
-        dest_positions[occupant_id(0)] = positions[occupant_id(0)];
-    }
-
+    planned_dt = step_dt;
     return planned_dt;
 }
 

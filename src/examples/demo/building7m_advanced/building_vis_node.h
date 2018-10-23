@@ -29,10 +29,10 @@ public:
 
 protected:
     // State Variables:
-    duration frame_dt;                      // duration of simulated time between successive frames
-    array2d<thermodynamic_temperature> TF;  // temperature field
-    array1d<int64> pos;                     // occupant position
-    duration planned_dt;                    // planned duration
+    duration frame_dt;                         // duration of simulated time between successive frames
+    array2d<thermodynamic_temperature> TF;     // temperature field
+    std::map<occupant_id, array1d<int64>> OP;  // occupant positions
+    duration planned_dt;                       // planned duration
 
     // Event Handlers:
     virtual duration initialization_event();
@@ -55,7 +55,7 @@ inline duration building_vis_node::initialization_event()
 {
     frame_dt = frame_duration_input.value();
     TF = array2d<thermodynamic_temperature>();
-    pos = array1d<int64>({2}, {-1, -1});
+    OP = std::map<occupant_id, array1d<int64>>();
     planned_dt = 0_s;
     return planned_dt;
 }
@@ -67,7 +67,10 @@ inline duration building_vis_node::unplanned_event(duration elapsed_dt)
         TF = temperature_field_input.value();
     }
     else if (occupant_position_input.received()) {
-        pos = occupant_position_input.value().second;
+        const std::pair<occupant_id, array1d<int64>>& occ_pos = occupant_position_input.value();
+        auto occ_id = occ_pos.first;
+        auto pos = occ_pos.second;
+        OP[occ_id] = pos;
     }
     planned_dt -= elapsed_dt;
     return planned_dt;
@@ -76,6 +79,7 @@ inline duration building_vis_node::unplanned_event(duration elapsed_dt)
 
 inline duration building_vis_node::planned_event(duration elapsed_dt)
 {
+    print(OP);
     // Print grid if the frame rate is finite and the temperature field is not empty.
     if (frame_dt.finite() && !TF.empty()) {
         int64 nx = TF.dims()[0];
@@ -84,7 +88,12 @@ inline duration building_vis_node::planned_event(duration elapsed_dt)
         for (int64 iy = ny - 1; iy >= 0; --iy) {
             std::string line("|");
             for (int64 ix = 0; ix < nx; ++ix) {
-                if (pos(0) == ix && pos(1) == iy) {
+                bool occupied = false;
+                for (auto occ_pos = std::begin(OP); !occupied && occ_pos != std::end(OP); ++occ_pos) {
+                    const auto& pos = occ_pos->second;
+                    occupied = (pos(0) == ix && pos(1) == iy);
+                }
+                if (occupied) {
                     line += "  ";
                 }
                 else {
@@ -97,7 +106,6 @@ inline duration building_vis_node::planned_event(duration elapsed_dt)
         }
         std::cout << std::endl;
     }
-
     planned_dt = frame_dt;
     return planned_dt;
 }
