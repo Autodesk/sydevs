@@ -26,17 +26,19 @@ public:
     port<flow, input, std::pair<array2d<int64>, distance>> building_layout_input;
     port<flow, input, float64> wall_resistance_input;
     port<message, input, thermodynamic_temperature> outdoor_temperature_input;
+    port<message, input, std::tuple<occupant_id, array1d<int64>, quantity<decltype(_K/_s)>>> heat_source_input;
     port<message, output, array2d<thermodynamic_temperature>> temperature_field_output;
 
 protected:
     // State Variables:
-    array2d<int64> L;                       // building layout
-    int64 nx;                               // number of cells in the x dimension
-    int64 ny;                               // number of cells in the y dimension
-    float64 wall_R;                         // wall resistance
-    array2d<thermodynamic_temperature> TF;  // temperature field
-    duration step_dt;                       // time step
-    duration planned_dt;                    // planned duration
+    array2d<int64> L;                                                                // building layout
+    int64 nx;                                                                        // number of cells in the x dimension
+    int64 ny;                                                                        // number of cells in the y dimension
+    float64 wall_R;                                                                  // wall resistance
+    array2d<thermodynamic_temperature> TF;                                           // temperature field
+    std::map<occupant_id, std::pair<array1d<int64>, quantity<decltype(_K/_s)>>> HS;  // heat sources
+    duration step_dt;                                                                // time step
+    duration planned_dt;                                                             // planned duration
 
     // Event Handlers:
     virtual duration initialization_event();
@@ -52,6 +54,7 @@ inline thermodynamics_node::thermodynamics_node(const std::string& node_name, co
     , building_layout_input("building_layout_input", external_interface())
     , wall_resistance_input("wall_resistance_input", external_interface())
     , outdoor_temperature_input("outdoor_temperature_input", external_interface())
+    , heat_source_input("heat_source_input", external_interface())
     , temperature_field_output("temperature_field_output", external_interface())
 {
 }
@@ -65,6 +68,7 @@ inline duration thermodynamics_node::initialization_event()
     wall_R = wall_resistance_input.value();
     thermodynamic_temperature T0 = initial_temperature_input.value();
     TF = array2d<thermodynamic_temperature>({nx, ny}, T0);
+    HS = std::map<occupant_id, std::pair<array1d<int64>, quantity<decltype(_K/_s)>>>();
     step_dt = 250_ms;
     planned_dt = 0_s;
     return planned_dt;
@@ -77,6 +81,13 @@ inline duration thermodynamics_node::unplanned_event(duration elapsed_dt)
         thermodynamic_temperature T = outdoor_temperature_input.value();
         TF = replace(TF, L == outdoor_code, T);
     }
+    else if (heat_source_input.received()) {
+        const std::tuple<occupant_id, array1d<int64>, quantity<decltype(_K/_s)>>& heat_source = heat_source_input.value();
+        const auto& occ_id = std::get<0>(heat_source);
+        const auto& pos = std::get<1>(heat_source);
+        const auto& T_rate = std::get<2>(heat_source);
+        HS[occ_id] = std::make_pair(pos, T_rate);
+    }
     planned_dt -= elapsed_dt;
     return planned_dt;
 }
@@ -84,6 +95,13 @@ inline duration thermodynamics_node::unplanned_event(duration elapsed_dt)
 
 inline duration thermodynamics_node::planned_event(duration elapsed_dt)
 {
+    // Add heat from point sources
+    for (const auto& heat_source : HS) {
+        const auto& pos = heat_source.second.first;
+        const auto& T_rate = heat_source.second.second;
+        TF(pos) += T_rate*step_dt;
+    }
+
     // Calculate the new temperature of each non-outdoor, non-border cell.
     array2d<thermodynamic_temperature> prev_TF = TF.copy();
     for (int64 ix = 1; ix < nx - 1; ++ix) {

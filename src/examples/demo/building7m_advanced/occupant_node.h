@@ -89,8 +89,8 @@ inline duration occupant_node::unplanned_event(duration elapsed_dt)
 {
     if (occupant_temperature_input.received()) {
         const std::pair<occupant_id, thermodynamic_temperature>& occ_T = occupant_temperature_input.value();
-        auto occ_id = occ_T.first;
-        auto T = occ_T.second;
+        auto& occ_id = occ_T.first;
+        auto& T = occ_T.second;
         OT[occ_id] = T;
     }
     planned_dt -= elapsed_dt;

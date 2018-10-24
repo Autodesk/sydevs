@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SYDEVS_EXAMPLES_ADVANCED_BUILDING_COMFORT_NODE_H_
-#define SYDEVS_EXAMPLES_ADVANCED_BUILDING_COMFORT_NODE_H_
+#ifndef SYDEVS_EXAMPLES_ADVANCED_BUILDING_HEAT_SOURCE_NODE_H_
+#define SYDEVS_EXAMPLES_ADVANCED_BUILDING_HEAT_SOURCE_NODE_H_
 
 #include <examples/demo/building7m_advanced/building_occupant_ids.h>
 #include <sydevs/systems/atomic_node.h>
@@ -11,24 +11,26 @@ using namespace sydevs;
 using namespace sydevs::systems;
 
 
-class comfort_node : public atomic_node
+class heat_source_node : public atomic_node
 {
 public:
     // Constructor/Destructor:
-    comfort_node(const std::string& node_name, const node_context& external_context);
-    virtual ~comfort_node() = default;
+    heat_source_node(const std::string& node_name, const node_context& external_context);
+    virtual ~heat_source_node() = default;
 
     // Attributes:
     virtual scale time_precision() const { return micro; }
 
     // Ports:
+    port<flow, input, duration> occupant_time_constant_input;
     port<flow, input, thermodynamic_temperature> initial_temperature_input;
     port<message, input, array2d<thermodynamic_temperature>> temperature_field_input;
     port<message, input, std::pair<occupant_id, array1d<int64>>> occupant_position_input;
-    port<message, output, std::pair<occupant_id, thermodynamic_temperature>> occupant_temperature_output;
+    port<message, output, std::tuple<occupant_id, array1d<int64>, quantity<decltype(_K/_s)>>> heat_source_output;
  
 protected:
     // State Variables:
+    duration tau;                                              // occupant time constant
     thermodynamic_temperature T0;                              // initial temperature
     array2d<thermodynamic_temperature> TF;                     // temperature field
     std::map<occupant_id, array1d<int64>> OP;                  // occupant positions
@@ -44,18 +46,20 @@ protected:
 };
 
 
-inline comfort_node::comfort_node(const std::string& node_name, const node_context& external_context)
+inline heat_source_node::heat_source_node(const std::string& node_name, const node_context& external_context)
     : atomic_node(node_name, external_context)
+    , occupant_time_constant_input("occupant_time_constant_input", external_interface())
     , initial_temperature_input("initial_temperature_input", external_interface())
     , temperature_field_input("temperature_field_input", external_interface())
     , occupant_position_input("occupant_position_input", external_interface())
-    , occupant_temperature_output("occupant_temperature_output", external_interface())
+    , heat_source_output("heat_source_output", external_interface())
 {
 }
 
 
-inline duration comfort_node::initialization_event()
+inline duration heat_source_node::initialization_event()
 {
+    tau = occupant_time_constant_input.value();
     T0 = initial_temperature_input.value();
     TF = array2d<thermodynamic_temperature>();
     OP = std::map<occupant_id, array1d<int64>>();
@@ -66,7 +70,7 @@ inline duration comfort_node::initialization_event()
 }
 
 
-inline duration comfort_node::unplanned_event(duration elapsed_dt)
+inline duration heat_source_node::unplanned_event(duration elapsed_dt)
 {
     if (temperature_field_input.received()) {
         TF = temperature_field_input.value();
@@ -101,13 +105,15 @@ inline duration comfort_node::unplanned_event(duration elapsed_dt)
 }
 
 
-inline duration comfort_node::planned_event(duration elapsed_dt)
+inline duration heat_source_node::planned_event(duration elapsed_dt)
 {
     for (auto& occ_pos : OP) {
         auto& occ_id = occ_pos.first;
+        auto& pos = occ_pos.second;
         if (OT[occ_id] != next_OT[occ_id]) {
             OT[occ_id] = next_OT[occ_id];
-            occupant_temperature_output.send(std::make_pair(occ_id, OT[occ_id]));
+            auto T_rate = (310150_mK - OT[occ_id])/tau;
+            heat_source_output.send(std::make_tuple(occ_id, pos, T_rate));
         }
     }
     change_flag = false;
@@ -115,7 +121,7 @@ inline duration comfort_node::planned_event(duration elapsed_dt)
 }
 
 
-inline void comfort_node::finalization_event(duration elapsed_dt)
+inline void heat_source_node::finalization_event(duration elapsed_dt)
 {
 }
 

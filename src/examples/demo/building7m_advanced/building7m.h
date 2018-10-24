@@ -21,6 +21,7 @@ void building7m()
         sim.top.initial_temperature_rate.set_value(50_mK/_s);
         sim.top.occupant_count.parameter.print_on_use();
         sim.top.initial_positions.initial_positions_output.print_on_use();
+        //sim.top.building_dynamics.thermodynamics.heat_source_input.print_on_use();
         //sim.top.building_dynamics.weather.outdoor_temperature_output.print_on_use();
         sim.process_remaining_events();
     }
