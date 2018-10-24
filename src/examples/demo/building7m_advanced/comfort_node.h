@@ -29,10 +29,12 @@ public:
  
 protected:
     // State Variables:
-    thermodynamic_temperature prev_T;       // previous temperature
-    thermodynamic_temperature curr_T;       // previous temperature
-    array2d<thermodynamic_temperature> TF;  // temperature field
-    array1d<int64> pos;                     // occupant position
+    thermodynamic_temperature T0;                              // initial temperature
+    array2d<thermodynamic_temperature> TF;                     // temperature field
+    std::map<occupant_id, array1d<int64>> OP;                  // occupant positions
+    std::map<occupant_id, thermodynamic_temperature> OT;       // occupant temperatures
+    std::map<occupant_id, thermodynamic_temperature> next_OT;  // next occupant temperatures
+    bool change_flag;                                          // flag indicating change
 
     // Event Handlers:
     virtual duration initialization_event();
@@ -54,10 +56,11 @@ inline comfort_node::comfort_node(const std::string& node_name, const node_conte
 
 inline duration comfort_node::initialization_event()
 {
-    prev_T = initial_temperature_input.value();
-    curr_T = prev_T;
+    T0 = initial_temperature_input.value();
     TF = array2d<thermodynamic_temperature>();
-    pos = array1d<int64>();
+    OT = std::map<occupant_id, thermodynamic_temperature>();
+    next_OT = std::map<occupant_id, thermodynamic_temperature>();
+    change_flag = false;
     return duration::inf();
 }
 
@@ -66,24 +69,46 @@ inline duration comfort_node::unplanned_event(duration elapsed_dt)
 {
     if (temperature_field_input.received()) {
         TF = temperature_field_input.value();
-        if (!pos.empty()) {
-            curr_T = TF(pos);
+        for (auto& occ_pos : OP) {
+            auto& occ_id = occ_pos.first;
+            auto& pos = occ_pos.second;
+            next_OT[occ_id] = TF(pos);
+            if (OT[occ_id] != next_OT[occ_id]) {
+                change_flag = true;
+            }
         }
     }
     else if (occupant_position_input.received()) {
-        pos = occupant_position_input.value().second;
-        if (!TF.empty()) {
-            curr_T = TF(pos);
+        const std::pair<occupant_id, array1d<int64>>& occ_pos = occupant_position_input.value();
+        auto occ_id = occ_pos.first;
+        auto pos = occ_pos.second;
+        if (OT.find(occ_id) == std::end(OT)) {
+            OT[occ_id] = thermodynamic_temperature();
+        }
+        if (TF.empty()) {
+            next_OT[occ_id] = T0;
+        }
+        else {
+            next_OT[occ_id] = TF(pos);
+        }
+        if (OT[occ_id] != next_OT[occ_id]) {
+            change_flag = true;
         }
     }
-    return curr_T != prev_T ? 0_s : duration::inf();
+    return change_flag ? 0_s : duration::inf();
 }
 
 
 inline duration comfort_node::planned_event(duration elapsed_dt)
 {
-    occupant_temperature_output.send(std::make_pair(occupant_id(0), curr_T));
-    prev_T = curr_T;
+    for (auto& occ_pos : OP) {
+        auto& occ_id = occ_pos.first;        
+        if (OT[occ_id] != next_OT[occ_id]) {
+            OT[occ_id] = next_OT[occ_id];
+            occupant_temperature_output.send(std::make_pair(occ_id, OT[occ_id]));
+        }
+    }
+    change_flag = false;
     return duration::inf();
 }
 

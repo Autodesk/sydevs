@@ -32,15 +32,15 @@ public:
 
 protected:
     // State Variables:
-    array2d<int64> L;                                      // building layout
-    int64 nx;                                              // number of cells in the x dimension
-    int64 ny;                                              // number of cells in the y dimension
-    distance d;                                            // distance between cells
-    duration step_dt;                                      // time_step
-    std::map<occupant_id, thermodynamic_temperature> OT;   // occupant temperatures
-    std::map<occupant_id, array1d<int64>> OP;              // occupant positions
-    std::map<occupant_id, array1d<int64>> next_OP;         // next_occupant positions
-    duration planned_dt;                                   // duration until the next position change
+    array2d<int64> L;                                     // building layout
+    int64 nx;                                             // number of cells in the x dimension
+    int64 ny;                                             // number of cells in the y dimension
+    distance d;                                           // distance between cells
+    duration step_dt;                                     // time_step
+    std::map<occupant_id, thermodynamic_temperature> OT;  // occupant temperatures
+    std::map<occupant_id, array1d<int64>> OP;             // occupant positions
+    std::map<occupant_id, array1d<int64>> next_OP;        // next occupant positions
+    duration planned_dt;                                  // duration until the next position change
 
     // Event Handlers:
     virtual duration initialization_event();
@@ -76,8 +76,8 @@ inline duration occupant_node::initialization_event()
     thermodynamic_temperature T0 = initial_temperature_input.value();
     OP = initial_positions_input.value();
     next_OP = OP;
-    for (auto occ_pos : OP) {
-        auto occ_id = occ_pos.first;
+    for (auto& occ_pos : OP) {
+        auto& occ_id = occ_pos.first;
         OT[occ_id] = T0;
     }
     planned_dt = 0_s;
@@ -102,9 +102,9 @@ inline duration occupant_node::planned_event(duration elapsed_dt)
 {
     // Update current position.
     OP = next_OP;
-    for (auto occ_pos : OP) {
-        auto occ_id = occ_pos.first;
-        auto pos = occ_pos.second;
+    for (auto& occ_pos : OP) {
+        auto& occ_id = occ_pos.first;
+        auto& pos = occ_pos.second;
         occupant_position_output.send(std::make_pair(occ_id, pos));
         auto next_pos = pos + sample_position_change();
         if (L(next_pos) == indoor_code) {
