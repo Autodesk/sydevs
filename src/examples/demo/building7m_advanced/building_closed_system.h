@@ -29,6 +29,7 @@ public:
     parameter_node<duration> outdoor_temperature_period;
     parameter_node<duration> outdoor_temperature_time_step;
     parameter_node<duration> occupant_time_constant;
+    parameter_node<thermodynamic_temperature> high_temperature;
     parameter_node<thermodynamic_temperature> initial_temperature;
     parameter_node<quantity<decltype(_K/_s)>> initial_temperature_rate;
     parameter_node<quantity<decltype(_m/_s)>> walking_speed;
@@ -47,8 +48,9 @@ building_closed_system::building_closed_system(const std::string& node_name, con
     , outdoor_temperature_period("outdoor_temperature_period", internal_context(), 5_min)
     , outdoor_temperature_time_step("outdoor_temperature_time_step", internal_context(), 15_s)
     , occupant_time_constant("occupant_time_constant", internal_context(), 5_s)
-    , initial_temperature("initial_temperature", internal_context(), 293150_mK)
-    , initial_temperature_rate("initial_temperature_rate", internal_context(), 200_mK/_s)
+    , high_temperature("high_temperature", internal_context(), 298150_mK)
+    , initial_temperature("initial_temperature", internal_context(), 294150_mK)
+    , initial_temperature_rate("initial_temperature_rate", internal_context(), 50_mK/_s)
     , walking_speed("walking_speed", internal_context(), 1400_mm/_s)
     , occupant_count("occupant_count", internal_context(), 5)
     , building_info("building_info", internal_context())
@@ -62,6 +64,7 @@ building_closed_system::building_closed_system(const std::string& node_name, con
     inner_link(outdoor_temperature_period.parameter, building_dynamics.outdoor_temperature_period_input);
     inner_link(outdoor_temperature_time_step.parameter, building_dynamics.outdoor_temperature_time_step_input);
     inner_link(occupant_time_constant.parameter, building_dynamics.occupant_time_constant_input);
+    inner_link(high_temperature.parameter, building_dynamics.high_temperature_input);
     inner_link(initial_temperature.parameter, building_dynamics.initial_temperature_input);
     inner_link(initial_temperature_rate.parameter, building_dynamics.initial_temperature_rate_input);
     inner_link(walking_speed.parameter, building_dynamics.walking_speed_input);

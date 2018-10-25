@@ -17,8 +17,7 @@ void building7m()
     thermodynamic_temperature average_T = thermodynamic_temperature();
     try {
         simulation<building_closed_system> sim(5_min, 0, std::cout);
-        sim.top.initial_temperature.set_value(294150_mK);
-        sim.top.initial_temperature_rate.set_value(50_mK/_s);
+        sim.top.frame_duration.set_value(5_s);
         sim.top.occupant_count.parameter.print_on_use();
         sim.top.initial_positions.initial_positions_output.print_on_use();
         //sim.top.building_dynamics.thermodynamics.heat_source_input.print_on_use();

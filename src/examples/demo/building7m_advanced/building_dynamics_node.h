@@ -6,7 +6,8 @@
 #include <examples/demo/building7m_advanced/thermodynamics_node.h>
 #include <examples/demo/building7m_advanced/heat_source_node.h>
 #include <examples/demo/building7m_advanced/comfort_node.h>
-#include <examples/demo/building7m_advanced/occupant_node.h>
+#include <examples/demo/building7m_advanced/occupant_planning_node.h>
+#include <examples/demo/building7m_advanced/occupant_steering_node.h>
 #include <sydevs/systems/composite_node.h>
 
 namespace sydevs_examples {
@@ -27,6 +28,7 @@ public:
     port<flow, input, duration> outdoor_temperature_period_input;
     port<flow, input, duration> outdoor_temperature_time_step_input;
     port<flow, input, duration> occupant_time_constant_input;
+    port<flow, input, thermodynamic_temperature> high_temperature_input;
     port<flow, input, thermodynamic_temperature> initial_temperature_input;
     port<flow, input, quantity<decltype(_K/_s)>> initial_temperature_rate_input;
     port<flow, input, std::pair<array2d<int64>, distance>> building_layout_input;
@@ -41,7 +43,8 @@ public:
     thermodynamics_node thermodynamics;
     heat_source_node heat_source;
     comfort_node comfort;
-    occupant_node occupant;
+    occupant_planning_node occupant_planning;
+    occupant_steering_node occupant_steering;
 };
 
 
@@ -51,6 +54,7 @@ building_dynamics_node::building_dynamics_node(const std::string& node_name, con
     , outdoor_temperature_period_input("outdoor_temperature_period_input", external_interface())
     , outdoor_temperature_time_step_input("outdoor_temperature_time_step_input", external_interface())
     , occupant_time_constant_input("occupant_time_constant_input", external_interface())
+    , high_temperature_input("high_temperature_input", external_interface())
     , initial_temperature_input("initial_temperature_input", external_interface())
     , initial_temperature_rate_input("initial_temperature_rate_input", external_interface())
     , building_layout_input("building_layout_input", external_interface())
@@ -63,35 +67,40 @@ building_dynamics_node::building_dynamics_node(const std::string& node_name, con
     , thermodynamics("thermodynamics", internal_context())
     , heat_source("heat_source", internal_context())
     , comfort("comfort", internal_context())
-    , occupant("occupant", internal_context())
+    , occupant_planning("occupant_planning", internal_context())
+    , occupant_steering("occupant_steering", internal_context())
 {
     // Flow Input Links
     inward_link(outdoor_mean_temperature_input, weather.outdoor_mean_temperature_input);
     inward_link(outdoor_temperature_period_input, weather.outdoor_temperature_period_input);
     inward_link(outdoor_temperature_time_step_input, weather.outdoor_temperature_time_step_input);
     inward_link(occupant_time_constant_input, heat_source.occupant_time_constant_input);
+    inward_link(high_temperature_input, occupant_planning.high_temperature_input);
     inward_link(initial_temperature_input, weather.initial_temperature_input);
     inward_link(initial_temperature_input, thermodynamics.initial_temperature_input);
     inward_link(initial_temperature_input, heat_source.initial_temperature_input);
     inward_link(initial_temperature_input, comfort.initial_temperature_input);
-    inward_link(initial_temperature_input, occupant.initial_temperature_input);
+    inward_link(initial_temperature_input, occupant_planning.initial_temperature_input);
     inward_link(initial_temperature_rate_input, weather.initial_temperature_rate_input);
     inward_link(building_layout_input, thermodynamics.building_layout_input);
-    inward_link(building_layout_input, occupant.building_layout_input);
+    inward_link(building_layout_input, occupant_planning.building_layout_input);
+    inward_link(building_layout_input, occupant_steering.building_layout_input);
     inward_link(wall_resistance_input, thermodynamics.wall_resistance_input);
-    inward_link(initial_positions_input, occupant.initial_positions_input);
-    inward_link(walking_speed_input, occupant.walking_speed_input);
+    inward_link(initial_positions_input, occupant_planning.initial_positions_input);
+    inward_link(initial_positions_input, occupant_steering.initial_positions_input);
+    inward_link(walking_speed_input, occupant_steering.walking_speed_input);
 
     // Message Links
     inner_link(weather.outdoor_temperature_output, thermodynamics.outdoor_temperature_input);
     inner_link(thermodynamics.temperature_field_output, heat_source.temperature_field_input);
     inner_link(thermodynamics.temperature_field_output, comfort.temperature_field_input);
     inner_link(heat_source.heat_source_output, thermodynamics.heat_source_input);
-    inner_link(comfort.occupant_temperature_output, occupant.occupant_temperature_input);
-    inner_link(occupant.occupant_position_output, heat_source.occupant_position_input);
-    inner_link(occupant.occupant_position_output, comfort.occupant_position_input);
+    inner_link(comfort.occupant_temperature_output, occupant_planning.occupant_temperature_input);
+    inner_link(occupant_planning.occupant_destination_output, occupant_steering.occupant_destination_input);
+    inner_link(occupant_steering.occupant_position_output, heat_source.occupant_position_input);
+    inner_link(occupant_steering.occupant_position_output, comfort.occupant_position_input);
     outward_link(thermodynamics.temperature_field_output, temperature_field_output);
-    outward_link(occupant.occupant_position_output, occupant_position_output);
+    outward_link(occupant_steering.occupant_position_output, occupant_position_output);
 
     // Finalization Links
 }
