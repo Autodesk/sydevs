@@ -148,27 +148,32 @@ inline void occupant_planning_node::finalization_event(duration elapsed_dt)
 inline array1d<int64> occupant_planning_node::sample_destination(occupant_id occ_id)
 {
     static std::uniform_real_distribution<float64> angle_dist;
-    auto angle = 2.0*pi*angle_dist(rng) - pi;
     auto pos0 = OP[occ_id];
-    auto pos = pos0;
-    auto done = false;
     auto destinations = std::vector<array1d<int64>>();
-    while (!done) {
-        std::array<int64, 8> scores;
-        for (int64 i = 0; i < 8; ++i) {
-            scores[i] = direction_score(angle, pos0, pos, pos + directions[i]);
-        }
-        auto direction_iter = std::min_element(std::begin(scores), std::end(scores));
-        pos = pos + directions[std::distance(std::begin(scores), direction_iter)];
-        if (L(pos) == indoor_code) {
-            destinations.push_back(pos);
-        }
-        else {
-            done = true;
+    for (int64 attempt_index = 0; destinations.empty() && attempt_index < 10000; ++attempt_index) {
+        auto angle = 2.0*pi*angle_dist(rng) - pi;
+        auto pos = pos0;
+        auto done = false;
+        while (!done) {
+            std::array<int64, 8> scores;
+            for (int64 i = 0; i < 8; ++i) {
+                scores[i] = direction_score(angle, pos0, pos, pos + directions[i]);
+            }
+            auto direction_iter = std::min_element(std::begin(scores), std::end(scores));
+            pos = pos + directions[std::distance(std::begin(scores), direction_iter)];
+            if (L(pos) == indoor_code) {
+                destinations.push_back(pos);
+            }
+            else {
+                done = true;
+            }
         }
     }
     auto dest_pos = pos0;
-    if (!destinations.empty()) {
+    if (destinations.empty()) {
+        throw std::range_error("Failed to find a walkable destination");
+    }
+    else {
         std::uniform_int_distribution<int64> dest_dist(0, int64(destinations.size()) - 1);
         auto dest_index = dest_dist(rng);
         dest_pos = destinations[dest_index];
