@@ -2,10 +2,10 @@
 #ifndef SYDEVS_EXAMPLES_ADVANCED_BUILDING_CLOSED_SYSTEM_H_
 #define SYDEVS_EXAMPLES_ADVANCED_BUILDING_CLOSED_SYSTEM_H_
 
-#include <examples/demo/building7m_advanced/building_info_node.h>
-#include <examples/demo/building7m_advanced/initial_positions_node.h>
-#include <examples/demo/building7m_advanced/building_dynamics_node.h>
-#include <examples/demo/building7m_advanced/building_vis_node.h>
+#include <examples/research/building7m_advanced/building_info_node.h>
+#include <examples/research/building7m_advanced/initial_positions_node.h>
+#include <examples/research/building7m_advanced/building_dynamics_node.h>
+#include <examples/research/building7m_advanced/building_vis_node.h>
 #include <sydevs/systems/composite_node.h>
 #include <sydevs/systems/parameter_node.h>
 #include <sydevs/systems/statistic_node.h>
@@ -44,13 +44,13 @@ public:
 building_closed_system::building_closed_system(const std::string& node_name, const node_context& external_context)
     : composite_node(node_name, external_context)
     , frame_duration("frame_duration", internal_context(), 30_s)
-    , outdoor_mean_temperature("outdoor_mean_temperature", internal_context(), 293150_mK)
+    , outdoor_mean_temperature("outdoor_mean_temperature", internal_context(), 273150_mK + 20_K)
     , outdoor_temperature_period("outdoor_temperature_period", internal_context(), 5_min)
     , outdoor_temperature_time_step("outdoor_temperature_time_step", internal_context(), 15_s)
     , occupant_time_constant("occupant_time_constant", internal_context(), 5_s)
-    , high_temperature("high_temperature", internal_context(), 298150_mK)
-    , initial_temperature("initial_temperature", internal_context(), 294150_mK)
-    , initial_temperature_rate("initial_temperature_rate", internal_context(), 50_mK/_s)
+    , high_temperature("high_temperature", internal_context(), 273150_mK + 25_K)
+    , initial_temperature("initial_temperature", internal_context(), 273150_mK + 21_K)
+    , initial_temperature_rate("initial_temperature_rate", internal_context(), -50_mK/_s)
     , walking_speed("walking_speed", internal_context(), 1400_mm/_s)
     , occupant_count("occupant_count", internal_context(), 5)
     , building_info("building_info", internal_context())

@@ -2,8 +2,8 @@
 #ifndef SYDEVS_EXAMPLES_ADVANCED_BUILDING_OCCUPANT_PLANNING_NODE_H_
 #define SYDEVS_EXAMPLES_ADVANCED_BUILDING_OCCUPANT_PLANNING_NODE_H_
 
-#include <examples/demo/building7m_advanced/building_occupant_ids.h>
-#include <examples/demo/building7m_advanced/building_layout_codes.h>
+#include <examples/research/building7m_advanced/building_occupant_ids.h>
+#include <examples/research/building7m_advanced/building_layout_codes.h>
 #include <sydevs/systems/atomic_node.h>
 
 namespace sydevs_examples {
@@ -53,7 +53,7 @@ protected:
 
     // Helper Functions:
     array1d<int64> sample_destination(occupant_id occ_id);
-    float64 direction_score(float64 angle, array1d<int64> pos0, array1d<int64> pos);
+    float64 direction_score(float64 angle, array1d<int64> pos0, array1d<int64> pos, array1d<int64> next_pos);
 };
 
 
@@ -148,7 +148,7 @@ inline void occupant_planning_node::finalization_event(duration elapsed_dt)
 inline array1d<int64> occupant_planning_node::sample_destination(occupant_id occ_id)
 {
     static std::uniform_real_distribution<float64> angle_dist;
-    auto angle = 2.0*pi*angle_dist(rng);
+    auto angle = 2.0*pi*angle_dist(rng) - pi;
     auto pos0 = OP[occ_id];
     auto pos = pos0;
     auto done = false;
@@ -156,7 +156,7 @@ inline array1d<int64> occupant_planning_node::sample_destination(occupant_id occ
     while (!done) {
         std::array<int64, 8> scores;
         for (int64 i = 0; i < 8; ++i) {
-            scores[i] = direction_score(angle, pos0, pos + directions[i]);
+            scores[i] = direction_score(angle, pos0, pos, pos + directions[i]);
         }
         auto direction_iter = std::min_element(std::begin(scores), std::end(scores));
         pos = pos + directions[std::distance(std::begin(scores), direction_iter)];
@@ -167,9 +167,9 @@ inline array1d<int64> occupant_planning_node::sample_destination(occupant_id occ
             done = true;
         }
     }
-    auto dest_pos = pos;
+    auto dest_pos = pos0;
     if (!destinations.empty()) {
-        static std::uniform_int_distribution<int64> dest_dist(0, int64(destinations.size()) - 1);
+        std::uniform_int_distribution<int64> dest_dist(0, int64(destinations.size()) - 1);
         auto dest_index = dest_dist(rng);
         dest_pos = destinations[dest_index];
     }
@@ -177,11 +177,21 @@ inline array1d<int64> occupant_planning_node::sample_destination(occupant_id occ
 }
 
 
-inline float64 occupant_planning_node::direction_score(float64 angle, array1d<int64> pos0, array1d<int64> pos)
+inline float64 occupant_planning_node::direction_score(float64 angle, array1d<int64> pos0, array1d<int64> pos, array1d<int64> next_pos)
 {
-    auto v = pos - pos0;
-    auto a = std::atan2(v(1), v(0));
-    return std::abs(a - angle);
+    auto score = pi;
+    auto delta_pos = (pos - pos0);
+    auto delta_pos_squared = delta_pos*delta_pos;
+    auto delta_squared = delta_pos_squared(0) + delta_pos_squared(1);
+    auto delta_next_pos = (next_pos - pos0);
+    auto delta_next_pos_squared = delta_next_pos*delta_next_pos;
+    auto delta_next_squared = delta_next_pos_squared(0) + delta_next_pos_squared(1);
+    if (delta_next_squared > delta_squared) {
+        auto v = next_pos - pos0;
+        auto a = std::atan2(v(1), v(0));
+        score = std::abs(a - angle);
+    }
+    return score;
 }
 
 

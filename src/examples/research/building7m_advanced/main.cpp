@@ -1,4 +1,4 @@
-#include <examples/demo/building7m_advanced/building7m.h>
+#include <examples/research/building7m_advanced/building7m.h>
 
 int main(int argc, const char* argv[])
 {

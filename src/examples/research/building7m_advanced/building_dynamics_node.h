@@ -2,12 +2,12 @@
 #ifndef SYDEVS_EXAMPLES_ADVANCED_BUILDING_DYNAMICS_NODE_H_
 #define SYDEVS_EXAMPLES_ADVANCED_BUILDING_DYNAMICS_NODE_H_
 
-#include <examples/demo/building7m_advanced/weather_node.h>
-#include <examples/demo/building7m_advanced/thermodynamics_node.h>
-#include <examples/demo/building7m_advanced/heat_source_node.h>
-#include <examples/demo/building7m_advanced/comfort_node.h>
-#include <examples/demo/building7m_advanced/occupant_planning_node.h>
-#include <examples/demo/building7m_advanced/occupant_steering_node.h>
+#include <examples/research/building7m_advanced/weather_node.h>
+#include <examples/research/building7m_advanced/thermodynamics_node.h>
+#include <examples/research/building7m_advanced/heat_source_node.h>
+#include <examples/research/building7m_advanced/comfort_node.h>
+#include <examples/research/building7m_advanced/occupant_planning_node.h>
+#include <examples/research/building7m_advanced/occupant_steering_node.h>
 #include <sydevs/systems/composite_node.h>
 
 namespace sydevs_examples {
@@ -99,6 +99,7 @@ building_dynamics_node::building_dynamics_node(const std::string& node_name, con
     inner_link(occupant_planning.occupant_destination_output, occupant_steering.occupant_destination_input);
     inner_link(occupant_steering.occupant_position_output, heat_source.occupant_position_input);
     inner_link(occupant_steering.occupant_position_output, comfort.occupant_position_input);
+    inner_link(occupant_steering.occupant_position_output, occupant_planning.occupant_position_input);
     outward_link(thermodynamics.temperature_field_output, temperature_field_output);
     outward_link(occupant_steering.occupant_position_output, occupant_position_output);
 

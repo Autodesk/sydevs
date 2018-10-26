@@ -2,7 +2,7 @@
 #ifndef SYDEVS_EXAMPLES_ADVANCED_BUILDING_VIS_NODE_H_
 #define SYDEVS_EXAMPLES_ADVANCED_BUILDING_VIS_NODE_H_
 
-#include <examples/demo/building7m_advanced/building_occupant_ids.h>
+#include <examples/research/building7m_advanced/building_occupant_ids.h>
 #include <sydevs/systems/atomic_node.h>
 #include <iostream>
 
@@ -30,6 +30,7 @@ public:
 protected:
     // State Variables:
     duration frame_dt;                         // duration of simulated time between successive frames
+    int64 frame_index;                         // index of frame
     array2d<thermodynamic_temperature> TF;     // temperature field
     std::map<occupant_id, array1d<int64>> OP;  // occupant positions
     duration planned_dt;                       // planned duration
@@ -54,6 +55,7 @@ inline building_vis_node::building_vis_node(const std::string& node_name, const 
 inline duration building_vis_node::initialization_event()
 {
     frame_dt = frame_duration_input.value();
+    frame_index = -1;
     TF = array2d<thermodynamic_temperature>();
     OP = std::map<occupant_id, array1d<int64>>();
     planned_dt = 0_s;
@@ -79,12 +81,13 @@ inline duration building_vis_node::unplanned_event(duration elapsed_dt)
 
 inline duration building_vis_node::planned_event(duration elapsed_dt)
 {
-    print(OP);
     // Print grid if the frame rate is finite and the temperature field is not empty.
     if (frame_dt.finite() && !TF.empty()) {
+        ++frame_index;
+        print("Frame " + tostring(frame_index));
+        std::cout << std::endl;
         int64 nx = TF.dims()[0];
         int64 ny = TF.dims()[1];
-        std::cout << std::endl;
         for (int64 iy = ny - 1; iy >= 0; --iy) {
             std::string line("|");
             for (int64 ix = 0; ix < nx; ++ix) {

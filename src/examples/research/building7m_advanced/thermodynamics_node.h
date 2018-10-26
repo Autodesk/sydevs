@@ -2,7 +2,7 @@
 #ifndef SYDEVS_EXAMPLES_ADVANCED_BUILDING_THERMODYNAMICS_NODE_H_
 #define SYDEVS_EXAMPLES_ADVANCED_BUILDING_THERMODYNAMICS_NODE_H_
 
-#include <examples/demo/building7m_advanced/building_layout_codes.h>
+#include <examples/research/building7m_advanced/building_layout_codes.h>
 #include <sydevs/systems/atomic_node.h>
 
 namespace sydevs_examples {

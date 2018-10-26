@@ -2,7 +2,7 @@
 #ifndef SYDEVS_EXAMPLES_ADVANCED_BUILDING_INITIAL_POSITION_NODE_H_
 #define SYDEVS_EXAMPLES_ADVANCED_BUILDING_INITIAL_POSITION_NODE_H_
 
-#include <examples/demo/building7m_advanced/building_occupant_ids.h>
+#include <examples/research/building7m_advanced/building_occupant_ids.h>
 #include <sydevs/systems/function_node.h>
 
 namespace sydevs_examples {
