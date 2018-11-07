@@ -73,6 +73,7 @@ building_closed_system::building_closed_system(const std::string& node_name, con
     inner_link(building_info.building_layout_output, initial_positions.building_layout_input);
     inner_link(building_info.wall_resistance_output, building_dynamics.wall_resistance_input);
     inner_link(initial_positions.initial_positions_output, building_dynamics.initial_positions_input);
+    inner_link(building_info.building_layout_output, building_vis.building_layout_input);
 
     // Simulation Links
     inner_link(building_dynamics.temperature_field_output, building_vis.temperature_field_input);
