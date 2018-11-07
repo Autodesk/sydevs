@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SYDEVS_DATA_MODE_H_
-#define SYDEVS_DATA_MODE_H_
+#ifndef SYDEVS_SYSTEMS_DATA_MODE_H_
+#define SYDEVS_SYSTEMS_DATA_MODE_H_
 
 #include <sydevs/core/number_types.h>
 #include <string>

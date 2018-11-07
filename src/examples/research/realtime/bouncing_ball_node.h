@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SYDEVS_RESEARCH_BOUNCING_BALL_NODE_H_
-#define SYDEVS_RESEARCH_BOUNCING_BALL_NODE_H_
+#ifndef SYDEVS_EXAMPLES_BOUNCING_BALL_NODE_H_
+#define SYDEVS_EXAMPLES_BOUNCING_BALL_NODE_H_
 
 #include <examples/research/realtime/motion_physics_types.h>
 #include <sydevs/systems/atomic_node.h>

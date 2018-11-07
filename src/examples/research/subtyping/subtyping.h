@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SYDEVS_RESEARCH_SUBTYPING_H_
-#define SYDEVS_RESEARCH_SUBTYPING_H_
+#ifndef SYDEVS_EXAMPLES_SUBTYPING_H_
+#define SYDEVS_EXAMPLES_SUBTYPING_H_
 
 #include <examples/research/subtyping/subtyping_closed_system.h>
 #include <sydevs/systems/simulation.h>

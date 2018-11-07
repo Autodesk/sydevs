@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SYDEVS_RESEARCH_AGENT_DERIVED_B_NODE_H_
-#define SYDEVS_RESEARCH_AGENT_DERIVED_B_NODE_H_
+#ifndef SYDEVS_EXAMPLES_AGENT_DERIVED_B_NODE_H_
+#define SYDEVS_EXAMPLES_AGENT_DERIVED_B_NODE_H_
 
 #include <examples/research/subtyping/agent_base_node.h>
 

@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SYDEVS_RESEARCH_SUBTYPING_CLOSED_SYSTEM_H_
-#define SYDEVS_RESEARCH_SUBTYPING_CLOSED_SYSTEM_H_
+#ifndef SYDEVS_EXAMPLES_SUBTYPING_CLOSED_SYSTEM_H_
+#define SYDEVS_EXAMPLES_SUBTYPING_CLOSED_SYSTEM_H_
 
 #include <examples/research/subtyping/agent_derived_A_node.h>
 #include <examples/research/subtyping/agent_derived_B_node.h>

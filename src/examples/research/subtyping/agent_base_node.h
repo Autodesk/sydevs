@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SYDEVS_RESEARCH_AGENT_BASE_NODE_H_
-#define SYDEVS_RESEARCH_AGENT_BASE_NODE_H_
+#ifndef SYDEVS_EXAMPLES_AGENT_BASE_NODE_H_
+#define SYDEVS_EXAMPLES_AGENT_BASE_NODE_H_
 
 #include <sydevs/systems/atomic_node.h>
 

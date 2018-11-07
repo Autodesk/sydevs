@@ -1,6 +1,6 @@
 #pragma once
-#ifndef SYDEVS_RESEARCH_BOUNCING_INTERACTIVE_SYSTEM_H_
-#define SYDEVS_RESEARCH_BOUNCING_INTERACTIVE_SYSTEM_H_
+#ifndef SYDEVS_EXAMPLES_BOUNCING_INTERACTIVE_SYSTEM_H_
+#define SYDEVS_EXAMPLES_BOUNCING_INTERACTIVE_SYSTEM_H_
 
 #include <examples/research/realtime/bouncing_ball_node.h>
 #include <sydevs/systems/interactive_system.h>
