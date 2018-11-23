@@ -60,7 +60,7 @@ void real_time_buffer::recompute_planned_clock_duration()
         auto syn_planned_sim_dt = current_sim_t_.gap(syn_sim_t_) + planned_sim_dt_;
         auto syn_planned_clk_t = syn_clk_t_ + std::chrono::milliseconds(int64((syn_planned_sim_dt/t_adv_rate_)/1_ms));
         float64 syn_planned_clk_dt = std::chrono::duration_cast<std::chrono::milliseconds>(syn_planned_clk_t - current_clk_t_).count();
-        if (abs(syn_planned_clk_dt - planned_clk_dt_) >= 2.0) {
+        if (std::abs(syn_planned_clk_dt - planned_clk_dt_) >= 2.0) {
             ++syn_count_;
             float64 limited_clk_dt = planned_clk_dt_;
             if (syn_planned_clk_dt > planned_clk_dt_) {

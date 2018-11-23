@@ -187,7 +187,7 @@ duration interactive_system<AgentID, Node, InjData, ObsData>::macro_planned_even
 {
     ++frame_index_;
     planned_dt_ = macro_planned_update(elapsed_dt, injection_, observation_);
-    if (planned_dt_ <= 0_s) throw std::logic_error("Planned duration between interact events in interactive system (" + full_name() + ") must be positive.");
+    if (planned_dt_ <= 0_s) throw std::logic_error("Planned duration between interact events in interactive system (" + this->full_name() + ") must be positive.");
     return planned_dt_;
 }
 
