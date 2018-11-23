@@ -46,14 +46,14 @@ void system_node::adopt_print_flags(const system_node& node) const
 duration system_node::scale_planned_dt(duration planned_dt) const
 {
     auto dt = planned_dt;
-    if (!dt.valid()) throw std::logic_error("Planned duration for atomic node must be valid");
-    if (dt < 0_s) throw std::logic_error("Planned duration for atomic node must be non-negative");
+    if (!dt.valid()) throw std::logic_error("Planned duration for node (" + full_name() + ") must be valid");
+    if (dt < 0_s) throw std::logic_error("Planned duration for node (" + full_name() + ") must be non-negative");
     if (time_precision() == no_scale) {
-        if (dt != 0_s && dt.finite()) throw std::logic_error("Planned duration for atomic node with no time scale must be either zero or infinity");
+        if (dt != 0_s && dt.finite()) throw std::logic_error("Planned duration for node (" + full_name() + ") with no time scale must be either zero or infinity");
     }
     else {
         dt = dt.fixed_at(time_precision());
-        if (dt != planned_dt) throw std::logic_error("Planned duration must not lose precision when automatically scaled to match the model's time precision");
+        if (dt != planned_dt) throw std::logic_error("Planned duration for node (" + full_name() + ") must not lose precision when automatically scaled to match the node's time precision");
     }
     return dt;
 }

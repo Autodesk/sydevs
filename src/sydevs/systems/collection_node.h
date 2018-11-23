@@ -459,7 +459,7 @@ inline duration collection_node<AgentID, Node>::handle_planned_event(duration el
 template<typename AgentID, typename Node>
 inline void collection_node<AgentID, Node>::handle_finalization_event(duration elapsed_dt)
 {
-    if (finalized_) throw std::logic_error("Attempt to finalize collection node more than once");
+    if (finalized_) throw std::logic_error("Attempt to finalize collection node (" + full_name() + ") more than once");
     auto& current_t = event_time().t();
     t_queue_.advance_time(current_t);
     t_cache_.advance_time(current_t);
@@ -552,7 +552,7 @@ inline void collection_node<AgentID, Node>::create_agent(const AgentID& agent_id
 {
     static_assert(std::is_base_of<Node, AgentNode>::value, "AgentNode must inherit from Node");
     if (prototype.node_dmode() == flow) {
-        throw std::logic_error("Attempt to use \"create_agent\" to create a flow node agent; use \"invoke_agent\" instead");
+        throw std::logic_error("Attempt to use \"create_agent\" to create a flow node agent of a collection node (" + full_name() + "); use \"invoke_agent\" instead");
     }
     event_time().advance();
     auto agent_name = agent_name_from_id(qualified_type<AgentID>(), agent_id);
@@ -594,7 +594,7 @@ template<typename AgentID, typename Node>
 inline void collection_node<AgentID, Node>::affect_agent(const AgentID& agent_id)
 {
     if (prototype.node_dmode() == flow) {
-        throw std::logic_error("Attempt to use \"affect_agent\" to affect a flow node agent; use \"invoke_agent\" instead");
+        throw std::logic_error("Attempt to use \"affect_agent\" to affect a flow node agent of a collection node (" + full_name() + "); use \"invoke_agent\" instead");
     }
     event_time().advance();
     auto agent_iter = agent_indices_.find(agent_id);
@@ -641,7 +641,7 @@ template<typename AgentID, typename Node>
 inline void collection_node<AgentID, Node>::remove_agent(const AgentID& agent_id)
 {
     if (prototype.node_dmode() == flow) {
-        throw std::logic_error("Attempt to use \"remove_agent\" to remove a flow node agent; use \"invoke_agent\" instead");
+        throw std::logic_error("Attempt to use \"remove_agent\" to remove a flow node agent of a collection node (" + full_name() + "); use \"invoke_agent\" instead");
     }
     event_time().advance();
     auto agent_iter = agent_indices_.find(agent_id);
@@ -680,7 +680,7 @@ template<typename AgentID, typename Node>
 inline void collection_node<AgentID, Node>::invoke_agent(const AgentID& agent_id)
 {
     if (prototype.node_dmode() == message) {
-        throw std::logic_error(std::string("Attempt to use \"invoke_agent\" to invoke a message node agent; ") + 
+        throw std::logic_error(std::string("Attempt to use \"invoke_agent\" to invoke a message node agent of a collection node (" + full_name() + "); ") +
                                            "use \"create_agent\", \"affect_agent\", and \"remove_agent\" instead");
     }
     event_time().advance();

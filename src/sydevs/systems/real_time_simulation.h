@@ -151,7 +151,7 @@ inline void real_time_simulation<Node>::update_time_advancement_rate(float64 t_a
 template<typename Node>
 inline void real_time_simulation<Node>::update_time_synchronization_rate(float64 t_syn_rate)
 {
-    if (t_syn_rate < 0) throw std::invalid_argument("Time advancement depth must be non-negative");
+    if (t_syn_rate < 0.0) throw std::invalid_argument("Time advancement depth must be non-negative");
     ta_buffer_.update_time_synchronization_rate(t_syn_rate);
 }
 
