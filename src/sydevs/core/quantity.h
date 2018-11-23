@@ -43,6 +43,7 @@ protected:
     static constexpr int64 inf_int64     = std::numeric_limits<int64>::max();
     static constexpr int64 nan_int64     = std::numeric_limits<int64>::min();
 
+    static constexpr int64 constexpr_abs(int64 n);
     static constexpr float64 constexpr_abs(float64 x);
     static constexpr float64 convert_multiplier(int64 multiplier);
     static constexpr int64 convert_level(int64 multiplier, int64 level);
@@ -421,6 +422,12 @@ constexpr quantity_base::quantity_base(scale precision, float64 multiplier, int8
 }
 
 
+constexpr int64 quantity_base::constexpr_abs(int64 n)
+{
+    return n < 0 ? -n : n;
+}
+
+
 constexpr float64 quantity_base::constexpr_abs(float64 x)
 {
     return x < 0 ? -x : x;
@@ -620,7 +627,7 @@ constexpr const quantity<U> quantity<U>::coarsened() const
            !finite()                                                 ? *this :
            multiplier_ == 0                                          ? quantity<U>(0) :
            multiplier_ != 1000.0*round_multiplier(0.001*multiplier_) ? *this :
-                                                                       quantity<U>(precision_ + 1, round_multiplier(0.001*multiplier_), int8(0)).coarsened();
+                                                                       quantity<U>(precision_ + 1, float64(round_multiplier(0.001*multiplier_)), int8(0)).coarsened();
 }
 
 
@@ -630,7 +637,7 @@ constexpr const quantity<no_units> quantity<no_units>::coarsened() const
            !finite()                                                 ? *this :
            multiplier_ == 0                                          ? quantity<no_units>(0) :
            multiplier_ != 1000.0*round_multiplier(0.001*multiplier_) ? *this :
-                                                                       quantity<no_units>(precision_ + 1, round_multiplier(0.001*multiplier_), int8(0)).coarsened();
+                                                                       quantity<no_units>(precision_ + 1, float64(round_multiplier(0.001*multiplier_)), int8(0)).coarsened();
 }
 
 
