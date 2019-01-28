@@ -8,9 +8,9 @@ The SyDEVS open source C++ library provides a framework for modeling and simulat
 
 **In a nutshell, it will help make your simulation code scale.**
 
-Using SyDEVS, physics solvers and other simulation models can be implemented as independent nodes, and later integrated. Even nodes that use different time steps (or variable time steps) can be linked together and allowed to interact.
+SyDEVS allows physics solvers, state machines, and other types of simulation models to be implemented as independent nodes and later integrated. Even nodes that use different time steps (or variable time steps) can be linked together and allowed to interact.
 
-The framework combines 3 modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) and [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model). These foundations give SyDEVS the generality needed to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
+The framework is based on the [Symmetric DEVS formalism](https://www.autodeskresearch.com/publications/symmetricformalism), a set of conventions combining three modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) and [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model). These foundations give SyDEVS the generality needed to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
 
 In addition to supporting multiple modeling paradigms, the SyDEVS library provides comprehensive and reusable Modern C++ implementations of multidimensional arrays, Standard International (SI) units, and the multiscale representation of simulated time described in [this freely available paper](http://journals.sagepub.com/eprint/mIKXDU2UtbJUjPZ8kupv/full) from *Simulation*.
 
