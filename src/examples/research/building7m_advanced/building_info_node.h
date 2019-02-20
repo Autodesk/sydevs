@@ -19,8 +19,11 @@ public:
     virtual ~building_info_node() = default;
 
     // Ports:
-    port<flow, output, std::pair<array2d<int64>, distance>> building_layout_output;
+    port<flow, output, std::pair<array2d<int64>, std::pair<distance, distance>>> building_layout_output;
     port<flow, output, float64> wall_resistance_output;
+    port<flow, output, float64> wall_sound_absorption_output;
+    port<flow, output, float64> floor_sound_absorption_output;
+    port<flow, output, float64> ceiling_sound_absorption_output;
 
 private:
     // Event Handlers:
@@ -32,6 +35,9 @@ inline building_info_node::building_info_node(const std::string& node_name, cons
     : function_node(node_name, external_context)
     , building_layout_output("building_layout_output", external_interface())
     , wall_resistance_output("wall_resistance_output", external_interface())
+    , wall_sound_absorption_output("wall_sound_absorption_output", external_interface())
+    , floor_sound_absorption_output("floor_sound_absorption_output", external_interface())
+    , ceiling_sound_absorption_output("ceiling_sound_absorption_output", external_interface())
 {
 }
 
@@ -41,7 +47,11 @@ inline void building_info_node::flow_event()
     int64 nx = 35;
     int64 ny = 35;
     distance d = 200_mm;
-    int64 wall_R = 5;
+    distance h = 3000_mm;
+    float64 wall_R = 5.0;
+    float64 wall_alpha = 0.1;
+    float64 floor_alpha = 0.1;
+    float64 ceiling_alpha = 0.1;
 
     // Starting with indoor cells everywhere.
     array2d<int64> L({nx, ny}, indoor_code);
@@ -80,8 +90,11 @@ inline void building_info_node::flow_event()
         L(ix_wall, iy) = wall_code;
     }
 
-    building_layout_output.assign(std::make_pair(L, d));
+    building_layout_output.assign(std::make_pair(L, std::make_pair(d, h)));
     wall_resistance_output.assign(wall_R);
+    wall_sound_absorption_output.assign(wall_alpha);
+    floor_sound_absorption_output.assign(floor_alpha);
+    ceiling_sound_absorption_output.assign(ceiling_alpha);
 }
 
 

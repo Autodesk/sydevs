@@ -19,7 +19,7 @@ public:
     virtual ~initial_positions_node() = default;
 
     // Ports:
-    port<flow, input, std::pair<array2d<int64>, distance>> building_layout_input;
+    port<flow, input, std::pair<array2d<int64>, std::pair<distance, distance>>> building_layout_input;
     port<flow, input, int64> occupant_count_input;
     port<flow, output, std::map<occupant_id, array1d<int64>>> initial_positions_output;
 

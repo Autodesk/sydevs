@@ -24,7 +24,7 @@ public:
 
     // Ports:
     port<flow, input, duration> frame_duration_input;
-    port<flow, input, std::pair<array2d<int64>, distance>> building_layout_input;
+    port<flow, input, std::pair<array2d<int64>, std::pair<distance, distance>>> building_layout_input;
     port<message, input, array2d<thermodynamic_temperature>> temperature_field_input;
     port<message, input, std::pair<occupant_id, array1d<int64>>> occupant_position_input;
 

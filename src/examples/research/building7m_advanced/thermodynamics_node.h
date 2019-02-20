@@ -2,6 +2,7 @@
 #ifndef SYDEVS_EXAMPLES_ADVANCED_BUILDING_THERMODYNAMICS_NODE_H_
 #define SYDEVS_EXAMPLES_ADVANCED_BUILDING_THERMODYNAMICS_NODE_H_
 
+#include <examples/research/building7m_advanced/building_occupant_ids.h>
 #include <examples/research/building7m_advanced/building_layout_codes.h>
 #include <sydevs/systems/atomic_node.h>
 
@@ -23,7 +24,7 @@ public:
 
     // Ports:
     port<flow, input, thermodynamic_temperature> initial_temperature_input;
-    port<flow, input, std::pair<array2d<int64>, distance>> building_layout_input;
+    port<flow, input, std::pair<array2d<int64>, std::pair<distance, distance>>> building_layout_input;
     port<flow, input, float64> wall_resistance_input;
     port<message, input, thermodynamic_temperature> outdoor_temperature_input;
     port<message, input, std::tuple<occupant_id, array1d<int64>, quantity<decltype(_K/_s)>>> heat_source_input;

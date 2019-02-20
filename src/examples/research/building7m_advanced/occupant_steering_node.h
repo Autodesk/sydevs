@@ -23,7 +23,7 @@ public:
     virtual scale time_precision() const { return nano; }
 
     // Ports:
-    port<flow, input, std::pair<array2d<int64>, distance>> building_layout_input;
+    port<flow, input, std::pair<array2d<int64>, std::pair<distance, distance>>> building_layout_input;
     port<flow, input, quantity<decltype(_m/_s)>> walking_speed_input;
     port<flow, input, std::map<occupant_id, array1d<int64>>> initial_positions_input;
     port<message, input, std::pair<occupant_id, array1d<int64>>> occupant_destination_input;
@@ -77,7 +77,7 @@ inline duration occupant_steering_node::initialization_event()
     L = building_layout_input.value().first;
     nx = L.dims()[0];
     ny = L.dims()[1];
-    d = building_layout_input.value().second;
+    d = building_layout_input.value().second.first;
     auto walking_speed = walking_speed_input.value();
     step_dt = (d/walking_speed).fixed_at(time_precision());
     OP = initial_positions_input.value();

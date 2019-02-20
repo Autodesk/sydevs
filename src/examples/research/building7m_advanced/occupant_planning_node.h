@@ -23,7 +23,7 @@ public:
     virtual scale time_precision() const { return nano; }
 
     // Ports:
-    port<flow, input, std::pair<array2d<int64>, distance>> building_layout_input;
+    port<flow, input, std::pair<array2d<int64>, std::pair<distance, distance>>> building_layout_input;
     port<flow, input, thermodynamic_temperature> high_temperature_input;
     port<flow, input, thermodynamic_temperature> initial_temperature_input;
     port<flow, input, std::map<occupant_id, array1d<int64>>> initial_positions_input;
@@ -83,7 +83,7 @@ inline duration occupant_planning_node::initialization_event()
     L = building_layout_input.value().first;
     nx = L.dims()[0];
     ny = L.dims()[1];
-    d = building_layout_input.value().second;
+    d = building_layout_input.value().second.first;
     high_T = high_temperature_input.value();
     thermodynamic_temperature T0 = initial_temperature_input.value();
     OP = initial_positions_input.value();

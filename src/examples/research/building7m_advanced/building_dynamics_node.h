@@ -6,6 +6,9 @@
 #include <examples/research/building7m_advanced/thermodynamics_node.h>
 #include <examples/research/building7m_advanced/heat_source_node.h>
 #include <examples/research/building7m_advanced/comfort_node.h>
+#include <examples/research/building7m_advanced/acoustics_node.h>
+#include <examples/research/building7m_advanced/sound_source_node.h>
+#include <examples/research/building7m_advanced/hearing_node.h>
 #include <examples/research/building7m_advanced/occupant_planning_node.h>
 #include <examples/research/building7m_advanced/occupant_steering_node.h>
 #include <sydevs/systems/composite_node.h>
@@ -31,8 +34,11 @@ public:
     port<flow, input, thermodynamic_temperature> high_temperature_input;
     port<flow, input, thermodynamic_temperature> initial_temperature_input;
     port<flow, input, quantity<decltype(_K/_s)>> initial_temperature_rate_input;
-    port<flow, input, std::pair<array2d<int64>, distance>> building_layout_input;
+    port<flow, input, std::pair<array2d<int64>, std::pair<distance, distance>>> building_layout_input;
     port<flow, input, float64> wall_resistance_input;
+    port<flow, input, float64> wall_sound_absorption_input;
+    port<flow, input, float64> floor_sound_absorption_input;
+    port<flow, input, float64> ceiling_sound_absorption_input;
     port<flow, input, std::map<occupant_id, array1d<int64>>> initial_positions_input;
     port<flow, input, quantity<decltype(_m/_s)>> walking_speed_input;
     port<message, output, array2d<thermodynamic_temperature>> temperature_field_output;
@@ -43,6 +49,9 @@ public:
     thermodynamics_node thermodynamics;
     heat_source_node heat_source;
     comfort_node comfort;
+    acoustics_node acoustics;
+    sound_source_node sound_source;
+    hearing_node hearing;
     occupant_planning_node occupant_planning;
     occupant_steering_node occupant_steering;
 };
@@ -59,6 +68,9 @@ building_dynamics_node::building_dynamics_node(const std::string& node_name, con
     , initial_temperature_rate_input("initial_temperature_rate_input", external_interface())
     , building_layout_input("building_layout_input", external_interface())
     , wall_resistance_input("wall_resistance_input", external_interface())
+    , wall_sound_absorption_input("wall_sound_absorption_input", external_interface())
+    , floor_sound_absorption_input("floor_sound_absorption_input", external_interface())
+    , ceiling_sound_absorption_input("ceiling_sound_absorption_input", external_interface())
     , initial_positions_input("initial_positions_input", external_interface())
     , walking_speed_input("walking_speed_input", external_interface())
     , temperature_field_output("temperature_field_output", external_interface())
@@ -67,6 +79,9 @@ building_dynamics_node::building_dynamics_node(const std::string& node_name, con
     , thermodynamics("thermodynamics", internal_context())
     , heat_source("heat_source", internal_context())
     , comfort("comfort", internal_context())
+    , acoustics("acoustics", internal_context())
+    , sound_source("sound_source", internal_context())
+    , hearing("hearing", internal_context())
     , occupant_planning("occupant_planning", internal_context())
     , occupant_steering("occupant_steering", internal_context())
 {
