@@ -23,20 +23,20 @@ public:
     virtual scale time_precision() const { return micro; }
 
     // Ports:
-    port<flow, input, std::pair<array2d<int64>, distance>> building_layout_input;
+    port<flow, input, std::pair<array2d<int64>, std::pair<distance, distance>>> building_layout_input;
     port<message, input, std::tuple<occupant_id, array1d<int64>, quantity<decltype(_g/_m/_s/_s)>>> sound_source_input;
     port<message, output, array2d<quantity<decltype(_g/_m/_s/_s)>>> sound_field_output;
 
 protected:
     // State Variables:
-    array2d<int64> L;                                                                      // building layout
-    int64 nx;                                                                              // number of cells in the x dimension
-    int64 ny;                                                                              // number of cells in the y dimension
-    float64 wall_R;                                                                        // wall resistance
-    array2d<quantity<decltype(_g/_m/_s/_s)>> SF;                                           // sound field
-    std::map<occupant_id, std::pair<array1d<int64>, quantity<decltype(_g/_m/_s/_s)>>> SS;  // sound sources
-    duration step_dt;                                                                      // time step
-    duration planned_dt;                                                                   // planned duration
+    array2d<int64> L;                                                                     // building layout
+    int64 nx;                                                                             // number of cells in the x dimension
+    int64 ny;                                                                             // number of cells in the y dimension
+    float64 wall_R;                                                                       // wall resistance
+    array2d<quantity<decltype(_g/_m/_s/_s)>> SF;                                          // sound field
+    std::map<occupant_id, std::pair<array1d<int64>, quantity<decltype(_g/_m/_s/_s)>>> S;  // sound sources
+    duration step_dt;                                                                     // time step
+    duration planned_dt;                                                                  // planned duration
 
     // Event Handlers:
     virtual duration initialization_event();
@@ -62,7 +62,7 @@ inline duration acoustics_node::initialization_event()
     ny = L.dims()[1];
     wall_R = 5.0;
     SF = array2d<quantity<decltype(_g/_m/_s/_s)>>({nx, ny}, 0_g/_m/_s/_s);
-    SS = std::map<occupant_id, std::pair<array1d<int64>, quantity<decltype(_g/_m/_s/_s)>>>();
+    S = std::map<occupant_id, std::pair<array1d<int64>, quantity<decltype(_g/_m/_s/_s)>>>();
     step_dt = 50_ms;
     planned_dt = 0_s;
     return planned_dt;
@@ -76,7 +76,7 @@ inline duration acoustics_node::unplanned_event(duration elapsed_dt)
         const auto& occ_id = std::get<0>(sound_source);
         const auto& pos = std::get<1>(sound_source);
         const auto& P = std::get<2>(sound_source);
-        SS[occ_id] = std::make_pair(pos, P);
+        S[occ_id] = std::make_pair(pos, P);
     }
     planned_dt -= elapsed_dt;
     return planned_dt;
@@ -86,12 +86,12 @@ inline duration acoustics_node::unplanned_event(duration elapsed_dt)
 inline duration acoustics_node::planned_event(duration elapsed_dt)
 {
     // Add pressure from point sources
-    for (const auto& sound_source : SS) {
+    for (const auto& sound_source : S) {
         const auto& pos = sound_source.second.first;
         const auto& P = sound_source.second.second;
         SF(pos) += P;
     }
-    SS.clear();
+    S.clear();
 
     // Calculate the new sound of each non-outdoor, non-border cell.
     array2d<quantity<decltype(_g/_m/_s/_s)>> prev_SF = SF.copy();

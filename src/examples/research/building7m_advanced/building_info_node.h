@@ -48,7 +48,7 @@ inline void building_info_node::flow_event()
     int64 ny = 35;
     distance d = 200_mm;
     distance h = 3000_mm;
-    float64 wall_R = 5.0;
+    float64 wall_R = 4.0;
     float64 wall_alpha = 0.1;
     float64 floor_alpha = 0.1;
     float64 ceiling_alpha = 0.1;

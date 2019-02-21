@@ -41,7 +41,9 @@ public:
     port<flow, input, float64> ceiling_sound_absorption_input;
     port<flow, input, std::map<occupant_id, array1d<int64>>> initial_positions_input;
     port<flow, input, quantity<decltype(_m/_s)>> walking_speed_input;
+    port<flow, input, quantity<decltype(_g/_m/_s/_s)>> walking_sound_input;
     port<message, output, array2d<thermodynamic_temperature>> temperature_field_output;
+    port<message, output, array2d<quantity<decltype(_g/_m/_s/_s)>>> sound_field_output;
     port<message, output, std::pair<occupant_id, array1d<int64>>> occupant_position_output;
 
     // Components:
@@ -73,7 +75,9 @@ building_dynamics_node::building_dynamics_node(const std::string& node_name, con
     , ceiling_sound_absorption_input("ceiling_sound_absorption_input", external_interface())
     , initial_positions_input("initial_positions_input", external_interface())
     , walking_speed_input("walking_speed_input", external_interface())
+    , walking_sound_input("walking_sound_input", external_interface())
     , temperature_field_output("temperature_field_output", external_interface())
+    , sound_field_output("sound_field_output", external_interface())
     , occupant_position_output("occupant_position_output", external_interface())
     , weather("weather", internal_context())
     , thermodynamics("thermodynamics", internal_context())
@@ -98,12 +102,17 @@ building_dynamics_node::building_dynamics_node(const std::string& node_name, con
     inward_link(initial_temperature_input, occupant_planning.initial_temperature_input);
     inward_link(initial_temperature_rate_input, weather.initial_temperature_rate_input);
     inward_link(building_layout_input, thermodynamics.building_layout_input);
+    inward_link(building_layout_input, acoustics.building_layout_input);
     inward_link(building_layout_input, occupant_planning.building_layout_input);
     inward_link(building_layout_input, occupant_steering.building_layout_input);
     inward_link(wall_resistance_input, thermodynamics.wall_resistance_input);
+    //inward_link(wall_sound_absorption_input, acoustics.wall_sound_absorption_input);
+    //inward_link(floor_sound_absorption_input, acoustics.floor_sound_absorption_input);
+    //inward_link(ceiling_sound_absorption_input, acoustics.ceiling_sound_absorption_input);
     inward_link(initial_positions_input, occupant_planning.initial_positions_input);
     inward_link(initial_positions_input, occupant_steering.initial_positions_input);
     inward_link(walking_speed_input, occupant_steering.walking_speed_input);
+    inward_link(walking_sound_input, sound_source.walking_sound_input);
 
     // Message Links
     inner_link(weather.outdoor_temperature_output, thermodynamics.outdoor_temperature_input);
@@ -111,11 +120,16 @@ building_dynamics_node::building_dynamics_node(const std::string& node_name, con
     inner_link(thermodynamics.temperature_field_output, comfort.temperature_field_input);
     inner_link(heat_source.heat_source_output, thermodynamics.heat_source_input);
     inner_link(comfort.occupant_temperature_output, occupant_planning.occupant_temperature_input);
+    inner_link(acoustics.sound_field_output, hearing.sound_field_input);
+    inner_link(sound_source.sound_source_output, acoustics.sound_source_input);
     inner_link(occupant_planning.occupant_destination_output, occupant_steering.occupant_destination_input);
     inner_link(occupant_steering.occupant_position_output, heat_source.occupant_position_input);
     inner_link(occupant_steering.occupant_position_output, comfort.occupant_position_input);
+    inner_link(occupant_steering.occupant_position_output, sound_source.occupant_position_input);
+    inner_link(occupant_steering.occupant_position_output, hearing.occupant_position_input);
     inner_link(occupant_steering.occupant_position_output, occupant_planning.occupant_position_input);
     outward_link(thermodynamics.temperature_field_output, temperature_field_output);
+    outward_link(acoustics.sound_field_output, sound_field_output);
     outward_link(occupant_steering.occupant_position_output, occupant_position_output);
 
     // Finalization Links

@@ -28,7 +28,7 @@ public:
  
 protected:
     // State Variables:
-    array2d<quantity<decltype(_g/_m/_s/_s)>> TF;                     // sound field
+    array2d<quantity<decltype(_g/_m/_s/_s)>> SF;                     // sound field
     std::map<occupant_id, array1d<int64>> OP;                        // occupant positions
     std::map<occupant_id, quantity<decltype(_g/_m/_s/_s)>> OS;       // occupant sounds
     std::map<occupant_id, quantity<decltype(_g/_m/_s/_s)>> next_OS;  // next occupant sounds
@@ -53,7 +53,7 @@ inline hearing_node::hearing_node(const std::string& node_name, const node_conte
 
 inline duration hearing_node::initialization_event()
 {
-    TF = array2d<quantity<decltype(_g/_m/_s/_s)>>();
+    SF = array2d<quantity<decltype(_g/_m/_s/_s)>>();
     OP = std::map<occupant_id, array1d<int64>>();
     OS = std::map<occupant_id, quantity<decltype(_g/_m/_s/_s)>>();
     next_OS = std::map<occupant_id, quantity<decltype(_g/_m/_s/_s)>>();
@@ -65,11 +65,11 @@ inline duration hearing_node::initialization_event()
 inline duration hearing_node::unplanned_event(duration elapsed_dt)
 {
     if (sound_field_input.received()) {
-        TF = sound_field_input.value();
+        SF = sound_field_input.value();
         for (auto& occ_pos : OP) {
             auto& occ_id = occ_pos.first;
             auto& pos = occ_pos.second;
-            next_OS[occ_id] = TF(pos);
+            next_OS[occ_id] = SF(pos);
             if (OS[occ_id] != next_OS[occ_id]) {
                 change_flag = true;
             }
@@ -83,11 +83,11 @@ inline duration hearing_node::unplanned_event(duration elapsed_dt)
         if (OS.find(occ_id) == std::end(OS)) {
             OS[occ_id] = quantity<decltype(_g/_m/_s/_s)>();
         }
-        if (TF.empty()) {
+        if (SF.empty()) {
             next_OS[occ_id] = 0_g/_m/_s/_s;
         }
         else {
-            next_OS[occ_id] = TF(pos);
+            next_OS[occ_id] = SF(pos);
         }
         if (OS[occ_id] != next_OS[occ_id]) {
             change_flag = true;

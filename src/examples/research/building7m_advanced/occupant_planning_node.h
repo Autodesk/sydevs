@@ -155,12 +155,16 @@ inline array1d<int64> occupant_planning_node::sample_destination(occupant_id occ
         auto pos = pos0;
         auto done = false;
         while (!done) {
-            std::array<int64, 8> scores;
+            float64 min_score = pi;
+            int64 direction_index = -1;
             for (int64 i = 0; i < 8; ++i) {
-                scores[i] = direction_score(angle, pos0, pos, pos + directions[i]);
+                float64 score = direction_score(angle, pos0, pos, pos + directions[i]);
+                if (score < min_score) {
+                    min_score = score;
+                    direction_index = i;
+                }
             }
-            auto direction_iter = std::min_element(std::begin(scores), std::end(scores));
-            pos = pos + directions[std::distance(std::begin(scores), direction_iter)];
+            pos = pos + directions[direction_index];
             if (L(pos) == indoor_code) {
                 destinations.push_back(pos);
             }
@@ -192,9 +196,8 @@ inline float64 occupant_planning_node::direction_score(float64 angle, array1d<in
     auto delta_next_pos_squared = delta_next_pos*delta_next_pos;
     auto delta_next_squared = delta_next_pos_squared(0) + delta_next_pos_squared(1);
     if (delta_next_squared > delta_squared) {
-        auto v = next_pos - pos0;
-        auto a = std::atan2(v(1), v(0));
-        score = std::abs(a - angle);
+        auto a = std::abs(std::atan2(delta_next_pos(1), delta_next_pos(0)) - angle);
+        score = std::min(a, 2*pi - a);
     }
     return score;
 }

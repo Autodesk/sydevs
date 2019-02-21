@@ -4,7 +4,10 @@
 
 #include <examples/research/building7m_advanced/building_occupant_ids.h>
 #include <sydevs/systems/atomic_node.h>
+#include <math.h>
 #include <iostream>
+#include <chrono>
+#include <thread>
 
 namespace sydevs_examples {
 
@@ -26,18 +29,20 @@ public:
     port<flow, input, duration> frame_duration_input;
     port<flow, input, std::pair<array2d<int64>, std::pair<distance, distance>>> building_layout_input;
     port<message, input, array2d<thermodynamic_temperature>> temperature_field_input;
+    port<message, input, array2d<quantity<decltype(_g/_m/_s/_s)>>> sound_field_input;
     port<message, input, std::pair<occupant_id, array1d<int64>>> occupant_position_input;
 
 protected:
     // State Variables:
-    duration frame_dt;                         // duration of simulated time between successive frames
-    array2d<int64> L;                          // building layout
-    int64 nx;                                  // number of cells in the x dimension
-    int64 ny;                                  // number of cells in the y dimension
-    int64 frame_index;                         // index of frame
-    array2d<thermodynamic_temperature> TF;     // temperature field
-    std::map<occupant_id, array1d<int64>> OP;  // occupant positions
-    duration planned_dt;                       // planned duration
+    duration frame_dt;                            // duration of simulated time between successive frames
+    array2d<int64> L;                             // building layout
+    int64 nx;                                     // number of cells in the x dimension
+    int64 ny;                                     // number of cells in the y dimension
+    int64 frame_index;                            // index of frame
+    array2d<thermodynamic_temperature> TF;        // temperature field
+    array2d<quantity<decltype(_g/_m/_s/_s)>> SF;  // sound field
+    std::map<occupant_id, array1d<int64>> OP;     // occupant positions
+    duration planned_dt;                          // planned duration
 
     // Event Handlers:
     virtual duration initialization_event();
@@ -52,6 +57,7 @@ inline building_vis_node::building_vis_node(const std::string& node_name, const 
     , frame_duration_input("frame_duration_input", external_interface())
     , building_layout_input("building_layout_input", external_interface())
     , temperature_field_input("temperature_field_input", external_interface())
+    , sound_field_input("sound_field_input", external_interface())
     , occupant_position_input("occupant_position_input", external_interface())
 {
 }
@@ -65,6 +71,7 @@ inline duration building_vis_node::initialization_event()
     ny = L.dims()[1];
     frame_index = -1;
     TF = array2d<thermodynamic_temperature>();
+    SF = array2d<quantity<decltype(_g/_m/_s/_s)>>();
     OP = std::map<occupant_id, array1d<int64>>();
     planned_dt = 0_s;
     return planned_dt;
@@ -75,6 +82,9 @@ inline duration building_vis_node::unplanned_event(duration elapsed_dt)
 {
     if (temperature_field_input.received()) {
         TF = temperature_field_input.value();
+    }
+    else if (sound_field_input.received()) {
+        SF = sound_field_input.value();
     }
     else if (occupant_position_input.received()) {
         const std::pair<occupant_id, array1d<int64>>& occ_pos = occupant_position_input.value();
@@ -92,7 +102,7 @@ inline duration building_vis_node::planned_event(duration elapsed_dt)
     // Print grid if the frame rate is finite and the temperature field is not empty.
     if (frame_dt.finite() && !TF.empty()) {
         ++frame_index;
-        print("Frame " + tostring(frame_index));
+        //print("Frame " + tostring(frame_index));
         std::cout << std::endl;
         int64 nx = TF.dims()[0];
         int64 ny = TF.dims()[1];
@@ -100,7 +110,7 @@ inline duration building_vis_node::planned_event(duration elapsed_dt)
             std::string line("|");
             for (int64 ix = 0; ix < nx; ++ix) {
                 if (L(ix, iy) == wall_code) {
-                    line += "@@";
+                    line += "--";
                 }
                 else {
                     bool occupied = false;
@@ -112,9 +122,30 @@ inline duration building_vis_node::planned_event(duration elapsed_dt)
                         line += "  ";
                     }
                     else {
-                        int64 T_in_deg_C = int64((TF(ix, iy) - 273150_mK)/1_K + 0.5);
-                        line += tostring(T_in_deg_C);
+                        float64 T_in_deg_C = (TF(ix, iy) - 273150_mK)/1_K;
+                        int64 T_code = int64(T_in_deg_C + 0.5)%(T_in_deg_C >= 0 ? 100 : 10);
+                        auto T_str = tostring(T_code);
+                        if (T_str.length() == 1) {
+                            T_str = "0" + T_str;
+                        }
+                        line += T_str;
                     }
+                }
+                line += "|";
+            }
+            line += "  |";
+            for (int64 ix = 0; ix < nx; ++ix) {
+                if (L(ix, iy) == wall_code) {
+                    line += "--";
+                }
+                else {
+                    float64 P_in_Db = 20.0*log10(SF(ix, iy)/(20_g/_m/_s/_s));
+                    int64 P_code = int64(P_in_Db + 0.5)%(P_in_Db >= 0 ? 100 : 10);
+                    auto P_str = tostring(P_code);
+                    if (P_str.length() == 1) {
+                        P_str = "0" + P_str;
+                    }
+                    line += P_str;
                 }
                 line += "|";
             }
@@ -122,6 +153,8 @@ inline duration building_vis_node::planned_event(duration elapsed_dt)
         }
         std::cout << std::endl;
     }
+    std::cout << std::flush;
+    std::this_thread::sleep_for(std::chrono::milliseconds(50));
     planned_dt = frame_dt;
     return planned_dt;
 }

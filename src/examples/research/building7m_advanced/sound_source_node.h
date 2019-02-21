@@ -22,7 +22,7 @@ public:
     virtual scale time_precision() const { return micro; }
 
     // Ports:
-    port<flow, input, quantity<decltype(_g/_m/_s/_s)>> occupant_walking_sound_input;
+    port<flow, input, quantity<decltype(_g/_m/_s/_s)>> walking_sound_input;
     port<message, input, std::pair<occupant_id, array1d<int64>>> occupant_position_input;
     port<message, output, std::tuple<occupant_id, array1d<int64>, quantity<decltype(_g/_m/_s/_s)>>> sound_source_output;
  
@@ -43,7 +43,7 @@ protected:
 
 inline sound_source_node::sound_source_node(const std::string& node_name, const node_context& external_context)
     : atomic_node(node_name, external_context)
-    , occupant_walking_sound_input("occupant_walking_sound_input", external_interface())
+    , walking_sound_input("walking_sound_input", external_interface())
     , occupant_position_input("occupant_position_input", external_interface())
     , sound_source_output("sound_source_output", external_interface())
 {
@@ -52,7 +52,7 @@ inline sound_source_node::sound_source_node(const std::string& node_name, const 
 
 inline duration sound_source_node::initialization_event()
 {
-    walking_P = occupant_walking_sound_input.value();
+    walking_P = walking_sound_input.value();
     OP = std::map<occupant_id, array1d<int64>>();
     change_flag = false;
     return duration::inf();
@@ -67,7 +67,7 @@ inline duration sound_source_node::unplanned_event(duration elapsed_dt)
         auto& pos = occ_pos.second;
         next_OP[occ_id] = pos;
         if (OP.find(occ_id) == std::end(OP)) {
-            OP[occ_id] = array1d<int64>();
+            OP[occ_id] = pos;
         }
         if (!all(OP[occ_id] == next_OP[occ_id])) {
             change_flag = true;
@@ -79,10 +79,10 @@ inline duration sound_source_node::unplanned_event(duration elapsed_dt)
 
 inline duration sound_source_node::planned_event(duration elapsed_dt)
 {
-    for (auto& occ_pos : OP) {
+    for (auto& occ_pos : next_OP) {
         auto& occ_id = occ_pos.first;
         auto& pos = occ_pos.second;
-        if (!all(pos == next_OP[occ_id])) {
+        if (!all(pos == OP[occ_id])) {
             sound_source_output.send(std::make_tuple(occ_id, pos, walking_P));
         }
     }

@@ -32,14 +32,14 @@ public:
 
 protected:
     // State Variables:
-    array2d<int64> L;                                                                // building layout
-    int64 nx;                                                                        // number of cells in the x dimension
-    int64 ny;                                                                        // number of cells in the y dimension
-    float64 wall_R;                                                                  // wall resistance
-    array2d<thermodynamic_temperature> TF;                                           // temperature field
-    std::map<occupant_id, std::pair<array1d<int64>, quantity<decltype(_K/_s)>>> HS;  // heat sources
-    duration step_dt;                                                                // time step
-    duration planned_dt;                                                             // planned duration
+    array2d<int64> L;                                                               // building layout
+    int64 nx;                                                                       // number of cells in the x dimension
+    int64 ny;                                                                       // number of cells in the y dimension
+    float64 wall_R;                                                                 // wall resistance
+    array2d<thermodynamic_temperature> TF;                                          // temperature field
+    std::map<occupant_id, std::pair<array1d<int64>, quantity<decltype(_K/_s)>>> H;  // heat sources
+    duration step_dt;                                                               // time step
+    duration planned_dt;                                                            // planned duration
 
     // Event Handlers:
     virtual duration initialization_event();
@@ -69,7 +69,7 @@ inline duration thermodynamics_node::initialization_event()
     wall_R = wall_resistance_input.value();
     thermodynamic_temperature T0 = initial_temperature_input.value();
     TF = array2d<thermodynamic_temperature>({nx, ny}, T0);
-    HS = std::map<occupant_id, std::pair<array1d<int64>, quantity<decltype(_K/_s)>>>();
+    H = std::map<occupant_id, std::pair<array1d<int64>, quantity<decltype(_K/_s)>>>();
     step_dt = 250_ms;
     planned_dt = 0_s;
     return planned_dt;
@@ -87,7 +87,7 @@ inline duration thermodynamics_node::unplanned_event(duration elapsed_dt)
         const auto& occ_id = std::get<0>(heat_source);
         const auto& pos = std::get<1>(heat_source);
         const auto& T_rate = std::get<2>(heat_source);
-        HS[occ_id] = std::make_pair(pos, T_rate);
+        H[occ_id] = std::make_pair(pos, T_rate);
     }
     planned_dt -= elapsed_dt;
     return planned_dt;
@@ -97,7 +97,7 @@ inline duration thermodynamics_node::unplanned_event(duration elapsed_dt)
 inline duration thermodynamics_node::planned_event(duration elapsed_dt)
 {
     // Add heat from point sources
-    for (const auto& heat_source : HS) {
+    for (const auto& heat_source : H) {
         const auto& pos = heat_source.second.first;
         const auto& T_rate = heat_source.second.second;
         TF(pos) += T_rate*step_dt;

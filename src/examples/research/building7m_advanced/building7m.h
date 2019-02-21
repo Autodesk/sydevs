@@ -16,8 +16,8 @@ void building7m()
 {
     thermodynamic_temperature average_T = thermodynamic_temperature();
     try {
-        simulation<building_closed_system> sim(5_min, 0, std::cout);
-        sim.top.frame_duration.set_value(5_s);
+        simulation<building_closed_system> sim(10_min, 1, std::cout);
+        sim.top.frame_duration.set_value(1_s);
         sim.process_remaining_events();
     }
     catch (const system_node::error& e) {
