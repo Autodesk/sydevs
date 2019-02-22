@@ -139,7 +139,7 @@ inline duration building_vis_node::planned_event(duration elapsed_dt)
                     line += "--";
                 }
                 else {
-                    float64 P_in_Db = 20.0*log10(SF(ix, iy)/(20_g/_m/_s/_s));
+                    float64 P_in_Db = 20.0*log10(std::max(float64(1.0), float64(SF(ix, iy)/(20_mg/_m/_s/_s))));
                     int64 P_code = int64(P_in_Db + 0.5)%(P_in_Db >= 0 ? 100 : 10);
                     auto P_str = tostring(P_code);
                     if (P_str.length() == 1) {

@@ -53,7 +53,7 @@ building_closed_system::building_closed_system(const std::string& node_name, con
     , initial_temperature("initial_temperature", internal_context(), 273150_mK + 20_K)
     , initial_temperature_rate("initial_temperature_rate", internal_context(), 80_mK/_s)
     , walking_speed("walking_speed", internal_context(), 1400_mm/_s)
-    , walking_sound("walking_sound", internal_context(), 2_kg/_m/_s/_s)
+    , walking_sound("walking_sound", internal_context(), 2_g/_m/_s/_s)
     , occupant_count("occupant_count", internal_context(), 5)
     , building_info("building_info", internal_context())
     , initial_positions("initial_positions", internal_context())

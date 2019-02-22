@@ -29,12 +29,14 @@ public:
 
 protected:
     // State Variables:
+    std::array<array1d<int64>, 4> directions;                                             // array of directions
     array2d<int64> L;                                                                     // building layout
     int64 nx;                                                                             // number of cells in the x dimension
     int64 ny;                                                                             // number of cells in the y dimension
     float64 wall_R;                                                                       // wall resistance
     array2d<quantity<decltype(_g/_m/_s/_s)>> SF;                                          // sound field
     std::map<occupant_id, std::pair<array1d<int64>, quantity<decltype(_g/_m/_s/_s)>>> S;  // sound sources
+    array2d<std::array<float64, 4>> TLM;                                                  // transmission line matrix grid
     duration step_dt;                                                                     // time step
     duration planned_dt;                                                                  // planned duration
 
@@ -57,12 +59,19 @@ inline acoustics_node::acoustics_node(const std::string& node_name, const node_c
 
 inline duration acoustics_node::initialization_event()
 {
+    directions[0] = array1d<int64>({2}, {1, 0});
+    directions[1] = array1d<int64>({2}, {0, 1});
+    directions[2] = array1d<int64>({2}, {-1, 0});
+    directions[3] = array1d<int64>({2}, {0, -1});
+
     L = building_layout_input.value().first;
+
     nx = L.dims()[0];
     ny = L.dims()[1];
     wall_R = 5.0;
     SF = array2d<quantity<decltype(_g/_m/_s/_s)>>({nx, ny}, 0_g/_m/_s/_s);
     S = std::map<occupant_id, std::pair<array1d<int64>, quantity<decltype(_g/_m/_s/_s)>>>();
+    TLM = array2d<std::array<float64, 4>>({nx, ny}, {0.0, 0.0, 0.0, 0.0});
     step_dt = 50_ms;
     planned_dt = 0_s;
     return planned_dt;
@@ -90,39 +99,41 @@ inline duration acoustics_node::planned_event(duration elapsed_dt)
         const auto& pos = sound_source.second.first;
         const auto& P = sound_source.second.second;
         SF(pos) += P;
+        float64 dPx = 0.25*(P/(1_g/_m/_s/_s));
+        for (auto& Px : TLM(pos)) {
+            Px += dPx;
+        }
     }
     S.clear();
 
-    // Calculate the new sound of each non-outdoor, non-border cell.
-    array2d<quantity<decltype(_g/_m/_s/_s)>> prev_SF = SF.copy();
-    for (int64 ix = 1; ix < nx - 1; ++ix) {
-        for (int64 iy = 1; iy < ny - 1; ++iy) {
-            if (L(ix, iy) != outdoor_code) {
-                // The cell is not an outdoor cell.
-
-                // Obtain thermal resistances in neighborhood.
-                float64 r__ = (L(ix, iy) == wall_code ? wall_R : 0.0);
-                float64 r0_ = (L(ix - 1, iy) == wall_code ? wall_R : 0.0);
-                float64 r1_ = (L(ix + 1, iy) == wall_code ? wall_R : 0.0);
-                float64 r_0 = (L(ix, iy - 1) == wall_code ? wall_R : 0.0);
-                float64 r_1 = (L(ix, iy + 1) == wall_code ? wall_R : 0.0);
-
-                // Calculate diffusion coefficients.
-                // (Note: This is not actually based on physics.)
-                float64 c0_ = (1.0/4.0)*pow(2, -(r__ + r0_));
-                float64 c1_ = (1.0/4.0)*pow(2, -(r__ + r1_));
-                float64 c_0 = (1.0/4.0)*pow(2, -(r__ + r_0));
-                float64 c_1 = (1.0/4.0)*pow(2, -(r__ + r_1));
-                float64 c__ = 1.0 - c0_ - c1_ -  c_0 - c_1;
-
-                // Apply diffusion to obtain new cell sound.
-                SF(ix, iy) = 
-                    c__*prev_SF(ix, iy) + 
-                    c0_*prev_SF(ix - 1, iy) + 
-                    c1_*prev_SF(ix + 1, iy) +
-                    c_0*prev_SF(ix, iy - 1) + 
-                    c_1*prev_SF(ix, iy + 1);
+    // Update the TLM pressure values
+    auto next_TLM = array2d<std::array<float64, 4>>({nx, ny}, {0.0, 0.0, 0.0, 0.0});
+    for (int64 ix = 0; ix < nx; ++ix) {
+        for (int64 iy = 0; iy < ny; ++iy) {
+            array1d<int64> pos({2}, {ix, iy});
+            const auto& Pxs = TLM(pos);
+            for (int64 idir = 0; idir < 4; ++idir) {
+                auto dir = directions[idir];
+                auto dPx = Pxs[idir]/2.0;
+                auto nbr_pos = pos + dir;
+                if ((nbr_pos(0) >= 0) && (nbr_pos(0) < nx) && (nbr_pos(1) >= 0) && (nbr_pos(1) < ny)) {
+                    auto& nbr_Pxs = next_TLM(nbr_pos);
+                    nbr_Pxs[idir] += dPx;
+                    nbr_Pxs[(idir + 1)%4] += dPx;
+                    nbr_Pxs[(idir + 2)%4] -= dPx;
+                    nbr_Pxs[(idir + 3)%4] += dPx;
+                }
             }
+        }
+    }
+    TLM = std::move(next_TLM);
+
+    // Calculate the sound field.
+    for (int64 ix = 0; ix < nx; ++ix) {
+        for (int64 iy = 0; iy < ny; ++iy) {
+            const auto& Pxs = TLM(ix, iy);
+            auto Px = std::abs(Pxs[0]) + std::abs(Pxs[1]) + std::abs(Pxs[2]) + std::abs(Pxs[3]);
+            SF(ix, iy) = Px*(1_g/_m/_s/_s);
         }
     }
 

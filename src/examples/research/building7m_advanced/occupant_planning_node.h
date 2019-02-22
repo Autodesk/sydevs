@@ -33,12 +33,12 @@ public:
 
 protected:
     // State Variables:
+    std::array<array1d<int64>, 8> directions;             // array of directions;
     array2d<int64> L;                                     // building layout
     int64 nx;                                             // number of cells in the x dimension
     int64 ny;                                             // number of cells in the y dimension
     distance d;                                           // distance between cells
     thermodynamic_temperature high_T;                     // high temperature
-    std::array<array1d<int64>, 8> directions;             // array of directions;
     std::map<occupant_id, array1d<int64>> OP;             // occupant positions
     std::map<occupant_id, array1d<int64>> OD;             // occupant destinations
     std::map<occupant_id, array1d<int64>> next_OD;        // next occupant destinations
@@ -67,26 +67,29 @@ inline occupant_planning_node::occupant_planning_node(const std::string& node_na
     , occupant_temperature_input("occupant_temperature_input", external_interface())
     , occupant_destination_output("occupant_destination_output", external_interface())
 {
-    directions[0] = array1d<int64>({2}, {1, 0});
-    directions[1] = array1d<int64>({2}, {1, 1});
-    directions[2] = array1d<int64>({2}, {0, 1});
-    directions[3] = array1d<int64>({2}, {-1, 1});
-    directions[4] = array1d<int64>({2}, {-1, 0});
-    directions[5] = array1d<int64>({2}, {-1, -1});
-    directions[6] = array1d<int64>({2}, {0, -1});
-    directions[7] = array1d<int64>({2}, {1, -1});
 }
 
 
 inline duration occupant_planning_node::initialization_event()
 {
+    directions[0] = array1d<int64>({ 2 }, { 1, 0 });
+    directions[1] = array1d<int64>({ 2 }, { 1, 1 });
+    directions[2] = array1d<int64>({ 2 }, { 0, 1 });
+    directions[3] = array1d<int64>({ 2 }, { -1, 1 });
+    directions[4] = array1d<int64>({ 2 }, { -1, 0 });
+    directions[5] = array1d<int64>({ 2 }, { -1, -1 });
+    directions[6] = array1d<int64>({ 2 }, { 0, -1 });
+    directions[7] = array1d<int64>({ 2 }, { 1, -1 });
+
     L = building_layout_input.value().first;
     nx = L.dims()[0];
     ny = L.dims()[1];
     d = building_layout_input.value().second.first;
     high_T = high_temperature_input.value();
+
     thermodynamic_temperature T0 = initial_temperature_input.value();
     OP = initial_positions_input.value();
+
     OD = OP;
     next_OD = OP;
     OT = std::map<occupant_id, thermodynamic_temperature>();
