@@ -24,6 +24,9 @@ public:
 
     // Ports:
     port<flow, input, std::pair<array2d<int64>, std::pair<distance, distance>>> building_layout_input;
+    port<flow, input, float64> wall_sound_absorption_input;
+    port<flow, input, float64> floor_sound_absorption_input;
+    port<flow, input, float64> ceiling_sound_absorption_input;
     port<message, input, std::tuple<occupant_id, array1d<int64>, quantity<decltype(_g/_m/_s/_s)>>> sound_source_input;
     port<message, output, array2d<quantity<decltype(_g/_m/_s/_s)>>> sound_field_output;
 
@@ -33,7 +36,11 @@ protected:
     array2d<int64> L;                                                                     // building layout
     int64 nx;                                                                             // number of cells in the x dimension
     int64 ny;                                                                             // number of cells in the y dimension
-    float64 wall_R;                                                                       // wall resistance
+    distance d;                                                                           // distance between cells
+    distance h;                                                                           // height of ceiling
+    float64 wall_alpha;                                                                   // wall sound absorption coefficient
+    float64 floor_alpha;                                                                  // floor sound absorption coefficient
+    float64 ceiling_alpha;                                                                // ceiling sound absorption coefficient
     array2d<quantity<decltype(_g/_m/_s/_s)>> SF;                                          // sound field
     std::map<occupant_id, std::pair<array1d<int64>, quantity<decltype(_g/_m/_s/_s)>>> S;  // sound sources
     array2d<std::array<float64, 4>> TLM;                                                  // transmission line matrix grid
@@ -51,6 +58,9 @@ protected:
 inline acoustics_node::acoustics_node(const std::string& node_name, const node_context& external_context)
     : atomic_node(node_name, external_context)
     , building_layout_input("building_layout_input", external_interface())
+    , wall_sound_absorption_input("wall_sound_absorption_input", external_interface())
+    , floor_sound_absorption_input("floor_sound_absorption_input", external_interface())
+    , ceiling_sound_absorption_input("ceiling_sound_absorption_input", external_interface())
     , sound_source_input("sound_source_input", external_interface())
     , sound_field_output("sound_field_output", external_interface())
 {
@@ -68,7 +78,11 @@ inline duration acoustics_node::initialization_event()
 
     nx = L.dims()[0];
     ny = L.dims()[1];
-    wall_R = 5.0;
+    d = building_layout_input.value().second.first;
+    h = building_layout_input.value().second.second;
+    wall_alpha = wall_sound_absorption_input.value();
+    floor_alpha = floor_sound_absorption_input.value();
+    ceiling_alpha = ceiling_sound_absorption_input.value();
     SF = array2d<quantity<decltype(_g/_m/_s/_s)>>({nx, ny}, 0_g/_m/_s/_s);
     S = std::map<occupant_id, std::pair<array1d<int64>, quantity<decltype(_g/_m/_s/_s)>>>();
     TLM = array2d<std::array<float64, 4>>({nx, ny}, {0.0, 0.0, 0.0, 0.0});
@@ -108,20 +122,27 @@ inline duration acoustics_node::planned_event(duration elapsed_dt)
 
     // Update the TLM pressure values
     auto next_TLM = array2d<std::array<float64, 4>>({nx, ny}, {0.0, 0.0, 0.0, 0.0});
+    float64 wall_G = 1.0 - wall_alpha;
+    float64 walkable_G = 1.0 - (floor_alpha + ceiling_alpha)*d/(2.0*h);
     for (int64 ix = 0; ix < nx; ++ix) {
         for (int64 iy = 0; iy < ny; ++iy) {
             array1d<int64> pos({2}, {ix, iy});
-            const auto& Pxs = TLM(pos);
+            auto& Pxs = TLM(pos);
             for (int64 idir = 0; idir < 4; ++idir) {
                 auto dir = directions[idir];
-                auto dPx = Pxs[idir]/2.0;
                 auto nbr_pos = pos + dir;
                 if ((nbr_pos(0) >= 0) && (nbr_pos(0) < nx) && (nbr_pos(1) >= 0) && (nbr_pos(1) < ny)) {
-                    auto& nbr_Pxs = next_TLM(nbr_pos);
-                    nbr_Pxs[idir] += dPx;
-                    nbr_Pxs[(idir + 1)%4] += dPx;
-                    nbr_Pxs[(idir + 2)%4] -= dPx;
-                    nbr_Pxs[(idir + 3)%4] += dPx;
+                    if (L(nbr_pos) == wall_code) {
+                        Pxs[idir] = -wall_G*Pxs[idir];
+                    }
+                    else {
+                        auto& nbr_Pxs = next_TLM(nbr_pos);
+                        auto dPx = walkable_G*Pxs[idir]/2.0;
+                        nbr_Pxs[idir] += dPx;
+                        nbr_Pxs[(idir + 1)%4] += dPx;
+                        nbr_Pxs[(idir + 2)%4] -= dPx;
+                        nbr_Pxs[(idir + 3)%4] += dPx;
+                    }
                 }
             }
         }

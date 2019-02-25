@@ -100,10 +100,10 @@ inline duration building_vis_node::unplanned_event(duration elapsed_dt)
 inline duration building_vis_node::planned_event(duration elapsed_dt)
 {
     // Print grid if the frame rate is finite and the temperature field is not empty.
+    std::string frame_str("");
     if (frame_dt.finite() && !TF.empty()) {
         ++frame_index;
-        //print("Frame " + tostring(frame_index));
-        std::cout << std::endl;
+        frame_str += ("Frame " + tostring(frame_index) += "\n");
         int64 nx = TF.dims()[0];
         int64 ny = TF.dims()[1];
         for (int64 iy = ny - 1; iy >= 0; --iy) {
@@ -149,11 +149,11 @@ inline duration building_vis_node::planned_event(duration elapsed_dt)
                 }
                 line += "|";
             }
-            std::cout << line << std::endl;
+            frame_str += (line + "\n");
         }
-        std::cout << std::endl;
+        frame_str += "\n";
     }
-    std::cout << std::flush;
+    std::cout << frame_str << std::flush;
     std::this_thread::sleep_for(std::chrono::milliseconds(50));
     planned_dt = frame_dt;
     return planned_dt;

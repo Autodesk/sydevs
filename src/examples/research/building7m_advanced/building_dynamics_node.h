@@ -106,9 +106,9 @@ building_dynamics_node::building_dynamics_node(const std::string& node_name, con
     inward_link(building_layout_input, occupant_planning.building_layout_input);
     inward_link(building_layout_input, occupant_steering.building_layout_input);
     inward_link(wall_resistance_input, thermodynamics.wall_resistance_input);
-    //inward_link(wall_sound_absorption_input, acoustics.wall_sound_absorption_input);
-    //inward_link(floor_sound_absorption_input, acoustics.floor_sound_absorption_input);
-    //inward_link(ceiling_sound_absorption_input, acoustics.ceiling_sound_absorption_input);
+    inward_link(wall_sound_absorption_input, acoustics.wall_sound_absorption_input);
+    inward_link(floor_sound_absorption_input, acoustics.floor_sound_absorption_input);
+    inward_link(ceiling_sound_absorption_input, acoustics.ceiling_sound_absorption_input);
     inward_link(initial_positions_input, occupant_planning.initial_positions_input);
     inward_link(initial_positions_input, occupant_steering.initial_positions_input);
     inward_link(walking_speed_input, occupant_steering.walking_speed_input);

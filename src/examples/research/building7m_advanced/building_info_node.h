@@ -86,7 +86,7 @@ inline void building_info_node::flow_event()
 
     // Placing interior wall cells.
     int64 ix_wall = 3 + (nx - 6)/3;
-    for (int64 iy = 3; iy < ny - 6; ++iy) {
+    for (int64 iy = 3; iy < ny - 8; ++iy) {
         L(ix_wall, iy) = wall_code;
     }
 
