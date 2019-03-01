@@ -168,11 +168,12 @@ inline array1d<int64> occupant_planning_node::sample_destination(occupant_id occ
                 }
             }
             pos = pos + directions[direction_index];
-            if (L(pos) == indoor_code) {
-                destinations.push_back(pos);
-            }
-            else {
-                done = true;
+            done = true;
+            if ((pos(0) >= 0) && (pos(0) < nx) && (pos(1) >= 0) && (pos(1) < ny)) {
+                if (L(pos) == indoor_code) {
+                    destinations.push_back(pos);
+                    done = false;
+                }
             }
         }
     }

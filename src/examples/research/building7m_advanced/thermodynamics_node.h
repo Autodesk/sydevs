@@ -70,7 +70,7 @@ inline duration thermodynamics_node::initialization_event()
     thermodynamic_temperature T0 = initial_temperature_input.value();
     TF = array2d<thermodynamic_temperature>({nx, ny}, T0);
     H = std::map<occupant_id, std::pair<array1d<int64>, quantity<decltype(_K/_s)>>>();
-    step_dt = 250_ms;
+    step_dt = 200_ms;
     planned_dt = 0_s;
     return planned_dt;
 }
@@ -103,19 +103,19 @@ inline duration thermodynamics_node::planned_event(duration elapsed_dt)
         TF(pos) += T_rate*step_dt;
     }
 
-    // Calculate the new temperature of each non-outdoor, non-border cell.
+    // Calculate the new temperature of each cell.
     array2d<thermodynamic_temperature> prev_TF = TF.copy();
-    for (int64 ix = 1; ix < nx - 1; ++ix) {
-        for (int64 iy = 1; iy < ny - 1; ++iy) {
+    for (int64 ix = 0; ix < nx; ++ix) {
+        for (int64 iy = 0; iy < ny; ++iy) {
             if (L(ix, iy) != outdoor_code) {
                 // The cell is not an outdoor cell.
 
                 // Obtain thermal resistances in neighborhood.
                 float64 r__ = (L(ix, iy) == wall_code ? wall_R : 0.0);
-                float64 r0_ = (L(ix - 1, iy) == wall_code ? wall_R : 0.0);
-                float64 r1_ = (L(ix + 1, iy) == wall_code ? wall_R : 0.0);
-                float64 r_0 = (L(ix, iy - 1) == wall_code ? wall_R : 0.0);
-                float64 r_1 = (L(ix, iy + 1) == wall_code ? wall_R : 0.0);
+                float64 r0_ = ix > 0 ? (L(ix - 1, iy) == wall_code ? wall_R : 0.0) : 0.0;
+                float64 r1_ = ix < nx - 1 ? (L(ix + 1, iy) == wall_code ? wall_R : 0.0) : 0.0;
+                float64 r_0 = iy > 0 ? (L(ix, iy - 1) == wall_code ? wall_R : 0.0) : 0.0;
+                float64 r_1 = iy < ny - 1 ? (L(ix, iy + 1) == wall_code ? wall_R : 0.0) : 0.0;
 
                 // Calculate diffusion coefficients.
                 // (Note: This is not actually based on physics.)
@@ -126,12 +126,13 @@ inline duration thermodynamics_node::planned_event(duration elapsed_dt)
                 float64 c__ = 1.0 - c0_ - c1_ -  c_0 - c_1;
 
                 // Apply diffusion to obtain new cell temperature.
+                auto prev_T = prev_TF(ix, iy);
                 TF(ix, iy) = 
-                    c__*prev_TF(ix, iy) + 
-                    c0_*prev_TF(ix - 1, iy) + 
-                    c1_*prev_TF(ix + 1, iy) +
-                    c_0*prev_TF(ix, iy - 1) + 
-                    c_1*prev_TF(ix, iy + 1);
+                    c__*prev_T +
+                    c0_*(ix > 0 ? prev_TF(ix - 1, iy) : prev_T) +
+                    c1_*(ix < nx - 1 ? prev_TF(ix + 1, iy) : prev_T) +
+                    c_0*(iy > 0 ? prev_TF(ix, iy - 1) : prev_T) +
+                    c_1*(iy < ny - 1 ? prev_TF(ix, iy + 1) : prev_T);
             }
         }
     }
