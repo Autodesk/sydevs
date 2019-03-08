@@ -87,8 +87,8 @@ inline duration acoustics_node::initialization_event()
     SF = array2d<quantity<decltype(_g/_m/_s/_s)>>({nx, ny}, 0_g/_m/_s/_s);
     S = std::map<occupant_id, std::pair<array1d<int64>, quantity<decltype(_g/_m/_s/_s)>>>();
     TLM = array2d<std::array<float64, 4>>({nx, ny}, {0.0, 0.0, 0.0, 0.0});
-    step_dt = 100_ms;
-    inner_step_count = 5;
+    step_dt = 200_ms;
+    inner_step_count = 10;
     planned_dt = 0_s;
     return planned_dt;
 }
@@ -164,7 +164,7 @@ inline duration acoustics_node::planned_event(duration elapsed_dt)
         for (int64 ix = 0; ix < nx; ++ix) {
             for (int64 iy = 0; iy < ny; ++iy) {
                 const auto& Pxs = TLM(ix, iy);
-                auto Px = std::abs(Pxs[0]) + std::abs(Pxs[1]) + std::abs(Pxs[2]) + std::abs(Pxs[3]);
+                auto Px = std::abs(Pxs[0] + Pxs[1] + Pxs[2] + Pxs[3]);
                 SF(ix, iy) += scale*Px*(1_g/_m/_s/_s);
             }
         }
