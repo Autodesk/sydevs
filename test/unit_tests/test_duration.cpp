@@ -64,6 +64,9 @@ TEST_CASE("test duration literals")
     CHECK(1_Zs == duration(1, zetta));
     CHECK(1_Ys == duration(1, yotta));
 
+    CHECK(5_min == duration(300, unit));
+    CHECK(7_day == duration(604800, unit));
+
     CHECK(999999999999999_s == duration(999999999999999, unit));
     CHECK(999999999999999_us == duration(999999999999999, micro));
     CHECK(1000000000000000_s == duration::inf());

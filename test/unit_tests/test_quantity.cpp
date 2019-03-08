@@ -19,6 +19,9 @@ TEST_CASE("test quantity with assorted operations")
     CHECK((6000_Mg*(15_nm/300_ms)) == quantity<decltype(_g*_m/_s)>(300000, milli));
     CHECK((-777_kg*_m/_s/_s) == -quantity<decltype(_g*_m/_s/_s)>(777, kilo));
     CHECK((-777_km/_s*_g/_s) == -quantity<decltype(_g*_m/_s/_s)>(777, kilo));
+    CHECK((90_km/1_hr) == quantity<decltype(_m/_s)>(25, unit));
+    CHECK((200_m/8_s) == quantity<decltype(_m/_s)>(25, unit));
+    CHECK((1500_mA/_A) == 1.5);
     CHECK((string_builder() << 5_g).str() == "5_g");
     CHECK((string_builder() << 5*1_g).str() == "5_g");
     CHECK((string_builder() << 5/1_g).str() == "quantity<decltype(_1/_g)>(5, unit)");

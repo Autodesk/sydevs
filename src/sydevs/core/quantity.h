@@ -84,12 +84,28 @@ protected:
  * 6000_Mg  // 6000 Megagrams
  * ~~~
  *
- * Although `(7000_us == 7_ms)` evaluates to `true`, the two values are
- * slightly different in that the left-hand side is stored as a muliplier of
- * 7000 and a time precision of microseconds, whereas the right-hand side is
- * stored as a multiplier of 7 and a time precision of milliseconds. 
+ * These user-defined literals correspond with the 7 Standard International (SI)
+ * base units as represented by [units](@ref sydevs::units) (`_g`, `_m`, `_s`,
+ * `_A`, `_K`, `_mol`, `_cd`), and may also incorporate an SI prefix (`y`, `z`,
+ * `a`, `f`, `n`, `p`, `u`, `m`, `k`, `M`, `G`, `T`, `P`, `E`, `Z`, `Y`). Note
+ * one difference from the SI standard: the gram (`1_g`) is used as the base
+ * unit for mass, instead of the kilogram (`1_kg`) as in the standard.
  *
- * The three constructors can also be used to construct `quantity` values.
+ * There are also 4 additional user-defined literals that produce
+ * duration-valued quantities with a precision of 1 second and a multiplier
+ * scaled up by 60 (`?_min`), 60`*`60 (`?_hr`), 24`*`60`*`60 (`?_day`) or 
+ * 365`*`24`*`60`*`60 (`?_yr`). Examples of these literals are below.
+ *
+ * ~~~
+ * 5_min  // 300 seconds (5 minutes)
+ * 7_day  // 604,800 seconds (1 week)
+ * ~~~
+ *
+ * Quantity values can also be created by directly invoking one of the three
+ * constructors: the default constructor producing an invalid quanitity, the
+ * single-argument constructor producing a quantity with a precision of one base
+ * unit, and the two-argument constructor where both the multiplier and
+ * precision level are supplied.
  *
  * ~~~
  * quantity<grams>()                         // invalid mass quantity
@@ -100,8 +116,7 @@ protected:
  * quantity<decltype(_g*_m/_s/_s)>(3, kilo)  // 3 Newtons
  * ~~~
  *
- * Type aliases are provided for quantities of the 7 Standard International
- * (SI) base units.
+ * Type aliases are provided for quantities of the 7 SI base units.
  *
  * ~~~
  * mass                       // quantity<grams>
@@ -128,19 +143,41 @@ protected:
  *
  * ~~~
  * -777_kg*_m/_s/_s  // -777 Newtons
+ * 90_km/_hr         // 25 meters per second (90 kilometers per hour)
  * ~~~
  *
- * One can also construct infinite quantities, as well as the maximum 
- * representable quantity at a given precision level.
+ * Also, multiplying or dividing quantities yields a new quantity with different
+ * units.
  *
  * ~~~
- * `duration::inf()`   // Infinite duration
- * `mass::max(yocto)`  // Maximum mass at ys precision (999999999999999_yg)
+ * 200_m/8_s  // 25 meters per second
  * ~~~
+ *
+ * To remove the units from a quantity, simply divide by the unit. The result is
+ * a dimensionless quantity value (`quantity<no_units>`) that can be coerced
+ * into a floating-point number.
+ *
+ * ~~~
+ * 1500_mA/_A  // 1.5
+ * ~~~
+ *
+ * One can construct infinite quantities, as well as the maximum representable
+ * quantity at a given precision level.
+ *
+ * ~~~
+ * duration::inf()   // Infinite duration
+ * mass::max(yocto)  // Maximum mass at ys precision (999999999999999_yg)
+ * ~~~
+ *
+ * Precision is a core aspect of `quantity` types. To illustrate, although 
+ * `(7000_us == 7_ms)` evaluates to `true`, the two values are different. The
+ * left-hand side is stored as a muliplier of 7000 and a time precision of
+ * microseconds, whereas the right-hand side is stored as a multiplier of 7 and
+ * a time precision of milliseconds.
  *
  * By default, `quantity` values resulting from arithmetic operations have
- * their precisions automatically adjusted to minimize rounding error. This
- * default behaviour treats `quantity` values as base-1000 floating-point
+ * their precision levels automatically adjusted to minimize rounding error.
+ * This default behaviour treats `quantity` values as base-1000 floating-point
  * numbers. The following examples all involve time values.
  *
  * ~~~
