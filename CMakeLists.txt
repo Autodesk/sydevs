@@ -167,6 +167,12 @@ aux_source_directory(${QUEUEING_DIR} QUEUEING_SRCS)
 add_executable(queueing ${QUEUEING_SRCS} ${QUEUEING_HDRS})
 target_link_libraries(queueing SyDEVS-static)
 
+set(WORKERS_DIR ${DEMO_EXAMPLES_DIR}/workers)
+file(GLOB WORKERS_HDRS "${WORKERS_DIR}/*.h")
+aux_source_directory(${WORKERS_DIR} WORKERS_SRCS)
+add_executable(workers ${WORKERS_SRCS} ${WORKERS_HDRS})
+target_link_libraries(workers SyDEVS-static)
+
 # ------------------------------------------------------------------------------
 #
 #   Unit tests
