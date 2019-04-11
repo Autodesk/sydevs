@@ -10,6 +10,7 @@
 #include <examples/research/subtyping/subtyping.h>
 #include <examples/demo/building7m/building7m.h>
 #include <examples/demo/queueing/queueing.h>
+#include <examples/demo/workers/workers.h>
 #include <vector>
 #include <algorithm>
 #include <iostream>
@@ -29,6 +30,7 @@ int main(int argc, const char* argv[])
         error_codes.push_back(perform_regression_test("output_of_subtyping.txt", &sydevs_examples::subtyping));
         error_codes.push_back(perform_regression_test("output_of_building7m.txt", &sydevs_examples::building7m));
         error_codes.push_back(perform_regression_test("output_of_queueing.txt", &sydevs_examples::queueing));
+        error_codes.push_back(perform_regression_test("output_of_workers.txt", &sydevs_examples::workers));
     }
 #ifdef _WIN32
     {
