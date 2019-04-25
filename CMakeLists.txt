@@ -168,11 +168,9 @@ add_executable(queueing ${QUEUEING_SRCS} ${QUEUEING_HDRS})
 target_link_libraries(queueing SyDEVS-static)
 
 set(WORKERS_DIR ${DEMO_EXAMPLES_DIR}/workers)
-set(WORKERS_APP_DIR ${DEMO_EXAMPLES_DIR}/workers_app)
 file(GLOB WORKERS_HDRS "${WORKERS_DIR}/*.h")
 aux_source_directory(${WORKERS_DIR} WORKERS_SRCS)
-aux_source_directory(${WORKERS_APP_DIR} WORKERS_APP_SRCS)
-add_executable(workers ${WORKERS_APP_SRCS} ${WORKERS_HDRS} ${WORKERS_SRCS})
+add_executable(workers ${WORKERS_SRCS} ${WORKERS_HDRS})
 target_link_libraries(workers SyDEVS-static)
 
 # ------------------------------------------------------------------------------
@@ -199,8 +197,15 @@ set(REGRESSION_TEST_DIR test/regression_tests)
 include_directories(${REGRESSION_TEST_DIR})
 file(GLOB REGRESSION_TEST_HDRS "${REGRESSION_TEST_DIR}/*.h")
 aux_source_directory(${REGRESSION_TEST_DIR} REGRESSION_TEST_SRCS)
+
+# Remove main.cpp from WORKERS_SRCS to allow the source list to be linked into unit/regression test executable
+list(REMOVE_ITEM WORKERS_SRCS src/examples/demo/workers/main.cpp)
+
+# Build regression test executable
 add_executable(regression_tests ${REGRESSION_TEST_SRCS} ${REGRESSION_TEST_HDRS} ${WORKERS_SRCS})
 target_link_libraries(regression_tests SyDEVS-static)
+
+# Run regression tests
 add_custom_command(TARGET regression_tests PRE_BUILD COMMAND ${CMAKE_COMMAND} -E make_directory regression_test_data)
 add_custom_command(TARGET regression_tests PRE_BUILD COMMAND ${CMAKE_COMMAND} -E make_directory regression_test_data/old_data)
 add_custom_command(TARGET regression_tests PRE_BUILD COMMAND ${CMAKE_COMMAND} -E make_directory regression_test_data/new_data)
