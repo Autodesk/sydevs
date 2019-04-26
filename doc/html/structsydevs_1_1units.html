@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname"><a href="https://autodesk.github.io/sydevs/">SyDEVS</a>
-   &#160;<span id="projectnumber">v0.6.3</span>
+   &#160;<span id="projectnumber">v0.6.4</span>
    </div>
    <div id="projectbrief">Multiscale Simulation and Systems Modeling Library</div>
   </td>
@@ -167,7 +167,7 @@ struct sydevs::units&lt; g, m, s, A, K, mol, cd &gt;</h3>
 </div><!-- fragment --><p>There is also a type alias for each of the base units:</p>
 <div class="fragment"><div class="line"><a class="code" href="namespacesydevs.html#ac83621fef6d7a29848462ea3a3766941">grams</a>     <span class="comment">// Unit of mass</span></div>
 <div class="line"><a class="code" href="namespacesydevs.html#afe45753433eba9fe199d1d0a81fceb80">meters</a>    <span class="comment">// Unit of distance</span></div>
-<div class="line"><a class="code" href="namespacesydevs.html#a5c1db1b69523e3ddf361d94937e88900">seconds</a>   <span class="comment">// Unit of duration</span></div>
+<div class="line">seconds   <span class="comment">// Unit of duration</span></div>
 <div class="line"><a class="code" href="namespacesydevs.html#a7362185d19a99e71b2d811fa86ea7835">amperes</a>   <span class="comment">// Unit of electric current</span></div>
 <div class="line"><a class="code" href="namespacesydevs.html#a2085707f43458573dbafc0e8948eae7c">kelvins</a>   <span class="comment">// Unit of thermodynamic temperature</span></div>
 <div class="line"><a class="code" href="namespacesydevs.html#a7b51ef9a6717f8cfcf0e6e20ca328ec7">moles</a>     <span class="comment">// Unit of amount of substance</span></div>
@@ -175,7 +175,7 @@ struct sydevs::units&lt; g, m, s, A, K, mol, cd &gt;</h3>
 </div><!-- fragment --><p>For each base unit, the associated value is defined as a constant.</p>
 <div class="fragment"><div class="line"><a class="code" href="namespacesydevs.html#a804c1bda9fd1746231899307f926c48a">_g</a>    <span class="comment">// grams()</span></div>
 <div class="line"><a class="code" href="namespacesydevs.html#a194efd1096710acb4d313d5c462aebae">_m</a>    <span class="comment">// meters()</span></div>
-<div class="line"><a class="code" href="namespacesydevs.html#a2d5b324c17eaf9b970ad09a2a77d7725">_s</a>    <span class="comment">// seconds()</span></div>
+<div class="line">_s    <span class="comment">// seconds()</span></div>
 <div class="line"><a class="code" href="namespacesydevs.html#a9df99fe367a57dc0056266318b202951">_A</a>    <span class="comment">// amperes()</span></div>
 <div class="line"><a class="code" href="namespacesydevs.html#a8cc7ccd05ee5cc943cca88c795b06af6">_K</a>    <span class="comment">// kelvins()</span></div>
 <div class="line"><a class="code" href="namespacesydevs.html#abe0b3d0d6d6f38d7ee8453fede2a3418">_mol</a>  <span class="comment">// moles()</span></div>
@@ -186,12 +186,12 @@ struct sydevs::units&lt; g, m, s, A, K, mol, cd &gt;</h3>
 <div class="line">units&lt;0, 0, 1, 1, 0, 0, 0&gt;   <span class="comment">// second*Ampere or coulomb (electric charge)</span></div>
 <div class="line">units&lt;0, -2, 0, 0, 0, 0, 1&gt;  <span class="comment">// candelas/meter^2 or lux (illuminance)</span></div>
 </div><!-- fragment --><p>The second approach employs the base unit values in conjunction with multiplication and division operators and <code>decltype</code>.</p>
-<div class="fragment"><div class="line">decltype(<a class="code" href="namespacesydevs.html#a194efd1096710acb4d313d5c462aebae">_m</a>/<a class="code" href="namespacesydevs.html#a2d5b324c17eaf9b970ad09a2a77d7725">_s</a>)       <span class="comment">// meters/second (speed)</span></div>
-<div class="line">decltype(<a class="code" href="namespacesydevs.html#a194efd1096710acb4d313d5c462aebae">_m</a>/<a class="code" href="namespacesydevs.html#a2d5b324c17eaf9b970ad09a2a77d7725">_s</a>/<a class="code" href="namespacesydevs.html#a2d5b324c17eaf9b970ad09a2a77d7725">_s</a>)    <span class="comment">// meters/second^2 (acceleration)</span></div>
-<div class="line">decltype(<a class="code" href="namespacesydevs.html#a2d5b324c17eaf9b970ad09a2a77d7725">_s</a>*<a class="code" href="namespacesydevs.html#a9df99fe367a57dc0056266318b202951">_A</a>)       <span class="comment">// second*Ampere or coulomb (electric charge)</span></div>
+<div class="fragment"><div class="line">decltype(<a class="code" href="namespacesydevs.html#a194efd1096710acb4d313d5c462aebae">_m</a>/_s)       <span class="comment">// meters/second (speed)</span></div>
+<div class="line">decltype(<a class="code" href="namespacesydevs.html#a194efd1096710acb4d313d5c462aebae">_m</a>/_s/_s)    <span class="comment">// meters/second^2 (acceleration)</span></div>
+<div class="line">decltype(_s*<a class="code" href="namespacesydevs.html#a9df99fe367a57dc0056266318b202951">_A</a>)       <span class="comment">// second*Ampere or coulomb (electric charge)</span></div>
 <div class="line">decltype (<a class="code" href="namespacesydevs.html#a9e5633ed35e2449814f5ed58e71bdb33">_cd</a>/<a class="code" href="namespacesydevs.html#a194efd1096710acb4d313d5c462aebae">_m</a>/<a class="code" href="namespacesydevs.html#a194efd1096710acb4d313d5c462aebae">_m</a>)  <span class="comment">// candelas/meter^2 or lux (illuminance)</span></div>
 </div><!-- fragment --><p>It is important to note that the <code>units</code> class treats grams, not kilograms, as the base unit for mass. This affects derived quantities such as Newtons.</p>
-<div class="fragment"><div class="line">decltype(<a class="code" href="namespacesydevs.html#a804c1bda9fd1746231899307f926c48a">_g</a>*<a class="code" href="namespacesydevs.html#a194efd1096710acb4d313d5c462aebae">_m</a>/<a class="code" href="namespacesydevs.html#a2d5b324c17eaf9b970ad09a2a77d7725">_s</a>/<a class="code" href="namespacesydevs.html#a2d5b324c17eaf9b970ad09a2a77d7725">_s</a>)  <span class="comment">// grams*meters/second^2 or milliNewtons (force)</span></div>
+<div class="fragment"><div class="line">decltype(<a class="code" href="namespacesydevs.html#a804c1bda9fd1746231899307f926c48a">_g</a>*<a class="code" href="namespacesydevs.html#a194efd1096710acb4d313d5c462aebae">_m</a>/_s/_s)  <span class="comment">// grams*meters/second^2 or milliNewtons (force)</span></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Member Enumeration Documentation</h2>
 <a class="anchor" id="a2244ddeda2e100c8d23c27d841542c74"></a>
 <div class="memitem">
@@ -328,7 +328,7 @@ template&lt;int64 g_, int64 m_, int64 s_, int64 A_, int64 K_, int64 mol_, int64 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesydevs.html">sydevs</a></li><li class="navelem"><a class="el" href="structsydevs_1_1units.html">units</a></li>
-    <li class="footer">Generated on Mon Feb 25 2019 20:45:34 for SyDEVS by
+    <li class="footer">Generated on Fri Apr 26 2019 15:35:57 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
