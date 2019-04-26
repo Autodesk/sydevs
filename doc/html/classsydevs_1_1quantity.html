@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname"><a href="https://autodesk.github.io/sydevs/">SyDEVS</a>
-   &#160;<span id="projectnumber">v0.6.3</span>
+   &#160;<span id="projectnumber">v0.6.4</span>
    </div>
    <div id="projectbrief">Multiscale Simulation and Systems Modeling Library</div>
   </td>
@@ -341,15 +341,18 @@ class sydevs::quantity&lt; U &gt;</h3>
 <div class="line">5_um     <span class="comment">// 5 micrometers</span></div>
 <div class="line">6_kg     <span class="comment">// 6 kilograms</span></div>
 <div class="line">6000_Mg  <span class="comment">// 6000 Megagrams</span></div>
-</div><!-- fragment --><p>Although <code>(7000_us == 7_ms)</code> evaluates to <code>true</code>, the two values are slightly different in that the left-hand side is stored as a muliplier of 7000 and a time precision of microseconds, whereas the right-hand side is stored as a multiplier of 7 and a time precision of milliseconds.</p>
-<p>The three constructors can also be used to construct <code>quantity</code> values.</p>
+</div><!-- fragment --><p>These user-defined literals correspond with the 7 Standard International (SI) base units as represented by <a class="el" href="structsydevs_1_1units.html">units</a> (<code>_g</code>, <code>_m</code>, <code>_s</code>, <code>_A</code>, <code>_K</code>, <code>_mol</code>, <code>_cd</code>), and may also incorporate an SI prefix (<code>y</code>, <code>z</code>, <code>a</code>, <code>f</code>, <code>n</code>, <code>p</code>, <code>u</code>, <code>m</code>, <code>k</code>, <code>M</code>, <code>G</code>, <code>T</code>, <code>P</code>, <code>E</code>, <code>Z</code>, <code>Y</code>). Note one difference from the SI standard: the gram (<code>1_g</code>) is used as the base unit for mass, instead of the kilogram (<code>1_kg</code>) as in the standard.</p>
+<p>There are also 4 additional user-defined literals that produce duration-valued quantities with a precision of 1 second and a multiplier scaled up by 60 (<code>?_min</code>), 60<code>*</code>60 (<code>?_hr</code>), 24<code>*</code>60<code>*</code>60 (<code>?_day</code>) or 365<code>*</code>24<code>*</code>60<code>*</code>60 (<code>?_yr</code>). Examples of these literals are below.</p>
+<div class="fragment"><div class="line">5_min  <span class="comment">// 300 seconds (5 minutes)</span></div>
+<div class="line">7_day  <span class="comment">// 604,800 seconds (1 week)</span></div>
+</div><!-- fragment --><p>Quantity values can also be created by directly invoking one of the three constructors: the default constructor producing an invalid quanitity, the single-argument constructor producing a quantity with a precision of one base unit, and the two-argument constructor where both the multiplier and precision level are supplied.</p>
 <div class="fragment"><div class="line">quantity&lt;grams&gt;()                         <span class="comment">// invalid mass quantity</span></div>
 <div class="line">quantity&lt;grams&gt;(3)                        <span class="comment">// 3 grams</span></div>
 <div class="line"><a class="code" href="classsydevs_1_1quantity.html#af9a99e88929bc0fd5beb2c219deb15b7">quantity</a>&lt;<a class="code" href="namespacesydevs.html#afe45753433eba9fe199d1d0a81fceb80">meters</a>&gt;(3)                       <span class="comment">// 3 meters</span></div>
 <div class="line"><a class="code" href="classsydevs_1_1quantity.html#af9a99e88929bc0fd5beb2c219deb15b7">quantity</a>&lt;<a class="code" href="namespacesydevs.html#a5c1db1b69523e3ddf361d94937e88900">seconds</a>&gt;(3, <a class="code" href="namespacesydevs.html#ad7566c2fe10018859627d4a9e9692fbe">nano</a>)                <span class="comment">// 3 nanoseconds</span></div>
 <div class="line"><a class="code" href="classsydevs_1_1quantity.html#af9a99e88929bc0fd5beb2c219deb15b7">quantity</a>&lt;decltype(<a class="code" href="namespacesydevs.html#a194efd1096710acb4d313d5c462aebae">_m</a>/<a class="code" href="namespacesydevs.html#a2d5b324c17eaf9b970ad09a2a77d7725">_s</a>)&gt;(3)              <span class="comment">// 3 meters/second</span></div>
 <div class="line"><a class="code" href="classsydevs_1_1quantity.html#af9a99e88929bc0fd5beb2c219deb15b7">quantity</a>&lt;decltype(<a class="code" href="namespacesydevs.html#a804c1bda9fd1746231899307f926c48a">_g</a>*<a class="code" href="namespacesydevs.html#a194efd1096710acb4d313d5c462aebae">_m</a>/<a class="code" href="namespacesydevs.html#a2d5b324c17eaf9b970ad09a2a77d7725">_s</a>/<a class="code" href="namespacesydevs.html#a2d5b324c17eaf9b970ad09a2a77d7725">_s</a>)&gt;(3, <a class="code" href="namespacesydevs.html#a025c3d68c20f62cb2b02c09eaff7084a">kilo</a>)  <span class="comment">// 3 Newtons</span></div>
-</div><!-- fragment --><p>Type aliases are provided for quantities of the 7 Standard International (SI) base units.</p>
+</div><!-- fragment --><p>Type aliases are provided for quantities of the 7 SI base units.</p>
 <div class="fragment"><div class="line"><a class="code" href="namespacesydevs.html#a9be8ece17aeddaa08aef1d24f30f1897">mass</a>                       <span class="comment">// quantity&lt;grams&gt;</span></div>
 <div class="line"><a class="code" href="namespacesydevs.html#ad963c53df003d9ce6d1299c1b1524ac9">distance</a>                   <span class="comment">// quantity&lt;meters&gt;</span></div>
 <div class="line"><a class="code" href="namespacesydevs.html#a5dc8b39b907edd06f5c13f4df2854c29">duration</a>                   <span class="comment">// quantity&lt;seconds&gt;</span></div>
@@ -364,10 +367,16 @@ class sydevs::quantity&lt; U &gt;</h3>
 <div class="line"><a class="code" href="namespacesydevs.html#a5dc8b39b907edd06f5c13f4df2854c29">duration</a>(3, <a class="code" href="namespacesydevs.html#ad7566c2fe10018859627d4a9e9692fbe">nano</a>)  <span class="comment">// 3 nanoseconds</span></div>
 </div><!-- fragment --><p>One way to construct quantities based on SI derived units is to multiply or divide a <code>quantity</code> value on the left with a <code>units</code> value on the right.</p>
 <div class="fragment"><div class="line">-777_kg*<a class="code" href="namespacesydevs.html#a194efd1096710acb4d313d5c462aebae">_m</a>/_s/_s  <span class="comment">// -777 Newtons</span></div>
-</div><!-- fragment --><p>One can also construct infinite quantities, as well as the maximum representable quantity at a given precision level.</p>
-<div class="fragment"><div class="line">`<a class="code" href="classsydevs_1_1quantity.html#aab3f74af562a2a5a73d744dd77f8ff06">duration::inf</a>()`   <span class="comment">// Infinite duration</span></div>
-<div class="line">`<a class="code" href="classsydevs_1_1quantity.html#a09cd3ff1b877f8a6bc5c9efab93375ef">mass::max</a>(<a class="code" href="namespacesydevs.html#ab33aef035a01c5936c36198bb76839ec">yocto</a>)`  <span class="comment">// Maximum mass at ys precision (999999999999999_yg)</span></div>
-</div><!-- fragment --><p>By default, <code>quantity</code> values resulting from arithmetic operations have their precisions automatically adjusted to minimize rounding error. This default behaviour treats <code>quantity</code> values as base-1000 floating-point numbers. The following examples all involve time values.</p>
+<div class="line">90_km/_hr         <span class="comment">// 25 meters per second (90 kilometers per hour)</span></div>
+</div><!-- fragment --><p>Also, multiplying or dividing quantities yields a new quantity with different units.</p>
+<div class="fragment"><div class="line">200<a class="code" href="namespacesydevs.html#a194efd1096710acb4d313d5c462aebae">_m</a>/8_s  <span class="comment">// 25 meters per second</span></div>
+</div><!-- fragment --><p>To remove the units from a quantity, simply divide by the unit. The result is a dimensionless quantity value (<code>quantity&lt;no_units&gt;</code>) that can be coerced into a floating-point number.</p>
+<div class="fragment"><div class="line">1500_mA/<a class="code" href="namespacesydevs.html#a9df99fe367a57dc0056266318b202951">_A</a>  <span class="comment">// 1.5</span></div>
+</div><!-- fragment --><p>One can construct infinite quantities, as well as the maximum representable quantity at a given precision level.</p>
+<div class="fragment"><div class="line"><a class="code" href="classsydevs_1_1quantity.html#aab3f74af562a2a5a73d744dd77f8ff06">duration::inf</a>()   <span class="comment">// Infinite duration</span></div>
+<div class="line"><a class="code" href="namespacesydevs.html#a9be8ece17aeddaa08aef1d24f30f1897">mass</a>::<a class="code" href="classsydevs_1_1quantity.html#a09cd3ff1b877f8a6bc5c9efab93375ef">max</a>(<a class="code" href="namespacesydevs.html#ab33aef035a01c5936c36198bb76839ec">yocto</a>)  <span class="comment">// Maximum mass at ys precision (999999999999999_yg)</span></div>
+</div><!-- fragment --><p>Precision is a core aspect of <code>quantity</code> types. To illustrate, although <code>(7000_us == 7_ms)</code> evaluates to <code>true</code>, the two values are different. The left-hand side is stored as a muliplier of 7000 and a time precision of microseconds, whereas the right-hand side is stored as a multiplier of 7 and a time precision of milliseconds.</p>
+<p>By default, <code>quantity</code> values resulting from arithmetic operations have their precision levels automatically adjusted to minimize rounding error. This default behaviour treats <code>quantity</code> values as base-1000 floating-point numbers. The following examples all involve time values.</p>
 <div class="fragment"><div class="line">3_s + 475_ms       <span class="comment">// Result: 3475 milliseconds</span></div>
 <div class="line">1_ks + 1_us        <span class="comment">// Result: 1000000001 microseconds</span></div>
 <div class="line">500_ps - 1_ns      <span class="comment">// Result: -500 picoseconds</span></div>
@@ -1210,7 +1219,7 @@ template&lt;typename U_ &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesydevs.html">sydevs</a></li><li class="navelem"><a class="el" href="classsydevs_1_1quantity.html">quantity</a></li>
-    <li class="footer">Generated on Mon Feb 25 2019 20:45:34 for SyDEVS by
+    <li class="footer">Generated on Fri Apr 26 2019 15:35:57 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
