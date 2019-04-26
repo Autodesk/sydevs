@@ -8,7 +8,7 @@ SyDEVS v0.6.4 is available [here](https://github.com/Autodesk/sydevs/releases/ta
 
 The [building7m_advanced](https://github.com/Autodesk/sydevs/tree/master/src/examples/research/building7m_advanced) acoustics simulation model has been improved, and a new demo of example of [workers](https://github.com/Autodesk/sydevs/tree/master/src/examples/demo/workers) in a building has been added.
 
-## 2019 April 8 -- SyDEVS-SteerSuite Integration Presented at SimAUD 2019
+## 2019 April 8 -- SyDEVS-SteerSuite Integration Presented at SimAUD
 
 The presented paper ([Download PDF](doc/downloads/Schaumann_TowardPlatformOccSim.pdf)) describes early results of a collaboration between Rutgers University, York University, and Autodesk Research. The collaboration aims to establish a platform for simulating activities in buildings by integrating models involving different domains and paradigms. The project combines the SteerSuite crowd simulation tool with a SyDEVS model providing higher-level occupant planning and a simple heat transfer algorithm. David Schaumann (Rutgers) gave the talk at the [SimAUD 2019](http://simaud.com/2019/) symposium in Atlanta, GA.
 
@@ -24,7 +24,7 @@ SyDEVS v0.6.2 is available [here](https://github.com/Autodesk/sydevs/releases/ta
 
 Several compile warnings have been resolved, and several error messages have been improved.
 
-## 2018 December 10 -- Symmetric DEVS Formalism Presented at WinterSim 2018
+## 2018 December 10 -- Symmetric DEVS Presented at WinterSim
 
 Symmetric DEVS ([Download PDF](doc/downloads/Goldstein__Symmetric_Formalism__2018-08-03_1100.pdf)), the formalism on which SyDEVS is based, was presented for the first time by Rhys Goldstein (Autodesk Research) at the [2018 Winter Simulation Conference](http://meetings2.informs.org/wordpress/wsc2018/) in Gothenburg, Sweden. 
 
