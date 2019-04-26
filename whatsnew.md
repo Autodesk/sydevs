@@ -26,7 +26,7 @@ Several compile warnings have been resolved, and several error messages have bee
 
 ## 2018 December 10 -- Symmetric DEVS Formalism Presented at WinterSim 2018
 
-Symmetric DEVS ([Download PDF](Goldstein__Symmetric_Formalism__2018-08-03_1100.pdf)), the formalism on which SyDEVS is based, was presented for the first time by Rhys Goldstein (Autodesk Research) at the [2018 Winter Simulation Conference](http://meetings2.informs.org/wordpress/wsc2018/) in Gothenburg, Sweden. 
+Symmetric DEVS ([Download PDF](doc/downloads/Goldstein__Symmetric_Formalism__2018-08-03_1100.pdf)), the formalism on which SyDEVS is based, was presented for the first time by Rhys Goldstein (Autodesk Research) at the [2018 Winter Simulation Conference](http://meetings2.informs.org/wordpress/wsc2018/) in Gothenburg, Sweden. 
 
 ## 2018 November 8 -- SyDEVS 0.6.1 Released
 
