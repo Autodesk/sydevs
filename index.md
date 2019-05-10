@@ -23,6 +23,7 @@ In addition to supporting multiple modeling paradigms, the SyDEVS library provid
 - SyDEVS Introduction ([PPTX](doc/downloads/SyDEVS_Introduction.pptx), [PDF](doc/downloads/SyDEVS_Introduction.pdf)): Provides background information and introduces SyDEVS.
 - SyDEVS Framework Overview ([PPTX](doc/downloads/SyDEVS_Framework_Overview.pptx), [PDF](doc/downloads/SyDEVS_Framework_Overview.pdf)): Illustrates the main concepts & relates them to code.
 - SyDEVS Building7m Tutorial ([PPTX](doc/downloads/SyDEVS_Building7m_Tutorial.pptx), [PDF](doc/downloads/SyDEVS_Building7m_Tutorial.pdf)): Challenges users to learn by enhancing an example.
+- Symmetric DEVS Tutorial ([PPTX](doc/downloads/AgentBasedSyDEVS_Tutorial.pptx)): Explains the theory underlying the SyDEVS framework.
 
 ## Download
 
