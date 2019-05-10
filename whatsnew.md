@@ -4,7 +4,7 @@ Latest Developments
 
 ## 2019 April 29 -- Symmetric DEVS Presented at SpringSim 
 
-A tutorial called *Agent-Based Modeling with Symmetric DEVS* ([Download PPTX](doc/downloads/AgentBasedSyDEVS_Tutorial.pptx)) was presented by Rhys Goldstein (Autodesk Research) at the [2019 Spring Simulation Conference](http://scs.org/springsim/) in Tucson, Arisona. The complete code for the example presented in the tutorial can be found in the recently added [workers](https://github.com/Autodesk/sydevs/tree/master/src/examples/demo/workers) demo folder on GitHub.
+A tutorial called *Agent-Based Modeling with Symmetric DEVS* ([Download PPTX](doc/downloads/AgentBasedSyDEVS_Tutorial.pptx)) was presented by Rhys Goldstein (Autodesk Research) at the [2019 Spring Simulation Conference](http://scs.org/springsim/) in Tucson, Arisona. The tutorial features an example of an agent-based model involving workers in a workplace. The complete code for that example can be found [here](https://github.com/Autodesk/sydevs/tree/master/src/examples/demo/workers).
 
 ## 2019 April 26 -- SyDEVS 0.6.4 Released
 
