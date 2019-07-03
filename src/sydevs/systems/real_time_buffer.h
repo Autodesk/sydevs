@@ -2,15 +2,11 @@
 #ifndef SYDEVS_SYSTEMS_REAL_TIME_BUFFER_H_
 #define SYDEVS_SYSTEMS_REAL_TIME_BUFFER_H_
 
-#include <sydevs/time/time_point.h>
+#include <sydevs/systems/system_node.h>
 #include <array>
-#include <chrono>
 
 namespace sydevs {
 namespace systems {
-
-using clock = std::chrono::steady_clock;
-using clock_time = std::chrono::time_point<clock>;
 
 
 /**

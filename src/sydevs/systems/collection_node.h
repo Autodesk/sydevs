@@ -339,7 +339,9 @@ inline duration collection_node<AgentID, Node>::handle_initialization_event()
     t_queue_ = time_queue(current_t);
     t_cache_ = time_cache(current_t);
     external_IO().print_event("macro-initialization");
+    start_event_timer();
     auto dt = macro_initialization_event();
+    stop_event_timer();
     prototype_IO().clear_flow_inputs();
     prototype_IO().clear_message_input();
     prototype_IO().clear_flow_outputs();
@@ -366,7 +368,9 @@ inline duration collection_node<AgentID, Node>::handle_unplanned_event(duration 
     t_cache_.advance_time(current_t);
     external_IO().print_event("macro-unplanned");
     external_IO().print_elapsed_duration(elapsed_dt);
+    start_event_timer();
     auto dt = macro_unplanned_event(elapsed_dt);
+    stop_event_timer();
     prototype_IO().clear_flow_inputs();
     prototype_IO().clear_message_input();
     prototype_IO().clear_flow_outputs();
@@ -409,7 +413,9 @@ inline duration collection_node<AgentID, Node>::handle_planned_event(duration el
             external_IO().print_event("micro-planned");
             external_IO().print_elapsed_duration(micro_elapsed_dt);
             prototype_IO().append_message_output(port_index, val);
+            start_event_timer();
             auto dt = micro_planned_event(agent_id, micro_elapsed_dt);
+            stop_event_timer();
             prototype_IO().clear_flow_inputs();
             prototype_IO().clear_message_input();
             prototype_IO().clear_message_outputs();
@@ -434,7 +440,9 @@ inline duration collection_node<AgentID, Node>::handle_planned_event(duration el
         // Execute a macro planned event.
         external_IO().print_event("macro-planned");
         external_IO().print_elapsed_duration(elapsed_dt);
+        start_event_timer();
         auto dt = macro_planned_event(elapsed_dt);
+        stop_event_timer();
         prototype_IO().clear_flow_inputs();
         prototype_IO().clear_message_input();
         prototype_IO().clear_flow_outputs();
@@ -465,7 +473,14 @@ inline void collection_node<AgentID, Node>::handle_finalization_event(duration e
     t_cache_.advance_time(current_t);
     external_IO().print_event("macro-finalization");
     external_IO().print_elapsed_duration(elapsed_dt);
+    start_event_timer();
     macro_finalization_event(elapsed_dt);
+    stop_event_timer();
+    erase_removed_agents();
+    while (agent_count() > 0) {
+        auto agent_id = *agent_begin();
+        remove_agent(agent_id);
+    }
     erase_removed_agents();
     finalized_ = true;
 }
@@ -578,8 +593,10 @@ inline void collection_node<AgentID, Node>::create_agent(const AgentID& agent_id
         agent_IO(agent).assign_flow_input(port_index, flow_input_val);
         agent_IO(agent).print_flow_input(port_index);
     }
-    agent_IO(agent).activate(flow, input);
+    agent_IO(agent).activate(flow, input);   
+    start_event_timer();
     auto planned_dt = agent.process_initialization_event();
+    stop_event_timer();
     agent_IO(agent).deactivate();
     if (planned_dt.finite()) {
         t_queue_.plan_event(agent_index, planned_dt);
@@ -621,7 +638,9 @@ inline void collection_node<AgentID, Node>::affect_agent(const AgentID& agent_id
         elapsed_dt = t_cache_.duration_since(agent_index).fixed_at(agent.time_precision());
     }
     agent_IO(agent).activate(message, input);
+    start_event_timer();
     auto planned_dt = agent.process_unplanned_event(elapsed_dt);
+    stop_event_timer();
     agent_IO(agent).deactivate();
     if (planned_dt.finite()) {
         t_queue_.plan_event(agent_index, planned_dt);
@@ -656,7 +675,9 @@ inline void collection_node<AgentID, Node>::remove_agent(const AgentID& agent_id
         elapsed_dt = t_cache_.duration_since(agent_index).fixed_at(agent.time_precision());
     }
     agent_IO(agent).activate(flow, output);
+    start_event_timer();
     agent.process_finalization_event(elapsed_dt);
+    stop_event_timer();
     agent_IO(agent).deactivate();
     int64 missing_output = agent_IO(agent).missing_flow_output();
     if (missing_output != -1) {
@@ -703,7 +724,9 @@ inline void collection_node<AgentID, Node>::invoke_agent(const AgentID& agent_id
         agent_IO(agent).print_flow_input(port_index);
     }
     agent_IO(agent).activate(flow, input);
+    start_event_timer();
     agent.process_initialization_event();
+    stop_event_timer();
     agent_IO(agent).deactivate();
     int64 missing_output = agent_IO(agent).missing_flow_output();
     if (missing_output != -1) {
@@ -803,7 +826,9 @@ inline Node& collection_node<AgentID, Node>::handle_agent_planned_event(int64 ag
     if (agent.time_precision() != no_scale) {
         elapsed_dt = t_cache_.duration_since(agent_index).fixed_at(agent.time_precision());
     }
+    start_event_timer();
     agent_IO(agent).activate(message, output);
+    stop_event_timer();
     auto planned_dt = agent.process_planned_event(elapsed_dt);
     agent_IO(agent).deactivate();
     if (planned_dt.finite()) {

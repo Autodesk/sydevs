@@ -108,6 +108,8 @@ public:
     int64 process_events_until(const time_point& t);  ///< Runs all events until simulated time advances at least to `t`; returns the number of processed events.
     int64 process_remaining_events();                 ///< Runs simulation until completion; returns the number of processed events.
 
+    duration total_event_duration() const;  ///< Returns the total wallclock duration of all events.
+
 private:
     node_interface& top_IO();
     discrete_event_time& event_time();
@@ -118,6 +120,9 @@ private:
     void process_finalization_event();
     void advance_time();
 
+    void start_event_timer();
+    duration stop_event_timer();
+
     const time_point start_t_;       // (must be declared before member variable external_context_)
     const time_point end_t_;
     bool can_end_early_;
@@ -127,6 +132,8 @@ private:
     bool finished_;
     time_queue t_queue_;
     time_cache t_cache_;
+    clock_time event_start_t_;
+    duration total_event_dt_;
 
 public:
     Node top;  ///< The topmost system node.
@@ -144,6 +151,9 @@ inline simulation<Node>::simulation(const time_point& start_t, const time_point&
     , finished_(false)
     , t_queue_(start_t)
     , t_cache_(start_t)
+    , total_event_dt_()
+    , event_start_t_()
+    , total_event_dt_(0, micro)
     , top("top", external_context_)
 {
     validate();
@@ -162,6 +172,8 @@ inline simulation<Node>::simulation(duration total_dt, int64 seed, std::ostream&
     , finished_(false)
     , t_queue_()
     , t_cache_()
+    , event_start_t_()
+    , total_event_dt_(0, micro)
     , top("top", external_context_)
 {
     validate();
@@ -282,6 +294,13 @@ inline int64 simulation<Node>::process_remaining_events()
 
 
 template<typename Node>
+inline duration simulation<Node>::total_event_duration() const
+{
+    return total_event_dt_;
+}
+
+
+template<typename Node>
 inline node_interface& simulation<Node>::top_IO()
 {
     return const_cast<node_interface&>(top.external_interface());
@@ -315,7 +334,9 @@ inline void simulation<Node>::process_initialization_event()
     started_ = true;
     top_IO().print_event("initialization");
     top_IO().activate(flow, input);
+    start_event_timer();
     auto planned_dt = top.process_initialization_event();
+    stop_event_timer();
     top_IO().deactivate();
     if (planned_dt.finite()) {
         t_queue_.plan_event(0, planned_dt);
@@ -335,7 +356,9 @@ inline void simulation<Node>::process_planned_event()
         elapsed_dt = t_cache_.duration_since(0).fixed_at(top.time_precision());
     }
     top_IO().activate(message, output);
+    start_event_timer();
     auto planned_dt = top.process_planned_event(elapsed_dt);
+    stop_event_timer();
     top_IO().deactivate();
     if (planned_dt.finite()) {
         t_queue_.plan_event(0, planned_dt);
@@ -358,7 +381,9 @@ inline void simulation<Node>::process_finalization_event()
         elapsed_dt = t_cache_.duration_since(0).fixed_at(top.time_precision());
     }
     top_IO().activate(flow, output);
+    start_event_timer();
     top.process_finalization_event(elapsed_dt);
+    stop_event_timer();
     top_IO().deactivate();
     finished_ = true;
 }
@@ -384,6 +409,24 @@ inline void simulation<Node>::advance_time()
             finishing_ = true;
         }
     }
+}
+
+
+template<typename Node>
+inline void simulation<Node>::start_event_timer()
+{
+    event_start_t_ = clock::now();
+}
+
+
+template<typename Node>
+inline duration simulation<Node>::stop_event_timer()
+{
+    auto event_stop_t = clock::now();
+    auto microsecond_count = std::chrono::duration_cast<std::chrono::microseconds>(event_stop_t - event_start_t_).count();
+    auto event_clock_dt = duration(microsecond_count, micro);
+    total_event_dt_ += event_clock_dt;
+    return event_clock_dt;
 }
 
 

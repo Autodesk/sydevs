@@ -4,9 +4,13 @@
 
 #include <sydevs/systems/node_interface.h>
 #include <sydevs/systems/port.h>
+#include <chrono>
 
 namespace sydevs {
 namespace systems {
+
+using clock = std::chrono::steady_clock;
+using clock_time = std::chrono::time_point<clock>;
 
 
 /**
@@ -52,6 +56,8 @@ public:
     const std::string& full_name() const;  ///< Returns the full name of the node, including parent nodes.
     int64 node_index() const;              ///< Returns the index of the node within the parent node.
 
+    duration total_event_duration() const;  ///< Returns the total wallclock duration of all events.
+
     const node_interface& external_interface() const;  ///< Returns the object responsible for exchanging information between the node and its surrounding context.
 
     template<typename T>
@@ -89,6 +95,9 @@ protected:
 
     node_interface& external_IO() const;  ///< Returns a non-const reference to the node's external interface.
 
+    void start_event_timer();     ///< Starts the event timer.
+    duration stop_event_timer();  ///< Stops the event timer and returns the wallclock duration of the event.
+
     /**
      * @brief Adjusts the planned duration obtained from other nodes' event
      *        handlers.
@@ -115,7 +124,9 @@ private:
     virtual void handle_finalization_event(duration elapsed_dt) = 0;
 
     node_interface external_interface_;
-}; 
+    clock_time event_start_t_;
+    duration total_event_dt_;
+};
 
 
 
@@ -142,6 +153,12 @@ inline const std::string& system_node::full_name() const
 inline int64 system_node::node_index() const
 {
     return external_IO().node_index();
+}
+
+
+inline duration system_node::total_event_duration() const
+{
+    return total_event_dt_;
 }
 
 
@@ -245,6 +262,8 @@ inline void system_node::process_finalization_event(duration elapsed_dt)
 inline system_node::system_node(const std::string& node_name, const node_context& external_context)
     : rng(const_cast<node_context&>(external_context).rng())
     , external_interface_(node_name, this, external_context)
+    , event_start_t_()
+    , total_event_dt_(0, micro)
 {
 }
 
@@ -252,6 +271,22 @@ inline system_node::system_node(const std::string& node_name, const node_context
 inline node_interface& system_node::external_IO() const
 {
     return const_cast<node_interface&>(external_interface_);
+}
+
+
+inline void system_node::start_event_timer()
+{
+    event_start_t_ = clock::now();
+}
+
+
+inline duration system_node::stop_event_timer()
+{
+    auto event_stop_t = clock::now();
+    auto microsecond_count = std::chrono::duration_cast<std::chrono::microseconds>(event_stop_t - event_start_t_).count();
+    auto event_clock_dt = duration(microsecond_count, micro);
+    total_event_dt_ += event_clock_dt;
+    return event_clock_dt;
 }
 
 

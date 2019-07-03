@@ -24,6 +24,11 @@ void workers()
         sim.top.workplace.arrival_input.print_on_use();
         sim.top.workplace.change_output.print_on_use();
         sim.process_remaining_events();
+        std::cout << std::endl;
+        std::cout << "Event Durations" << std::endl;
+        std::cout << "  sim:               " << sim.total_event_duration() << std::endl;
+        std::cout << "  sim.top:           " << sim.top.total_event_duration() << std::endl;
+        std::cout << "  sim.top.workplace: " << sim.top.workplace.total_event_duration() << std::endl;
     }
     catch (const system_node::error& e) {
         std::cout << "SYSTEM NODE ERROR: " << e.what() << std::endl;
