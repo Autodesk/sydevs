@@ -15,7 +15,7 @@ using namespace sydevs::systems;
 void building7m()
 {
     try {
-        auto total_dt = 15_s;  // 5_min
+        auto total_dt = 5_min;
 
         timer sim_timer;
         sim_timer.start();
