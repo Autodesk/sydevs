@@ -119,7 +119,7 @@ $(document).ready(function(){initNavTree('classsydevs_1_1timer.html','');});
 </div><!--header-->
 <div class="contents">
 
-<p>Text.  
+<p>A class for measuring and accumulating intervals of wallclock time.  
  <a href="classsydevs_1_1timer.html#details">More...</a></p>
 
 <p><code>#include &lt;<a class="el" href="timer_8h_source.html">timer.h</a>&gt;</code></p>
@@ -127,10 +127,10 @@ $(document).ready(function(){initNavTree('classsydevs_1_1timer.html','');});
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:aa2cf35d220ac6f56cba46bcdf7f7b700"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1timer.html#aa2cf35d220ac6f56cba46bcdf7f7b700">timer</a> ()</td></tr>
-<tr class="memdesc:aa2cf35d220ac6f56cba46bcdf7f7b700"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>timer</code> instance.  <a href="#aa2cf35d220ac6f56cba46bcdf7f7b700">More...</a><br/></td></tr>
+<tr class="memdesc:aa2cf35d220ac6f56cba46bcdf7f7b700"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a timer that has not yet accumuated any interval measurements.  <a href="#aa2cf35d220ac6f56cba46bcdf7f7b700">More...</a><br/></td></tr>
 <tr class="separator:aa2cf35d220ac6f56cba46bcdf7f7b700"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0e47132f85e0a03fe7d89612d91676a6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1timer.html#a0e47132f85e0a03fe7d89612d91676a6">timer</a> (<a class="el" href="namespacesydevs.html#a5dc8b39b907edd06f5c13f4df2854c29">duration</a> cumulative_dt)</td></tr>
-<tr class="memdesc:a0e47132f85e0a03fe7d89612d91676a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a <code>timer</code> instance...  <a href="#a0e47132f85e0a03fe7d89612d91676a6">More...</a><br/></td></tr>
+<tr class="memdesc:a0e47132f85e0a03fe7d89612d91676a6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructs a timer that initially has a cumulative duration of <code>cumulative_dt</code>.  <a href="#a0e47132f85e0a03fe7d89612d91676a6">More...</a><br/></td></tr>
 <tr class="separator:a0e47132f85e0a03fe7d89612d91676a6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6bfa8f94819b0caac5e087a4fae23050"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1timer.html#a6bfa8f94819b0caac5e087a4fae23050">timer</a> (const <a class="el" href="classsydevs_1_1timer.html">timer</a> &amp;)=delete</td></tr>
 <tr class="memdesc:a6bfa8f94819b0caac5e087a4fae23050"><td class="mdescLeft">&#160;</td><td class="mdescRight">Copy constructor.  <a href="#a6bfa8f94819b0caac5e087a4fae23050">More...</a><br/></td></tr>
@@ -148,18 +148,21 @@ Public Member Functions</h2></td></tr>
 <tr class="memdesc:ab5f00df7c52685af8707b5a5396eed5d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Destructor.  <a href="#ab5f00df7c52685af8707b5a5396eed5d">More...</a><br/></td></tr>
 <tr class="separator:ab5f00df7c52685af8707b5a5396eed5d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a94ce99481d1ba88e1054d752ac69409d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classbool.html">bool</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1timer.html#a94ce99481d1ba88e1054d752ac69409d">timing</a> () const </td></tr>
+<tr class="memdesc:a94ce99481d1ba88e1054d752ac69409d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns <code>true</code> if the timer has been started but not yet stopped.  <a href="#a94ce99481d1ba88e1054d752ac69409d">More...</a><br/></td></tr>
 <tr class="separator:a94ce99481d1ba88e1054d752ac69409d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ab7a35408a57b9afe3a792f956a1020bb"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesydevs.html#a5dc8b39b907edd06f5c13f4df2854c29">duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1timer.html#ab7a35408a57b9afe3a792f956a1020bb">cumulative_duration</a> () const </td></tr>
-<tr class="memdesc:ab7a35408a57b9afe3a792f956a1020bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the cumulative duration.  <a href="#ab7a35408a57b9afe3a792f956a1020bb">More...</a><br/></td></tr>
+<tr class="memdesc:ab7a35408a57b9afe3a792f956a1020bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns the cumulative duration of measured time.  <a href="#ab7a35408a57b9afe3a792f956a1020bb">More...</a><br/></td></tr>
 <tr class="separator:ab7a35408a57b9afe3a792f956a1020bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a085663ce5ed4cf7b07717ca51839f60d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1timer.html#a085663ce5ed4cf7b07717ca51839f60d">start</a> ()</td></tr>
+<tr class="memdesc:a085663ce5ed4cf7b07717ca51839f60d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Starts the timer.  <a href="#a085663ce5ed4cf7b07717ca51839f60d">More...</a><br/></td></tr>
 <tr class="separator:a085663ce5ed4cf7b07717ca51839f60d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3b35b6358f804cdab9230ffbf1c1d338"><td class="memItemLeft" align="right" valign="top"><a class="el" href="namespacesydevs.html#a5dc8b39b907edd06f5c13f4df2854c29">duration</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1timer.html#a3b35b6358f804cdab9230ffbf1c1d338">stop</a> ()</td></tr>
+<tr class="memdesc:a3b35b6358f804cdab9230ffbf1c1d338"><td class="mdescLeft">&#160;</td><td class="mdescRight">Stops the timer and returns the measured interval of wallclock time.  <a href="#a3b35b6358f804cdab9230ffbf1c1d338">More...</a><br/></td></tr>
 <tr class="separator:a3b35b6358f804cdab9230ffbf1c1d338"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Text. </p>
-<p>Text. </p>
+<div class="textblock"><p>A class for measuring and accumulating intervals of wallclock time. </p>
+<p>A <code>timer</code> object measures the interval of wallclock time that elapses between the point at which it is started and the point at which it is stopped. It also accumulates these time intervals. It can be used to measure how much is spent executing a block of code. All wallclock time durations are measured and reported in microseconds. </p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="aa2cf35d220ac6f56cba46bcdf7f7b700"></a>
 <div class="memitem">
@@ -182,7 +185,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs a <code>timer</code> instance. </p>
+<p>Constructs a timer that has not yet accumuated any interval measurements. </p>
 
 </div>
 </div>
@@ -208,14 +211,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Constructs a <code>timer</code> instance... </p>
-<p>Text.</p>
-<dl class="params"><dt>Parameters</dt><dd>
-  <table class="params">
-    <tr><td class="paramname">cumulative_dt</td><td>Text. </td></tr>
-  </table>
-  </dd>
-</dl>
+<p>Constructs a timer that initially has a cumulative duration of <code>cumulative_dt</code>. </p>
 
 </div>
 </div>
@@ -318,7 +314,7 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Returns the cumulative duration. </p>
+<p>Returns the cumulative duration of measured time. </p>
 
 </div>
 </div>
@@ -395,6 +391,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Starts the timer. </p>
+
 </div>
 </div>
 <a class="anchor" id="a3b35b6358f804cdab9230ffbf1c1d338"></a>
@@ -417,6 +415,8 @@ Public Member Functions</h2></td></tr>
   </tr>
 </table>
 </div><div class="memdoc">
+
+<p>Stops the timer and returns the measured interval of wallclock time. </p>
 
 </div>
 </div>
@@ -441,6 +441,8 @@ Public Member Functions</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
+<p>Returns <code>true</code> if the timer has been started but not yet stopped. </p>
+
 </div>
 </div>
 <hr/>The documentation for this class was generated from the following file:<ul>
@@ -452,7 +454,7 @@ Public Member Functions</h2></td></tr>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesydevs.html">sydevs</a></li><li class="navelem"><a class="el" href="classsydevs_1_1timer.html">timer</a></li>
-    <li class="footer">Generated on Thu Jul 4 2019 17:35:43 for SyDEVS by
+    <li class="footer">Generated on Thu Jul 4 2019 18:57:27 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
