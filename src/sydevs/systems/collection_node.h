@@ -476,12 +476,11 @@ inline void collection_node<AgentID, Node>::handle_finalization_event(duration e
     external_IO().print_elapsed_duration(elapsed_dt);
     ET().start();
     macro_finalization_event(elapsed_dt);
-    ET().stop();
-    erase_removed_agents();
     while (agent_count() > 0) {
         auto agent_id = *agent_begin();
         remove_agent(agent_id);
     }
+    ET().stop();
     erase_removed_agents();
     finalized_ = true;
 }
