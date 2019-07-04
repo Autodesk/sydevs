@@ -28,6 +28,7 @@ Namespace: [sydevs](@ref sydevs)
   * [qualified_type](@ref sydevs::qualified_type) ([qualified_type.h](@ref sydevs/core/qualified_type.h)) - traits for types exchanged between system nodes
     * [pointer](@ref sydevs::pointer) ([pointer.h](@ref sydevs/core/pointer.h)) - related class for pointers to any type of data
     * [string_builder](@ref sydevs::string_builder) ([string_builder.h](@ref sydevs/core/string_builder.h)) - related class for value-to-string conversion
+  * [timer](@ref sydevs::timer) ([timer.h](@ref sydevs/core/timer.h)) - class that measures intervals of wall clock time
 
 - Time Classes ([sydevs](@ref src/sydevs)/[time](@ref src/sydevs/time)) - multiscale time representation
   * [time_point](@ref sydevs::time_point) ([time_point.h](@ref sydevs/time/time_point.h)) - arbitrary-precision point in time

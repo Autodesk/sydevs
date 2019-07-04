@@ -32,6 +32,7 @@ This folder contains generic classes that may be useful for a variety of applica
 - [`qualified_type`](src/sydevs/core/qualified_type.h): Traits for data types that can be passed among system nodes.
   - [`pointer`](src/sydevs/core/pointer.h) (related class): Points to any type of data.
   - [`string_builder`](src/sydevs/core/string_builder.h) (related class): Faciliates value-to-string conversions.
+- [`timer`](src/sydevs/core/timer.h): Measures intervals of wall clock time.
 
 #### [`src/sydevs/time`](src/sydevs/time)
 

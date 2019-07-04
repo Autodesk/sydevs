@@ -12,26 +12,25 @@ using clock_time = std::chrono::time_point<clock>;
 
 
 /** 
- * @brief Text.
+ * @brief A class for measuring and accumulating intervals of wallclock time.
  *
  * @details
- * Text.
+ * A `timer` object measures the interval of wallclock time that elapses between
+ * the point at which it is started and the point at which it is stopped. It
+ * also accumulates these time intervals. It can be used to measure how much
+ * is spent executing a block of code. All wallclock time durations are measured
+ * and reported in microseconds.
  */
 class timer
 {
 public:
     /**
-     * @brief Constructs a `timer` instance.
+     * @brief Constructs a timer that has not yet accumuated any interval measurements.
      */
     timer();
 
     /**
-     * @brief Constructs a `timer` instance...
-     * 
-     * @details
-     * Text.
-     *
-     * @param cumulative_dt Text. 
+     * @brief Constructs a timer that initially has a cumulative duration of `cumulative_dt`.
      */
     explicit timer(duration cumulative_dt);
 
@@ -43,10 +42,10 @@ public:
 
     bool timing() const;
 
-    duration cumulative_duration() const;  ///< Returns the cumulative duration.
+    duration cumulative_duration() const;  ///< Returns the cumulative duration of measured time.
 
-    void start();
-    duration stop();
+    void start();     ///< Starts the timer.
+    duration stop();  ///< Stops the timer and returns the measured interval of wallclock time.
 
 private:
     clock_time start_clk_t_;
