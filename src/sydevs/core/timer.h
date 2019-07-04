@@ -40,7 +40,7 @@ public:
     timer& operator=(timer&&)      = default;  ///< Move assignment
     ~timer()                       = default;  ///< Destructor
 
-    bool timing() const;
+    bool timing() const;  ///< Returns `true` if the timer has been started but not yet stopped.
 
     duration cumulative_duration() const;  ///< Returns the cumulative duration of measured time.
 
