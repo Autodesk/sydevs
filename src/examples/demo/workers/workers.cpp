@@ -6,6 +6,7 @@ namespace sydevs_examples {
 void workers()
 {
     bool output_to_file = false;
+    bool print_timing_stats = false;
 
     std::shared_ptr<std::fstream> os_ptr;
     if (output_to_file) {
@@ -14,6 +15,8 @@ void workers()
     }
 
     try {
+        timer sim_timer;
+        sim_timer.start();
         simulation<workplace_closed_system> sim(7_hr, 0, std::cout);
         sim.top.worker_count.set_value(12);
         sim.top.arrival_dt.set_value(5_min);
@@ -24,11 +27,18 @@ void workers()
         sim.top.workplace.arrival_input.print_on_use();
         sim.top.workplace.change_output.print_on_use();
         sim.process_remaining_events();
-        std::cout << std::endl;
-        std::cout << "Event Durations" << std::endl;
-        std::cout << "  sim:               " << sim.total_event_duration() << std::endl;
-        std::cout << "  sim.top:           " << sim.top.total_event_duration() << std::endl;
-        std::cout << "  sim.top.workplace: " << sim.top.workplace.total_event_duration() << std::endl;
+        sim_timer.stop();
+        if (print_timing_stats) {
+            std::cout << std::endl;
+            std::cout << "Timing Statistics" << std::endl;
+            std::cout << "(overall simulation):         " << sim_timer.cumulative_duration() << std::endl;
+            std::cout << "sim:                          " << sim.event_timer().cumulative_duration() << std::endl;
+            std::cout << "sim.top:                      " << sim.top.event_timer().cumulative_duration() << std::endl;
+            std::cout << "sim.top.worker_arrival:       " << sim.top.worker_arrival.event_timer().cumulative_duration() << std::endl;
+            std::cout << "sim.top.workplace:            " << sim.top.workplace.event_timer().cumulative_duration() << std::endl;
+            std::cout << "sim.top.workplace.prototype:  " << sim.top.workplace.prototype.event_timer().cumulative_duration() << std::endl;
+            std::cout << "sim.top.workplace_csv_output: " << sim.top.workplace_csv_output.event_timer().cumulative_duration() << std::endl;
+        }
     }
     catch (const system_node::error& e) {
         std::cout << "SYSTEM NODE ERROR: " << e.what() << std::endl;

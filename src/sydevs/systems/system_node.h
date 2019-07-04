@@ -4,13 +4,10 @@
 
 #include <sydevs/systems/node_interface.h>
 #include <sydevs/systems/port.h>
-#include <chrono>
+#include <sydevs/core/timer.h>
 
 namespace sydevs {
 namespace systems {
-
-using clock = std::chrono::steady_clock;
-using clock_time = std::chrono::time_point<clock>;
 
 
 /**
@@ -56,9 +53,9 @@ public:
     const std::string& full_name() const;  ///< Returns the full name of the node, including parent nodes.
     int64 node_index() const;              ///< Returns the index of the node within the parent node.
 
-    duration total_event_duration() const;  ///< Returns the total wallclock duration of all events.
-
     const node_interface& external_interface() const;  ///< Returns the object responsible for exchanging information between the node and its surrounding context.
+
+    const timer& event_timer() const;  ///< Returns the object that accumulated wallclock event durations.
 
     template<typename T>
     void print(const T& X);               ///< Prints `X` while indicating the simulation time and node.
@@ -94,9 +91,7 @@ protected:
     system_node(const std::string& node_name, const node_context& external_context);
 
     node_interface& external_IO() const;  ///< Returns a non-const reference to the node's external interface.
-
-    void start_event_timer();     ///< Starts the event timer.
-    duration stop_event_timer();  ///< Stops the event timer and returns the wallclock duration of the event.
+    timer& ET() const;                    ///< Returns a non-const reference to the node's event timer.
 
     /**
      * @brief Adjusts the planned duration obtained from other nodes' event
@@ -124,8 +119,7 @@ private:
     virtual void handle_finalization_event(duration elapsed_dt) = 0;
 
     node_interface external_interface_;
-    clock_time event_start_t_;
-    duration total_event_dt_;
+    timer event_timer_;
 };
 
 
@@ -156,15 +150,15 @@ inline int64 system_node::node_index() const
 }
 
 
-inline duration system_node::total_event_duration() const
-{
-    return total_event_dt_;
-}
-
-
 inline const node_interface& system_node::external_interface() const
 {
     return const_cast<const node_interface&>(external_interface_);
+}
+
+
+inline const timer& system_node::event_timer() const
+{
+    return event_timer_;
 }
 
 
@@ -200,9 +194,15 @@ inline duration system_node::process_initialization_event()
         planned_dt = handle_initialization_event();
     }
     catch (error&) {
+        if (ET().timing()) {
+            ET().stop();
+        }
         throw;
     }
     catch (const std::exception& e) {
+        if (ET().timing()) {
+            ET().stop();
+        }
         external_IO().print_command_text("error", e.what());
         throw error("Aborting event in node (" + full_name() + ") due to error (\"" + e.what() + "\")");
     }
@@ -217,9 +217,15 @@ inline duration system_node::process_unplanned_event(duration elapsed_dt)
         planned_dt = handle_unplanned_event(elapsed_dt);
     }
     catch (error&) {
+        if (ET().timing()) {
+            ET().stop();
+        }
         throw;
     }
     catch (const std::exception& e) {
+        if (ET().timing()) {
+            ET().stop();
+        }
         external_IO().print_command_text("error", e.what());
         throw error("Aborting event in node (" + full_name() + ") due to error (\"" + e.what() + "\")");
     }
@@ -234,9 +240,15 @@ inline duration system_node::process_planned_event(duration elapsed_dt)
         planned_dt = handle_planned_event(elapsed_dt);
     }
     catch (error&) {
+        if (ET().timing()) {
+            ET().stop();
+        }
         throw;
     }
     catch (const std::exception& e) {
+        if (ET().timing()) {
+            ET().stop();
+        }
         external_IO().print_command_text("error", e.what());
         throw error("Aborting event in node (" + full_name() + ") due to error (\"" + e.what() + "\")");
     }
@@ -250,9 +262,15 @@ inline void system_node::process_finalization_event(duration elapsed_dt)
         handle_finalization_event(elapsed_dt);
     }
     catch (error&) {
+        if (ET().timing()) {
+            ET().stop();
+        }
         throw;
     }
     catch (const std::exception& e) {
+        if (ET().timing()) {
+            ET().stop();
+        }
         external_IO().print_command_text("error", e.what());
         throw error("Aborting event in node (" + full_name() + ") due to error (\"" + e.what() + "\")");
     }
@@ -262,8 +280,7 @@ inline void system_node::process_finalization_event(duration elapsed_dt)
 inline system_node::system_node(const std::string& node_name, const node_context& external_context)
     : rng(const_cast<node_context&>(external_context).rng())
     , external_interface_(node_name, this, external_context)
-    , event_start_t_()
-    , total_event_dt_(0, micro)
+    , event_timer_()
 {
 }
 
@@ -274,19 +291,9 @@ inline node_interface& system_node::external_IO() const
 }
 
 
-inline void system_node::start_event_timer()
+inline timer& system_node::ET() const
 {
-    event_start_t_ = clock::now();
-}
-
-
-inline duration system_node::stop_event_timer()
-{
-    auto event_stop_t = clock::now();
-    auto microsecond_count = std::chrono::duration_cast<std::chrono::microseconds>(event_stop_t - event_start_t_).count();
-    auto event_clock_dt = duration(microsecond_count, micro);
-    total_event_dt_ += event_clock_dt;
-    return event_clock_dt;
+    return const_cast<timer&>(event_timer_);
 }
 
 

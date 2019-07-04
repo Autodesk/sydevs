@@ -70,7 +70,9 @@ inline scale function_node::time_precision() const
 
 inline duration function_node::handle_initialization_event()
 {
+    ET().start();
     flow_event();
+    ET().stop();
     return duration::inf();
 }
 

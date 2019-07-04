@@ -129,7 +129,9 @@ void composite_node::process_flow_nodes(bool finalize)
                 component_IO(node).print_flow_input(port_index);
             }
             component_IO(node).activate(flow, input);
+            ET().start();
             node.process_initialization_event();
+            ET().stop();
             component_IO(node).deactivate();
             int64 missing_output = component_IO(node).missing_flow_output();
             if (missing_output != -1) {
@@ -167,7 +169,9 @@ void composite_node::handle_initialization_events()
             component_IO(node).print_flow_input(port_index);
         }
         component_IO(node).activate(flow, input);
+        ET().start();
         auto planned_dt = node.process_initialization_event();
+        ET().stop();
         component_IO(node).deactivate();
         if (planned_dt.finite()) {
             t_queue_.plan_event(node_index, planned_dt);
@@ -191,7 +195,9 @@ system_node& composite_node::handle_src_event(int64 src_index)
         elapsed_dt = t_cache_.duration_since(src_index).fixed_at(src_node.time_precision());
     }
     component_IO(src_node).activate(message, output);
+    ET().start();
     auto planned_dt = src_node.process_planned_event(elapsed_dt);
+    ET().stop();
     component_IO(src_node).deactivate();
     if (planned_dt.finite()) {
         t_queue_.plan_event(src_index, planned_dt);
@@ -224,7 +230,9 @@ void composite_node::handle_dst_events(const std::set<std::pair<int64, int64>>& 
             elapsed_dt = t_cache_.duration_since(dst.first).fixed_at(dst_node.time_precision());
         }
         component_IO(dst_node).activate(message, input);
+        ET().start();
         auto planned_dt = dst_node.process_unplanned_event(elapsed_dt);
+        ET().stop();
         component_IO(dst_node).deactivate();
         if (planned_dt.finite()) {
             t_queue_.plan_event(dst.first, planned_dt);
@@ -251,7 +259,9 @@ void composite_node::handle_finalization_events()
             elapsed_dt = t_cache_.duration_since(node_index).fixed_at(node.time_precision());
         }
         component_IO(node).activate(flow, output);
+        ET().start();
         node.process_finalization_event(elapsed_dt);
+        ET().stop();
         component_IO(node).deactivate();
         int64 missing_output = component_IO(node).missing_flow_output();
         if (missing_output != -1) {

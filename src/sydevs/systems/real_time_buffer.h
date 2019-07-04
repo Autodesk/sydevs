@@ -2,7 +2,8 @@
 #ifndef SYDEVS_SYSTEMS_REAL_TIME_BUFFER_H_
 #define SYDEVS_SYSTEMS_REAL_TIME_BUFFER_H_
 
-#include <sydevs/systems/system_node.h>
+#include <sydevs/core/timer.h>
+#include <sydevs/time/time_point.h>
 #include <array>
 
 namespace sydevs {
