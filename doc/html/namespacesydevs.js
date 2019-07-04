@@ -29,6 +29,7 @@ var namespacesydevs =
     [ "range", "classsydevs_1_1range.html", "classsydevs_1_1range" ],
     [ "scale", "classsydevs_1_1scale.html", "classsydevs_1_1scale" ],
     [ "string_builder", "classsydevs_1_1string__builder.html", "classsydevs_1_1string__builder" ],
+    [ "timer", "classsydevs_1_1timer.html", "classsydevs_1_1timer" ],
     [ "units", "structsydevs_1_1units.html", "structsydevs_1_1units" ],
     [ "time_cache", "classsydevs_1_1time__cache.html", "classsydevs_1_1time__cache" ],
     [ "time_point", "classsydevs_1_1time__point.html", "classsydevs_1_1time__point" ],

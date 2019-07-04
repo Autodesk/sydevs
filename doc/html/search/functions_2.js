@@ -21,6 +21,7 @@ var searchData=
   ['copy_5fswapped_5faxes',['copy_swapped_axes',['../classsydevs_1_1arraynd.html#a79b73f0a7e255485829c80d4d10b49a8',1,'sydevs::arraynd']]],
   ['copy_5ftransposed',['copy_transposed',['../classsydevs_1_1arraynd.html#ade4b42d4a63047369fd5cea0ba32bab4',1,'sydevs::arraynd']]],
   ['create_5fagent',['create_agent',['../classsydevs_1_1systems_1_1collection__node.html#a52006a813f12c8a86696ca310c69c91f',1,'sydevs::systems::collection_node::create_agent(const AgentID &amp;agent_id)'],['../classsydevs_1_1systems_1_1collection__node.html#a07fe49ed2c3bb85f3de6882513a6e251',1,'sydevs::systems::collection_node::create_agent(const AgentID &amp;agent_id)']]],
+  ['cumulative_5fduration',['cumulative_duration',['../classsydevs_1_1timer.html#ab7a35408a57b9afe3a792f956a1020bb',1,'sydevs::timer']]],
   ['current_5fclock_5ftime',['current_clock_time',['../classsydevs_1_1systems_1_1real__time__buffer.html#a61bb6c88fb4e85fd39c08234d2bdd321',1,'sydevs::systems::real_time_buffer']]],
   ['current_5ftime',['current_time',['../classsydevs_1_1systems_1_1real__time__buffer.html#a61b060f30828588ad5516260a4dc2727',1,'sydevs::systems::real_time_buffer::current_time()'],['../classsydevs_1_1time__cache.html#a0c3a2fefdb760db8e69563204051522d',1,'sydevs::time_cache::current_time()'],['../classsydevs_1_1time__queue.html#ac93a429a8d9846b4b9ecc048930f77cf',1,'sydevs::time_queue::current_time()']]]
 ];

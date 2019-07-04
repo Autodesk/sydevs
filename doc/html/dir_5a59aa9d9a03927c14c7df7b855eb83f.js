@@ -11,5 +11,6 @@ var dir_5a59aa9d9a03927c14c7df7b855eb83f =
     [ "scale.cpp", "scale_8cpp.html", "scale_8cpp" ],
     [ "scale.h", "scale_8h.html", "scale_8h" ],
     [ "string_builder.h", "string__builder_8h.html", "string__builder_8h" ],
+    [ "timer.h", "timer_8h.html", "timer_8h" ],
     [ "units.h", "units_8h.html", "units_8h" ]
 ];

@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname"><a href="https://autodesk.github.io/sydevs/">SyDEVS</a>
-   &#160;<span id="projectnumber">v0.6.4</span>
+   &#160;<span id="projectnumber">v0.6.5</span>
    </div>
    <div id="projectbrief">Multiscale Simulation and Systems Modeling Library</div>
   </td>
@@ -194,6 +194,9 @@ Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1string__builder.html">string_builder</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A class for converting stream objects to string values.  <a href="classsydevs_1_1string__builder.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classsydevs_1_1timer.html">timer</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Text.  <a href="classsydevs_1_1timer.html#details">More...</a><br/></td></tr>
+<tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">struct &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structsydevs_1_1units.html">units</a></td></tr>
 <tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">A template which represents Standard International (SI) units inclusing the base units such as grams, meters, and seconds, and derived units such as meters-per-second-squared.  <a href="structsydevs_1_1units.html#details">More...</a><br/></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -275,6 +278,10 @@ Typedefs</h2></td></tr>
 <tr class="separator:a0ea387832534b9d192b822f280904328"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a6592889d96c126120657713d7a9e2872"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#a6592889d96c126120657713d7a9e2872">luminous_intensity</a> = <a class="el" href="classsydevs_1_1quantity.html">quantity</a>&lt; <a class="el" href="namespacesydevs.html#aa3eb7b7c2fb42479893ca94ea2a77008">candelas</a> &gt;</td></tr>
 <tr class="separator:a6592889d96c126120657713d7a9e2872"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a322274558b7eba09b7e3117add007f67"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#a322274558b7eba09b7e3117add007f67">clock</a> = std::chrono::steady_clock</td></tr>
+<tr class="separator:a322274558b7eba09b7e3117add007f67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a0af78f1cad75ad0327ffe6569d6e39c0"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#a0af78f1cad75ad0327ffe6569d6e39c0">clock_time</a> = std::chrono::time_point&lt; <a class="el" href="namespacesydevs.html#a322274558b7eba09b7e3117add007f67">clock</a> &gt;</td></tr>
+<tr class="separator:a0af78f1cad75ad0327ffe6569d6e39c0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a34a721527c08f4552a3495faa7f14ae5"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#a34a721527c08f4552a3495faa7f14ae5">no_units</a> = <a class="el" href="structsydevs_1_1units.html">units</a>&lt; 0, 0, 0, 0, 0, 0, 0 &gt;</td></tr>
 <tr class="separator:a34a721527c08f4552a3495faa7f14ae5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ac83621fef6d7a29848462ea3a3766941"><td class="memItemLeft" align="right" valign="top">using&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespacesydevs.html#ac83621fef6d7a29848462ea3a3766941">grams</a> = <a class="el" href="structsydevs_1_1units.html">units</a>&lt; 1, 0, 0, 0, 0, 0, 0 &gt;</td></tr>
@@ -957,6 +964,30 @@ template&lt;typename T &gt; </div>
       <table class="memname">
         <tr>
           <td class="memname">using <a class="el" href="namespacesydevs.html#aa3eb7b7c2fb42479893ca94ea2a77008">sydevs::candelas</a> = typedef <a class="el" href="structsydevs_1_1units.html">units</a>&lt;0, 0, 0, 0, 0, 0, 1&gt;</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a322274558b7eba09b7e3117add007f67"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacesydevs.html#a322274558b7eba09b7e3117add007f67">sydevs::clock</a> = typedef std::chrono::steady_clock</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
+<a class="anchor" id="a0af78f1cad75ad0327ffe6569d6e39c0"></a>
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">using <a class="el" href="namespacesydevs.html#a0af78f1cad75ad0327ffe6569d6e39c0">sydevs::clock_time</a> = typedef std::chrono::time_point&lt;<a class="el" href="namespacesydevs.html#a322274558b7eba09b7e3117add007f67">clock</a>&gt;</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -5508,7 +5539,7 @@ template&lt;typename T &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesydevs.html">sydevs</a></li>
-    <li class="footer">Generated on Fri Apr 26 2019 15:35:57 for SyDEVS by
+    <li class="footer">Generated on Thu Jul 4 2019 15:53:59 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

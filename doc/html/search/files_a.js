@@ -7,5 +7,6 @@ var searchData=
   ['time_5fqueue_2ecpp',['time_queue.cpp',['../time__queue_8cpp.html',1,'']]],
   ['time_5fqueue_2eh',['time_queue.h',['../time__queue_8h.html',1,'']]],
   ['time_5fsequence_2ecpp',['time_sequence.cpp',['../time__sequence_8cpp.html',1,'']]],
-  ['time_5fsequence_2eh',['time_sequence.h',['../time__sequence_8h.html',1,'']]]
+  ['time_5fsequence_2eh',['time_sequence.h',['../time__sequence_8h.html',1,'']]],
+  ['timer_2eh',['timer.h',['../timer_8h.html',1,'']]]
 ];

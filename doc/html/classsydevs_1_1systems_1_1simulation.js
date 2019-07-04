@@ -7,6 +7,7 @@ var classsydevs_1_1systems_1_1simulation =
     [ "~simulation", "classsydevs_1_1systems_1_1simulation.html#a058340bf1ef8cfe9870dae061bf09ba3", null ],
     [ "can_end_early", "classsydevs_1_1systems_1_1simulation.html#aa915943d9d7e607f8e06f3835d2336c6", null ],
     [ "end_time", "classsydevs_1_1systems_1_1simulation.html#a8f610224bc0386d7942bec76edd38227", null ],
+    [ "event_timer", "classsydevs_1_1systems_1_1simulation.html#a1d342663bec518196d602f7d9f51a813", null ],
     [ "finished", "classsydevs_1_1systems_1_1simulation.html#aac3a1c8402c05219150a8dcf93d79ced", null ],
     [ "finishing", "classsydevs_1_1systems_1_1simulation.html#afdde8570cbde783540502167e6e4b43c", null ],
     [ "imminent_duration", "classsydevs_1_1systems_1_1simulation.html#aeaaa6908e66c1bf88c261462648aa6ee", null ],

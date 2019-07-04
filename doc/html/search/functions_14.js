@@ -29,5 +29,6 @@ var searchData=
   ['_7etime_5fcache',['~time_cache',['../classsydevs_1_1time__cache.html#ada5ac484d1ce857568d1797ff44b13a3',1,'sydevs::time_cache']]],
   ['_7etime_5fpoint',['~time_point',['../classsydevs_1_1time__point.html#ae33db5c23d05ff190e88a1ec9a60d146',1,'sydevs::time_point']]],
   ['_7etime_5fqueue',['~time_queue',['../classsydevs_1_1time__queue.html#a48334f53e02730c094754b89ad4f48f8',1,'sydevs::time_queue']]],
-  ['_7etime_5fsequence',['~time_sequence',['../classsydevs_1_1time__sequence.html#ac0ddc20f21837ea5121d4d621b9d5993',1,'sydevs::time_sequence']]]
+  ['_7etime_5fsequence',['~time_sequence',['../classsydevs_1_1time__sequence.html#ac0ddc20f21837ea5121d4d621b9d5993',1,'sydevs::time_sequence']]],
+  ['_7etimer',['~timer',['../classsydevs_1_1timer.html#ab5f00df7c52685af8707b5a5396eed5d',1,'sydevs::timer']]]
 ];

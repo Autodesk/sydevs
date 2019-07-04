@@ -83,6 +83,7 @@ var hierarchy =
     [ "sydevs::time_point", "classsydevs_1_1time__point.html", null ],
     [ "sydevs::time_queue", "classsydevs_1_1time__queue.html", null ],
     [ "sydevs::time_sequence", "classsydevs_1_1time__sequence.html", null ],
+    [ "sydevs::timer", "classsydevs_1_1timer.html", null ],
     [ "sydevs::tuple_tostring_helper< Tuple, N >", "structsydevs_1_1tuple__tostring__helper.html", null ],
     [ "sydevs::tuple_tostring_helper< Tuple, 1 >", "structsydevs_1_1tuple__tostring__helper_3_01_tuple_00_011_01_4.html", null ],
     [ "sydevs::units< g, m, s, A, K, mol, cd >", "structsydevs_1_1units.html", null ],

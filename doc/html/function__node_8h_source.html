@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname"><a href="https://autodesk.github.io/sydevs/">SyDEVS</a>
-   &#160;<span id="projectnumber">v0.6.4</span>
+   &#160;<span id="projectnumber">v0.6.5</span>
    </div>
    <div id="projectbrief">Multiscale Simulation and Systems Modeling Library</div>
   </td>
@@ -165,58 +165,63 @@ $(document).ready(function(){initNavTree('function__node_8h_source.html','');});
 <div class="line"><a name="l00070"></a><span class="lineno">   70</span>&#160;</div>
 <div class="line"><a name="l00071"></a><span class="lineno"><a class="line" href="classsydevs_1_1systems_1_1function__node.html#a00a79f980a5272c289165f00db546d5d">   71</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classsydevs_1_1quantity.html">duration</a> <a class="code" href="classsydevs_1_1systems_1_1function__node.html#a00a79f980a5272c289165f00db546d5d">function_node::handle_initialization_event</a>()</div>
 <div class="line"><a name="l00072"></a><span class="lineno">   72</span>&#160;{</div>
-<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    flow_event();</div>
-<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classsydevs_1_1quantity.html#aab3f74af562a2a5a73d744dd77f8ff06">duration::inf</a>();</div>
-<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;}</div>
-<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;</div>
-<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;</div>
-<div class="line"><a name="l00078"></a><span class="lineno"><a class="line" href="classsydevs_1_1systems_1_1function__node.html#a5c33c560a4bc934f0962cb85f685ed93">   78</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classsydevs_1_1quantity.html">duration</a> <a class="code" href="classsydevs_1_1systems_1_1function__node.html#a5c33c560a4bc934f0962cb85f685ed93">function_node::handle_unplanned_event</a>(<a class="code" href="classsydevs_1_1quantity.html">duration</a> elapsed_dt)</div>
-<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;{</div>
-<div class="line"><a name="l00080"></a><span class="lineno">   80</span>&#160;    <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;Unexpected unplanned event invoked for function node&quot;</span>);</div>
-<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classsydevs_1_1quantity.html#aab3f74af562a2a5a73d744dd77f8ff06">duration::inf</a>();</div>
-<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;}</div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;</div>
-<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;</div>
-<div class="line"><a name="l00085"></a><span class="lineno"><a class="line" href="classsydevs_1_1systems_1_1function__node.html#a7024f71f3fab0434ca666620defafcaf">   85</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classsydevs_1_1quantity.html">duration</a> <a class="code" href="classsydevs_1_1systems_1_1function__node.html#a7024f71f3fab0434ca666620defafcaf">function_node::handle_planned_event</a>(<a class="code" href="classsydevs_1_1quantity.html">duration</a> elapsed_dt)</div>
-<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;{</div>
-<div class="line"><a name="l00087"></a><span class="lineno">   87</span>&#160;    <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;Unexpected planned event invoked for function node&quot;</span>);</div>
-<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classsydevs_1_1quantity.html#aab3f74af562a2a5a73d744dd77f8ff06">duration::inf</a>();</div>
-<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;}</div>
-<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;</div>
-<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;</div>
-<div class="line"><a name="l00092"></a><span class="lineno"><a class="line" href="classsydevs_1_1systems_1_1function__node.html#a7306ed19f1ef40597784547733b191ca">   92</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsydevs_1_1systems_1_1function__node.html#a7306ed19f1ef40597784547733b191ca">function_node::handle_finalization_event</a>(<a class="code" href="classsydevs_1_1quantity.html">duration</a> elapsed_dt)</div>
-<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;{</div>
-<div class="line"><a name="l00094"></a><span class="lineno">   94</span>&#160;    <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;Unexpected finalization event invoked for function node&quot;</span>);</div>
-<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;}</div>
-<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;</div>
-<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;</div>
-<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> function_node::adopt_component_print_flags(<span class="keyword">const</span> <a class="code" href="classsydevs_1_1systems_1_1system__node.html">system_node</a>&amp; node)<span class="keyword"> const</span></div>
-<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;<span class="keyword"></span>{</div>
-<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;}</div>
-<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;</div>
-<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;</div>
-<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;}  <span class="comment">// namespace</span></div>
-<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;}  <span class="comment">// namespace</span></div>
-<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;</div>
-<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;<span class="preprocessor">#endif</span></div>
+<div class="line"><a name="l00073"></a><span class="lineno">   73</span>&#160;    <a class="code" href="classsydevs_1_1systems_1_1system__node.html#a637728a55c1bcaaeb637eea5f4688327">ET</a>().<a class="code" href="classsydevs_1_1timer.html#a085663ce5ed4cf7b07717ca51839f60d">start</a>();</div>
+<div class="line"><a name="l00074"></a><span class="lineno">   74</span>&#160;    flow_event();</div>
+<div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;    <a class="code" href="classsydevs_1_1systems_1_1system__node.html#a637728a55c1bcaaeb637eea5f4688327">ET</a>().<a class="code" href="classsydevs_1_1timer.html#a3b35b6358f804cdab9230ffbf1c1d338">stop</a>();</div>
+<div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classsydevs_1_1quantity.html#aab3f74af562a2a5a73d744dd77f8ff06">duration::inf</a>();</div>
+<div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160;}</div>
+<div class="line"><a name="l00078"></a><span class="lineno">   78</span>&#160;</div>
+<div class="line"><a name="l00079"></a><span class="lineno">   79</span>&#160;</div>
+<div class="line"><a name="l00080"></a><span class="lineno"><a class="line" href="classsydevs_1_1systems_1_1function__node.html#a5c33c560a4bc934f0962cb85f685ed93">   80</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classsydevs_1_1quantity.html">duration</a> <a class="code" href="classsydevs_1_1systems_1_1function__node.html#a5c33c560a4bc934f0962cb85f685ed93">function_node::handle_unplanned_event</a>(<a class="code" href="classsydevs_1_1quantity.html">duration</a> elapsed_dt)</div>
+<div class="line"><a name="l00081"></a><span class="lineno">   81</span>&#160;{</div>
+<div class="line"><a name="l00082"></a><span class="lineno">   82</span>&#160;    <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;Unexpected unplanned event invoked for function node&quot;</span>);</div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classsydevs_1_1quantity.html#aab3f74af562a2a5a73d744dd77f8ff06">duration::inf</a>();</div>
+<div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160;}</div>
+<div class="line"><a name="l00085"></a><span class="lineno">   85</span>&#160;</div>
+<div class="line"><a name="l00086"></a><span class="lineno">   86</span>&#160;</div>
+<div class="line"><a name="l00087"></a><span class="lineno"><a class="line" href="classsydevs_1_1systems_1_1function__node.html#a7024f71f3fab0434ca666620defafcaf">   87</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classsydevs_1_1quantity.html">duration</a> <a class="code" href="classsydevs_1_1systems_1_1function__node.html#a7024f71f3fab0434ca666620defafcaf">function_node::handle_planned_event</a>(<a class="code" href="classsydevs_1_1quantity.html">duration</a> elapsed_dt)</div>
+<div class="line"><a name="l00088"></a><span class="lineno">   88</span>&#160;{</div>
+<div class="line"><a name="l00089"></a><span class="lineno">   89</span>&#160;    <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;Unexpected planned event invoked for function node&quot;</span>);</div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;    <span class="keywordflow">return</span> <a class="code" href="classsydevs_1_1quantity.html#aab3f74af562a2a5a73d744dd77f8ff06">duration::inf</a>();</div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160;}</div>
+<div class="line"><a name="l00092"></a><span class="lineno">   92</span>&#160;</div>
+<div class="line"><a name="l00093"></a><span class="lineno">   93</span>&#160;</div>
+<div class="line"><a name="l00094"></a><span class="lineno"><a class="line" href="classsydevs_1_1systems_1_1function__node.html#a7306ed19f1ef40597784547733b191ca">   94</a></span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> <a class="code" href="classsydevs_1_1systems_1_1function__node.html#a7306ed19f1ef40597784547733b191ca">function_node::handle_finalization_event</a>(<a class="code" href="classsydevs_1_1quantity.html">duration</a> elapsed_dt)</div>
+<div class="line"><a name="l00095"></a><span class="lineno">   95</span>&#160;{</div>
+<div class="line"><a name="l00096"></a><span class="lineno">   96</span>&#160;    <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;Unexpected finalization event invoked for function node&quot;</span>);</div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;}</div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160;</div>
+<div class="line"><a name="l00099"></a><span class="lineno">   99</span>&#160;</div>
+<div class="line"><a name="l00100"></a><span class="lineno">  100</span>&#160;<span class="keyword">inline</span> <span class="keywordtype">void</span> function_node::adopt_component_print_flags(<span class="keyword">const</span> <a class="code" href="classsydevs_1_1systems_1_1system__node.html">system_node</a>&amp; node)<span class="keyword"> const</span></div>
+<div class="line"><a name="l00101"></a><span class="lineno">  101</span>&#160;<span class="keyword"></span>{</div>
+<div class="line"><a name="l00102"></a><span class="lineno">  102</span>&#160;}</div>
+<div class="line"><a name="l00103"></a><span class="lineno">  103</span>&#160;</div>
+<div class="line"><a name="l00104"></a><span class="lineno">  104</span>&#160;</div>
+<div class="line"><a name="l00105"></a><span class="lineno">  105</span>&#160;}  <span class="comment">// namespace</span></div>
+<div class="line"><a name="l00106"></a><span class="lineno">  106</span>&#160;}  <span class="comment">// namespace</span></div>
+<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160;</div>
+<div class="line"><a name="l00108"></a><span class="lineno">  108</span>&#160;<span class="preprocessor">#endif</span></div>
 <div class="ttc" id="system__node_8h_html"><div class="ttname"><a href="system__node_8h.html">system_node.h</a></div></div>
-<div class="ttc" id="classsydevs_1_1systems_1_1system__node_html_a17f9d0d409a7df782b7d648aa7066752"><div class="ttname"><a href="classsydevs_1_1systems_1_1system__node.html#a17f9d0d409a7df782b7d648aa7066752">sydevs::systems::system_node::node_name</a></div><div class="ttdeci">const std::string &amp; node_name() const </div><div class="ttdoc">Returns the name of the node. </div><div class="ttdef"><b>Definition:</b> system_node.h:130</div></div>
-<div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_a7306ed19f1ef40597784547733b191ca"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#a7306ed19f1ef40597784547733b191ca">sydevs::systems::function_node::handle_finalization_event</a></div><div class="ttdeci">void handle_finalization_event(duration elapsed_dt)</div><div class="ttdoc">Never invoked for function nodes. </div><div class="ttdef"><b>Definition:</b> function_node.h:92</div></div>
+<div class="ttc" id="classsydevs_1_1systems_1_1system__node_html_a17f9d0d409a7df782b7d648aa7066752"><div class="ttname"><a href="classsydevs_1_1systems_1_1system__node.html#a17f9d0d409a7df782b7d648aa7066752">sydevs::systems::system_node::node_name</a></div><div class="ttdeci">const std::string &amp; node_name() const </div><div class="ttdoc">Returns the name of the node. </div><div class="ttdef"><b>Definition:</b> system_node.h:135</div></div>
+<div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_a7306ed19f1ef40597784547733b191ca"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#a7306ed19f1ef40597784547733b191ca">sydevs::systems::function_node::handle_finalization_event</a></div><div class="ttdeci">void handle_finalization_event(duration elapsed_dt)</div><div class="ttdoc">Never invoked for function nodes. </div><div class="ttdef"><b>Definition:</b> function_node.h:94</div></div>
 <div class="ttc" id="namespacesydevs_1_1systems_html_a1852ea7ca1d57fd679e01369acb054b8"><div class="ttname"><a href="namespacesydevs_1_1systems.html#a1852ea7ca1d57fd679e01369acb054b8">sydevs::systems::data_mode</a></div><div class="ttdeci">data_mode</div><div class="ttdoc">Indicates the relevant data communication paradigm: dataflow (flow) or message-passing (message)...</div><div class="ttdef"><b>Definition:</b> data_mode.h:16</div></div>
-<div class="ttc" id="classsydevs_1_1systems_1_1system__node_html"><div class="ttname"><a href="classsydevs_1_1systems_1_1system__node.html">sydevs::systems::system_node</a></div><div class="ttdoc">A base class for all nodes from which systems models are constructed. </div><div class="ttdef"><b>Definition:</b> system_node.h:40</div></div>
+<div class="ttc" id="classsydevs_1_1timer_html_a3b35b6358f804cdab9230ffbf1c1d338"><div class="ttname"><a href="classsydevs_1_1timer.html#a3b35b6358f804cdab9230ffbf1c1d338">sydevs::timer::stop</a></div><div class="ttdeci">duration stop()</div><div class="ttdef"><b>Definition:</b> timer.h:94</div></div>
+<div class="ttc" id="classsydevs_1_1systems_1_1system__node_html"><div class="ttname"><a href="classsydevs_1_1systems_1_1system__node.html">sydevs::systems::system_node</a></div><div class="ttdoc">A base class for all nodes from which systems models are constructed. </div><div class="ttdef"><b>Definition:</b> system_node.h:41</div></div>
 <div class="ttc" id="namespacesydevs_html_af7368e55204ead339801a7af6b65841d"><div class="ttname"><a href="namespacesydevs.html#af7368e55204ead339801a7af6b65841d">sydevs::no_scale</a></div><div class="ttdeci">constexpr scale no_scale</div><div class="ttdef"><b>Definition:</b> scale.h:153</div></div>
 <div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_ab6883b754b02821db4052cb02b1720de"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#ab6883b754b02821db4052cb02b1720de">sydevs::systems::function_node::~function_node</a></div><div class="ttdeci">virtual ~function_node()=default</div><div class="ttdoc">Destructor. </div></div>
 <div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_a00a79f980a5272c289165f00db546d5d"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#a00a79f980a5272c289165f00db546d5d">sydevs::systems::function_node::handle_initialization_event</a></div><div class="ttdeci">duration handle_initialization_event()</div><div class="ttdoc">Invoked when all flow input ports have values; calls flow_event. </div><div class="ttdef"><b>Definition:</b> function_node.h:71</div></div>
 <div class="ttc" id="classsydevs_1_1scale_html"><div class="ttname"><a href="classsydevs_1_1scale.html">sydevs::scale</a></div><div class="ttdoc">A data type which represents the general concept of scale as a dimensionless power of 1000...</div><div class="ttdef"><b>Definition:</b> scale.h:70</div></div>
 <div class="ttc" id="classsydevs_1_1quantity_html_aab3f74af562a2a5a73d744dd77f8ff06"><div class="ttname"><a href="classsydevs_1_1quantity.html#aab3f74af562a2a5a73d744dd77f8ff06">sydevs::quantity&lt; seconds &gt;::inf</a></div><div class="ttdeci">static constexpr quantity inf()</div></div>
-<div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_a5c33c560a4bc934f0962cb85f685ed93"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#a5c33c560a4bc934f0962cb85f685ed93">sydevs::systems::function_node::handle_unplanned_event</a></div><div class="ttdeci">duration handle_unplanned_event(duration elapsed_dt)</div><div class="ttdoc">Never invoked for function nodes. </div><div class="ttdef"><b>Definition:</b> function_node.h:78</div></div>
+<div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_a5c33c560a4bc934f0962cb85f685ed93"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#a5c33c560a4bc934f0962cb85f685ed93">sydevs::systems::function_node::handle_unplanned_event</a></div><div class="ttdeci">duration handle_unplanned_event(duration elapsed_dt)</div><div class="ttdoc">Never invoked for function nodes. </div><div class="ttdef"><b>Definition:</b> function_node.h:80</div></div>
 <div class="ttc" id="classsydevs_1_1systems_1_1node__context_html"><div class="ttname"><a href="classsydevs_1_1systems_1_1node__context.html">sydevs::systems::node_context</a></div><div class="ttdef"><b>Definition:</b> node_context.h:16</div></div>
+<div class="ttc" id="classsydevs_1_1timer_html_a085663ce5ed4cf7b07717ca51839f60d"><div class="ttname"><a href="classsydevs_1_1timer.html#a085663ce5ed4cf7b07717ca51839f60d">sydevs::timer::start</a></div><div class="ttdeci">void start()</div><div class="ttdef"><b>Definition:</b> timer.h:85</div></div>
 <div class="ttc" id="classsydevs_1_1systems_1_1function__node_html"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html">sydevs::systems::function_node</a></div><div class="ttdoc">A base class for indivisible nodes in which function behavior is procedurally encoded. </div><div class="ttdef"><b>Definition:</b> function_node.h:21</div></div>
 <div class="ttc" id="namespacesydevs_1_1systems_html_a1852ea7ca1d57fd679e01369acb054b8acff5497121104c2b8e0cb41ed2083a9b"><div class="ttname"><a href="namespacesydevs_1_1systems.html#a1852ea7ca1d57fd679e01369acb054b8acff5497121104c2b8e0cb41ed2083a9b">sydevs::systems::data_mode::flow</a></div><div class="ttdoc">Indicates dataflow. </div></div>
 <div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_a2795f045424a6fec5d7099323727a787"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#a2795f045424a6fec5d7099323727a787">sydevs::systems::function_node::time_precision</a></div><div class="ttdeci">scale time_precision() const </div><div class="ttdoc">Returns no_scale for all function nodes. </div><div class="ttdef"><b>Definition:</b> function_node.h:65</div></div>
 <div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_ad1348180a4576599e86da871026b0e0f"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#ad1348180a4576599e86da871026b0e0f">sydevs::systems::function_node::node_dmode</a></div><div class="ttdeci">data_mode node_dmode() const </div><div class="ttdoc">Returns message for all atomic nodes. </div><div class="ttdef"><b>Definition:</b> function_node.h:59</div></div>
 <div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_a58a84bb43ebccb0b06bf413ee6e24963"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#a58a84bb43ebccb0b06bf413ee6e24963">sydevs::systems::function_node::function_node</a></div><div class="ttdeci">function_node(const std::string &amp;node_name, const node_context &amp;external_context)</div><div class="ttdoc">Constructs a function_node. </div><div class="ttdef"><b>Definition:</b> function_node.h:53</div></div>
-<div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_a7024f71f3fab0434ca666620defafcaf"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#a7024f71f3fab0434ca666620defafcaf">sydevs::systems::function_node::handle_planned_event</a></div><div class="ttdeci">duration handle_planned_event(duration elapsed_dt)</div><div class="ttdoc">Never invoked for function nodes. </div><div class="ttdef"><b>Definition:</b> function_node.h:85</div></div>
+<div class="ttc" id="classsydevs_1_1systems_1_1system__node_html_a637728a55c1bcaaeb637eea5f4688327"><div class="ttname"><a href="classsydevs_1_1systems_1_1system__node.html#a637728a55c1bcaaeb637eea5f4688327">sydevs::systems::system_node::ET</a></div><div class="ttdeci">timer &amp; ET() const </div><div class="ttdoc">Returns a non-const reference to the node&#39;s event timer. </div><div class="ttdef"><b>Definition:</b> system_node.h:294</div></div>
+<div class="ttc" id="classsydevs_1_1systems_1_1function__node_html_a7024f71f3fab0434ca666620defafcaf"><div class="ttname"><a href="classsydevs_1_1systems_1_1function__node.html#a7024f71f3fab0434ca666620defafcaf">sydevs::systems::function_node::handle_planned_event</a></div><div class="ttdeci">duration handle_planned_event(duration elapsed_dt)</div><div class="ttdoc">Never invoked for function nodes. </div><div class="ttdef"><b>Definition:</b> function_node.h:87</div></div>
 <div class="ttc" id="classsydevs_1_1quantity_html"><div class="ttname"><a href="classsydevs_1_1quantity.html">sydevs::quantity&lt; seconds &gt;</a></div></div>
 </div><!-- fragment --></div><!-- contents -->
 </div><!-- doc-content -->
@@ -224,7 +229,7 @@ $(document).ready(function(){initNavTree('function__node_8h_source.html','');});
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7768905cd5f13791a907789958daff55.html">src</a></li><li class="navelem"><a class="el" href="dir_b52b886ab9c805f02d8e0ac18424dc05.html">sydevs</a></li><li class="navelem"><a class="el" href="dir_870de5e1b8007a1b7c54b99faffaf6a2.html">systems</a></li><li class="navelem"><a class="el" href="function__node_8h.html">function_node.h</a></li>
-    <li class="footer">Generated on Fri Apr 26 2019 15:35:57 for SyDEVS by
+    <li class="footer">Generated on Thu Jul 4 2019 15:53:59 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

@@ -10,8 +10,8 @@ var searchData=
   ['clear_5fflow_5foutputs',['clear_flow_outputs',['../classsydevs_1_1systems_1_1node__interface.html#a00f835a4894d6a092167064cc0ff7f60',1,'sydevs::systems::node_interface']]],
   ['clear_5fmessage_5finput',['clear_message_input',['../classsydevs_1_1systems_1_1node__interface.html#a52cfc221a7272b2cd920619a27fec715',1,'sydevs::systems::node_interface']]],
   ['clear_5fmessage_5foutputs',['clear_message_outputs',['../classsydevs_1_1systems_1_1node__interface.html#aeb8cb05ed44e7cdf6d001cba84ee0d9b',1,'sydevs::systems::node_interface']]],
-  ['clock',['clock',['../namespacesydevs_1_1systems.html#a8c17512f5799ed4df70ac7976ab6e032',1,'sydevs::systems']]],
-  ['clock_5ftime',['clock_time',['../namespacesydevs_1_1systems.html#aed2a4c7774a46421d60c692602c49f29',1,'sydevs::systems']]],
+  ['clock',['clock',['../namespacesydevs.html#a322274558b7eba09b7e3117add007f67',1,'sydevs']]],
+  ['clock_5ftime',['clock_time',['../namespacesydevs.html#a0af78f1cad75ad0327ffe6569d6e39c0',1,'sydevs']]],
   ['coarsened',['coarsened',['../classsydevs_1_1quantity.html#a6f064e4af7b6e759e0eaab93d932e731',1,'sydevs::quantity::coarsened()'],['../classsydevs_1_1quantity_3_01no__units_01_4.html#a9596f328f42250ee964c44c9f18a1744',1,'sydevs::quantity&lt; no_units &gt;::coarsened()']]],
   ['collection_5fnode',['collection_node',['../classsydevs_1_1systems_1_1collection__node.html',1,'sydevs::systems']]],
   ['collection_5fnode',['collection_node',['../classsydevs_1_1systems_1_1collection__node.html#a35ead76eaa5f56b72a4f2febc10fd748',1,'sydevs::systems::collection_node']]],
@@ -36,6 +36,7 @@ var searchData=
   ['copy_5fswapped_5faxes',['copy_swapped_axes',['../classsydevs_1_1arraynd.html#a79b73f0a7e255485829c80d4d10b49a8',1,'sydevs::arraynd']]],
   ['copy_5ftransposed',['copy_transposed',['../classsydevs_1_1arraynd.html#ade4b42d4a63047369fd5cea0ba32bab4',1,'sydevs::arraynd']]],
   ['create_5fagent',['create_agent',['../classsydevs_1_1systems_1_1collection__node.html#a52006a813f12c8a86696ca310c69c91f',1,'sydevs::systems::collection_node::create_agent(const AgentID &amp;agent_id)'],['../classsydevs_1_1systems_1_1collection__node.html#a07fe49ed2c3bb85f3de6882513a6e251',1,'sydevs::systems::collection_node::create_agent(const AgentID &amp;agent_id)']]],
+  ['cumulative_5fduration',['cumulative_duration',['../classsydevs_1_1timer.html#ab7a35408a57b9afe3a792f956a1020bb',1,'sydevs::timer']]],
   ['current_5fclock_5ftime',['current_clock_time',['../classsydevs_1_1systems_1_1real__time__buffer.html#a61bb6c88fb4e85fd39c08234d2bdd321',1,'sydevs::systems::real_time_buffer']]],
   ['current_5ftime',['current_time',['../classsydevs_1_1systems_1_1real__time__buffer.html#a61b060f30828588ad5516260a4dc2727',1,'sydevs::systems::real_time_buffer::current_time()'],['../classsydevs_1_1time__cache.html#a0c3a2fefdb760db8e69563204051522d',1,'sydevs::time_cache::current_time()'],['../classsydevs_1_1time__queue.html#ac93a429a8d9846b4b9ecc048930f77cf',1,'sydevs::time_queue::current_time()']]]
 ];

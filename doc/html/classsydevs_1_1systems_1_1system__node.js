@@ -6,6 +6,8 @@ var classsydevs_1_1systems_1_1system__node =
     [ "~system_node", "classsydevs_1_1systems_1_1system__node.html#a1070781fe30f3495996bcc7e3424930c", null ],
     [ "system_node", "classsydevs_1_1systems_1_1system__node.html#a77c4abb62a9a1d6c72a6a5c0291b0df6", null ],
     [ "adopt_print_flags", "classsydevs_1_1systems_1_1system__node.html#a676e5096516e8621a3ce946603280331", null ],
+    [ "ET", "classsydevs_1_1systems_1_1system__node.html#a637728a55c1bcaaeb637eea5f4688327", null ],
+    [ "event_timer", "classsydevs_1_1systems_1_1system__node.html#af648004675d13dd71f2d1e1de43187ef", null ],
     [ "external_interface", "classsydevs_1_1systems_1_1system__node.html#ad875d7fc7340a3b8fb83f4a65da656a1", null ],
     [ "external_IO", "classsydevs_1_1systems_1_1system__node.html#a00855e5816746bfad71928086aaf5500", null ],
     [ "full_name", "classsydevs_1_1systems_1_1system__node.html#aca5d7daa289a2c2c8767c416f4b18fd7", null ],
