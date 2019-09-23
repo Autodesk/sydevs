@@ -207,7 +207,7 @@ void simulate_square_wave_closed_system()
 #endif
 ```
 
-This file contains a function (`simulate_square_wave_closed_system`) which creates a simulation (`sim`) that will last for 1 minute of simulated time. The simulation has a random seed of 0 and sends output data to `std::cout`. The simulation is executed by invoking the `sim` object's `process_remaining_events` member function.
+This file contains a function (`simulate_square_wave_closed_system`) which constructs a simulation (`sim`) configured using three arguments. The first argument with value `1_min` (1 minute) is the duration of the simulation in simulated time. The second argument with value 0 is an integer that seeds the random number generator common to all SyDEVS nodes. For stochastic simulations, the same seed on the same platform should give the same results. Changing the seed will change all randomly generated numbers. The third argument indicates that output data is sent to `std::cout`. The simulation is executed by invoking the `sim` object's `process_remaining_events` member function.
 
 Finally, in `simulations/first_simulation`, save the following code as `main.cpp`. This main program simply calls the function described above.
 

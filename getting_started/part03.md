@@ -67,7 +67,7 @@ Here the `string_builder` object is used to create a `std::string` value of the 
 11|0|top$print:y = 1
 ```
 
-Notice that each row begins with two numbers. The first number associates each row with a particular point in simulated time. The rows that begin with 3, for example, are associated with the time point at 17 seconds. The second number is a counter of steps within each time point, starting from 0. In this example, there is only one step per time point, so the counter is always at 0.
+Notice that each row begins with two numbers. The first number associates each row with a particular point in simulated time. The rows that begin with 0, for example, are associated with the time at the beginning of the simulation. The rows that begin with 3 are associated with the time point at 17 seconds from the beginning. The second number is a counter of steps within each time point, starting from 0. In this example, there is only one step per time point, so the counter is always at 0.
 
 We still see the printed text `"y = 0"` or `"y = 1"`, but it is associated with a node named `top`. This is the name that is always given to the top-level node in a simulation. In this example, the top node is the only node, but in more complex examples it is useful to see which node produced each output.
 
