@@ -23,7 +23,7 @@ data_mode composite_node::node_dmode() const
 
 duration composite_node::handle_initialization_event()
 {
-    if (initialized_) throw std::logic_error("Attempt to initalize composite node (" + full_name() + ") more than once");
+    if (initialized_) throw std::logic_error("Attempt to initialize composite node (" + full_name() + ") more than once");
     auto& current_t = event_time().t();
     t_queue_ = time_queue(current_t);
     t_cache_ = time_cache(current_t);

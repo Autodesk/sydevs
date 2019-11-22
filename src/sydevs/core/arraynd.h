@@ -50,11 +50,11 @@ namespace sydevs {
  * });
  *
  * std::cout << arr;  // Prints "{{{0, 1, 2, 3}, 
- *                    //          {10, 11, 12, 13}, 
- *                    //          {20, 21, 22, 23}},
- *                    //         {{100, 101, 102, 103}, 
- *                    //          {110, 111, 112, 113},
- *                    //          {120, 121, 122, 123}}}"
+ *                    //           {10, 11, 12, 13}, 
+ *                    //           {20, 21, 22, 23}},
+ *                    //          {{100, 101, 102, 103}, 
+ *                    //           {110, 111, 112, 113},
+ *                    //           {120, 121, 122, 123}}}"
  *                    //
  *                    //        (without line breaks).
  * ~~~
@@ -67,9 +67,9 @@ namespace sydevs {
  *     return 100*indices[0] + 10*indices[1] + indices[2];
  * });
  *
- * arr(1, 0, 3) = 7;
- *
  * std::cout << arr(1, 0, 3);  // Prints "7".
+ *
+ * arr(1, 0, 3) = 7;  // Changes an element to "7".
  * ~~~
  *
  * 1D arrays and std::array instances can also be used to access elements.
@@ -84,9 +84,9 @@ namespace sydevs {
  *     return 100*indices[0] + 10*indices[1] + indices[2];
  * });
  *
- * arr[1][0][3] = 7;  // Sets one element equal to 7 (inefficient).
- *
  * std::cout << arr[1][0][3];  // Prints "7" (inefficient).
+ *
+ * arr[1][0][3] = 7;  // Changes an element to "7" (inefficient).
  * ~~~
  *
  * One should use `operator[]` in conjunction with the 
@@ -98,16 +98,16 @@ namespace sydevs {
  *     return 100*indices[0] + 10*indices[1] + indices[2];
  * });
  *
- * std::cout << arr[range().stride_by(2)][1][range().start_at(4).stride_by(-3)]
- *         // Takes every 2nd element from the first dimension.
+ * std::cout << arr[range()][1][range().start_at(1).stride_by(2)]
+ *         // Takes every element from the first dimension.
  *         // Replaces the second dimension with contents associated with index 1.
- *         // Takes every 3rd element from the third dimension going backwards from index 4.
- *         // Prints "{{14, 11}, {214, 211}}".
+ *         // Takes every 2rd element from the third dimension starting at index 1.
+ *         // Prints "{{11, 13}, {111, 113}}".
  *
- * arr[range().stride_by(2)][1][range().start_at(4).stride_by(-3)].fill(7);
+ * arr[range()][1][range().start_at(1).stride_by(2)].fill(7);
  *         // Replaces a 2-by-2 slice of the original array with the value 7.
  *
- * arr[range().stride_by(2)][1][range().start_at(4).stride_by(-3)].assign(other);
+ * arr[range()][1][range().start_at(1).stride_by(2)].assign(other);
  *         // Replaces a 2-by-2 slice of the original array with the values in the
  *         // multidimensional array `other`.
  * ~~~
@@ -142,7 +142,7 @@ namespace sydevs {
  *     auto arr2 = arr.view();
  *     arr2(0, 0) = "E";
  * }
- * catch (const std::exception& e) {
+ * catch (const std::logic_error& e) {
  *     std::cout << "ERROR: " << e.what() << std::endl;
  * }
  * ~~~
@@ -164,7 +164,7 @@ namespace sydevs {
  * std::cout << a + b;               // Prints "{{2, 2, 2}, {5, 8, 11}}".
  * std::cout << a + 5;               // Prints "{{5, 6, 7}, {8, 9, 10}}".
  * std::cout << 5 - a;               // Prints "{{5, 4, 3}, {2, 1, 0}}".
- * std::cout << a/5;                 // Prints "{{0, 0, 1}, {1, 2, 2}}".
+ * std::cout << a/2;                 // Prints "{{0, 0, 1}, {1, 2, 2}}".
  * std::cout << (a < b);             // Prints "{{1, 0, 0}, {0, 0, 1}}".
  * std::cout << (a == b);            // Prints "{{0, 1, 0}, {0, 1, 0}}".
  * std::cout << (a >= 1 && a <= 4);  // Prints "{{0, 1, 1}, {1, 1, 0}}".

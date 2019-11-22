@@ -1351,4 +1351,94 @@ TEST_CASE("test multidimensional array subdivide and absorb (copy only)")
 }
 
 
+TEST_CASE("check documentation examples")
+{
+    auto a1 = array3d<int64>({2, 3, 4}, [](const std::array<int64, 3>& indices) {
+        return 100*indices[0] + 10*indices[1] + indices[2];
+    });
+    auto a2 = a1.copy();
+    auto a3 = a1.copy();
+    auto a4 = a1.copy();
+    auto a5 = a1.copy();
+    CHECK((string_builder() << a1).str() ==
+        std::string("{{{0, 1, 2, 3}, ") +
+                      "{10, 11, 12, 13}, " +
+                      "{20, 21, 22, 23}}, " +
+                     "{{100, 101, 102, 103}, " +
+                      "{110, 111, 112, 113}, " +
+                      "{120, 121, 122, 123}}}");
+    CHECK(a1(1, 0, 3) == 103);
+    a1(1, 0, 3) = 7;
+    CHECK((string_builder() << a1).str() ==
+        std::string("{{{0, 1, 2, 3}, ") +
+                      "{10, 11, 12, 13}, " +
+                      "{20, 21, 22, 23}}, " +
+                      "{{100, 101, 102, 7}, " +
+                      "{110, 111, 112, 113}, " +
+                      "{120, 121, 122, 123}}}");
+    CHECK(a2[1][0][3] == 103);
+    a2(1, 0, 3) = 7;
+    CHECK((string_builder() << a2).str() ==
+        std::string("{{{0, 1, 2, 3}, ") +
+                      "{10, 11, 12, 13}, " +
+                      "{20, 21, 22, 23}}, " +
+                     "{{100, 101, 102, 7}, " +
+                      "{110, 111, 112, 113}, " +
+                      "{120, 121, 122, 123}}}");
+    CHECK((string_builder() << a3[range()][1][range().start_at(1).stride_by(2)]).str() ==
+        std::string("{{11, 13}, ") +
+                     "{111, 113}}");
+    a3[range()][1][range().start_at(1).stride_by(2)].fill(7);
+    CHECK((string_builder() << a3).str() ==
+        std::string("{{{0, 1, 2, 3}, ") +
+                      "{10, 7, 12, 7}, " +
+                      "{20, 21, 22, 23}}, " +
+                     "{{100, 101, 102, 103}, " +
+                      "{110, 7, 112, 7}, " +
+                      "{120, 121, 122, 123}}}");
+    auto a4_view = a4[range()][1][range().start_at(1).stride_by(2)];
+    a4_view.fill(7);
+    CHECK((string_builder() << a4).str() ==
+        std::string("{{{0, 1, 2, 3}, ") +
+                      "{10, 7, 12, 7}, " +
+                      "{20, 21, 22, 23}}, " +
+                     "{{100, 101, 102, 103}, " +
+                      "{110, 7, 112, 7}, " +
+                      "{120, 121, 122, 123}}}");
+    auto a5_copy = a5[range()][1][range().start_at(1).stride_by(2)].copy();
+    a5_copy.fill(7);
+    CHECK((string_builder() << a5).str() ==
+        std::string("{{{0, 1, 2, 3}, ") +
+                      "{10, 11, 12, 13}, " +
+                      "{20, 21, 22, 23}}, " +
+                     "{{100, 101, 102, 103}, " +
+                      "{110, 111, 112, 113}, " +
+                      "{120, 121, 122, 123}}}");
+    const auto a6 = array2d<std::string>({2, 2}, {"A", "B", "C", "D"});
+    auto a6_view = a6.view();
+    {
+        auto errmsg = std::string();
+        try {
+            a6_view(0, 0) = "E";
+        }
+        catch (const std::logic_error& e) {
+            errmsg = e.what();
+        }
+        CHECK(errmsg == "Attempt to obtain a non-const reference to readonly multidimensional array data");
+    }
+    const auto a7 = array2d<std::string>({2, 2}, {"A", "B", "C", "D"});
+    auto a7_view = a7[range()];
+    {
+        auto errmsg = std::string();
+        try {
+            a7_view(0, 0) = "E";
+        }
+        catch (const std::logic_error& e) {
+            errmsg = e.what();
+        }
+        CHECK(errmsg == "Attempt to obtain a non-const reference to readonly multidimensional array data");
+    }
+}
+
+
 }  // namespace

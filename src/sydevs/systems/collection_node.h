@@ -335,7 +335,7 @@ inline void collection_node<AgentID, Node>::print_on_planned_duration(bool flag)
 template<typename AgentID, typename Node>
 inline duration collection_node<AgentID, Node>::handle_initialization_event()
 {
-    if (initialized_) throw std::logic_error("Attempt to initalize collection node (" + full_name() + ") more than once");
+    if (initialized_) throw std::logic_error("Attempt to initialize collection node (" + full_name() + ") more than once");
     auto& current_t = event_time().t();
     t_queue_ = time_queue(current_t);
     t_cache_ = time_cache(current_t);

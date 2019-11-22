@@ -6,7 +6,7 @@ namespace systems {
 
 duration atomic_node::handle_initialization_event()
 {
-    if (initialized_) throw std::logic_error("Attempt to initalize atomic node (" + full_name() + ") more than once");
+    if (initialized_) throw std::logic_error("Attempt to initialize atomic node (" + full_name() + ") more than once");
     ET().start();
     auto dt = initialization_event();
     ET().stop();
