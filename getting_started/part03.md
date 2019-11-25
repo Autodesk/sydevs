@@ -20,7 +20,7 @@ y = 1
 
 However the use of `std::cout` within a node is not recommended practice. One problem with `std::cout` is that it does not indicate the point in simulated time at which each output occurred. Let's find a better way to extract information from the simulation.
 
-Delete the following line of code, which imports the standard output stream, from the top of the file `square_wave_closed_system.h`.
+Find the file **square_wave_closed_system.h** and delete the following line of code, which imports the standard output stream.
 
 ```cpp
 #include <iostream>
@@ -75,7 +75,7 @@ Although using the `print` function is recommended over using `std::cout`, it is
 
 Let's explore one more output customization feature.
 
-In the `square_wave.h` file, find the instruction...
+In the **square_wave.h** file, find the instruction...
 
 ```cpp
 sim.process_remaining_events();

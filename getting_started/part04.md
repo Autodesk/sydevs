@@ -1,20 +1,20 @@
 | [Prev](part03.html) | [Getting Started -- Table of Contents](index.html) | [Next](part05.html) |
 # Part 4: Adding Ports
 
-In [Part 3](getting_started_part03.html) you improved the `square_wave_closed_system` node by replacing `std::cout` with `print` as a means of outputting information. Yet there's an even better way to let a node interact with its surroundings. In general, a node should have ***ports*** through which it ***communicates*** with other nodes. So let's add ports to the node.
+In [Part 3](getting_started_part03.html) you improved the `square_wave_closed_system` node by replacing `std::cout` with `print` as a means of outputting information. Yet there's an even better way to let a node interact with its surroundings. In general, a node should have ports through which it communicates with other nodes. So let's add ports to the node.
 
-Make a copy of the `square_wave_closed_system.h` file, and name the new file `square_wave_generator_node.h`.
+Make a copy of the **square_wave_closed_system.h** file, and name the new file **square_wave_generator_node.h**.
 
 In the new version of the node, replace both instances of...
 
 ```cpp
-SYDEVS_EXAMPLES_SQUARE_WAVE_CLOSED_SYSTEM_H_
+SYDEVS_TUTORIAL_SQUARE_WAVE_CLOSED_SYSTEM_H_
 ```
 
 ...with...
 
 ```cpp
-SYDEVS_EXAMPLES_SQUARE_WAVE_GENERATOR_NODE_H_
+SYDEVS_TUTORIAL_SQUARE_WAVE_GENERATOR_NODE_H_
 ```
 
 ...and then use a Find & Replace tool to replace all instances of...
@@ -73,18 +73,18 @@ Save the file.
 
 The node is now complete and needs to be tested. However, because the node has ports, it cannot be simulated directly. To enable simulation, we need to define an encompassing "closed system" node with no ports.
 
-Create a text file named `square_wave_integration_closed_system.h` and save it with the following code.
+Create a text file named **square_wave_integration_closed_system.h** and save it with the following code.
 
 ```cpp
 #pragma once
-#ifndef SYDEVS_EXAMPLES_SQUARE_WAVE_INTEGRATION_CLOSED_SYSTEM_H_
-#define SYDEVS_EXAMPLES_SQUARE_WAVE_INTEGRATION_CLOSED_SYSTEM_H_
+#ifndef SYDEVS_TUTORIAL_SQUARE_WAVE_INTEGRATION_CLOSED_SYSTEM_H_
+#define SYDEVS_TUTORIAL_SQUARE_WAVE_INTEGRATION_CLOSED_SYSTEM_H_
 
-#include <examples/getting_started/waveform/square_wave_generator_node.h>
+#include <nodes/getting_started/waveform/square_wave_generator_node.h>
 #include <sydevs/systems/composite_node.h>
 #include <sydevs/systems/parameter_node.h>
 
-namespace sydevs_examples {
+namespace sydevs_tutorial {
 
 using namespace sydevs;
 using namespace sydevs::systems;
@@ -129,10 +129,10 @@ square_wave_integration_closed_system::square_wave_integration_closed_system(con
 
 The node in this file inherits from `composite_node`, a base class for defining networks of nodes. In this case the network consists of two parameter nodes (`period_dt` and `duty_ratio`) connected to a simulation node (`generator`). In the next part of this tutorial, you will expand this example with an additional simulation node that numerically integrates the square wave.
 
-Now that the `square_wave_generator_node` is incorporated by another node with no ports, you can prepare a simulation. Edit the `square_wave.h` file by inserting the following `#include` line.
+Now that the `square_wave_generator_node` is incorporated by another node with no ports, you can prepare a simulation. Edit the **square_wave.h** file by inserting the following `#include` line.
 
 ```cpp
-#include <examples/getting_started/waveform/square_wave_integration_closed_system.h>
+#include <nodes/getting_started/waveform/square_wave_integration_closed_system.h>
 ```
 
 Then add the `simulate_square_wave_integration_closed_system` function, as defined below, directly below the similar function that already exists in the file.
@@ -160,28 +160,28 @@ In the above function, observe the lines that provide values for the `period_dt`
 
 Save the file.
 
-In the `src/simulations` folder, make a new folder called `simulation_with_ports`. In the new folder, save a `main.cpp` file with the following code.
+In the **src/simulations** folder, make a new folder called **simulation_with_ports**. In the new folder, save a **main.cpp** file with the following code.
 
 ```cpp
-#include <examples/getting_started/waveform/square_wave.h>
+#include <nodes/getting_started/waveform/square_wave.h>
 
 int main(int argc, const char* argv[])
 {
-    sydevs_examples::simulate_square_wave_integration_closed_system();
+    sydevs_tutorial::simulate_square_wave_integration_closed_system();
     return 0;
 }
 ```
 
-Finally, append the following instructions onto the bottom of `CMakeLists.txt`.
+Finally, append the following instructions onto the bottom of **CMakeLists.txt**.
 
 ```cmake
 set(SIMULATION_WITH_PORTS_DIR ${SIMULATIONS_DIR}/simulation_with_ports)
 aux_source_directory(${SIMULATION_WITH_PORTS_DIR} SIMULATION_WITH_PORTS_SRCS)
 add_executable(simulation_with_ports ${SIMULATION_WITH_PORTS_SRCS} ${WAVEFORM_HDRS})
-target_link_libraries(simulation_with_ports debug SyDEVS-static-debug optimized SyDEVS-static)
+target_link_libraries(simulation_with_ports SyDEVS-static)
 ```
 
-Build and run the `simulation_with_ports` executable. You should get the results below, where the signal level is printed along with the node and port on which the output values are made available.
+Build and run the **simulation_with_ports** executable. You should get the results below, where the signal level is printed along with the node and port on which the output values are made available.
 
 ```
 0|0|$time:time_point()
