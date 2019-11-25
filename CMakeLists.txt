@@ -4,9 +4,13 @@
 cmake_minimum_required(VERSION 3.4)
 project(SyDEVS)
 
-message(STATUS "Compiler: ${CMAKE_CXX_COMPILER_ID}")
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
+set(CMAKE_CXX_STANDARD 14)
+
 if(MSVC)
     add_definitions("/wd4244") # Hide type conversion warnings
+    add_compile_options(/MP)
+    add_compile_options(/std=c++14)
     string(REGEX REPLACE "/Z[iI7]" "" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /Z7 /bigobj")
 else()
@@ -28,7 +32,7 @@ include_directories(src)
  
 # ------------------------------------------------------------------------------
 #
-#   SyDEVS
+#   SyDEVS Library
 #
 # ------------------------------------------------------------------------------
 set(CORE_DIR src/sydevs/core)

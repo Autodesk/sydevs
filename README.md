@@ -66,16 +66,16 @@ This folder contains the elements from which dataflow + message-passing networks
 #### Building on Windows (Visual Studio)
 * You will need [CMake](http://www.cmake.org/)
 * Make sure you have [Visual Studio 2015](https://www.visualstudio.com) or [Visual Studio 2017](https://www.visualstudio.com)
-* `mkdir bin`
-* `cd bin/`
+* `mkdir build`
+* `cd build/`
 * `cmake -G "Visual Studio 14 2015 Win64" ..` or `cmake -G "Visual Studio 15 2017 Win64" ..`
-* Open `bin/SyDEVS.sln` in Visual Studio
+* Open `build/SyDEVS.sln` in Visual Studio
 * Recommendation: In `Tools -> Options -> Text Editor -> C/C++ -> Tabs`, select `Insert spaces` with a `Tab size` and `Indent size` of `4`
 
 #### Building on Mac OS
 * You will need [CMake](http://www.cmake.org/)
-* `mkdir bin`
-* `cd bin/`
+* `mkdir build`
+* `cd build/`
 * `cmake -G "Xcode" ..`
 * `xcodebuild -project SyDEVS.xcodeproj` or open the `.xcodeproj` file.
 
