@@ -1,8 +1,4 @@
-# SyDEVS
-
-Multiscale Simulation and Systems Modeling Library
-
-## About
+# About SyDEVS
 
 The SyDEVS open source C++ library provides a framework for modeling and simulating complex systems. 
 
@@ -14,7 +10,7 @@ Below is an example of a multi-solver simulation developed using SyDEVS. Click t
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=UvEn9yLMi9Y
 " target="_blank"><img src="http://img.youtube.com/vi/UvEn9yLMi9Y/0.jpg" 
-alt="SyDEVS in Action" width="360" height="270" border="10" /></a>
+alt="SyDEVS in Action" width="480" height="360" border="10" /></a>
 
 The SyDEVS framework is based on the [Symmetric DEVS formalism](https://www.autodeskresearch.com/publications/symmetricformalism), a set of conventions combining three modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) and [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model). These foundations give SyDEVS the generality needed to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
 
