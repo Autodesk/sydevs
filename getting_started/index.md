@@ -19,7 +19,7 @@ You will need a C++ compiler that implements the C++14 standard. A list of free 
 
 You may also want to [download CMake](https://cmake.org/) and install it. Although experienced C++ programmers will be able to compile the examples in the tutorial without CMake, the step-by-step instructions assume the use of this free, cross-platform build configuration tool.
 
-***Optional:*** If you want to get through the tutorial as quickly as possible, download and extract [this archive](doc/downloads/sydevs-tutorial-v0.6.6.zip). It has all the folders and source files created as if you had already completed Parts 1 through 6 of the tutorial, so that all you have to do is build the examples. However, to get the full learning experience, it is recommended that you start from scratch and complete each step yourself.
+***Optional:*** If you want to get through the tutorial as quickly as possible, download and extract [this archive](/doc/downloads/sydevs-tutorial-v0.6.6.zip). It has all the folders and source files created as if you had already completed Parts 1 through 6 of the tutorial, so that all you have to do is build the examples. However, to get the full learning experience, it is recommended that you start from scratch and complete each step yourself.
 
 | [***Continue to Part 1***](part01.html) |
 

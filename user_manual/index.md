@@ -15,7 +15,7 @@ The Elements of SyDEVS, Explained
 
 This user manual provides a detailed description of the main elements of SyDEVS.
 
-If you're looking for a general introduction to the framework, first read the [Overview](overview.html) or download and play through the [SyDEVS Introduction](doc/downloads/SyDEVS_Introduction.pptx) PowerPoint deck.
+If you're looking for a general introduction to the framework, first read the [Overview](/overview.html) or download and play through the [SyDEVS Introduction](/doc/downloads/SyDEVS_Introduction.pptx) PowerPoint deck.
 
 If you want to start building your own simulation projects using SyDEVS, work through the [Getting Started](getting_started/) tutorial and then return here for more detailed information about the different types of nodes and simulation elements.
 

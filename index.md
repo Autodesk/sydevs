@@ -10,6 +10,8 @@ The SyDEVS open source C++ library provides a framework for modeling and simulat
 
 SyDEVS allows physics solvers, state machines, and other types of simulation models to be implemented as independent nodes and later integrated. Even nodes that use different time steps (or variable time steps) can be linked together and allowed to interact.
 
+Here's an example of SyDEVS in action. Follow the link for more info. <iframe width="560" height="315" src="https://www.youtube.com/embed/UvEn9yLMi9Y" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+
 The framework is based on the [Symmetric DEVS formalism](https://www.autodeskresearch.com/publications/symmetricformalism), a set of conventions combining three modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) and [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model). These foundations give SyDEVS the generality needed to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
 
 In addition to supporting multiple modeling paradigms, the SyDEVS library provides comprehensive and reusable Modern C++ implementations of multidimensional arrays, Standard International (SI) units, and the multiscale representation of simulated time described in [this freely available paper](http://journals.sagepub.com/eprint/mIKXDU2UtbJUjPZ8kupv/full) from *Simulation*.
@@ -36,7 +38,3 @@ SyDEVS is released under the [Apache License 2.0](https://github.com/Autodesk/sy
 ## Contact
 
 Inquires about SyDEVS can be directed to [Rhys Goldstein](https://autodeskresearch.com/people/rhys-goldstein).
-
-![Queueing Network](doc/images/queueing network.png "Simulation of a queueing network")  
-*Above: A queueing network simulated using SyDEVS*
-
