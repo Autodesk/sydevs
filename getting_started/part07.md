@@ -38,4 +38,4 @@ The final page gives a set of instructions:
 
 Follow these intructions and complete at least the first three enhancements. Enhancements 1-3 will improve your understanding of SyDEVS as well as your confidence in using the framework. The last two enhancements should also be instructive, but rather than focussing on SyDEVS they require you to source other C++ libraries.
 
-That's it! Once you've completed the SyDEVS Building7m Tutorial, continue exploring the resources listed on the [SyDEVS webpage](https://autodesk.github.io/sydevs/) and [GitHub repo](https://github.com/Autodesk/sydevs), and ***start using SyDEVS!***
+That's it! Once you've completed the SyDEVS Building7m Tutorial, continue exploring the resources listed on the [SyDEVS webpage](/sydevs/) and [GitHub repo](https://github.com/Autodesk/sydevs), and ***start using SyDEVS!***

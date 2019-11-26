@@ -2,6 +2,12 @@
 
 Latest Developments
 
+## 2019 November 26 -- SyDEVS 0.6.6 Released
+
+SyDEVS v0.6.6 is available [here](https://github.com/Autodesk/sydevs/releases/tag/v0.6.6).
+
+This release is a minor update and cleanup, but the [Getting Started](getting_started/) tutorial has been significantly revised. It now recommends that the SyDEVS source code be directly incorporated into new SyDEVS projects, and provides step-by-step instructions on how to do this. This revision will eliminate potential frustrations caused by platform-specific SyDEVS binaries, and make it easier to debug simulation code.
+
 ## 2019 July 4 -- SyDEVS 0.6.5 Released
 
 SyDEVS v0.6.5 is available [here](https://github.com/Autodesk/sydevs/releases/tag/v0.6.5).
