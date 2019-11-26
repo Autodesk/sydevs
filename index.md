@@ -6,7 +6,7 @@ The SyDEVS open source C++ library provides a framework for modeling and simulat
 
 SyDEVS allows physics solvers, state machines, and other types of simulation models to be implemented as independent nodes and later integrated. Even nodes that use different time steps (or variable time steps) can be linked together and allowed to interact.
 
-Below is an example of a multi-solver simulation developed using SyDEVS. Click the image to see the animated results on YouTube.
+Below is an example of a multi-solver simulation developed by Rutgers University, York University, and Autodesk Research using SyDEVS as the underlying framework. Click the image to see the animated results on YouTube.
 
 <a href="http://www.youtube.com/watch?feature=player_embedded&v=UvEn9yLMi9Y
 " target="_blank"><img src="http://img.youtube.com/vi/UvEn9yLMi9Y/0.jpg" 
