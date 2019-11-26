@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname"><a href="https://autodesk.github.io/sydevs/">SyDEVS</a>
-   &#160;<span id="projectnumber">v0.6.5</span>
+   &#160;<span id="projectnumber">v0.6.6</span>
    </div>
    <div id="projectbrief">Multiscale Simulation and Systems Modeling Library</div>
   </td>
@@ -340,11 +340,11 @@ class sydevs::arraynd&lt; T, ndims &gt;</h3>
 <div class="line">});</div>
 <div class="line"></div>
 <div class="line">std::cout &lt;&lt; arr;  <span class="comment">// Prints &quot;{{{0, 1, 2, 3}, </span></div>
-<div class="line">                   <span class="comment">//          {10, 11, 12, 13}, </span></div>
-<div class="line">                   <span class="comment">//          {20, 21, 22, 23}},</span></div>
-<div class="line">                   <span class="comment">//         {{100, 101, 102, 103}, </span></div>
-<div class="line">                   <span class="comment">//          {110, 111, 112, 113},</span></div>
-<div class="line">                   <span class="comment">//          {120, 121, 122, 123}}}&quot;</span></div>
+<div class="line">                   <span class="comment">//           {10, 11, 12, 13}, </span></div>
+<div class="line">                   <span class="comment">//           {20, 21, 22, 23}},</span></div>
+<div class="line">                   <span class="comment">//          {{100, 101, 102, 103}, </span></div>
+<div class="line">                   <span class="comment">//           {110, 111, 112, 113},</span></div>
+<div class="line">                   <span class="comment">//           {120, 121, 122, 123}}}&quot;</span></div>
 <div class="line">                   <span class="comment">//</span></div>
 <div class="line">                   <span class="comment">//        (without line breaks).</span></div>
 </div><!-- fragment --><p>The most efficient way to access individual multidimensional array elements is using <code>operator()</code>.</p>
@@ -352,33 +352,33 @@ class sydevs::arraynd&lt; T, ndims &gt;</h3>
 <div class="line">    <span class="keywordflow">return</span> 100*indices[0] + 10*indices[1] + indices[2];</div>
 <div class="line">});</div>
 <div class="line"></div>
-<div class="line">arr(1, 0, 3) = 7;</div>
-<div class="line"></div>
 <div class="line">std::cout &lt;&lt; arr(1, 0, 3);  <span class="comment">// Prints &quot;7&quot;.</span></div>
+<div class="line"></div>
+<div class="line">arr(1, 0, 3) = 7;  <span class="comment">// Changes an element to &quot;7&quot;.</span></div>
 </div><!-- fragment --><p>1D arrays and std::array instances can also be used to access elements.</p>
 <p>Elements can also be accessed by chaining <code>ndims</code> invocations of <code>operator[]</code>. However, this is less efficient than <code>operator()</code> because it involves constructing <code>ndims - 1</code> new multidimensional arrays that share memory with the original.</p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> arr = array3d&lt;int64&gt;({2, 3, 4}, [](<span class="keyword">const</span> std::array&lt;int64, 3&gt;&amp; indices) {</div>
 <div class="line">    <span class="keywordflow">return</span> 100*indices[0] + 10*indices[1] + indices[2];</div>
 <div class="line">});</div>
 <div class="line"></div>
-<div class="line">arr[1][0][3] = 7;  <span class="comment">// Sets one element equal to 7 (inefficient).</span></div>
-<div class="line"></div>
 <div class="line">std::cout &lt;&lt; arr[1][0][3];  <span class="comment">// Prints &quot;7&quot; (inefficient).</span></div>
+<div class="line"></div>
+<div class="line">arr[1][0][3] = 7;  <span class="comment">// Changes an element to &quot;7&quot; (inefficient).</span></div>
 </div><!-- fragment --><p>One should use <code>operator[]</code> in conjunction with the <a class="el" href="classsydevs_1_1range.html">range</a> class to construct slices that share data with the original array.</p>
 <div class="fragment"><div class="line"><span class="keyword">auto</span> arr = array3d&lt;int64&gt;({2, 3, 4}, [](<span class="keyword">const</span> std::array&lt;int64, 3&gt;&amp; indices) {</div>
 <div class="line">    <span class="keywordflow">return</span> 100*indices[0] + 10*indices[1] + indices[2];</div>
 <div class="line">});</div>
 <div class="line"></div>
-<div class="line">std::cout &lt;&lt; arr[range().stride_by(2)][1][range().start_at(4).stride_by(-3)]</div>
-<div class="line">        <span class="comment">// Takes every 2nd element from the first dimension.</span></div>
+<div class="line">std::cout &lt;&lt; arr[range()][1][range().start_at(1).stride_by(2)]</div>
+<div class="line">        <span class="comment">// Takes every element from the first dimension.</span></div>
 <div class="line">        <span class="comment">// Replaces the second dimension with contents associated with index 1.</span></div>
-<div class="line">        <span class="comment">// Takes every 3rd element from the third dimension going backwards from index 4.</span></div>
-<div class="line">        <span class="comment">// Prints &quot;{{14, 11}, {214, 211}}&quot;.</span></div>
+<div class="line">        <span class="comment">// Takes every 2rd element from the third dimension starting at index 1.</span></div>
+<div class="line">        <span class="comment">// Prints &quot;{{11, 13}, {111, 113}}&quot;.</span></div>
 <div class="line"></div>
-<div class="line">arr[range().stride_by(2)][1][range().start_at(4).stride_by(-3)].fill(7);</div>
+<div class="line">arr[range()][1][range().start_at(1).stride_by(2)].fill(7);</div>
 <div class="line">        <span class="comment">// Replaces a 2-by-2 slice of the original array with the value 7.</span></div>
 <div class="line"></div>
-<div class="line">arr[range().stride_by(2)][1][range().start_at(4).stride_by(-3)].assign(other);</div>
+<div class="line">arr[range()][1][range().start_at(1).stride_by(2)].assign(other);</div>
 <div class="line">        <span class="comment">// Replaces a 2-by-2 slice of the original array with the values in the</span></div>
 <div class="line">        <span class="comment">// multidimensional array `other`.</span></div>
 </div><!-- fragment --><p>Copying a multidimensional array shares the internal data by default. The result of <code>operator[]</code> also shares data, and so does the <code>view</code> member function. The <code>copy</code> member function performs a deep copy of a multidimensional array so that no data is shared.</p>
@@ -395,7 +395,7 @@ class sydevs::arraynd&lt; T, ndims &gt;</h3>
 <div class="line">    <span class="keyword">auto</span> arr2 = arr.view();</div>
 <div class="line">    arr2(0, 0) = <span class="stringliteral">&quot;E&quot;</span>;</div>
 <div class="line">}</div>
-<div class="line"><span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
+<div class="line"><span class="keywordflow">catch</span> (<span class="keyword">const</span> std::logic_error&amp; e) {</div>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;ERROR: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
 <div class="line">}</div>
 </div><!-- fragment --><p>Since replacing element <code>(0, 0)</code> of <code>arr2</code> would also replace an element of <code>arr</code>, and since <code>arr</code> is <code>const</code>, the error below is produced.</p>
@@ -407,7 +407,7 @@ class sydevs::arraynd&lt; T, ndims &gt;</h3>
 <div class="line">std::cout &lt;&lt; a + b;               <span class="comment">// Prints &quot;{{2, 2, 2}, {5, 8, 11}}&quot;.</span></div>
 <div class="line">std::cout &lt;&lt; a + 5;               <span class="comment">// Prints &quot;{{5, 6, 7}, {8, 9, 10}}&quot;.</span></div>
 <div class="line">std::cout &lt;&lt; 5 - a;               <span class="comment">// Prints &quot;{{5, 4, 3}, {2, 1, 0}}&quot;.</span></div>
-<div class="line">std::cout &lt;&lt; a/5;                 <span class="comment">// Prints &quot;{{0, 0, 1}, {1, 2, 2}}&quot;.</span></div>
+<div class="line">std::cout &lt;&lt; a/2;                 <span class="comment">// Prints &quot;{{0, 0, 1}, {1, 2, 2}}&quot;.</span></div>
 <div class="line">std::cout &lt;&lt; (a &lt; b);             <span class="comment">// Prints &quot;{{1, 0, 0}, {0, 0, 1}}&quot;.</span></div>
 <div class="line">std::cout &lt;&lt; (a == b);            <span class="comment">// Prints &quot;{{0, 1, 0}, {0, 1, 0}}&quot;.</span></div>
 <div class="line">std::cout &lt;&lt; (a &gt;= 1 &amp;&amp; a &lt;= 4);  <span class="comment">// Prints &quot;{{0, 1, 1}, {1, 1, 0}}&quot;.</span></div>
@@ -1186,7 +1186,7 @@ template&lt;typename T, int64 ndims&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesydevs.html">sydevs</a></li><li class="navelem"><a class="el" href="classsydevs_1_1arraynd.html">arraynd</a></li>
-    <li class="footer">Generated on Thu Jul 4 2019 18:57:27 for SyDEVS by
+    <li class="footer">Generated on Tue Nov 26 2019 20:08:53 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
