@@ -5,16 +5,16 @@ Here we will finally end up with an example that demonstrates the main purpose o
 
 The example will still be very simple, featuring one-way communication between two simulation nodes. We will take the `square_wave_generator_node` you prepared in [Part 4](part04.html), and direct its output messages into a new `waveform_integrator_node` that performs numerical integration on the piecewise constant signal. 
 
-In the `waveform` example folder, save a file named `waveform_integrator_node.h` with the following code.
+In the **waveform** example folder, save a file named **waveform_integrator_node.h** with the following code.
 
 ```cpp
 #pragma once
-#ifndef SYDEVS_EXAMPLES_WAVEFORM_INTEGRATOR_NODE_H_
-#define SYDEVS_EXAMPLES_WAVEFORM_INTEGRATOR_NODE_H_
+#ifndef SYDEVS_TUTORIAL_WAVEFORM_INTEGRATOR_NODE_H_
+#define SYDEVS_TUTORIAL_WAVEFORM_INTEGRATOR_NODE_H_
 
 #include <sydevs/systems/atomic_node.h>
 
-namespace sydevs_examples {
+namespace sydevs_tutorial {
 
 using namespace sydevs;
 using namespace sydevs::systems;
@@ -119,13 +119,13 @@ The actual numerical integration is performed by the line...
 
 ...which appears 3 times in the class: once for every event type with an elapsed time variable (`elapsed_dt`).
 
-Notice that the `waveform_integrator_node` has one port of each of the four types. We previously saw that flow input ports provide a node with parameter values, and that message output ports send messages over the course of a simulation. A message input port, such as `y_input` in this example, receives messages over the course of a simulation. A flow output port, such as `Y_final_output`, can be regarded as a `statistic` that provides information when the simulation is over or when the node is terminated.
+Notice that the `waveform_integrator_node` has one port of each of the four types. We previously saw that flow input ports provide a node with parameter values, and that message output ports send messages over the course of a simulation. A message input port, such as `y_input` in this example, receives messages over the course of a simulation. A flow output port, such as `Y_final_output`, can be regarded as a statistic that provides information when the simulation is over or when the node is terminated.
 
-Now we need to make use of the new node. Open `square_wave_integration_closed_system.h`. Add additional `#include` statements. You should end up with the following.
+Now we need to make use of the new node. Open **square_wave_integration_closed_system.h**. Add additional `#include` statements. You should end up with the following.
 
 ```cpp
-#include <examples/getting_started/waveform/square_wave_generator_node.h>
-#include <examples/getting_started/waveform/waveform_integrator_node.h>
+#include <nodes/getting_started/waveform/square_wave_generator_node.h>
+#include <nodes/getting_started/waveform/waveform_integrator_node.h>
 #include <sydevs/systems/composite_node.h>
 #include <sydevs/systems/parameter_node.h>
 #include <sydevs/systems/statistic_node.h>
@@ -172,9 +172,9 @@ Observe the one simulation link that connects the `generator` to the `integrator
 
 Also observe the new initialization link, which supplies a value from the new parameter node `integrator_step_dt`. In addition, there is now a finalization link that delivers a value to the new statistic node `Y_final`.
 
-Note that initialization and finalization links, which connect flow ports, must form a directed acyclic graph. You must not have any cycles where, for example, Node `A` supplies information to Node `B`, Node `B` supplies information to Node `C`, and Node `C` supplies information to Node `A`. Simulation links, which connect message ports, are permitted to form cycles.
+Note that initialization and finalization links, which connect flow ports, must form a directed acyclic graph. You must not have any cycles where, for example, Node A supplies information to Node B, Node B supplies information to Node C, and Node C supplies information to Node A. Simulation links, which connect message ports, are permitted to form cycles.
 
-To complete the example, open `square_wave.h` and replace the instructions in the `try` block of the `simulate_square_wave_integration_closed_system` function. The new code sets the time step of the integrator output, and also obtains the final value of the integrated signal (the accumulated area under the square wave).
+To complete the example, open **square_wave.h** and replace the instructions in the `try` block of the `simulate_square_wave_integration_closed_system` function. The new code sets the time step of the integrator output, and also obtains the final value of the integrated signal (the accumulated area under the square wave).
 
 ```cpp
         simulation<square_wave_integration_closed_system> sim(1_min, 0, std::cout);
@@ -298,6 +298,6 @@ Y_final = 18
 
 The integrated waveform (`top.integrator#Y_output`) increases whenever the square wave (`top.generator#y_output`) is in the "on" phase of the cycle. In the end, the area under the square wave is 18 (as expected, since there are 3 seconds per cycle in the "on" phase, times 6 ten-second cycles in the one-minute simulation).
 
-We're now done with the `waveform` example. In [Part 6](part06.html), you'll download and incorporate two examples that demonstrate other types of nodes and SyDEVS features.
+We're now done with the **waveform** example. In [Part 6](part06.html), you'll incorporate examples that demonstrate other types of nodes and SyDEVS features.
 
 | [***Continue to Part 6***](part06.html) |
