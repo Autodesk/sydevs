@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname"><a href="https://autodesk.github.io/sydevs/">SyDEVS</a>
-   &#160;<span id="projectnumber">v0.6.5</span>
+   &#160;<span id="projectnumber">v0.6.6</span>
    </div>
    <div id="projectbrief">Multiscale Simulation and Systems Modeling Library</div>
   </td>
@@ -336,7 +336,7 @@ $(document).ready(function(){initNavTree('collection__node_8h_source.html','');}
 <div class="line"><a name="l00335"></a><span class="lineno">  335</span>&#160;<span class="keyword">template</span>&lt;<span class="keyword">typename</span> AgentID, <span class="keyword">typename</span> Node&gt;</div>
 <div class="line"><a name="l00336"></a><span class="lineno"><a class="line" href="classsydevs_1_1systems_1_1collection__node.html#a137ca240e7c42175e6b205443cd83818">  336</a></span>&#160;<span class="keyword">inline</span> <a class="code" href="classsydevs_1_1quantity.html">duration</a> <a class="code" href="classsydevs_1_1systems_1_1collection__node.html#a137ca240e7c42175e6b205443cd83818">collection_node&lt;AgentID, Node&gt;::handle_initialization_event</a>()</div>
 <div class="line"><a name="l00337"></a><span class="lineno">  337</span>&#160;{</div>
-<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordflow">if</span> (initialized_) <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;Attempt to initalize collection node (&quot;</span> + full_name() + <span class="stringliteral">&quot;) more than once&quot;</span>);</div>
+<div class="line"><a name="l00338"></a><span class="lineno">  338</span>&#160;    <span class="keywordflow">if</span> (initialized_) <span class="keywordflow">throw</span> std::logic_error(<span class="stringliteral">&quot;Attempt to initialize collection node (&quot;</span> + full_name() + <span class="stringliteral">&quot;) more than once&quot;</span>);</div>
 <div class="line"><a name="l00339"></a><span class="lineno">  339</span>&#160;    <span class="keyword">auto</span>&amp; current_t = event_time().t();</div>
 <div class="line"><a name="l00340"></a><span class="lineno">  340</span>&#160;    t_queue_ = <a class="code" href="classsydevs_1_1time__queue.html">time_queue</a>(current_t);</div>
 <div class="line"><a name="l00341"></a><span class="lineno">  341</span>&#160;    t_cache_ = <a class="code" href="classsydevs_1_1time__cache.html">time_cache</a>(current_t);</div>
@@ -1156,7 +1156,7 @@ $(document).ready(function(){initNavTree('collection__node_8h_source.html','');}
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="dir_7768905cd5f13791a907789958daff55.html">src</a></li><li class="navelem"><a class="el" href="dir_b52b886ab9c805f02d8e0ac18424dc05.html">sydevs</a></li><li class="navelem"><a class="el" href="dir_870de5e1b8007a1b7c54b99faffaf6a2.html">systems</a></li><li class="navelem"><a class="el" href="collection__node_8h.html">collection_node.h</a></li>
-    <li class="footer">Generated on Thu Jul 4 2019 18:57:27 for SyDEVS by
+    <li class="footer">Generated on Tue Nov 26 2019 20:08:53 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
