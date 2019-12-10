@@ -1,5 +1,3 @@
-# About SyDEVS
-
 The SyDEVS open source C++ library provides a framework for modeling and simulating complex systems. 
 
 **In a nutshell, it will help make your simulation code scale.**
