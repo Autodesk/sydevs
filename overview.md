@@ -66,7 +66,7 @@ Also see an example of a function node ([plus_node.h](https://github.com/Autodes
 ## Notable Features
 
 - [Standard International (SI) Units](doc/html/classsydevs_1_1quantity.html#details): Quantities can be declared with SI units such as "kilograms" for mass and "meters per second squared" for acceleration. Operations and assignments involving these quantities are checked at compile-time to ensure the units match.
-- [Multidimensional Arrays](doc/html/classsydevs_1_1arraynd.html#details): The SyDEVS library includes a generic multidimensional array class template supporting a range of numerical and slicing operations in C++, similar to [NumPy](http://www.numpy.org/) arrays in Python.
+- [Multidimensional Arrays](doc/html/classsydevs_1_1arraynd.html#details): The SyDEVS library includes a generic multidimensional array class template supporting a range of numerical and slicing operations in C++, similar to [NumPy](http://www.numpy.org/) arrays in Python. See [lighting talk](https://www.youtube.com/watch?v=AX0BPjAvtCA&list=PL3X5olGbPMynKd3IhAFFfVE1sTyMS41pT) presented at C++ Toronto, November 2019.
 - [Multiscale Representation of Simulated Time](http://journals.sagepub.com/eprint/mIKXDU2UtbJUjPZ8kupv/full): The following classes support the recording of past events and scheduling of future events involving any combination of time scales, yet store most event times internally using 64-bit numbers.
   - [quantity](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1quantity.html) (using the `duration = quantity<seconds>` type alias)
   - [time_point](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1time__point.html#details)
