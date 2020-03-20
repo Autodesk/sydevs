@@ -50,6 +50,24 @@ namespace systems {
  *     std::cout << "OTHER ERROR: " << e.what() << std::endl;
  * }
  * ~~~
+ *
+ * It is also possible to obtain wallclock times at each level in a model
+ * hierarchy, the cumulative time that the computer has spent executing events.
+ *
+ * ~~~
+ * // [...]
+ *
+ * // Run the simulation until completion.
+ * sim.process_remaining_events();
+ *
+ * // Obtain and print cumulative wallclock time of all nodes.
+ * auto sim_dt = sim.event_timer().cumulative_duration();
+ * std::cout << "sim: " << sim_dt << std::endl;
+ *
+ * // Obtain and print cumulative wallclock time of all event functions in single node.
+ * auto node_dt = sim.top.building_dynamics.thermodynamics.event_timer().cumulative_duration();
+ * std::cout << "sim.top.building_dynamics.thermodynamics: " << node_dt << std::endl;
+ * ~~~
  */
 template<typename Node>
 class simulation

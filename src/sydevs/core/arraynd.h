@@ -67,7 +67,7 @@ namespace sydevs {
  *     return 100*indices[0] + 10*indices[1] + indices[2];
  * });
  *
- * std::cout << arr(1, 0, 3);  // Prints "7".
+ * std::cout << arr(1, 0, 3);  // Prints "103".
  *
  * arr(1, 0, 3) = 7;  // Changes an element to "7".
  * ~~~
@@ -84,7 +84,7 @@ namespace sydevs {
  *     return 100*indices[0] + 10*indices[1] + indices[2];
  * });
  *
- * std::cout << arr[1][0][3];  // Prints "7" (inefficient).
+ * std::cout << arr[1][0][3];  // Prints "103" (inefficient).
  *
  * arr[1][0][3] = 7;  // Changes an element to "7" (inefficient).
  * ~~~
