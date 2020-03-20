@@ -406,17 +406,21 @@ inline void simulation<Node>::advance_time()
     if (!finishing_) {
         auto planned_dt = t_queue_.imminent_duration();
         if (planned_dt.finite() || !can_end_early_) {
+            // The event time must advance.
             event_time().advance(planned_dt, end_t_);
             if (planned_dt > 0_s) {
+                // The simulated time just advanced.
                 external_context_.time_printed() = false;
                 t_queue_.advance_time(event_time().t());
                 t_cache_.advance_time(event_time().t());
             }
             if (event_time().t() >= end_t_) {
+                // The end time has been reached.
                 finishing_ = true;
             }
         }
         else {
+            // The simulation must finish at the current event time.
             finishing_ = true;
         }
     }

@@ -1164,20 +1164,30 @@ std::ostream& operator<<(std::ostream& os, const arraynd<T, ndims>& rhs)
     os << "{";
     while (idim >= 0) {
         if (indices[idim] < rhs.dims()[idim]) {
+            // The index is not beyond the last element on the current axis.
+            // Continue outputting the current sub-array.
             if (indices[idim] > 0) {
+                // This is not the first element on the current axis.
+                // Output a delimiter.
                 os << ", ";
             }
             if (idim == ndims - 1) {
+                // The current axis is the last one.
+                // Output the current element and advance the index.
                 os << rhs.data()[offset];
                 ++indices[idim];
                 offset += rhs.strides()[idim];
             }
             else {
+                // The current axis is not the last one.
+                // Start outputting a new sub-array.
                 ++idim;
                 os << "{";
             }
         }
         else {
+            // The index is beyond the last element on the current axis.
+            // Finish outputting the current sub-array.
             indices[idim] = 0;
             offset -= rhs.dims()[idim]*rhs.strides()[idim];
             --idim;

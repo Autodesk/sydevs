@@ -219,5 +219,3 @@ add_custom_command(TARGET regression_tests PRE_BUILD
                    ${RTESTS_DATA}
                    regression_test_data/old_data/.)
 add_custom_command(TARGET regression_tests POST_BUILD COMMAND regression_tests COMMENT "Running regression tests")
-
-
