@@ -2,6 +2,12 @@
 
 Latest Developments
 
+## 2020 April 15 -- SyDEVS 0.6.7 Released
+
+SyDEVS v0.6.7 is available [here](https://github.com/Autodesk/sydevs/releases/tag/v0.6.7).
+
+This release is a minor update.
+
 ## 2019 November 26 -- SyDEVS 0.6.6 Released
 
 SyDEVS v0.6.6 is available [here](https://github.com/Autodesk/sydevs/releases/tag/v0.6.6).

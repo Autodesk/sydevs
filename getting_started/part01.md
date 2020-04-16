@@ -19,12 +19,12 @@ This is the project you will use for the Getting Started tutorial.
 
 Now download and extract a **Source code** archive from a recent SyDEVS release at [github.com/Autodesk/sydevs/releases](https://github.com/Autodesk/sydevs/releases).
 
-In the extracted package should be folder with a name similar to **sydevs-0.6.6** (the version number may be different). Copy this folder into **external** folder of your project. Except for the version number, the resulting directory structure should be as follows.
+In the extracted package should be folder with a name similar to **sydevs-0.6.7** (the version number may be different). Copy this folder into **external** folder of your project. Except for the version number, the resulting directory structure should be as follows.
 ```
 sydevs-tutorial/
     build/
     external/
-        sydevs-0.6.6/
+        sydevs-0.6.7/
             doc/
             scripts/
             src/
@@ -56,7 +56,7 @@ Now we need to specify the rules for building the project. In the project folder
 ################################################################################
 cmake_minimum_required(VERSION 3.4)
 project(SyDEVS-Tutorial)
-set(SYDEVS_VERSION 0.6.6)
+set(SYDEVS_VERSION 0.6.7)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_STANDARD 14)
@@ -64,12 +64,12 @@ set(CMAKE_CXX_STANDARD 14)
 if(MSVC)
     add_definitions("/wd4244") # Hide type conversion warnings
     add_compile_options(/MP)
-    add_compile_options(/std=c++14)
+    add_compile_options(/std=c++${CMAKE_CXX_STANDARD})
     string(REGEX REPLACE "/Z[iI7]" "" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /Z7 /bigobj")
 else()
     set(WARNING_FLAGS "-Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-sign-compare -Wno-missing-braces -Wignored-qualifiers -Woverloaded-virtual -Winline")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pedantic-errors -std=c++14 ${WARNING_FLAGS}")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pedantic-errors -std=c++${CMAKE_CXX_STANDARD} ${WARNING_FLAGS}")
     if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
 	    # Replace g++ standard library with Clang standard library
         set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
