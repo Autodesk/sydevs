@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname"><a href="https://autodesk.github.io/sydevs/">SyDEVS</a>
-   &#160;<span id="projectnumber">v0.6.6</span>
+   &#160;<span id="projectnumber">v0.6.7</span>
    </div>
    <div id="projectbrief">Multiscale Simulation and Systems Modeling Library</div>
   </td>
@@ -229,6 +229,19 @@ class sydevs::systems::simulation&lt; Node &gt;</h3>
 <div class="line"><span class="keywordflow">catch</span> (<span class="keyword">const</span> std::exception&amp; e) {</div>
 <div class="line">    std::cout &lt;&lt; <span class="stringliteral">&quot;OTHER ERROR: &quot;</span> &lt;&lt; e.what() &lt;&lt; std::endl;</div>
 <div class="line">}</div>
+</div><!-- fragment --><p>It is also possible to obtain wallclock times at each level in a model hierarchy, the cumulative time that the computer has spent executing events.</p>
+<div class="fragment"><div class="line"><span class="comment">// [...]</span></div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Run the simulation until completion.</span></div>
+<div class="line">sim.process_remaining_events();</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Obtain and print cumulative wallclock time of all nodes.</span></div>
+<div class="line"><span class="keyword">auto</span> sim_dt = sim.event_timer().cumulative_duration();</div>
+<div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;sim: &quot;</span> &lt;&lt; sim_dt &lt;&lt; std::endl;</div>
+<div class="line"></div>
+<div class="line"><span class="comment">// Obtain and print cumulative wallclock time of all event functions in single node.</span></div>
+<div class="line"><span class="keyword">auto</span> node_dt = sim.top.building_dynamics.thermodynamics.event_timer().cumulative_duration();</div>
+<div class="line">std::cout &lt;&lt; <span class="stringliteral">&quot;sim.top.building_dynamics.thermodynamics: &quot;</span> &lt;&lt; node_dt &lt;&lt; std::endl;</div>
 </div><!-- fragment --> </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a class="anchor" id="acca4a2e7f23f9ef5426e230393f07471"></a>
 <div class="memitem">
@@ -878,7 +891,7 @@ template&lt;typename Node &gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesydevs.html">sydevs</a></li><li class="navelem"><a class="el" href="namespacesydevs_1_1systems.html">systems</a></li><li class="navelem"><a class="el" href="classsydevs_1_1systems_1_1simulation.html">simulation</a></li>
-    <li class="footer">Generated on Tue Nov 26 2019 20:08:53 for SyDEVS by
+    <li class="footer">Generated on Thu Apr 16 2020 00:35:27 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>

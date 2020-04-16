@@ -36,7 +36,7 @@
  <tr style="height: 56px;">
   <td style="padding-left: 0.5em;">
    <div id="projectname"><a href="https://autodesk.github.io/sydevs/">SyDEVS</a>
-   &#160;<span id="projectnumber">v0.6.6</span>
+   &#160;<span id="projectnumber">v0.6.7</span>
    </div>
    <div id="projectbrief">Multiscale Simulation and Systems Modeling Library</div>
   </td>
@@ -352,7 +352,7 @@ class sydevs::arraynd&lt; T, ndims &gt;</h3>
 <div class="line">    <span class="keywordflow">return</span> 100*indices[0] + 10*indices[1] + indices[2];</div>
 <div class="line">});</div>
 <div class="line"></div>
-<div class="line">std::cout &lt;&lt; arr(1, 0, 3);  <span class="comment">// Prints &quot;7&quot;.</span></div>
+<div class="line">std::cout &lt;&lt; arr(1, 0, 3);  <span class="comment">// Prints &quot;103&quot;.</span></div>
 <div class="line"></div>
 <div class="line">arr(1, 0, 3) = 7;  <span class="comment">// Changes an element to &quot;7&quot;.</span></div>
 </div><!-- fragment --><p>1D arrays and std::array instances can also be used to access elements.</p>
@@ -361,7 +361,7 @@ class sydevs::arraynd&lt; T, ndims &gt;</h3>
 <div class="line">    <span class="keywordflow">return</span> 100*indices[0] + 10*indices[1] + indices[2];</div>
 <div class="line">});</div>
 <div class="line"></div>
-<div class="line">std::cout &lt;&lt; arr[1][0][3];  <span class="comment">// Prints &quot;7&quot; (inefficient).</span></div>
+<div class="line">std::cout &lt;&lt; arr[1][0][3];  <span class="comment">// Prints &quot;103&quot; (inefficient).</span></div>
 <div class="line"></div>
 <div class="line">arr[1][0][3] = 7;  <span class="comment">// Changes an element to &quot;7&quot; (inefficient).</span></div>
 </div><!-- fragment --><p>One should use <code>operator[]</code> in conjunction with the <a class="el" href="classsydevs_1_1range.html">range</a> class to construct slices that share data with the original array.</p>
@@ -1186,7 +1186,7 @@ template&lt;typename T, int64 ndims&gt; </div>
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="namespacesydevs.html">sydevs</a></li><li class="navelem"><a class="el" href="classsydevs_1_1arraynd.html">arraynd</a></li>
-    <li class="footer">Generated on Tue Nov 26 2019 20:08:53 for SyDEVS by
+    <li class="footer">Generated on Thu Apr 16 2020 00:35:26 for SyDEVS by
     <a href="http://www.doxygen.org/index.html">
     <img class="footer" src="doxygen.png" alt="doxygen"/></a> 1.8.6 </li>
   </ul>
