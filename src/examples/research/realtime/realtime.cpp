@@ -90,7 +90,7 @@ void realtime::interaction_phase()
         }
     }
     else if (isdigit(input_ch)) {
-        int64 input_int = input_ch - '0';
+        int64 input_int = int64(input_ch) - '0';
         if (input_int == 0) {
             t_syn_rate_ = 0;
         }
@@ -125,8 +125,8 @@ void realtime::print_frame(distance x)
     int64 ball_chars = (flight_chars < 48 ? 1 : 0);
     int64 animation_padding = 48 - flight_chars - ball_chars;
     auto animation_str = std::string(flight_chars, '-') + 
-                            std::string(ball_chars, '0') +
-                            std::string(animation_padding, ' ') + "|";
+                         std::string(ball_chars, '0') +
+                         std::string(animation_padding, ' ') + "|";
     auto t_str = (string_builder() << t_).str();
     int64 t_padding = std::max(int64(0), int64(12 - t_str.length()));
     t_str = std::string(t_padding, ' ') + t_str;

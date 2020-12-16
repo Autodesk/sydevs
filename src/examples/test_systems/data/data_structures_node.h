@@ -169,7 +169,7 @@ inline duration data_structures_node::unplanned_event(duration elapsed_dt)
     sv_vector_vector_duration[0][0] *= 1.1;
     sv_map_duration_float64[987654321_s] = -10;
     sv_set_pair_float64_string.emplace(9.7, "nine point seven");
-    *sv_rate_ptr = 1/0_s;
+    *sv_rate_ptr = (1/1_ys).fixed_at(yocto);
     ostringstream_var << "received;";
 
     print("ostringstream_var.str() = " + ostringstream_var.str());

@@ -321,6 +321,11 @@ const T& port<message, input, T>::value() const
         throw std::logic_error("Attempt to get value on message input port (" + this->port_name() + ") " +
                                "of node (" + full_node_name + ") outside of unplanned event");
     }
+    if (const_cast<node_interface&>(this->external_interface()).message_input_port_index() != this->port_index()) {
+        const auto& full_node_name = const_cast<node_interface&>(this->external_interface()).full_name();
+        throw std::logic_error("Attempt to get value on message input port (" + this->port_name() + ") " +
+                               "of node (" + full_node_name + "), which was not the port that received the message.");
+    }
     const auto& val = const_cast<node_interface&>(this->external_interface()).message_input_port_value(this->port_index());
     return const_cast<const T&>(val.template dereference<T>());
 }
