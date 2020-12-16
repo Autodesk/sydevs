@@ -1,7 +1,7 @@
 ################################################################################
 # CMake File for SyDEVS
 ################################################################################
-cmake_minimum_required(VERSION 3.4)
+cmake_minimum_required(VERSION 3.10)
 project(SyDEVS)
 
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -10,7 +10,7 @@ set(CMAKE_CXX_STANDARD 14)
 if(MSVC)
     add_definitions("/wd4244") # Hide type conversion warnings
     add_compile_options(/MP)
-    add_compile_options(/std=c++${CMAKE_CXX_STANDARD})
+    add_compile_options(/std:c++${CMAKE_CXX_STANDARD})
     string(REGEX REPLACE "/Z[iI7]" "" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /Z7 /bigobj")
 else()

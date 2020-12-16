@@ -3,7 +3,6 @@
 #define SYDEVS_RANGE_H_
 
 #include <sydevs/core/number_types.h>
-#include <stdexcept>
 
 namespace sydevs {
 
