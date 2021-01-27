@@ -46,7 +46,7 @@ namespace systems {
  * system node.
  */
 template<typename AgentID, typename Node, typename InjData, typename ObsData>
-class interactive_system : public collection_node<int64, Node>
+class interactive_system : public collection_node<AgentID, Node>
 {
 public:
     using injection_type = InjData;
@@ -147,7 +147,7 @@ void interactive_system<AgentID, Node, InjData, ObsData>::validate()
 
 template<typename AgentID, typename Node, typename InjData, typename ObsData>
 interactive_system<AgentID, Node, InjData, ObsData>::interactive_system(const std::string& node_name, const node_context& external_context)
-    : collection_node<int64, Node>(node_name, external_context)
+    : collection_node<AgentID, Node>(node_name, external_context)
     , injection_()
     , observation_()
     , frame_index_(-1)
