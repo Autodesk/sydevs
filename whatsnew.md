@@ -2,6 +2,10 @@
 
 Latest Developments
 
+## 2023 June 23 -- Links Updated
+
+These documentation pages have been updated to fix broken links and highlight new online resources, including a talk titled [Making Simulation Code Scale with SyDEVS](https://sites.google.com/modelingtalks.org/entry/making-simulation-code-scale-with-sydevs).
+
 ## 2020 April 15 -- SyDEVS 0.6.7 Released
 
 SyDEVS v0.6.7 is available [here](https://github.com/Autodesk/sydevs/releases/tag/v0.6.7).

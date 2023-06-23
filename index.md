@@ -10,7 +10,9 @@ Below is an example of a multi-solver simulation developed by Rutgers University
 " target="_blank"><img src="http://img.youtube.com/vi/UvEn9yLMi9Y/0.jpg" 
 alt="SyDEVS in Action" width="480" height="360" border="10" /></a>
 
-The SyDEVS framework is based on the [Symmetric DEVS formalism](https://www.autodeskresearch.com/publications/symmetricformalism), a set of conventions combining three modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) and [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model). These foundations give SyDEVS the generality needed to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
+Also see [Making Simulation Code Scale with SyDEVS](https://sites.google.com/modelingtalks.org/entry/making-simulation-code-scale-with-sydevs), a tutorial presented by [Autodesk Research](http://autodeskresearch.com/) and hosted by [Alphabet](https://abc.xyz/) as part of their [Modeling Talk Series](https://sites.google.com/modelingtalks.org/entry/home).
+
+The SyDEVS framework is based on the [Symmetric DEVS formalism](https://www.research.autodesk.com/publications/a-symmetric-formalism-for-discrete-event-simulation-with-agents) ([PDF](https://autodesk.github.io/sydevs/doc/downloads/Goldstein__Symmetric_Formalism__2018-08-03_1100.pdf)), a set of conventions combining three modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming) and [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model). These foundations give SyDEVS the generality needed to support essentially any type of simulation, regardless of domain, time scale, or time advancement scheme.
 
 In addition to supporting multiple modeling paradigms, the SyDEVS library provides comprehensive and reusable Modern C++ implementations of multidimensional arrays, Standard International (SI) units, and the multiscale representation of simulated time described in [this freely available paper](http://journals.sagepub.com/eprint/mIKXDU2UtbJUjPZ8kupv/full) from *Simulation*.
 
@@ -35,4 +37,4 @@ SyDEVS is released under the [Apache License 2.0](https://github.com/Autodesk/sy
 
 ## Contact
 
-Inquires about SyDEVS can be directed to [Rhys Goldstein](https://autodeskresearch.com/people/rhys-goldstein).
+Inquires about SyDEVS can be directed to [Rhys Goldstein](https://research.autodesk.com/people/rhys-goldstein).
