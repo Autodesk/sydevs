@@ -33,11 +33,11 @@
 2|0|$time:time_point() + 39_s + 913_ms + 402_us
 2|0|top$planned
 2|1|top.agents$planned
-2|2|top.agents.agent-0$print:moving to {0, -1}
+2|2|top.agents.agent-0$print:moving to {-1, 0}
 2|3|top.agents$micro-planned
 2|3|top.agents$print:0|0|0
-2|3|top.agents$print:0|1|0
-2|3|top.agents$print:0|1|0
+2|3|top.agents$print:1|1|0
+2|3|top.agents$print:0|0|0
 3|0|$time:time_point() + 42_s + 885_ms + 994_us
 3|0|top$planned
 3|1|top.agents$planned
@@ -48,24 +48,24 @@
 3|8|top.agents.agent-0%1$print:arriving at {0, 0}
 3|9|top.agents$micro-planned
 3|11|top.agents$print:0|0|0
-3|11|top.agents$print:0|2|0
-3|11|top.agents$print:0|1|0
+3|11|top.agents$print:1|2|0
+3|11|top.agents$print:0|0|0
 4|0|$time:time_point() + 44_s + 171_ms + 670_us
 4|0|top$planned
 4|1|top.agents$planned
 4|2|top.agents.agent-0%1$print:moving to {0, -1}
 4|3|top.agents$micro-planned
-4|5|top.agents$print:0|0|0
-4|5|top.agents$print:0|1|0
-4|5|top.agents$print:0|2|0
+4|3|top.agents$print:0|0|0
+4|3|top.agents$print:1|1|0
+4|3|top.agents$print:0|1|0
 5|0|$time:time_point() + 45_s + 900_ms + 644_us
 5|0|top$planned
 5|1|top.agents$planned
-5|2|top.agents.agent-0%0$print:moving to {-1, 0}
+5|2|top.agents.agent-0%0$print:moving to {1, 0}
 5|3|top.agents$micro-planned
 5|3|top.agents$print:0|0|0
-5|3|top.agents$print:1|0|0
-5|3|top.agents$print:0|2|0
+5|3|top.agents$print:1|0|1
+5|3|top.agents$print:0|1|0
 6|0|$time:time_point() + 47_s + 212_ms + 907_us
 6|0|top$planned
 6|1|top.agents$planned
@@ -76,57 +76,56 @@
 6|8|top.agents.agent-0%0%0$print:arriving at {0, 0}
 6|9|top.agents$micro-planned
 6|9|top.agents$print:0|0|0
-6|9|top.agents$print:1|1|0
-6|9|top.agents$print:0|2|0
+6|9|top.agents$print:1|1|1
+6|9|top.agents$print:0|1|0
 7|0|$time:time_point() + 50_s + 733_ms + 377_us
 7|0|top$planned
 7|1|top.agents$planned
 7|2|top.agents.agent-0%0%0$print:moving to {0, 1}
 7|3|top.agents$micro-planned
 7|3|top.agents$print:0|1|0
-7|3|top.agents$print:1|0|0
-7|3|top.agents$print:0|2|0
+7|3|top.agents$print:1|0|1
+7|3|top.agents$print:0|1|0
 8|0|$time:time_point() + 51_s + 792_ms + 664_us
 8|0|top$planned
 8|1|top.agents$planned
-8|2|top.agents.agent-0%1$print:moving to {0, 0}
+8|2|top.agents.agent-0%1$print:moving to {1, -1}
 8|3|top.agents$micro-planned
 8|3|top.agents$print:0|1|0
-8|3|top.agents$print:1|1|0
-8|3|top.agents$print:0|1|0
+8|3|top.agents$print:1|0|1
+8|3|top.agents$print:0|0|1
 9|0|$time:time_point() + 52_s + 322_ms + 490_us
 9|0|top$planned
 9|1|top.agents$planned
-9|2|top.agents.agent-0$print:moving to {0, 0}
+9|2|top.agents.agent-0$print:moving to {-1, -1}
 9|3|top.agents$micro-planned
-9|5|top.agents$print:0|1|0
-9|5|top.agents$print:1|2|0
-9|5|top.agents$print:0|0|0
+9|3|top.agents$print:0|1|0
+9|3|top.agents$print:0|0|1
+9|3|top.agents$print:1|0|1
 10|0|$time:time_point() + 52_s + 905_ms + 41_us
 10|0|top$planned
 10|1|top.agents$planned
-10|2|top.agents.agent-0%1$print:moving to {-1, 0}
+10|2|top.agents.agent-0%1$print:moving to {1, 0}
 10|3|top.agents$micro-planned
 10|5|top.agents$print:0|1|0
-10|5|top.agents$print:2|1|0
-10|5|top.agents$print:0|0|0
+10|5|top.agents$print:0|0|2
+10|5|top.agents$print:1|0|0
 11|0|$time:time_point() + 53_s + 756_ms + 959_us
 11|0|top$planned
 11|1|top.agents$planned
-11|2|top.agents.agent-0%0$print:moving to {-1, 1}
+11|2|top.agents.agent-0%0$print:moving to {1, -1}
 11|3|top.agents$micro-planned
-11|3|top.agents$print:1|1|0
-11|3|top.agents$print:1|1|0
-11|3|top.agents$print:0|0|0
+11|3|top.agents$print:0|1|0
+11|3|top.agents$print:0|0|1
+11|3|top.agents$print:1|0|1
 12|0|$time:time_point() + 58_s + 460_ms + 45_us
 12|0|top$planned
 12|1|top.agents$planned
-12|2|top.agents.agent-0%0%0$print:moving to {0, 2}
+12|2|top.agents.agent-0%0%0$print:moving to {1, 1}
 12|3|top.agents$micro-planned
-12|4|top.agents$print:agent-0%0%0 departed after encountering 0 others
-12|4|top.agents$print:1|0|0
-12|4|top.agents$print:1|1|0
-12|4|top.agents$print:0|0|0
+12|3|top.agents$print:0|0|1
+12|3|top.agents$print:0|0|1
+12|3|top.agents$print:1|0|1
 13|0|$time:time_point() + 60_s + 26_ms + 202_us
 13|0|top$planned
 13|1|top.agents$planned
@@ -136,9 +135,9 @@
 13|7|top.agents$planned
 13|8|top.agents.agent-0%1%0$print:arriving at {0, 0}
 13|9|top.agents$micro-planned
-13|11|top.agents$print:1|0|0
-13|11|top.agents$print:1|2|0
-13|11|top.agents$print:0|0|0
+13|9|top.agents$print:0|0|1
+13|9|top.agents$print:0|1|1
+13|9|top.agents$print:1|0|1
 14|0|$time:time_point() + 61_s + 712_ms + 369_us
 14|0|top$planned
 14|1|top.agents$planned
@@ -148,17 +147,17 @@
 14|7|top.agents$planned
 14|8|top.agents.agent-0%1%0%0$print:arriving at {0, 0}
 14|9|top.agents$micro-planned
-14|13|top.agents$print:1|0|0
-14|13|top.agents$print:1|3|0
-14|13|top.agents$print:0|0|0
+14|11|top.agents$print:0|0|1
+14|11|top.agents$print:0|2|1
+14|11|top.agents$print:1|0|1
 15|0|$time:time_point() + 62_s + 173_ms + 248_us
 15|0|top$planned
 15|1|top.agents$planned
-15|2|top.agents.agent-0%1%0%0$print:moving to {0, -1}
+15|2|top.agents.agent-0%1%0%0$print:moving to {1, 0}
 15|3|top.agents$micro-planned
-15|3|top.agents$print:1|0|0
-15|3|top.agents$print:1|2|0
-15|3|top.agents$print:0|1|0
+15|5|top.agents$print:0|0|1
+15|5|top.agents$print:0|1|2
+15|5|top.agents$print:1|0|1
 16|0|$time:time_point() + 63_s + 195_ms + 271_us
 16|0|top$planned
 16|1|top.agents$planned
@@ -168,204 +167,202 @@
 16|7|top.agents$planned
 16|8|top.agents.agent-0%1%1$print:arriving at {0, 0}
 16|9|top.agents$micro-planned
-16|13|top.agents$print:1|0|0
-16|13|top.agents$print:1|3|0
-16|13|top.agents$print:0|1|0
-17|0|$time:time_point() + 65_s + 181_ms + 213_us
+16|11|top.agents$print:0|0|1
+16|11|top.agents$print:0|2|2
+16|11|top.agents$print:1|0|1
+17|0|$time:time_point() + 65_s + 9_ms + 746_us
 17|0|top$planned
 17|1|top.agents$planned
-17|2|top.agents.agent-0$print:moving to {1, 0}
+17|2|top.agents.agent-0%0%0$print:moving to {1, 2}
 17|3|top.agents$micro-planned
-17|3|top.agents$print:1|0|0
-17|3|top.agents$print:1|2|1
-17|3|top.agents$print:0|1|0
-18|0|$time:time_point() + 65_s + 755_ms + 9_us
+17|4|top.agents$print:agent-0%0%0 departed after encountering 0 others
+17|4|top.agents$print:0|0|0
+17|4|top.agents$print:0|2|2
+17|4|top.agents$print:1|0|1
+18|0|$time:time_point() + 65_s + 181_ms + 213_us
 18|0|top$planned
 18|1|top.agents$planned
-18|2|top.agents.agent-0$print:moving to {0, 0}
+18|2|top.agents.agent-0$print:moving to {-1, -2}
 18|3|top.agents$micro-planned
-18|7|top.agents$print:1|0|0
-18|7|top.agents$print:1|3|0
-18|7|top.agents$print:0|1|0
+18|4|top.agents$print:agent-0 departed after encountering 1 others
+18|4|top.agents$print:0|0|0
+18|4|top.agents$print:0|2|2
+18|4|top.agents$print:0|0|1
 19|0|$time:time_point() + 68_s + 130_ms + 693_us
 19|0|top$planned
 19|1|top.agents$planned
-19|2|top.agents.agent-0%0$print:moving to {-1, 2}
+19|2|top.agents.agent-0%0$print:moving to {1, 0}
 19|3|top.agents$micro-planned
-19|4|top.agents$print:agent-0%0 departed after encountering 2 others
-19|4|top.agents$print:0|0|0
-19|4|top.agents$print:1|3|0
-19|4|top.agents$print:0|1|0
-20|0|$time:time_point() + 71_s + 171_ms + 936_us
+19|7|top.agents$print:0|0|0
+19|7|top.agents$print:0|2|3
+19|7|top.agents$print:0|0|0
+20|0|$time:time_point() + 69_s + 100_ms + 805_us
 20|0|top$planned
 20|1|top.agents$planned
-20|2|top.agents.agent-0%1%0%0$print:moving to {0, 0}
+20|2|top.agents.agent-0%0$print:moving to {1, 1}
 20|3|top.agents$micro-planned
-20|9|top.agents$print:0|0|0
-20|9|top.agents$print:1|4|0
-20|9|top.agents$print:0|0|0
-21|0|$time:time_point() + 72_s + 872_ms + 153_us
+20|3|top.agents$print:0|0|1
+20|3|top.agents$print:0|2|2
+20|3|top.agents$print:0|0|0
+21|0|$time:time_point() + 71_s + 171_ms + 936_us
 21|0|top$planned
 21|1|top.agents$planned
-21|2|top.agents.agent-0$print:inviting agent-0%2
+21|2|top.agents.agent-0%1%0%0$print:inviting agent-0%1%0%0%0
 21|3|top.agents$micro-planned
 21|6|top$planned
 21|7|top.agents$planned
-21|8|top.agents.agent-0%2$print:arriving at {0, 0}
+21|8|top.agents.agent-0%1%0%0%0$print:arriving at {0, 0}
 21|9|top.agents$micro-planned
-21|17|top.agents$print:0|0|0
-21|17|top.agents$print:1|5|0
-21|17|top.agents$print:0|0|0
-22|0|$time:time_point() + 81_s + 473_ms + 7_us
+21|13|top.agents$print:0|0|1
+21|13|top.agents$print:0|3|2
+21|13|top.agents$print:0|0|0
+22|0|$time:time_point() + 79_s + 772_ms + 790_us
 22|0|top$planned
 22|1|top.agents$planned
-22|2|top.agents.agent-0%2$print:inviting agent-0%2%0
+22|2|top.agents.agent-0%1%0%0%0$print:inviting agent-0%1%0%0%0%0
 22|3|top.agents$micro-planned
 22|6|top$planned
 22|7|top.agents$planned
-22|8|top.agents.agent-0%2%0$print:arriving at {0, 0}
+22|8|top.agents.agent-0%1%0%0%0%0$print:arriving at {0, 0}
 22|9|top.agents$micro-planned
-22|19|top.agents$print:0|0|0
-22|19|top.agents$print:1|6|0
-22|19|top.agents$print:0|0|0
+22|15|top.agents$print:0|0|1
+22|15|top.agents$print:0|4|2
+22|15|top.agents$print:0|0|0
 23|0|$time:time_point() + 81_s + 615_ms + 641_us
 23|0|top$planned
 23|1|top.agents$planned
-23|2|top.agents.agent-0%1$print:moving to {-1, 1}
+23|2|top.agents.agent-0%1$print:moving to {0, 0}
 23|3|top.agents$micro-planned
-23|3|top.agents$print:1|0|0
-23|3|top.agents$print:0|6|0
-23|3|top.agents$print:0|0|0
+23|11|top.agents$print:0|0|1
+23|11|top.agents$print:0|5|1
+23|11|top.agents$print:0|0|0
 24|0|$time:time_point() + 84_s + 169_ms + 224_us
 24|0|top$planned
 24|1|top.agents$planned
 24|2|top.agents.agent-0%1$print:moving to {0, 1}
 24|3|top.agents$micro-planned
-24|3|top.agents$print:0|1|0
-24|3|top.agents$print:0|6|0
+24|3|top.agents$print:0|1|1
+24|3|top.agents$print:0|4|1
 24|3|top.agents$print:0|0|0
 25|0|$time:time_point() + 87_s + 839_ms + 772_us
 25|0|top$planned
 25|1|top.agents$planned
-25|2|top.agents.agent-0%1$print:moving to {0, 2}
+25|2|top.agents.agent-0%1$print:moving to {-1, 1}
 25|3|top.agents$micro-planned
-25|4|top.agents$print:agent-0%1 departed after encountering 2 others
-25|4|top.agents$print:0|0|0
-25|4|top.agents$print:0|6|0
-25|4|top.agents$print:0|0|0
-26|0|$time:time_point() + 90_s + 149_ms + 419_us
+25|3|top.agents$print:1|0|1
+25|3|top.agents$print:0|4|1
+25|3|top.agents$print:0|0|0
+26|0|$time:time_point() + 88_s + 449_ms + 202_us
 26|0|top$planned
 26|1|top.agents$planned
-26|2|top.agents.agent-0%2%0$print:moving to {1, 0}
+26|2|top.agents.agent-0%1%0%0%0%0$print:moving to {-1, 0}
 26|3|top.agents$micro-planned
+26|3|top.agents$print:1|0|1
+26|3|top.agents$print:1|3|1
 26|3|top.agents$print:0|0|0
-26|3|top.agents$print:0|5|1
-26|3|top.agents$print:0|0|0
-27|0|$time:time_point() + 90_s + 675_ms + 185_us
+27|0|$time:time_point() + 89_s + 824_ms + 905_us
 27|0|top$planned
 27|1|top.agents$planned
-27|2|top.agents.agent-0%1%0$print:moving to {-1, 0}
+27|2|top.agents.agent-0%1%0%0$print:moving to {1, -1}
 27|3|top.agents$micro-planned
-27|3|top.agents$print:0|0|0
-27|3|top.agents$print:1|4|1
-27|3|top.agents$print:0|0|0
-28|0|$time:time_point() + 91_s + 525_ms + 122_us
+27|3|top.agents$print:1|0|1
+27|3|top.agents$print:1|3|0
+27|3|top.agents$print:0|0|1
+28|0|$time:time_point() + 90_s + 675_ms + 185_us
 28|0|top$planned
 28|1|top.agents$planned
-28|2|top.agents.agent-0$print:moving to {1, 0}
+28|2|top.agents.agent-0%1%0$print:moving to {-1, 0}
 28|3|top.agents$micro-planned
-28|5|top.agents$print:0|0|0
-28|5|top.agents$print:1|3|2
-28|5|top.agents$print:0|0|0
-29|0|$time:time_point() + 99_s + 55_ms + 548_us
+28|5|top.agents$print:1|0|1
+28|5|top.agents$print:2|2|0
+28|5|top.agents$print:0|0|1
+29|0|$time:time_point() + 91_s + 599_ms + 199_us
 29|0|top$planned
 29|1|top.agents$planned
-29|2|top.agents.agent-0$print:moving to {1, -1}
+29|2|top.agents.agent-0%1$print:moving to {-1, 0}
 29|3|top.agents$micro-planned
-29|3|top.agents$print:0|0|0
-29|3|top.agents$print:1|3|1
-29|3|top.agents$print:0|0|1
-30|0|$time:time_point() + 100_s + 657_ms + 323_us
+29|7|top.agents$print:0|0|1
+29|7|top.agents$print:3|2|0
+29|7|top.agents$print:0|0|1
+30|0|$time:time_point() + 98_s + 205_ms + 611_us
 30|0|top$planned
 30|1|top.agents$planned
-30|2|top.agents.agent-0%1%0$print:moving to {-2, 0}
+30|2|top.agents.agent-0%1%0$print:moving to {-1, -1}
 30|3|top.agents$micro-planned
-30|4|top.agents$print:agent-0%1%0 departed after encountering 5 others
-30|4|top.agents$print:0|0|0
-30|4|top.agents$print:0|3|1
-30|4|top.agents$print:0|0|1
-31|0|$time:time_point() + 100_s + 710_ms + 434_us
+30|3|top.agents$print:0|0|1
+30|3|top.agents$print:2|2|0
+30|3|top.agents$print:1|0|1
+31|0|$time:time_point() + 99_s + 10_ms + 217_us
 31|0|top$planned
 31|1|top.agents$planned
-31|2|top.agents.agent-0%2$print:moving to {1, 0}
+31|2|top.agents.agent-0%1%0%0%0$print:moving to {1, 0}
 31|3|top.agents$micro-planned
-31|5|top.agents$print:0|0|0
-31|5|top.agents$print:0|2|2
-31|5|top.agents$print:0|0|1
-32|0|$time:time_point() + 102_s + 99_ms + 354_us
+31|3|top.agents$print:0|0|1
+31|3|top.agents$print:2|1|1
+31|3|top.agents$print:1|0|1
+32|0|$time:time_point() + 99_s + 807_ms + 43_us
 32|0|top$planned
 32|1|top.agents$planned
-32|2|top.agents.agent-0%1%0%0$print:moving to {0, 1}
+32|2|top.agents.agent-0%1%0%0$print:moving to {2, -1}
 32|3|top.agents$micro-planned
-32|3|top.agents$print:0|1|0
-32|3|top.agents$print:0|1|2
-32|3|top.agents$print:0|0|1
-33|0|$time:time_point() + 102_s + 398_ms + 213_us
+32|4|top.agents$print:agent-0%1%0%0 departed after encountering 3 others
+32|4|top.agents$print:0|0|1
+32|4|top.agents$print:2|1|1
+32|4|top.agents$print:1|0|0
+33|0|$time:time_point() + 100_s + 28_ms + 223_us
 33|0|top$planned
 33|1|top.agents$planned
-33|2|top.agents.agent-0%1%0%0$print:moving to {-1, 1}
+33|2|top.agents.agent-0%0$print:moving to {0, 1}
 33|3|top.agents$micro-planned
+33|3|top.agents$print:0|1|0
+33|3|top.agents$print:2|1|1
 33|3|top.agents$print:1|0|0
-33|3|top.agents$print:0|1|2
-33|3|top.agents$print:0|0|1
-34|0|$time:time_point() + 104_s + 294_ms + 887_us
+34|0|$time:time_point() + 102_s + 594_ms + 670_us
 34|0|top$planned
 34|1|top.agents$planned
-34|2|top.agents.agent-0%2$print:moving to {2, 0}
+34|2|top.agents.agent-0%1%0%0%0$print:moving to {0, 0}
 34|3|top.agents$micro-planned
-34|4|top.agents$print:agent-0%2 departed after encountering 5 others
-34|4|top.agents$print:1|0|0
-34|4|top.agents$print:0|1|1
-34|4|top.agents$print:0|0|1
-35|0|$time:time_point() + 105_s + 839_ms + 394_us
+34|5|top.agents$print:0|1|0
+34|5|top.agents$print:2|2|0
+34|5|top.agents$print:1|0|0
+35|0|$time:time_point() + 103_s + 339_ms + 396_us
 35|0|top$planned
 35|1|top.agents$planned
-35|2|top.agents.agent-0%1%0%0$print:moving to {-1, 2}
+35|2|top.agents.agent-0%1%0$print:moving to {-2, -1}
 35|3|top.agents$micro-planned
-35|4|top.agents$print:agent-0%1%0%0 departed after encountering 5 others
+35|4|top.agents$print:agent-0%1%0 departed after encountering 5 others
+35|4|top.agents$print:0|1|0
+35|4|top.agents$print:2|2|0
 35|4|top.agents$print:0|0|0
-35|4|top.agents$print:0|1|1
-35|4|top.agents$print:0|0|1
-36|0|$time:time_point() + 108_s + 386_ms + 452_us
+36|0|$time:time_point() + 103_s + 469_ms + 404_us
 36|0|top$planned
 36|1|top.agents$planned
-36|2|top.agents.agent-0%1%1$print:moving to {0, -1}
+36|2|top.agents.agent-0%0$print:moving to {-1, 1}
 36|3|top.agents$micro-planned
+36|3|top.agents$print:1|0|0
+36|3|top.agents$print:2|2|0
 36|3|top.agents$print:0|0|0
-36|3|top.agents$print:0|0|1
-36|3|top.agents$print:0|1|1
-37|0|$time:time_point() + 111_s + 988_ms + 270_us
+37|0|$time:time_point() + 104_s + 531_ms + 921_us
 37|0|top$planned
 37|1|top.agents$planned
-37|2|top.agents.agent-0$print:moving to {1, -2}
+37|2|top.agents.agent-0%1$print:moving to {-1, -1}
 37|3|top.agents$micro-planned
-37|4|top.agents$print:agent-0 departed after encountering 7 others
-37|4|top.agents$print:0|0|0
-37|4|top.agents$print:0|0|1
-37|4|top.agents$print:0|1|0
-38|0|$time:time_point() + 112_s + 109_ms + 297_us
+37|3|top.agents$print:1|0|0
+37|3|top.agents$print:1|2|0
+37|3|top.agents$print:1|0|0
+38|0|$time:time_point() + 107_s + 508_ms + 411_us
 38|0|top$planned
 38|1|top.agents$planned
-38|2|top.agents.agent-0%2%0$print:inviting agent-0%2%0%0
+38|2|top.agents.agent-0%0$print:inviting agent-0%0%1
 38|3|top.agents$micro-planned
 38|6|top$planned
 38|7|top.agents$planned
-38|8|top.agents.agent-0%2%0%0$print:arriving at {0, 0}
+38|8|top.agents.agent-0%0%1$print:arriving at {0, 0}
 38|9|top.agents$micro-planned
-38|9|top.agents$print:0|0|0
-38|9|top.agents$print:0|1|1
-38|9|top.agents$print:0|1|0
-39|0|$time:time_point() + 112_s + 425_ms + 459_us
+38|13|top.agents$print:1|0|0
+38|13|top.agents$print:1|3|0
+38|13|top.agents$print:1|0|0
+39|0|$time:time_point() + 108_s + 386_ms + 452_us
 39|0|top$planned
 39|1|top.agents$planned
 39|2|top.agents.agent-0%1%1$print:inviting agent-0%1%1%0
@@ -374,943 +371,1278 @@
 39|7|top.agents$planned
 39|8|top.agents.agent-0%1%1%0$print:arriving at {0, 0}
 39|9|top.agents$micro-planned
-39|11|top.agents$print:0|0|0
-39|11|top.agents$print:0|2|1
-39|11|top.agents$print:0|1|0
-40|0|$time:time_point() + 114_s + 175_ms + 734_us
+39|15|top.agents$print:1|0|0
+39|15|top.agents$print:1|4|0
+39|15|top.agents$print:1|0|0
+40|0|$time:time_point() + 109_s + 640_ms + 993_us
 40|0|top$planned
 40|1|top.agents$planned
-40|2|top.agents.agent-0%1%1$print:inviting agent-0%1%1%1
+40|2|top.agents.agent-0%0$print:inviting agent-0%0%2
 40|3|top.agents$micro-planned
 40|6|top$planned
 40|7|top.agents$planned
-40|8|top.agents.agent-0%1%1%1$print:arriving at {0, 0}
+40|8|top.agents.agent-0%0%2$print:arriving at {0, 0}
 40|9|top.agents$micro-planned
-40|13|top.agents$print:0|0|0
-40|13|top.agents$print:0|3|1
-40|13|top.agents$print:0|1|0
-41|0|$time:time_point() + 114_s + 241_ms + 879_us
+40|17|top.agents$print:1|0|0
+40|17|top.agents$print:1|5|0
+40|17|top.agents$print:1|0|0
+41|0|$time:time_point() + 110_s + 136_ms + 727_us
 41|0|top$planned
 41|1|top.agents$planned
-41|2|top.agents.agent-0%2%0$print:inviting agent-0%2%0%1
+41|2|top.agents.agent-0%1%1$print:inviting agent-0%1%1%1
 41|3|top.agents$micro-planned
 41|6|top$planned
 41|7|top.agents$planned
-41|8|top.agents.agent-0%2%0%1$print:arriving at {0, 0}
+41|8|top.agents.agent-0%1%1%1$print:arriving at {0, 0}
 41|9|top.agents$micro-planned
-41|15|top.agents$print:0|0|0
-41|15|top.agents$print:0|4|1
-41|15|top.agents$print:0|1|0
-42|0|$time:time_point() + 114_s + 474_ms + 367_us
+41|19|top.agents$print:1|0|0
+41|19|top.agents$print:1|6|0
+41|19|top.agents$print:1|0|0
+42|0|$time:time_point() + 110_s + 369_ms + 215_us
 42|0|top$planned
 42|1|top.agents$planned
-42|2|top.agents.agent-0%2%0%1$print:inviting agent-0%2%0%1%0
+42|2|top.agents.agent-0%1%1%1$print:inviting agent-0%1%1%1%0
 42|3|top.agents$micro-planned
 42|6|top$planned
 42|7|top.agents$planned
-42|8|top.agents.agent-0%2%0%1%0$print:arriving at {0, 0}
+42|8|top.agents.agent-0%1%1%1%0$print:arriving at {0, 0}
 42|9|top.agents$micro-planned
-42|17|top.agents$print:0|0|0
-42|17|top.agents$print:0|5|1
-42|17|top.agents$print:0|1|0
-43|0|$time:time_point() + 115_s + 204_ms + 489_us
+42|21|top.agents$print:1|0|0
+42|21|top.agents$print:1|7|0
+42|21|top.agents$print:1|0|0
+43|0|$time:time_point() + 110_s + 409_ms + 80_us
 43|0|top$planned
 43|1|top.agents$planned
-43|2|top.agents.agent-0%1%1%1$print:moving to {0, 1}
+43|2|top.agents.agent-0%1%0%0%0%0$print:moving to {-1, 1}
 43|3|top.agents$micro-planned
-43|3|top.agents$print:0|1|0
-43|3|top.agents$print:0|4|1
-43|3|top.agents$print:0|1|0
-44|0|$time:time_point() + 115_s + 534_ms + 113_us
+43|5|top.agents$print:2|0|0
+43|5|top.agents$print:0|7|0
+43|5|top.agents$print:1|0|0
+44|0|$time:time_point() + 110_s + 669_ms + 748_us
 44|0|top$planned
 44|1|top.agents$planned
-44|2|top.agents.agent-0%1%1%0$print:moving to {0, 1}
+44|2|top.agents.agent-0%0%2$print:moving to {1, 0}
 44|3|top.agents$micro-planned
-44|5|top.agents$print:0|2|0
-44|5|top.agents$print:0|3|1
-44|5|top.agents$print:0|1|0
-45|0|$time:time_point() + 116_s + 926_ms + 568_us
+44|3|top.agents$print:2|0|0
+44|3|top.agents$print:0|6|1
+44|3|top.agents$print:1|0|0
+45|0|$time:time_point() + 111_s + 495_ms + 106_us
 45|0|top$planned
 45|1|top.agents$planned
-45|2|top.agents.agent-0%2%0%1%0$print:moving to {0, 1}
+45|2|top.agents.agent-0%1%1%0$print:moving to {1, 0}
 45|3|top.agents$micro-planned
-45|7|top.agents$print:0|3|0
-45|7|top.agents$print:0|2|1
-45|7|top.agents$print:0|1|0
-46|0|$time:time_point() + 120_s + 266_ms + 502_us
+45|5|top.agents$print:2|0|0
+45|5|top.agents$print:0|5|2
+45|5|top.agents$print:1|0|0
+46|0|$time:time_point() + 112_s + 821_ms + 416_us
 46|0|top$planned
 46|1|top.agents$planned
-46|2|top.agents.agent-0%1%1$print:moving to {0, -2}
+46|2|top.agents.agent-0%1%1%1%0$print:moving to {-1, 0}
 46|3|top.agents$micro-planned
-46|4|top.agents$print:agent-0%1%1 departed after encountering 5 others
-46|4|top.agents$print:0|3|0
-46|4|top.agents$print:0|2|1
-46|4|top.agents$print:0|0|0
-47|0|$time:time_point() + 120_s + 518_ms + 148_us
+46|3|top.agents$print:2|0|0
+46|3|top.agents$print:1|4|2
+46|3|top.agents$print:1|0|0
+47|0|$time:time_point() + 115_s + 511_ms + 380_us
 47|0|top$planned
 47|1|top.agents$planned
-47|2|top.agents.agent-0%2%0$print:moving to {1, 1}
+47|2|top.agents.agent-0%1%1%1%0$print:moving to {-1, 1}
 47|3|top.agents$micro-planned
-47|3|top.agents$print:0|3|1
-47|3|top.agents$print:0|2|0
-47|3|top.agents$print:0|0|0
-48|0|$time:time_point() + 121_s + 412_ms + 187_us
+47|7|top.agents$print:3|0|0
+47|7|top.agents$print:0|4|2
+47|7|top.agents$print:1|0|0
+48|0|$time:time_point() + 115_s + 731_ms + 761_us
 48|0|top$planned
 48|1|top.agents$planned
-48|2|top.agents.agent-0%2%0%1%0$print:moving to {0, 2}
+48|2|top.agents.agent-0%0$print:moving to {-2, 1}
 48|3|top.agents$micro-planned
-48|4|top.agents$print:agent-0%2%0%1%0 departed after encountering 4 others
-48|4|top.agents$print:0|2|1
-48|4|top.agents$print:0|2|0
-48|4|top.agents$print:0|0|0
-49|0|$time:time_point() + 125_s + 803_ms + 38_us
+48|4|top.agents$print:agent-0%0 departed after encountering 5 others
+48|4|top.agents$print:2|0|0
+48|4|top.agents$print:0|4|2
+48|4|top.agents$print:1|0|0
+49|0|$time:time_point() + 115_s + 980_ms + 725_us
 49|0|top$planned
 49|1|top.agents$planned
-49|2|top.agents.agent-0%2%0$print:moving to {1, 0}
+49|2|top.agents.agent-0%1%1%0$print:moving to {1, 1}
 49|3|top.agents$micro-planned
-49|3|top.agents$print:0|2|0
-49|3|top.agents$print:0|2|1
-49|3|top.agents$print:0|0|0
-50|0|$time:time_point() + 127_s + 705_ms + 534_us
+49|3|top.agents$print:2|0|1
+49|3|top.agents$print:0|4|1
+49|3|top.agents$print:1|0|0
+50|0|$time:time_point() + 116_s + 412_ms + 996_us
 50|0|top$planned
 50|1|top.agents$planned
-50|2|top.agents.agent-0%1%1%0$print:moving to {-1, 1}
+50|2|top.agents.agent-0%1%1$print:moving to {0, -1}
 50|3|top.agents$micro-planned
+50|3|top.agents$print:2|0|1
+50|3|top.agents$print:0|3|1
 50|3|top.agents$print:1|1|0
-50|3|top.agents$print:0|2|1
-50|3|top.agents$print:0|0|0
-51|0|$time:time_point() + 128_s + 448_ms + 639_us
+51|0|$time:time_point() + 118_s + 155_ms + 473_us
 51|0|top$planned
 51|1|top.agents$planned
-51|2|top.agents.agent-0%2%0%0$print:moving to {1, 0}
+51|2|top.agents.agent-0%1%1$print:moving to {1, -1}
 51|3|top.agents$micro-planned
-51|5|top.agents$print:1|1|0
-51|5|top.agents$print:0|1|2
-51|5|top.agents$print:0|0|0
-52|0|$time:time_point() + 129_s + 448_ms + 11_us
+51|3|top.agents$print:2|0|1
+51|3|top.agents$print:0|3|1
+51|3|top.agents$print:1|0|1
+52|0|$time:time_point() + 118_s + 826_ms + 810_us
 52|0|top$planned
 52|1|top.agents$planned
-52|2|top.agents.agent-0%1%1%0$print:moving to {-1, 0}
+52|2|top.agents.agent-0%1$print:moving to {-1, -2}
 52|3|top.agents$micro-planned
-52|3|top.agents$print:0|1|0
-52|3|top.agents$print:1|1|2
-52|3|top.agents$print:0|0|0
-53|0|$time:time_point() + 133_s + 543_ms + 772_us
+52|4|top.agents$print:agent-0%1 departed after encountering 6 others
+52|4|top.agents$print:2|0|1
+52|4|top.agents$print:0|3|1
+52|4|top.agents$print:0|0|1
+53|0|$time:time_point() + 120_s + 796_ms + 270_us
 53|0|top$planned
 53|1|top.agents$planned
-53|2|top.agents.agent-0%2%0%0$print:moving to {1, 1}
+53|2|top.agents.agent-0%1%1%1%0$print:moving to {-1, 0}
 53|3|top.agents$micro-planned
-53|3|top.agents$print:0|1|1
-53|3|top.agents$print:1|1|1
-53|3|top.agents$print:0|0|0
-54|0|$time:time_point() + 136_s + 695_ms + 982_us
+53|3|top.agents$print:1|0|1
+53|3|top.agents$print:1|3|1
+53|3|top.agents$print:0|0|1
+54|0|$time:time_point() + 122_s + 841_ms + 169_us
 54|0|top$planned
 54|1|top.agents$planned
-54|2|top.agents.agent-0%2%0%0$print:inviting agent-0%2%0%0%0
+54|2|top.agents.agent-0%0%2$print:inviting agent-0%0%2%0
 54|3|top.agents$micro-planned
 54|6|top$planned
 54|7|top.agents$planned
-54|8|top.agents.agent-0%2%0%0%0$print:arriving at {0, 0}
+54|8|top.agents.agent-0%0%2%0$print:arriving at {0, 0}
 54|9|top.agents$micro-planned
-54|11|top.agents$print:0|1|1
-54|11|top.agents$print:1|2|1
-54|11|top.agents$print:0|0|0
-55|0|$time:time_point() + 137_s + 828_ms + 735_us
+54|15|top.agents$print:1|0|1
+54|15|top.agents$print:1|4|1
+54|15|top.agents$print:0|0|1
+55|0|$time:time_point() + 123_s + 250_ms + 606_us
 55|0|top$planned
 55|1|top.agents$planned
-55|2|top.agents.agent-0%1%1%0$print:moving to {0, 0}
+55|2|top.agents.agent-0%1%1$print:moving to {2, -1}
 55|3|top.agents$micro-planned
-55|7|top.agents$print:0|1|1
-55|7|top.agents$print:0|3|1
-55|7|top.agents$print:0|0|0
-56|0|$time:time_point() + 138_s + 974_ms + 348_us
+55|4|top.agents$print:agent-0%1%1 departed after encountering 9 others
+55|4|top.agents$print:1|0|1
+55|4|top.agents$print:1|4|1
+55|4|top.agents$print:0|0|0
+56|0|$time:time_point() + 123_s + 847_ms + 753_us
 56|0|top$planned
 56|1|top.agents$planned
-56|2|top.agents.agent-0%2%0%0%0$print:moving to {-1, 0}
+56|2|top.agents.agent-0%0%1$print:moving to {-1, 0}
 56|3|top.agents$micro-planned
-56|3|top.agents$print:0|1|1
-56|3|top.agents$print:1|2|1
-56|3|top.agents$print:0|0|0
-57|0|$time:time_point() + 139_s + 795_ms + 688_us
+56|5|top.agents$print:1|0|1
+56|5|top.agents$print:2|3|1
+56|5|top.agents$print:0|0|0
+57|0|$time:time_point() + 123_s + 948_ms + 480_us
 57|0|top$planned
 57|1|top.agents$planned
-57|2|top.agents.agent-0%2%0$print:moving to {1, -1}
+57|2|top.agents.agent-0%1%1%1%0$print:moving to {-1, 1}
 57|3|top.agents$micro-planned
-57|3|top.agents$print:0|1|1
-57|3|top.agents$print:1|2|0
-57|3|top.agents$print:0|0|1
-58|0|$time:time_point() + 141_s + 690_ms + 271_us
+57|5|top.agents$print:2|0|1
+57|5|top.agents$print:1|3|1
+57|5|top.agents$print:0|0|0
+58|0|$time:time_point() + 125_s + 119_ms + 535_us
 58|0|top$planned
 58|1|top.agents$planned
-58|2|top.agents.agent-0%1%1%1$print:moving to {0, 0}
+58|2|top.agents.agent-0%0%2%0$print:moving to {0, -1}
 58|3|top.agents$micro-planned
-58|7|top.agents$print:0|0|1
-58|7|top.agents$print:1|3|0
-58|7|top.agents$print:0|0|1
-59|0|$time:time_point() + 142_s + 342_ms + 223_us
+58|3|top.agents$print:2|0|1
+58|3|top.agents$print:1|2|1
+58|3|top.agents$print:0|1|0
+59|0|$time:time_point() + 127_s + 59_ms + 571_us
 59|0|top$planned
 59|1|top.agents$planned
-59|2|top.agents.agent-0%2%0%0%0$print:inviting agent-0%2%0%0%0%0
+59|2|top.agents.agent-0%1%1%1%0$print:inviting agent-0%1%1%1%0%0
 59|3|top.agents$micro-planned
 59|6|top$planned
 59|7|top.agents$planned
-59|8|top.agents.agent-0%2%0%0%0%0$print:arriving at {0, 0}
+59|8|top.agents.agent-0%1%1%1%0%0$print:arriving at {0, 0}
 59|9|top.agents$micro-planned
-59|15|top.agents$print:0|0|1
-59|15|top.agents$print:1|4|0
-59|15|top.agents$print:0|0|1
-60|0|$time:time_point() + 142_s + 775_ms + 947_us
+59|13|top.agents$print:2|0|1
+59|13|top.agents$print:1|3|1
+59|13|top.agents$print:0|1|0
+60|0|$time:time_point() + 127_s + 215_ms + 628_us
 60|0|top$planned
 60|1|top.agents$planned
-60|2|top.agents.agent-0%2%0%0$print:moving to {1, 2}
+60|2|top.agents.agent-0%0%1$print:moving to {-1, -1}
 60|3|top.agents$micro-planned
-60|4|top.agents$print:agent-0%2%0%0 departed after encountering 5 others
-60|4|top.agents$print:0|0|0
-60|4|top.agents$print:1|4|0
-60|4|top.agents$print:0|0|1
-61|0|$time:time_point() + 142_s + 906_ms + 779_us
+60|3|top.agents$print:2|0|1
+60|3|top.agents$print:0|3|1
+60|3|top.agents$print:1|1|0
+61|0|$time:time_point() + 128_s + 921_ms + 134_us
 61|0|top$planned
 61|1|top.agents$planned
-61|2|top.agents.agent-0%2%0$print:moving to {2, -1}
+61|2|top.agents.agent-0%0%2$print:moving to {0, 0}
 61|3|top.agents$micro-planned
-61|4|top.agents$print:agent-0%2%0 departed after encountering 6 others
-61|4|top.agents$print:0|0|0
-61|4|top.agents$print:1|4|0
-61|4|top.agents$print:0|0|0
-62|0|$time:time_point() + 143_s + 123_ms + 442_us
+61|9|top.agents$print:2|0|1
+61|9|top.agents$print:0|4|0
+61|9|top.agents$print:1|1|0
+62|0|$time:time_point() + 129_s + 832_ms + 397_us
 62|0|top$planned
 62|1|top.agents$planned
-62|2|top.agents.agent-0%1%1%0$print:moving to {1, 0}
+62|2|top.agents.agent-0%0%1$print:moving to {-1, 0}
 62|3|top.agents$micro-planned
-62|3|top.agents$print:0|0|0
-62|3|top.agents$print:1|3|1
-62|3|top.agents$print:0|0|0
-63|0|$time:time_point() + 144_s + 106_ms + 653_us
+62|3|top.agents$print:2|0|1
+62|3|top.agents$print:1|4|0
+62|3|top.agents$print:0|1|0
+63|0|$time:time_point() + 129_s + 973_ms + 375_us
 63|0|top$planned
 63|1|top.agents$planned
-63|2|top.agents.agent-0%1%1%0$print:moving to {0, 0}
+63|2|top.agents.agent-0%1%1%0$print:moving to {1, 2}
 63|3|top.agents$micro-planned
-63|9|top.agents$print:0|0|0
-63|9|top.agents$print:1|4|0
-63|9|top.agents$print:0|0|0
-64|0|$time:time_point() + 145_s + 619_ms + 800_us
+63|4|top.agents$print:agent-0%1%1%0 departed after encountering 6 others
+63|4|top.agents$print:2|0|0
+63|4|top.agents$print:1|4|0
+63|4|top.agents$print:0|1|0
+64|0|$time:time_point() + 130_s + 337_ms + 148_us
 64|0|top$planned
 64|1|top.agents$planned
-64|2|top.agents.agent-0%2%0%0%0$print:moving to {0, 0}
+64|2|top.agents.agent-0%1%1%1%0$print:moving to {0, 1}
 64|3|top.agents$micro-planned
-64|11|top.agents$print:0|0|0
-64|11|top.agents$print:0|5|0
-64|11|top.agents$print:0|0|0
-65|0|$time:time_point() + 145_s + 765_ms + 88_us
+64|3|top.agents$print:1|1|0
+64|3|top.agents$print:1|4|0
+64|3|top.agents$print:0|1|0
+65|0|$time:time_point() + 130_s + 482_ms + 436_us
 65|0|top$planned
 65|1|top.agents$planned
-65|2|top.agents.agent-0%2%0%0%0$print:moving to {0, 1}
+65|2|top.agents.agent-0%1%1%1%0$print:moving to {1, 1}
 65|3|top.agents$micro-planned
+65|3|top.agents$print:1|0|1
+65|3|top.agents$print:1|4|0
 65|3|top.agents$print:0|1|0
-65|3|top.agents$print:0|4|0
-65|3|top.agents$print:0|0|0
-66|0|$time:time_point() + 147_s + 271_ms + 39_us
+66|0|$time:time_point() + 130_s + 700_ms + 303_us
 66|0|top$planned
 66|1|top.agents$planned
-66|2|top.agents.agent-0%1%1%1$print:moving to {0, -1}
+66|2|top.agents.agent-0%0%2%0$print:moving to {1, -1}
 66|3|top.agents$micro-planned
-66|3|top.agents$print:0|1|0
-66|3|top.agents$print:0|3|0
-66|3|top.agents$print:0|1|0
-67|0|$time:time_point() + 150_s + 85_ms + 619_us
+66|3|top.agents$print:1|0|1
+66|3|top.agents$print:1|4|0
+66|3|top.agents$print:0|0|1
+67|0|$time:time_point() + 130_s + 815_ms + 608_us
 67|0|top$planned
 67|1|top.agents$planned
-67|2|top.agents.agent-0%1%1%1$print:moving to {0, -2}
+67|2|top.agents.agent-0%0%1$print:moving to {0, 0}
 67|3|top.agents$micro-planned
-67|4|top.agents$print:agent-0%1%1%1 departed after encountering 6 others
-67|4|top.agents$print:0|1|0
-67|4|top.agents$print:0|3|0
-67|4|top.agents$print:0|0|0
-68|0|$time:time_point() + 150_s + 416_ms + 699_us
+67|11|top.agents$print:1|0|1
+67|11|top.agents$print:0|5|0
+67|11|top.agents$print:0|0|1
+68|0|$time:time_point() + 133_s + 514_ms + 883_us
 68|0|top$planned
 68|1|top.agents$planned
-68|2|top.agents.agent-0%2%0%1$print:inviting agent-0%2%0%1%1
+68|2|top.agents.agent-0%0%2%0$print:inviting agent-0%0%2%0%0
 68|3|top.agents$micro-planned
 68|6|top$planned
 68|7|top.agents$planned
-68|8|top.agents.agent-0%2%0%1%1$print:arriving at {0, 0}
+68|8|top.agents.agent-0%0%2%0%0$print:arriving at {0, 0}
 68|9|top.agents$micro-planned
-68|15|top.agents$print:0|1|0
-68|15|top.agents$print:0|4|0
-68|15|top.agents$print:0|0|0
-69|0|$time:time_point() + 152_s + 951_ms + 591_us
+68|19|top.agents$print:1|0|1
+68|19|top.agents$print:0|6|0
+68|19|top.agents$print:0|0|1
+69|0|$time:time_point() + 136_s + 894_ms + 862_us
 69|0|top$planned
 69|1|top.agents$planned
-69|2|top.agents.agent-0%1%1%0$print:moving to {-1, 0}
+69|2|top.agents.agent-0%1%0%0%0%0$print:moving to {-1, 2}
 69|3|top.agents$micro-planned
-69|3|top.agents$print:0|1|0
-69|3|top.agents$print:1|3|0
-69|3|top.agents$print:0|0|0
-70|0|$time:time_point() + 154_s + 329_ms + 171_us
+69|4|top.agents$print:agent-0%1%0%0%0%0 departed after encountering 6 others
+69|4|top.agents$print:0|0|1
+69|4|top.agents$print:0|6|0
+69|4|top.agents$print:0|0|1
+70|0|$time:time_point() + 137_s + 800_ms + 144_us
 70|0|top$planned
 70|1|top.agents$planned
-70|2|top.agents.agent-0%2%0%0%0$print:moving to {1, 1}
+70|2|top.agents.agent-0%0%2%0$print:moving to {0, -1}
 70|3|top.agents$micro-planned
 70|3|top.agents$print:0|0|1
-70|3|top.agents$print:1|3|0
-70|3|top.agents$print:0|0|0
-71|0|$time:time_point() + 154_s + 701_ms + 960_us
+70|3|top.agents$print:0|6|0
+70|3|top.agents$print:0|1|0
+71|0|$time:time_point() + 139_s + 46_ms + 519_us
 71|0|top$planned
 71|1|top.agents$planned
-71|2|top.agents.agent-0%2%0%1$print:moving to {0, -1}
+71|2|top.agents.agent-0%1%1%1%0$print:moving to {1, 2}
 71|3|top.agents$micro-planned
-71|3|top.agents$print:0|0|1
-71|3|top.agents$print:1|2|0
-71|3|top.agents$print:0|1|0
-72|0|$time:time_point() + 156_s + 306_ms + 118_us
+71|4|top.agents$print:agent-0%1%1%1%0 departed after encountering 8 others
+71|4|top.agents$print:0|0|0
+71|4|top.agents$print:0|6|0
+71|4|top.agents$print:0|1|0
+72|0|$time:time_point() + 139_s + 129_ms + 590_us
 72|0|top$planned
 72|1|top.agents$planned
-72|2|top.agents.agent-0%2%0%0%0%0$print:moving to {0, 1}
+72|2|top.agents.agent-0%0%2$print:moving to {1, 0}
 72|3|top.agents$micro-planned
-72|3|top.agents$print:0|1|1
-72|3|top.agents$print:1|1|0
+72|3|top.agents$print:0|0|0
+72|3|top.agents$print:0|5|1
 72|3|top.agents$print:0|1|0
-73|0|$time:time_point() + 156_s + 709_ms + 460_us
+73|0|$time:time_point() + 139_s + 807_ms + 644_us
 73|0|top$planned
 73|1|top.agents$planned
-73|2|top.agents.agent-0%2%0%1%1$print:moving to {0, -1}
+73|2|top.agents.agent-0%0%2%0%0$print:moving to {0, -1}
 73|3|top.agents$micro-planned
-73|5|top.agents$print:0|1|1
-73|5|top.agents$print:1|0|0
+73|5|top.agents$print:0|0|0
+73|5|top.agents$print:0|4|1
 73|5|top.agents$print:0|2|0
-74|0|$time:time_point() + 157_s + 748_ms + 747_us
+74|0|$time:time_point() + 141_s + 23_ms + 466_us
 74|0|top$planned
 74|1|top.agents$planned
-74|2|top.agents.agent-0%1%1%0$print:moving to {-2, 0}
+74|2|top.agents.agent-0%1%1%1%0%0$print:moving to {1, 0}
 74|3|top.agents$micro-planned
-74|4|top.agents$print:agent-0%1%1%0 departed after encountering 7 others
-74|4|top.agents$print:0|1|1
-74|4|top.agents$print:0|0|0
-74|4|top.agents$print:0|2|0
-75|0|$time:time_point() + 158_s + 648_ms + 760_us
+74|5|top.agents$print:0|0|0
+74|5|top.agents$print:0|3|2
+74|5|top.agents$print:0|2|0
+75|0|$time:time_point() + 141_s + 683_ms + 747_us
 75|0|top$planned
 75|1|top.agents$planned
-75|2|top.agents.agent-0%2%0%0%0$print:moving to {2, 1}
+75|2|top.agents.agent-0%0%1$print:moving to {1, 0}
 75|3|top.agents$micro-planned
-75|4|top.agents$print:agent-0%2%0%0%0 departed after encountering 4 others
-75|4|top.agents$print:0|1|0
-75|4|top.agents$print:0|0|0
-75|4|top.agents$print:0|2|0
-76|0|$time:time_point() + 161_s + 44_ms + 338_us
+75|7|top.agents$print:0|0|0
+75|7|top.agents$print:0|2|3
+75|7|top.agents$print:0|2|0
+76|0|$time:time_point() + 142_s + 119_ms + 733_us
 76|0|top$planned
 76|1|top.agents$planned
-76|2|top.agents.agent-0%2%0%0%0%0$print:inviting agent-0%2%0%0%0%0%0
+76|2|top.agents.agent-0%0%2%0$print:inviting agent-0%0%2%0%1
 76|3|top.agents$micro-planned
 76|6|top$planned
 76|7|top.agents$planned
-76|8|top.agents.agent-0%2%0%0%0%0%0$print:arriving at {0, 0}
+76|8|top.agents.agent-0%0%2%0%1$print:arriving at {0, 0}
 76|9|top.agents$micro-planned
-76|9|top.agents$print:0|1|0
-76|9|top.agents$print:0|1|0
-76|9|top.agents$print:0|2|0
-77|0|$time:time_point() + 163_s + 195_ms + 684_us
+76|13|top.agents$print:0|0|0
+76|13|top.agents$print:0|3|3
+76|13|top.agents$print:0|2|0
+77|0|$time:time_point() + 143_s + 867_ms + 810_us
 77|0|top$planned
 77|1|top.agents$planned
-77|2|top.agents.agent-0%2%0%1%1$print:inviting agent-0%2%0%1%1%0
+77|2|top.agents.agent-0%0%2$print:inviting agent-0%0%2%1
 77|3|top.agents$micro-planned
 77|6|top$planned
 77|7|top.agents$planned
-77|8|top.agents.agent-0%2%0%1%1%0$print:arriving at {0, 0}
+77|8|top.agents.agent-0%0%2%1$print:arriving at {0, 0}
 77|9|top.agents$micro-planned
-77|11|top.agents$print:0|1|0
-77|11|top.agents$print:0|2|0
-77|11|top.agents$print:0|2|0
-78|0|$time:time_point() + 165_s + 626_ms + 495_us
+77|15|top.agents$print:0|0|0
+77|15|top.agents$print:0|4|3
+77|15|top.agents$print:0|2|0
+78|0|$time:time_point() + 146_s + 293_ms + 868_us
 78|0|top$planned
 78|1|top.agents$planned
-78|2|top.agents.agent-0%2%0%1%1%0$print:inviting agent-0%2%0%1%1%0%0
+78|2|top.agents.agent-0%0%2%0%0$print:inviting agent-0%0%2%0%0%0
 78|3|top.agents$micro-planned
 78|6|top$planned
 78|7|top.agents$planned
-78|8|top.agents.agent-0%2%0%1%1%0%0$print:arriving at {0, 0}
+78|8|top.agents.agent-0%0%2%0%0%0$print:arriving at {0, 0}
 78|9|top.agents$micro-planned
-78|13|top.agents$print:0|1|0
-78|13|top.agents$print:0|3|0
-78|13|top.agents$print:0|2|0
-79|0|$time:time_point() + 166_s + 704_ms + 197_us
+78|17|top.agents$print:0|0|0
+78|17|top.agents$print:0|5|3
+78|17|top.agents$print:0|2|0
+79|0|$time:time_point() + 146_s + 298_ms + 621_us
 79|0|top$planned
 79|1|top.agents$planned
-79|2|top.agents.agent-0%2%0%1%1$print:moving to {1, -1}
+79|2|top.agents.agent-0%0%2%1$print:moving to {0, -1}
 79|3|top.agents$micro-planned
-79|3|top.agents$print:0|1|0
-79|3|top.agents$print:0|3|0
-79|3|top.agents$print:0|1|1
-80|0|$time:time_point() + 167_s + 803_ms + 692_us
+79|7|top.agents$print:0|0|0
+79|7|top.agents$print:0|4|3
+79|7|top.agents$print:0|3|0
+80|0|$time:time_point() + 146_s + 311_ms + 547_us
 80|0|top$planned
 80|1|top.agents$planned
-80|2|top.agents.agent-0%2%0%1%1%0$print:inviting agent-0%2%0%1%1%0%1
+80|2|top.agents.agent-0%1%1%1$print:inviting agent-0%1%1%1%1
 80|3|top.agents$micro-planned
 80|6|top$planned
 80|7|top.agents$planned
-80|8|top.agents.agent-0%2%0%1%1%0%1$print:arriving at {0, 0}
+80|8|top.agents.agent-0%1%1%1%1$print:arriving at {0, 0}
 80|9|top.agents$micro-planned
-80|15|top.agents$print:0|1|0
-80|15|top.agents$print:0|4|0
-80|15|top.agents$print:0|1|1
-81|0|$time:time_point() + 169_s + 84_ms + 892_us
+80|17|top.agents$print:0|0|0
+80|17|top.agents$print:0|5|3
+80|17|top.agents$print:0|3|0
+81|0|$time:time_point() + 147_s + 376_ms + 323_us
 81|0|top$planned
 81|1|top.agents$planned
-81|2|top.agents.agent-0%2%0%1%1%0%1$print:moving to {-1, 0}
+81|2|top.agents.agent-0%0%2$print:moving to {1, -1}
 81|3|top.agents$micro-planned
-81|3|top.agents$print:0|1|0
-81|3|top.agents$print:1|3|0
-81|3|top.agents$print:0|1|1
-82|0|$time:time_point() + 169_s + 271_ms + 202_us
+81|3|top.agents$print:0|0|0
+81|3|top.agents$print:0|5|2
+81|3|top.agents$print:0|3|1
+82|0|$time:time_point() + 147_s + 562_ms + 633_us
 82|0|top$planned
 82|1|top.agents$planned
-82|2|top.agents.agent-0%2%0%1%1%0%1$print:moving to {-1, 1}
+82|2|top.agents.agent-0%0%2$print:moving to {1, 0}
 82|3|top.agents$micro-planned
-82|3|top.agents$print:1|1|0
-82|3|top.agents$print:0|3|0
-82|3|top.agents$print:0|1|1
-83|0|$time:time_point() + 173_s + 282_ms + 292_us
+82|7|top.agents$print:0|0|0
+82|7|top.agents$print:0|5|3
+82|7|top.agents$print:0|3|0
+83|0|$time:time_point() + 147_s + 592_ms + 747_us
 83|0|top$planned
 83|1|top.agents$planned
-83|2|top.agents.agent-0%2%0%1%1%0$print:moving to {0, -1}
+83|2|top.agents.agent-0%1%1%1%1$print:moving to {0, -1}
 83|3|top.agents$micro-planned
-83|5|top.agents$print:1|1|0
-83|5|top.agents$print:0|2|0
-83|5|top.agents$print:0|2|1
-84|0|$time:time_point() + 176_s + 38_ms + 403_us
+83|9|top.agents$print:0|0|0
+83|9|top.agents$print:0|4|3
+83|9|top.agents$print:0|4|0
+84|0|$time:time_point() + 148_s + 471_ms + 65_us
 84|0|top$planned
 84|1|top.agents$planned
-84|2|top.agents.agent-0%2%0%1%1%0%0$print:moving to {1, 0}
+84|2|top.agents.agent-0%0%2%0%0$print:moving to {1, -1}
 84|3|top.agents$micro-planned
-84|3|top.agents$print:1|1|0
-84|3|top.agents$print:0|1|1
-84|3|top.agents$print:0|2|1
-85|0|$time:time_point() + 176_s + 148_ms + 791_us
+84|3|top.agents$print:0|0|0
+84|3|top.agents$print:0|4|3
+84|3|top.agents$print:0|3|1
+85|0|$time:time_point() + 149_s + 924_ms + 470_us
 85|0|top$planned
 85|1|top.agents$planned
-85|2|top.agents.agent-0%2%0%1%1$print:moving to {2, -1}
+85|2|top.agents.agent-0%1%0%0%0$print:moving to {0, 1}
 85|3|top.agents$micro-planned
-85|4|top.agents$print:agent-0%2%0%1%1 departed after encountering 3 others
-85|4|top.agents$print:1|1|0
-85|4|top.agents$print:0|1|1
-85|4|top.agents$print:0|2|0
-86|0|$time:time_point() + 176_s + 508_ms + 294_us
+85|3|top.agents$print:0|1|0
+85|3|top.agents$print:0|3|3
+85|3|top.agents$print:0|3|1
+86|0|$time:time_point() + 151_s + 754_ms + 350_us
 86|0|top$planned
 86|1|top.agents$planned
-86|2|top.agents.agent-0%2%0%1$print:moving to {0, -2}
+86|2|top.agents.agent-0%1%1%1%0%0$print:moving to {0, 0}
 86|3|top.agents$micro-planned
-86|4|top.agents$print:agent-0%2%0%1 departed after encountering 8 others
-86|4|top.agents$print:1|1|0
-86|4|top.agents$print:0|1|1
-86|4|top.agents$print:0|1|0
-87|0|$time:time_point() + 179_s + 521_ms + 324_us
+86|9|top.agents$print:0|1|0
+86|9|top.agents$print:0|4|2
+86|9|top.agents$print:0|3|1
+87|0|$time:time_point() + 151_s + 790_ms + 147_us
 87|0|top$planned
 87|1|top.agents$planned
-87|2|top.agents.agent-0%2%0%1%1%0%1$print:moving to {0, 1}
+87|2|top.agents.agent-0%1%1%1$print:moving to {1, 0}
 87|3|top.agents$micro-planned
-87|5|top.agents$print:0|2|0
-87|5|top.agents$print:0|1|1
-87|5|top.agents$print:0|1|0
-88|0|$time:time_point() + 181_s + 3_ms + 473_us
+87|7|top.agents$print:0|1|0
+87|7|top.agents$print:0|3|3
+87|7|top.agents$print:0|3|1
+88|0|$time:time_point() + 155_s + 743_ms + 215_us
 88|0|top$planned
 88|1|top.agents$planned
-88|2|top.agents.agent-0%2%0%0%0%0%0$print:moving to {-1, 0}
+88|2|top.agents.agent-0%0%2%1$print:moving to {-1, -1}
 88|3|top.agents$micro-planned
-88|3|top.agents$print:0|2|0
-88|3|top.agents$print:1|0|1
 88|3|top.agents$print:0|1|0
-89|0|$time:time_point() + 184_s + 334_ms + 515_us
+88|3|top.agents$print:0|3|3
+88|3|top.agents$print:1|2|1
+89|0|$time:time_point() + 156_s + 705_ms + 776_us
 89|0|top$planned
 89|1|top.agents$planned
-89|2|top.agents.agent-0%2%0%0%0%0%0$print:moving to {-1, -1}
+89|2|top.agents.agent-0%0%2%0%0%0$print:moving to {0, 1}
 89|3|top.agents$micro-planned
-89|3|top.agents$print:0|2|0
-89|3|top.agents$print:0|0|1
-89|3|top.agents$print:1|1|0
-90|0|$time:time_point() + 189_s + 897_ms + 298_us
+89|5|top.agents$print:0|2|0
+89|5|top.agents$print:0|2|3
+89|5|top.agents$print:1|2|1
+90|0|$time:time_point() + 156_s + 865_ms + 839_us
 90|0|top$planned
 90|1|top.agents$planned
-90|2|top.agents.agent-0%2%0%1%1%0%0$print:moving to {2, 0}
+90|2|top.agents.agent-0%0%1$print:moving to {0, 0}
 90|3|top.agents$micro-planned
-90|4|top.agents$print:agent-0%2%0%1%1%0%0 departed after encountering 3 others
-90|4|top.agents$print:0|2|0
-90|4|top.agents$print:0|0|0
-90|4|top.agents$print:1|1|0
-91|0|$time:time_point() + 192_s + 677_ms + 996_us
+90|7|top.agents$print:0|2|0
+90|7|top.agents$print:0|3|2
+90|7|top.agents$print:1|2|1
+91|0|$time:time_point() + 157_s + 812_ms + 755_us
 91|0|top$planned
 91|1|top.agents$planned
-91|2|top.agents.agent-0%2%0%0%0%0$print:inviting agent-0%2%0%0%0%0%1
+91|2|top.agents.agent-0%0%2$print:inviting agent-0%0%2%2
 91|3|top.agents$micro-planned
 91|6|top$planned
 91|7|top.agents$planned
-91|8|top.agents.agent-0%2%0%0%0%0%1$print:arriving at {0, 0}
+91|8|top.agents.agent-0%0%2%2$print:arriving at {0, 0}
 91|9|top.agents$micro-planned
-91|9|top.agents$print:0|2|0
-91|9|top.agents$print:0|1|0
-91|9|top.agents$print:1|1|0
-92|0|$time:time_point() + 193_s + 479_ms + 613_us
+91|15|top.agents$print:0|2|0
+91|15|top.agents$print:0|4|2
+91|15|top.agents$print:1|2|1
+92|0|$time:time_point() + 158_s + 614_ms + 372_us
 92|0|top$planned
 92|1|top.agents$planned
-92|2|top.agents.agent-0%2%0%0%0%0$print:moving to {-1, 1}
+92|2|top.agents.agent-0%0%2$print:moving to {1, 1}
 92|3|top.agents$micro-planned
-92|3|top.agents$print:1|1|0
-92|3|top.agents$print:0|1|0
-92|3|top.agents$print:1|1|0
-93|0|$time:time_point() + 193_s + 977_ms + 850_us
+92|3|top.agents$print:0|2|1
+92|3|top.agents$print:0|4|1
+92|3|top.agents$print:1|2|1
+93|0|$time:time_point() + 159_s + 74_ms + 257_us
 93|0|top$planned
 93|1|top.agents$planned
-93|2|top.agents.agent-0%2%0%1%1%0$print:moving to {0, -2}
+93|2|top.agents.agent-0%0%2%1$print:moving to {-1, -2}
 93|3|top.agents$micro-planned
-93|4|top.agents$print:agent-0%2%0%1%1%0 departed after encountering 4 others
-93|4|top.agents$print:1|1|0
-93|4|top.agents$print:0|1|0
-93|4|top.agents$print:1|0|0
-94|0|$time:time_point() + 194_s + 664_ms + 455_us
+93|4|top.agents$print:agent-0%0%2%1 departed after encountering 7 others
+93|4|top.agents$print:0|2|1
+93|4|top.agents$print:0|4|1
+93|4|top.agents$print:0|2|1
+94|0|$time:time_point() + 159_s + 702_ms + 775_us
 94|0|top$planned
 94|1|top.agents$planned
-94|2|top.agents.agent-0%2%0%0%0%0$print:moving to {-1, 0}
+94|2|top.agents.agent-0%0%1$print:moving to {1, 0}
 94|3|top.agents$micro-planned
-94|3|top.agents$print:0|1|0
-94|3|top.agents$print:1|1|0
-94|3|top.agents$print:1|0|0
-95|0|$time:time_point() + 194_s + 880_ms + 255_us
+94|5|top.agents$print:0|2|1
+94|5|top.agents$print:0|3|2
+94|5|top.agents$print:0|2|1
+95|0|$time:time_point() + 159_s + 799_ms + 214_us
 95|0|top$planned
 95|1|top.agents$planned
-95|2|top.agents.agent-0%2%0%0%0%0$print:inviting agent-0%2%0%0%0%0%2
+95|2|top.agents.agent-0%0%2$print:inviting agent-0%0%2%3
 95|3|top.agents$micro-planned
 95|6|top$planned
 95|7|top.agents$planned
-95|8|top.agents.agent-0%2%0%0%0%0%2$print:arriving at {0, 0}
+95|8|top.agents.agent-0%0%2%3$print:arriving at {0, 0}
 95|9|top.agents$micro-planned
-95|11|top.agents$print:0|1|0
-95|11|top.agents$print:1|2|0
-95|11|top.agents$print:1|0|0
-96|0|$time:time_point() + 195_s + 603_ms + 293_us
+95|15|top.agents$print:0|2|1
+95|15|top.agents$print:0|4|2
+95|15|top.agents$print:0|2|1
+96|0|$time:time_point() + 159_s + 918_ms + 575_us
 96|0|top$planned
 96|1|top.agents$planned
-96|2|top.agents.agent-0%2%0%0%0%0%2$print:moving to {0, -1}
+96|2|top.agents.agent-0%0%1$print:moving to {0, 0}
 96|3|top.agents$micro-planned
-96|3|top.agents$print:0|1|0
-96|3|top.agents$print:1|1|0
-96|3|top.agents$print:1|1|0
-97|0|$time:time_point() + 196_s + 12_ms + 465_us
+96|11|top.agents$print:0|2|1
+96|11|top.agents$print:0|5|1
+96|11|top.agents$print:0|2|1
+97|0|$time:time_point() + 160_s + 327_ms + 747_us
 97|0|top$planned
 97|1|top.agents$planned
-97|2|top.agents.agent-0%2%0%0%0%0%2$print:moving to {0, -2}
+97|2|top.agents.agent-0%0%1$print:moving to {-1, 0}
 97|3|top.agents$micro-planned
-97|4|top.agents$print:agent-0%2%0%0%0%0%2 departed after encountering 1 others
-97|4|top.agents$print:0|1|0
-97|4|top.agents$print:1|1|0
-97|4|top.agents$print:1|0|0
-98|0|$time:time_point() + 197_s + 151_ms + 305_us
+97|3|top.agents$print:0|2|1
+97|3|top.agents$print:1|4|1
+97|3|top.agents$print:0|2|1
+98|0|$time:time_point() + 160_s + 522_ms + 252_us
 98|0|top$planned
 98|1|top.agents$planned
-98|2|top.agents.agent-0%2%0%0%0%0%1$print:moving to {-1, 0}
+98|2|top.agents.agent-0%0%2%3$print:moving to {0, -1}
 98|3|top.agents$micro-planned
-98|5|top.agents$print:0|1|0
-98|5|top.agents$print:2|0|0
-98|5|top.agents$print:1|0|0
-99|0|$time:time_point() + 197_s + 498_ms + 133_us
+98|7|top.agents$print:0|2|1
+98|7|top.agents$print:1|3|1
+98|7|top.agents$print:0|3|1
+99|0|$time:time_point() + 161_s + 926_ms + 366_us
 99|0|top$planned
 99|1|top.agents$planned
-99|2|top.agents.agent-0%2%0%0%0%0%0$print:moving to {0, -1}
+99|2|top.agents.agent-0%0%1$print:moving to {0, 0}
 99|3|top.agents$micro-planned
-99|3|top.agents$print:0|1|0
-99|3|top.agents$print:2|0|0
-99|3|top.agents$print:0|1|0
-100|0|$time:time_point() + 202_s + 619_ms + 902_us
+99|9|top.agents$print:0|2|1
+99|9|top.agents$print:0|4|1
+99|9|top.agents$print:0|3|1
+100|0|$time:time_point() + 162_s + 78_ms + 868_us
 100|0|top$planned
 100|1|top.agents$planned
-100|2|top.agents.agent-0%2%0%1%1%0%1$print:moving to {1, 1}
+100|2|top.agents.agent-0%0%2%0%1$print:moving to {0, -1}
 100|3|top.agents$micro-planned
-100|3|top.agents$print:0|0|1
-100|3|top.agents$print:2|0|0
-100|3|top.agents$print:0|1|0
-101|0|$time:time_point() + 211_s + 425_ms + 21_us
+100|9|top.agents$print:0|2|1
+100|9|top.agents$print:0|3|1
+100|9|top.agents$print:0|4|1
+101|0|$time:time_point() + 162_s + 286_ms + 64_us
 101|0|top$planned
 101|1|top.agents$planned
-101|2|top.agents.agent-0%2%0%0%0%0%0$print:moving to {-1, -1}
+101|2|top.agents.agent-0%0%2%2$print:moving to {-1, 0}
 101|3|top.agents$micro-planned
-101|3|top.agents$print:0|0|1
-101|3|top.agents$print:2|0|0
-101|3|top.agents$print:1|0|0
-102|0|$time:time_point() + 212_s + 992_ms + 518_us
+101|3|top.agents$print:0|2|1
+101|3|top.agents$print:1|2|1
+101|3|top.agents$print:0|4|1
+102|0|$time:time_point() + 162_s + 329_ms + 960_us
 102|0|top$planned
 102|1|top.agents$planned
-102|2|top.agents.agent-0%2%0%0%0%0$print:moving to {0, 0}
+102|2|top.agents.agent-0%0%2%0%0$print:moving to {1, 0}
 102|3|top.agents$micro-planned
-102|3|top.agents$print:0|0|1
-102|3|top.agents$print:1|1|0
-102|3|top.agents$print:1|0|0
-103|0|$time:time_point() + 222_s + 101_ms + 530_us
+102|5|top.agents$print:0|2|1
+102|5|top.agents$print:1|2|2
+102|5|top.agents$print:0|4|0
+103|0|$time:time_point() + 162_s + 822_ms + 162_us
 103|0|top$planned
 103|1|top.agents$planned
-103|2|top.agents.agent-0%2%0%0%0%0%1$print:moving to {-2, 0}
+103|2|top.agents.agent-0%1%1%1%0%0$print:moving to {1, 0}
 103|3|top.agents$micro-planned
-103|4|top.agents$print:agent-0%2%0%0%0%0%1 departed after encountering 2 others
-103|4|top.agents$print:0|0|1
-103|4|top.agents$print:0|1|0
-103|4|top.agents$print:1|0|0
-104|0|$time:time_point() + 228_s + 295_ms + 345_us
+103|7|top.agents$print:0|2|1
+103|7|top.agents$print:1|1|3
+103|7|top.agents$print:0|4|0
+104|0|$time:time_point() + 164_s + 249_ms + 666_us
 104|0|top$planned
 104|1|top.agents$planned
-104|2|top.agents.agent-0%2%0%1%1%0%1$print:moving to {2, 1}
+104|2|top.agents.agent-0%1%1%1%0%0$print:moving to {1, 1}
 104|3|top.agents$micro-planned
-104|4|top.agents$print:agent-0%2%0%1%1%0%1 departed after encountering 4 others
-104|4|top.agents$print:0|0|0
-104|4|top.agents$print:0|1|0
-104|4|top.agents$print:1|0|0
-105|0|$time:time_point() + 230_s + 299_ms + 35_us
+104|5|top.agents$print:0|2|2
+104|5|top.agents$print:1|1|2
+104|5|top.agents$print:0|4|0
+105|0|$time:time_point() + 167_s + 127_ms + 579_us
 105|0|top$planned
 105|1|top.agents$planned
-105|2|top.agents.agent-0%2%0%0%0%0%0$print:inviting agent-0%2%0%0%0%0%0%0
+105|2|top.agents.agent-0%1%1%1%0%0$print:inviting agent-0%1%1%1%0%0%0
 105|3|top.agents$micro-planned
 105|6|top$planned
 105|7|top.agents$planned
-105|8|top.agents.agent-0%2%0%0%0%0%0%0$print:arriving at {0, 0}
+105|8|top.agents.agent-0%1%1%1%0%0%0$print:arriving at {0, 0}
 105|9|top.agents$micro-planned
-105|11|top.agents$print:0|0|0
-105|11|top.agents$print:0|2|0
-105|11|top.agents$print:1|0|0
-106|0|$time:time_point() + 237_s + 678_ms + 426_us
+105|11|top.agents$print:0|2|2
+105|11|top.agents$print:1|2|2
+105|11|top.agents$print:0|4|0
+106|0|$time:time_point() + 168_s + 288_ms + 305_us
 106|0|top$planned
 106|1|top.agents$planned
-106|2|top.agents.agent-0%2%0%0%0%0%0$print:moving to {-1, 0}
+106|2|top.agents.agent-0%1%1%1%1$print:moving to {0, -2}
 106|3|top.agents$micro-planned
-106|3|top.agents$print:0|0|0
-106|3|top.agents$print:1|2|0
-106|3|top.agents$print:0|0|0
-107|0|$time:time_point() + 240_s + 958_ms + 499_us
+106|4|top.agents$print:agent-0%1%1%1%1 departed after encountering 8 others
+106|4|top.agents$print:0|2|2
+106|4|top.agents$print:1|2|2
+106|4|top.agents$print:0|3|0
+107|0|$time:time_point() + 169_s + 869_ms + 394_us
 107|0|top$planned
 107|1|top.agents$planned
-107|2|top.agents.agent-0%2%0%0%0%0$print:inviting agent-0%2%0%0%0%0%3
+107|2|top.agents.agent-0%0%2%0%0%0$print:inviting agent-0%0%2%0%0%0%0
 107|3|top.agents$micro-planned
 107|6|top$planned
 107|7|top.agents$planned
-107|8|top.agents.agent-0%2%0%0%0%0%3$print:arriving at {0, 0}
+107|8|top.agents.agent-0%0%2%0%0%0%0$print:arriving at {0, 0}
 107|9|top.agents$micro-planned
-107|13|top.agents$print:0|0|0
-107|13|top.agents$print:1|3|0
-107|13|top.agents$print:0|0|0
-108|0|$time:time_point() + 241_s + 698_ms + 506_us
+107|13|top.agents$print:0|2|2
+107|13|top.agents$print:1|3|2
+107|13|top.agents$print:0|3|0
+108|0|$time:time_point() + 170_s + 609_ms + 401_us
 108|0|top$planned
 108|1|top.agents$planned
-108|2|top.agents.agent-0%2%0%0%0%0%3$print:inviting agent-0%2%0%0%0%0%3%0
+108|2|top.agents.agent-0%0%2%0%0%0%0$print:inviting agent-0%0%2%0%0%0%0%0
 108|3|top.agents$micro-planned
 108|6|top$planned
 108|7|top.agents$planned
-108|8|top.agents.agent-0%2%0%0%0%0%3%0$print:arriving at {0, 0}
+108|8|top.agents.agent-0%0%2%0%0%0%0%0$print:arriving at {0, 0}
 108|9|top.agents$micro-planned
-108|15|top.agents$print:0|0|0
-108|15|top.agents$print:1|4|0
-108|15|top.agents$print:0|0|0
-109|0|$time:time_point() + 242_s + 561_ms + 841_us
+108|15|top.agents$print:0|2|2
+108|15|top.agents$print:1|4|2
+108|15|top.agents$print:0|3|0
+109|0|$time:time_point() + 173_s + 753_ms + 391_us
 109|0|top$planned
 109|1|top.agents$planned
-109|2|top.agents.agent-0%2%0%0%0%0%0$print:moving to {-2, 0}
+109|2|top.agents.agent-0%0%2%0$print:moving to {1, -1}
 109|3|top.agents$micro-planned
-109|4|top.agents$print:agent-0%2%0%0%0%0%0 departed after encountering 3 others
-109|4|top.agents$print:0|0|0
-109|4|top.agents$print:0|4|0
-109|4|top.agents$print:0|0|0
-110|0|$time:time_point() + 243_s + 533_ms + 665_us
+109|3|top.agents$print:0|2|2
+109|3|top.agents$print:1|4|2
+109|3|top.agents$print:0|2|1
+110|0|$time:time_point() + 174_s + 506_ms + 970_us
 110|0|top$planned
 110|1|top.agents$planned
-110|2|top.agents.agent-0%2%0%0%0%0%0%0$print:moving to {-1, 0}
+110|2|top.agents.agent-0%1%1%1%0%0$print:moving to {1, 2}
 110|3|top.agents$micro-planned
-110|3|top.agents$print:0|0|0
-110|3|top.agents$print:1|3|0
-110|3|top.agents$print:0|0|0
-111|0|$time:time_point() + 246_s + 303_ms + 31_us
+110|4|top.agents$print:agent-0%1%1%1%0%0 departed after encountering 9 others
+110|4|top.agents$print:0|2|1
+110|4|top.agents$print:1|4|2
+110|4|top.agents$print:0|2|1
+111|0|$time:time_point() + 174_s + 888_ms + 725_us
 111|0|top$planned
 111|1|top.agents$planned
-111|2|top.agents.agent-0%2%0%0%0%0%3$print:moving to {0, -1}
+111|2|top.agents.agent-0%1%1%1$print:moving to {2, 0}
 111|3|top.agents$micro-planned
-111|3|top.agents$print:0|0|0
-111|3|top.agents$print:1|2|0
-111|3|top.agents$print:0|1|0
-112|0|$time:time_point() + 247_s + 986_ms + 626_us
+111|4|top.agents$print:agent-0%1%1%1 departed after encountering 13 others
+111|4|top.agents$print:0|2|1
+111|4|top.agents$print:1|4|1
+111|4|top.agents$print:0|2|1
+112|0|$time:time_point() + 175_s + 213_ms + 926_us
 112|0|top$planned
 112|1|top.agents$planned
-112|2|top.agents.agent-0%2%0%0%0%0%3$print:moving to {1, -1}
+112|2|top.agents.agent-0%0%2%0%0%0%0$print:moving to {1, 0}
 112|3|top.agents$micro-planned
-112|3|top.agents$print:0|0|0
-112|3|top.agents$print:1|2|0
-112|3|top.agents$print:0|0|1
-113|0|$time:time_point() + 250_s + 885_ms + 71_us
+112|5|top.agents$print:0|2|1
+112|5|top.agents$print:1|3|2
+112|5|top.agents$print:0|2|1
+113|0|$time:time_point() + 175_s + 853_ms + 254_us
 113|0|top$planned
 113|1|top.agents$planned
-113|2|top.agents.agent-0%2%0%0%0%0%3$print:moving to {0, -1}
+113|2|top.agents.agent-0%0%1$print:moving to {0, 1}
 113|3|top.agents$micro-planned
-113|3|top.agents$print:0|0|0
-113|3|top.agents$print:1|2|0
-113|3|top.agents$print:0|1|0
-114|0|$time:time_point() + 253_s + 393_ms + 326_us
+113|7|top.agents$print:0|3|1
+113|7|top.agents$print:1|2|2
+113|7|top.agents$print:0|2|1
+114|0|$time:time_point() + 177_s + 911_ms + 477_us
 114|0|top$planned
 114|1|top.agents$planned
-114|2|top.agents.agent-0%2%0%0%0%0%3$print:inviting agent-0%2%0%0%0%0%3%1
+114|2|top.agents.agent-0%0%2$print:inviting agent-0%0%2%4
 114|3|top.agents$micro-planned
 114|6|top$planned
 114|7|top.agents$planned
-114|8|top.agents.agent-0%2%0%0%0%0%3%1$print:arriving at {0, 0}
+114|8|top.agents.agent-0%0%2%4$print:arriving at {0, 0}
 114|9|top.agents$micro-planned
-114|13|top.agents$print:0|0|0
-114|13|top.agents$print:1|3|0
-114|13|top.agents$print:0|1|0
-115|0|$time:time_point() + 254_s + 573_ms + 137_us
+114|13|top.agents$print:0|3|1
+114|13|top.agents$print:1|3|2
+114|13|top.agents$print:0|2|1
+115|0|$time:time_point() + 178_s + 112_ms + 371_us
 115|0|top$planned
 115|1|top.agents$planned
-115|2|top.agents.agent-0%2%0%0%0%0$print:moving to {0, 1}
+115|2|top.agents.agent-0%0%2%0%0%0%0$print:moving to {2, 0}
 115|3|top.agents$micro-planned
-115|3|top.agents$print:0|1|0
-115|3|top.agents$print:1|2|0
-115|3|top.agents$print:0|1|0
-116|0|$time:time_point() + 255_s + 445_ms + 604_us
+115|4|top.agents$print:agent-0%0%2%0%0%0%0 departed after encountering 4 others
+115|4|top.agents$print:0|3|1
+115|4|top.agents$print:1|3|1
+115|4|top.agents$print:0|2|1
+116|0|$time:time_point() + 178_s + 361_ms + 509_us
 116|0|top$planned
 116|1|top.agents$planned
-116|2|top.agents.agent-0%2%0%0%0%0%3%0$print:moving to {1, 0}
+116|2|top.agents.agent-0%0%1$print:moving to {0, 2}
 116|3|top.agents$micro-planned
-116|3|top.agents$print:0|1|0
-116|3|top.agents$print:1|1|1
-116|3|top.agents$print:0|1|0
-117|0|$time:time_point() + 257_s + 312_ms + 841_us
+116|4|top.agents$print:agent-0%0%1 departed after encountering 16 others
+116|4|top.agents$print:0|2|1
+116|4|top.agents$print:1|3|1
+116|4|top.agents$print:0|2|1
+117|0|$time:time_point() + 180_s + 362_ms + 209_us
 117|0|top$planned
 117|1|top.agents$planned
-117|2|top.agents.agent-0%2%0%0%0%0%3%0$print:moving to {1, 1}
+117|2|top.agents.agent-0%1%1%1%0%0%0$print:moving to {0, -1}
 117|3|top.agents$micro-planned
-117|3|top.agents$print:0|1|1
-117|3|top.agents$print:1|1|0
-117|3|top.agents$print:0|1|0
-118|0|$time:time_point() + 257_s + 924_ms + 812_us
+117|7|top.agents$print:0|2|1
+117|7|top.agents$print:1|2|1
+117|7|top.agents$print:0|3|1
+118|0|$time:time_point() + 181_s + 160_ms + 78_us
 118|0|top$planned
 118|1|top.agents$planned
-118|2|top.agents.agent-0%2%0%0%0%0%3%1$print:moving to {0, 1}
+118|2|top.agents.agent-0%0%2%2$print:moving to {0, 0}
 118|3|top.agents$micro-planned
-118|5|top.agents$print:0|2|1
-118|5|top.agents$print:1|0|0
-118|5|top.agents$print:0|1|0
-119|0|$time:time_point() + 259_s + 838_ms + 995_us
+118|7|top.agents$print:0|2|1
+118|7|top.agents$print:0|3|1
+118|7|top.agents$print:0|3|1
+119|0|$time:time_point() + 182_s + 208_ms + 937_us
 119|0|top$planned
 119|1|top.agents$planned
-119|2|top.agents.agent-0%2%0%0%0%0%3%1$print:moving to {-1, 1}
+119|2|top.agents.agent-0%1%0%0%0$print:moving to {0, 2}
 119|3|top.agents$micro-planned
-119|3|top.agents$print:1|1|1
-119|3|top.agents$print:1|0|0
-119|3|top.agents$print:0|1|0
-120|0|$time:time_point() + 260_s + 177_ms + 329_us
+119|4|top.agents$print:agent-0%1%0%0%0 departed after encountering 16 others
+119|4|top.agents$print:0|1|1
+119|4|top.agents$print:0|3|1
+119|4|top.agents$print:0|3|1
+120|0|$time:time_point() + 182_s + 442_ms + 963_us
 120|0|top$planned
 120|1|top.agents$planned
-120|2|top.agents.agent-0%2%0%0%0%0%3$print:moving to {1, -1}
+120|2|top.agents.agent-0%0%2%4$print:moving to {-1, 0}
 120|3|top.agents$micro-planned
-120|3|top.agents$print:1|1|1
-120|3|top.agents$print:1|0|0
-120|3|top.agents$print:0|0|1
-121|0|$time:time_point() + 262_s + 487_ms + 570_us
+120|3|top.agents$print:0|1|1
+120|3|top.agents$print:1|2|1
+120|3|top.agents$print:0|3|1
+121|0|$time:time_point() + 182_s + 734_ms + 633_us
 121|0|top$planned
 121|1|top.agents$planned
-121|2|top.agents.agent-0%2%0%0%0%0%3$print:moving to {2, -1}
+121|2|top.agents.agent-0%0%2%0$print:moving to {0, -1}
 121|3|top.agents$micro-planned
-121|4|top.agents$print:agent-0%2%0%0%0%0%3 departed after encountering 3 others
-121|4|top.agents$print:1|1|1
-121|4|top.agents$print:1|0|0
-121|4|top.agents$print:0|0|0
-122|0|$time:time_point() + 264_s + 683_ms + 808_us
+121|9|top.agents$print:0|1|1
+121|9|top.agents$print:1|2|1
+121|9|top.agents$print:0|4|0
+122|0|$time:time_point() + 183_s + 74_ms + 261_us
 122|0|top$planned
 122|1|top.agents$planned
-122|2|top.agents.agent-0%2%0%0%0%0%3%1$print:inviting agent-0%2%0%0%0%0%3%1%0
+122|2|top.agents.agent-0%0%2%2$print:inviting agent-0%0%2%2%0
 122|3|top.agents$micro-planned
 122|6|top$planned
 122|7|top.agents$planned
-122|8|top.agents.agent-0%2%0%0%0%0%3%1%0$print:arriving at {0, 0}
+122|8|top.agents.agent-0%0%2%2%0$print:arriving at {0, 0}
 122|9|top.agents$micro-planned
-122|9|top.agents$print:1|1|1
-122|9|top.agents$print:1|1|0
-122|9|top.agents$print:0|0|0
-123|0|$time:time_point() + 265_s + 151_ms + 983_us
+122|13|top.agents$print:0|1|1
+122|13|top.agents$print:1|3|1
+122|13|top.agents$print:0|4|0
+123|0|$time:time_point() + 183_s + 484_ms + 32_us
 123|0|top$planned
 123|1|top.agents$planned
-123|2|top.agents.agent-0%2%0%0%0%0%3%1$print:moving to {-2, 1}
+123|2|top.agents.agent-0%0%2%0%0%0$print:moving to {0, 0}
 123|3|top.agents$micro-planned
-123|4|top.agents$print:agent-0%2%0%0%0%0%3%1 departed after encountering 2 others
-123|4|top.agents$print:0|1|1
-123|4|top.agents$print:1|1|0
-123|4|top.agents$print:0|0|0
-124|0|$time:time_point() + 269_s + 299_ms + 670_us
+123|9|top.agents$print:0|0|1
+123|9|top.agents$print:1|4|1
+123|9|top.agents$print:0|4|0
+124|0|$time:time_point() + 183_s + 542_ms + 436_us
 124|0|top$planned
 124|1|top.agents$planned
-124|2|top.agents.agent-0%2%0%0%0%0$print:moving to {0, 2}
+124|2|top.agents.agent-0%0%2%2$print:moving to {0, 1}
 124|3|top.agents$micro-planned
-124|4|top.agents$print:agent-0%2%0%0%0%0 departed after encountering 11 others
-124|4|top.agents$print:0|0|1
-124|4|top.agents$print:1|1|0
-124|4|top.agents$print:0|0|0
-125|0|$time:time_point() + 269_s + 484_ms + 940_us
+124|3|top.agents$print:0|1|1
+124|3|top.agents$print:1|3|1
+124|3|top.agents$print:0|4|0
+125|0|$time:time_point() + 184_s + 151_ms + 737_us
 125|0|top$planned
 125|1|top.agents$planned
-125|2|top.agents.agent-0%2%0%0%0%0%3%1%0$print:moving to {0, 1}
+125|2|top.agents.agent-0%0%2%2$print:moving to {0, 2}
 125|3|top.agents$micro-planned
-125|3|top.agents$print:0|1|1
-125|3|top.agents$print:1|0|0
-125|3|top.agents$print:0|0|0
-126|0|$time:time_point() + 273_s + 876_ms + 560_us
+125|4|top.agents$print:agent-0%0%2%2 departed after encountering 8 others
+125|4|top.agents$print:0|0|1
+125|4|top.agents$print:1|3|1
+125|4|top.agents$print:0|4|0
+126|0|$time:time_point() + 184_s + 356_ms + 499_us
 126|0|top$planned
 126|1|top.agents$planned
-126|2|top.agents.agent-0%2%0%0%0%0%3%1%0$print:moving to {-1, 1}
+126|2|top.agents.agent-0%0%2%0%0%0%0%0$print:moving to {0, -1}
 126|3|top.agents$micro-planned
-126|3|top.agents$print:1|0|1
-126|3|top.agents$print:1|0|0
-126|3|top.agents$print:0|0|0
-127|0|$time:time_point() + 274_s + 82_ms + 114_us
+126|11|top.agents$print:0|0|1
+126|11|top.agents$print:1|2|1
+126|11|top.agents$print:0|5|0
+127|0|$time:time_point() + 184_s + 695_ms + 480_us
 127|0|top$planned
 127|1|top.agents$planned
-127|2|top.agents.agent-0%2%0%0%0%0%3%0$print:inviting agent-0%2%0%0%0%0%3%0%0
+127|2|top.agents.agent-0%0%2$print:inviting agent-0%0%2%5
 127|3|top.agents$micro-planned
 127|6|top$planned
 127|7|top.agents$planned
-127|8|top.agents.agent-0%2%0%0%0%0%3%0%0$print:arriving at {0, 0}
+127|8|top.agents.agent-0%0%2%5$print:arriving at {0, 0}
 127|9|top.agents$micro-planned
-127|9|top.agents$print:1|0|1
-127|9|top.agents$print:1|1|0
-127|9|top.agents$print:0|0|0
-128|0|$time:time_point() + 274_s + 829_ms + 153_us
+127|13|top.agents$print:0|0|1
+127|13|top.agents$print:1|3|1
+127|13|top.agents$print:0|5|0
+128|0|$time:time_point() + 184_s + 753_ms + 204_us
 128|0|top$planned
 128|1|top.agents$planned
-128|2|top.agents.agent-0%2%0%0%0%0%3%0$print:moving to {2, 1}
+128|2|top.agents.agent-0%0%2%4$print:moving to {0, 0}
 128|3|top.agents$micro-planned
-128|4|top.agents$print:agent-0%2%0%0%0%0%3%0 departed after encountering 4 others
-128|4|top.agents$print:1|0|0
-128|4|top.agents$print:1|1|0
-128|4|top.agents$print:0|0|0
-129|0|$time:time_point() + 276_s + 249_ms + 458_us
+128|9|top.agents$print:0|0|1
+128|9|top.agents$print:0|4|1
+128|9|top.agents$print:0|5|0
+129|0|$time:time_point() + 185_s + 442_ms + 519_us
 129|0|top$planned
 129|1|top.agents$planned
-129|2|top.agents.agent-0%2%0%0%0%0%0%0$print:moving to {-2, 0}
+129|2|top.agents.agent-0%0%2$print:moving to {0, 1}
 129|3|top.agents$micro-planned
-129|4|top.agents$print:agent-0%2%0%0%0%0%0%0 departed after encountering 3 others
-129|4|top.agents$print:1|0|0
-129|4|top.agents$print:0|1|0
-129|4|top.agents$print:0|0|0
-130|0|$time:time_point() + 285_s + 65_ms + 945_us
+129|3|top.agents$print:0|1|0
+129|3|top.agents$print:0|4|1
+129|3|top.agents$print:0|5|0
+130|0|$time:time_point() + 185_s + 472_ms + 477_us
 130|0|top$planned
 130|1|top.agents$planned
-130|2|top.agents.agent-0%2%0%0%0%0%3%0%0$print:moving to {-1, 0}
+130|2|top.agents.agent-0%0%2%3$print:moving to {-1, -1}
 130|3|top.agents$micro-planned
-130|3|top.agents$print:1|0|0
-130|3|top.agents$print:1|0|0
-130|3|top.agents$print:0|0|0
-131|0|$time:time_point() + 289_s + 35_ms + 79_us
+130|3|top.agents$print:0|1|0
+130|3|top.agents$print:0|4|1
+130|3|top.agents$print:1|4|0
+131|0|$time:time_point() + 186_s + 84_ms + 711_us
 131|0|top$planned
 131|1|top.agents$planned
-131|2|top.agents.agent-0%2%0%0%0%0%3%1%0$print:moving to {0, 1}
+131|2|top.agents.agent-0%0%2%0%0%0$print:moving to {0, 1}
 131|3|top.agents$micro-planned
-131|3|top.agents$print:0|1|0
-131|3|top.agents$print:1|0|0
-131|3|top.agents$print:0|0|0
-132|0|$time:time_point() + 289_s + 320_ms + 751_us
+131|5|top.agents$print:0|2|0
+131|5|top.agents$print:0|3|1
+131|5|top.agents$print:1|4|0
+132|0|$time:time_point() + 186_s + 751_ms + 317_us
 132|0|top$planned
 132|1|top.agents$planned
-132|2|top.agents.agent-0%2%0%0%0%0%3%0%0$print:moving to {-1, 1}
+132|2|top.agents.agent-0%0%2%0$print:moving to {0, -2}
 132|3|top.agents$micro-planned
-132|3|top.agents$print:1|1|0
-132|3|top.agents$print:0|0|0
-132|3|top.agents$print:0|0|0
-133|0|$time:time_point() + 295_s + 104_ms + 161_us
+132|4|top.agents$print:agent-0%0%2%0 departed after encountering 10 others
+132|4|top.agents$print:0|2|0
+132|4|top.agents$print:0|3|1
+132|4|top.agents$print:1|3|0
+133|0|$time:time_point() + 187_s + 754_ms + 311_us
 133|0|top$planned
 133|1|top.agents$planned
-133|2|top.agents.agent-0%2%0%0%0%0%3%1%0$print:moving to {0, 2}
+133|2|top.agents.agent-0%0%2%0%1$print:moving to {1, -1}
 133|3|top.agents$micro-planned
-133|4|top.agents$print:agent-0%2%0%0%0%0%3%1%0 departed after encountering 0 others
-133|4|top.agents$print:1|0|0
-133|4|top.agents$print:0|0|0
-133|4|top.agents$print:0|0|0
-134|0|$time:time_point() + 298_s + 389_ms + 569_us
+133|3|top.agents$print:0|2|0
+133|3|top.agents$print:0|3|1
+133|3|top.agents$print:1|2|1
+134|0|$time:time_point() + 187_s + 875_ms + 393_us
 134|0|top$planned
 134|1|top.agents$planned
-134|2|top.agents.agent-0%2%0%0%0%0%3%0%0$print:moving to {-1, 0}
+134|2|top.agents.agent-0%0%2%2%0$print:moving to {0, 1}
 134|3|top.agents$micro-planned
-134|3|top.agents$print:0|0|0
-134|3|top.agents$print:1|0|0
-134|3|top.agents$print:0|0|0
-135|0|$time:time_point() + 310_s + 176_ms + 654_us
+134|7|top.agents$print:0|3|0
+134|7|top.agents$print:0|2|1
+134|7|top.agents$print:1|2|1
+135|0|$time:time_point() + 189_s + 727_ms + 283_us
 135|0|top$planned
 135|1|top.agents$planned
-135|2|top.agents.agent-0%2%0%0%0%0%3%0%0$print:moving to {-1, 1}
+135|2|top.agents.agent-0%0%2%3$print:moving to {0, -1}
 135|3|top.agents$micro-planned
-135|3|top.agents$print:1|0|0
-135|3|top.agents$print:0|0|0
-135|3|top.agents$print:0|0|0
-136|0|$time:time_point() + 310_s + 776_ms + 544_us
+135|7|top.agents$print:0|3|0
+135|7|top.agents$print:0|2|1
+135|7|top.agents$print:0|3|1
+136|0|$time:time_point() + 190_s + 295_ms + 941_us
 136|0|top$planned
 136|1|top.agents$planned
-136|2|top.agents.agent-0%2%0%0%0%0%3%0%0$print:moving to {0, 1}
+136|2|top.agents.agent-0%0%2%0%0$print:moving to {2, 0}
 136|3|top.agents$micro-planned
-136|3|top.agents$print:0|1|0
-136|3|top.agents$print:0|0|0
-136|3|top.agents$print:0|0|0
-137|0|$time:time_point() + 313_s + 631_ms + 750_us
+136|4|top.agents$print:agent-0%0%2%0%0 departed after encountering 9 others
+136|4|top.agents$print:0|3|0
+136|4|top.agents$print:0|2|0
+136|4|top.agents$print:0|3|1
+137|0|$time:time_point() + 190_s + 327_ms + 173_us
 137|0|top$planned
 137|1|top.agents$planned
-137|2|top.agents.agent-0%2%0%0%0%0%3%0%0$print:moving to {1, 1}
+137|2|top.agents.agent-0%0%2%3$print:moving to {-1, -1}
 137|3|top.agents$micro-planned
-137|3|top.agents$print:0|0|1
-137|3|top.agents$print:0|0|0
-137|3|top.agents$print:0|0|0
-138|0|$time:time_point() + 328_s + 672_ms + 896_us
+137|3|top.agents$print:0|3|0
+137|3|top.agents$print:0|2|0
+137|3|top.agents$print:1|2|1
+138|0|$time:time_point() + 192_s + 153_ms + 793_us
 138|0|top$planned
 138|1|top.agents$planned
-138|2|top.agents.agent-0%2%0%0%0%0%3%0%0$print:inviting agent-0%2%0%0%0%0%3%0%0%0
+138|2|top.agents.agent-0%0%2%0%0%0$print:inviting agent-0%0%2%0%0%0%1
 138|3|top.agents$micro-planned
 138|6|top$planned
 138|7|top.agents$planned
-138|8|top.agents.agent-0%2%0%0%0%0%3%0%0%0$print:arriving at {0, 0}
+138|8|top.agents.agent-0%0%2%0%0%0%1$print:arriving at {0, 0}
 138|9|top.agents$micro-planned
-138|9|top.agents$print:0|0|1
-138|9|top.agents$print:0|1|0
-138|9|top.agents$print:0|0|0
-139|0|$time:time_point() + 336_s + 737_ms + 314_us
+138|13|top.agents$print:0|3|0
+138|13|top.agents$print:0|3|0
+138|13|top.agents$print:1|2|1
+139|0|$time:time_point() + 195_s + 679_ms + 311_us
 139|0|top$planned
 139|1|top.agents$planned
-139|2|top.agents.agent-0%2%0%0%0%0%3%0%0$print:moving to {1, 2}
+139|2|top.agents.agent-0%0%2%5$print:moving to {1, 0}
 139|3|top.agents$micro-planned
-139|4|top.agents$print:agent-0%2%0%0%0%0%3%0%0 departed after encountering 0 others
-139|4|top.agents$print:0|0|0
-139|4|top.agents$print:0|1|0
-139|4|top.agents$print:0|0|0
-140|0|$time:time_point() + 343_s + 243_ms + 547_us
+139|3|top.agents$print:0|3|0
+139|3|top.agents$print:0|2|1
+139|3|top.agents$print:1|2|1
+140|0|$time:time_point() + 195_s + 772_ms + 737_us
 140|0|top$planned
 140|1|top.agents$planned
-140|2|top.agents.agent-0%2%0%0%0%0%3%0%0%0$print:moving to {1, 0}
+140|2|top.agents.agent-0%0%2%4$print:moving to {-1, 0}
 140|3|top.agents$micro-planned
-140|3|top.agents$print:0|0|0
-140|3|top.agents$print:0|0|1
-140|3|top.agents$print:0|0|0
-141|0|$time:time_point() + 358_s + 256_ms + 665_us
+140|3|top.agents$print:0|3|0
+140|3|top.agents$print:1|1|1
+140|3|top.agents$print:1|2|1
+141|0|$time:time_point() + 197_s + 131_ms + 482_us
 141|0|top$planned
 141|1|top.agents$planned
-141|2|top.agents.agent-0%2%0%0%0%0%3%0%0%0$print:moving to {1, 1}
+141|2|top.agents.agent-0%1%1%1%0%0%0$print:moving to {1, -1}
 141|3|top.agents$micro-planned
-141|3|top.agents$print:0|0|1
-141|3|top.agents$print:0|0|0
-141|3|top.agents$print:0|0|0
-142|0|$time:time_point() + 358_s + 789_ms + 706_us
+141|5|top.agents$print:0|3|0
+141|5|top.agents$print:1|1|1
+141|5|top.agents$print:1|1|2
+142|0|$time:time_point() + 197_s + 664_ms + 523_us
 142|0|top$planned
 142|1|top.agents$planned
-142|2|top.agents.agent-0%2%0%0%0%0%3%0%0%0$print:moving to {0, 1}
+142|2|top.agents.agent-0%1%1%1%0%0%0$print:moving to {2, -1}
 142|3|top.agents$micro-planned
-142|3|top.agents$print:0|1|0
-142|3|top.agents$print:0|0|0
-142|3|top.agents$print:0|0|0
-143|0|$time:time_point() + 366_s + 684_ms + 650_us
+142|4|top.agents$print:agent-0%1%1%1%0%0%0 departed after encountering 7 others
+142|4|top.agents$print:0|3|0
+142|4|top.agents$print:1|1|1
+142|4|top.agents$print:1|1|1
+143|0|$time:time_point() + 198_s + 3_ms + 709_us
 143|0|top$planned
 143|1|top.agents$planned
-143|2|top.agents.agent-0%2%0%0%0%0%3%0%0%0$print:moving to {0, 2}
+143|2|top.agents.agent-0%0%2%0%1$print:moving to {1, -2}
 143|3|top.agents$micro-planned
-143|4|top.agents$print:agent-0%2%0%0%0%0%3%0%0%0 departed after encountering 0 others
-143|4|top.agents$print:0|0|0
-143|4|top.agents$print:0|0|0
-143|4|top.agents$print:0|0|0
-144|0|$time:time_point() + 600_s
-144|0|top$finalization
-144|1|top.agents$finalization
-144|1|top.agents$macro-finalization
-144|1|top.agents#avg_acquaintances_output:3.8
-144|2|top.avg_acquaintances$flow
+143|4|top.agents$print:agent-0%0%2%0%1 departed after encountering 12 others
+143|4|top.agents$print:0|3|0
+143|4|top.agents$print:1|1|1
+143|4|top.agents$print:1|1|0
+144|0|$time:time_point() + 198_s + 487_ms + 919_us
+144|0|top$planned
+144|1|top.agents$planned
+144|2|top.agents.agent-0%0%2$print:moving to {0, 2}
+144|3|top.agents$micro-planned
+144|4|top.agents$print:agent-0%0%2 departed after encountering 10 others
+144|4|top.agents$print:0|2|0
+144|4|top.agents$print:1|1|1
+144|4|top.agents$print:1|1|0
+145|0|$time:time_point() + 199_s + 515_ms + 18_us
+145|0|top$planned
+145|1|top.agents$planned
+145|2|top.agents.agent-0%0%2%0%0%0%0%0$print:moving to {0, 0}
+145|3|top.agents$micro-planned
+145|5|top.agents$print:0|2|0
+145|5|top.agents$print:1|2|1
+145|5|top.agents$print:1|0|0
+146|0|$time:time_point() + 199_s + 662_ms + 478_us
+146|0|top$planned
+146|1|top.agents$planned
+146|2|top.agents.agent-0%0%2%2%0$print:moving to {0, 0}
+146|3|top.agents$micro-planned
+146|7|top.agents$print:0|1|0
+146|7|top.agents$print:1|3|1
+146|7|top.agents$print:1|0|0
+147|0|$time:time_point() + 199_s + 998_ms + 323_us
+147|0|top$planned
+147|1|top.agents$planned
+147|2|top.agents.agent-0%0%2%2%0$print:moving to {0, 1}
+147|3|top.agents$micro-planned
+147|5|top.agents$print:0|2|0
+147|5|top.agents$print:1|2|1
+147|5|top.agents$print:1|0|0
+148|0|$time:time_point() + 200_s + 218_ms + 211_us
+148|0|top$planned
+148|1|top.agents$planned
+148|2|top.agents.agent-0%0%2%0%0%0$print:moving to {1, 1}
+148|3|top.agents$micro-planned
+148|3|top.agents$print:0|1|1
+148|3|top.agents$print:1|2|1
+148|3|top.agents$print:1|0|0
+149|0|$time:time_point() + 201_s + 441_ms + 949_us
+149|0|top$planned
+149|1|top.agents$planned
+149|2|top.agents.agent-0%0%2%5$print:inviting agent-0%0%2%5%0
+149|3|top.agents$micro-planned
+149|6|top$planned
+149|7|top.agents$planned
+149|8|top.agents.agent-0%0%2%5%0$print:arriving at {0, 0}
+149|9|top.agents$micro-planned
+149|13|top.agents$print:0|1|1
+149|13|top.agents$print:1|3|1
+149|13|top.agents$print:1|0|0
+150|0|$time:time_point() + 203_s + 992_ms + 108_us
+150|0|top$planned
+150|1|top.agents$planned
+150|2|top.agents.agent-0%0%2%2%0$print:moving to {0, 2}
+150|3|top.agents$micro-planned
+150|4|top.agents$print:agent-0%0%2%2%0 departed after encountering 7 others
+150|4|top.agents$print:0|0|1
+150|4|top.agents$print:1|3|1
+150|4|top.agents$print:1|0|0
+151|0|$time:time_point() + 204_s + 422_ms + 657_us
+151|0|top$planned
+151|1|top.agents$planned
+151|2|top.agents.agent-0%0%2%5$print:moving to {0, 0}
+151|3|top.agents$micro-planned
+151|9|top.agents$print:0|0|1
+151|9|top.agents$print:1|4|0
+151|9|top.agents$print:1|0|0
+152|0|$time:time_point() + 205_s + 368_ms + 319_us
+152|0|top$planned
+152|1|top.agents$planned
+152|2|top.agents.agent-0%0%2%3$print:moving to {-2, -1}
+152|3|top.agents$micro-planned
+152|4|top.agents$print:agent-0%0%2%3 departed after encountering 8 others
+152|4|top.agents$print:0|0|1
+152|4|top.agents$print:1|4|0
+152|4|top.agents$print:0|0|0
+153|0|$time:time_point() + 206_s + 258_ms + 495_us
+153|0|top$planned
+153|1|top.agents$planned
+153|2|top.agents.agent-0%0%2%5%0$print:moving to {0, -1}
+153|3|top.agents$micro-planned
+153|3|top.agents$print:0|0|1
+153|3|top.agents$print:1|3|0
+153|3|top.agents$print:0|1|0
+154|0|$time:time_point() + 206_s + 724_ms + 444_us
+154|0|top$planned
+154|1|top.agents$planned
+154|2|top.agents.agent-0%0%2%0%0%0%1$print:moving to {0, -1}
+154|3|top.agents$micro-planned
+154|5|top.agents$print:0|0|1
+154|5|top.agents$print:1|2|0
+154|5|top.agents$print:0|2|0
+155|0|$time:time_point() + 210_s + 785_ms + 855_us
+155|0|top$planned
+155|1|top.agents$planned
+155|2|top.agents.agent-0%0%2%4$print:moving to {-1, -1}
+155|3|top.agents$micro-planned
+155|3|top.agents$print:0|0|1
+155|3|top.agents$print:0|2|0
+155|3|top.agents$print:1|2|0
+156|0|$time:time_point() + 212_s + 518_ms + 167_us
+156|0|top$planned
+156|1|top.agents$planned
+156|2|top.agents.agent-0%0%2%0%0%0%0%0$print:inviting agent-0%0%2%0%0%0%0%0%0
+156|3|top.agents$micro-planned
+156|6|top$planned
+156|7|top.agents$planned
+156|8|top.agents.agent-0%0%2%0%0%0%0%0%0$print:arriving at {0, 0}
+156|9|top.agents$micro-planned
+156|13|top.agents$print:0|0|1
+156|13|top.agents$print:0|3|0
+156|13|top.agents$print:1|2|0
+157|0|$time:time_point() + 212_s + 670_ms + 555_us
+157|0|top$planned
+157|1|top.agents$planned
+157|2|top.agents.agent-0%0%2%5%0$print:moving to {0, 0}
+157|3|top.agents$micro-planned
+157|9|top.agents$print:0|0|1
+157|9|top.agents$print:0|4|0
+157|9|top.agents$print:1|1|0
+158|0|$time:time_point() + 212_s + 975_ms + 80_us
+158|0|top$planned
+158|1|top.agents$planned
+158|2|top.agents.agent-0%0%2%4$print:moving to {-1, -2}
+158|3|top.agents$micro-planned
+158|4|top.agents$print:agent-0%0%2%4 departed after encountering 7 others
+158|4|top.agents$print:0|0|1
+158|4|top.agents$print:0|4|0
+158|4|top.agents$print:0|1|0
+159|0|$time:time_point() + 213_s + 545_ms + 622_us
+159|0|top$planned
+159|1|top.agents$planned
+159|2|top.agents.agent-0%0%2%5%0$print:moving to {0, 1}
+159|3|top.agents$micro-planned
+159|3|top.agents$print:0|1|1
+159|3|top.agents$print:0|3|0
+159|3|top.agents$print:0|1|0
+160|0|$time:time_point() + 215_s + 465_ms + 539_us
+160|0|top$planned
+160|1|top.agents$planned
+160|2|top.agents.agent-0%0%2%0%0%0%0%0%0$print:moving to {0, 1}
+160|3|top.agents$micro-planned
+160|5|top.agents$print:0|2|1
+160|5|top.agents$print:0|2|0
+160|5|top.agents$print:0|1|0
+161|0|$time:time_point() + 224_s + 180_ms + 321_us
+161|0|top$planned
+161|1|top.agents$planned
+161|2|top.agents.agent-0%0%2%0%0%0%0%0%0$print:moving to {0, 2}
+161|3|top.agents$micro-planned
+161|4|top.agents$print:agent-0%0%2%0%0%0%0%0%0 departed after encountering 3 others
+161|4|top.agents$print:0|1|1
+161|4|top.agents$print:0|2|0
+161|4|top.agents$print:0|1|0
+162|0|$time:time_point() + 224_s + 471_ms + 884_us
+162|0|top$planned
+162|1|top.agents$planned
+162|2|top.agents.agent-0%0%2%5%0$print:moving to {1, 1}
+162|3|top.agents$micro-planned
+162|5|top.agents$print:0|0|2
+162|5|top.agents$print:0|2|0
+162|5|top.agents$print:0|1|0
+163|0|$time:time_point() + 226_s + 473_ms + 620_us
+163|0|top$planned
+163|1|top.agents$planned
+163|2|top.agents.agent-0%0%2%0%0%0$print:moving to {1, 2}
+163|3|top.agents$micro-planned
+163|4|top.agents$print:agent-0%0%2%0%0%0 departed after encountering 14 others
+163|4|top.agents$print:0|0|1
+163|4|top.agents$print:0|2|0
+163|4|top.agents$print:0|1|0
+164|0|$time:time_point() + 228_s + 829_ms + 680_us
+164|0|top$planned
+164|1|top.agents$planned
+164|2|top.agents.agent-0%0%2%0%0%0%1$print:moving to {-1, -1}
+164|3|top.agents$micro-planned
+164|3|top.agents$print:0|0|1
+164|3|top.agents$print:0|2|0
+164|3|top.agents$print:1|0|0
+165|0|$time:time_point() + 230_s + 164_ms + 28_us
+165|0|top$planned
+165|1|top.agents$planned
+165|2|top.agents.agent-0%0%2%5$print:moving to {1, 0}
+165|3|top.agents$micro-planned
+165|3|top.agents$print:0|0|1
+165|3|top.agents$print:0|1|1
+165|3|top.agents$print:1|0|0
+166|0|$time:time_point() + 231_s + 335_ms + 157_us
+166|0|top$planned
+166|1|top.agents$planned
+166|2|top.agents.agent-0%0%2%5$print:moving to {2, 0}
+166|3|top.agents$micro-planned
+166|4|top.agents$print:agent-0%0%2%5 departed after encountering 7 others
+166|4|top.agents$print:0|0|1
+166|4|top.agents$print:0|1|0
+166|4|top.agents$print:1|0|0
+167|0|$time:time_point() + 236_s + 669_ms + 762_us
+167|0|top$planned
+167|1|top.agents$planned
+167|2|top.agents.agent-0%0%2%5%0$print:moving to {1, 0}
+167|3|top.agents$micro-planned
+167|3|top.agents$print:0|0|0
+167|3|top.agents$print:0|1|1
+167|3|top.agents$print:1|0|0
+168|0|$time:time_point() + 237_s + 496_ms + 882_us
+168|0|top$planned
+168|1|top.agents$planned
+168|2|top.agents.agent-0%0%2%0%0%0%0%0$print:moving to {1, 0}
+168|3|top.agents$micro-planned
+168|5|top.agents$print:0|0|0
+168|5|top.agents$print:0|0|2
+168|5|top.agents$print:1|0|0
+169|0|$time:time_point() + 238_s + 891_ms + 447_us
+169|0|top$planned
+169|1|top.agents$planned
+169|2|top.agents.agent-0%0%2%5%0$print:moving to {2, 0}
+169|3|top.agents$micro-planned
+169|4|top.agents$print:agent-0%0%2%5%0 departed after encountering 5 others
+169|4|top.agents$print:0|0|0
+169|4|top.agents$print:0|0|1
+169|4|top.agents$print:1|0|0
+170|0|$time:time_point() + 248_s + 777_ms + 62_us
+170|0|top$planned
+170|1|top.agents$planned
+170|2|top.agents.agent-0%0%2%0%0%0%1$print:moving to {-1, 0}
+170|3|top.agents$micro-planned
+170|3|top.agents$print:0|0|0
+170|3|top.agents$print:1|0|1
+170|3|top.agents$print:0|0|0
+171|0|$time:time_point() + 249_s + 77_ms + 269_us
+171|0|top$planned
+171|1|top.agents$planned
+171|2|top.agents.agent-0%0%2%0%0%0%1$print:moving to {-1, -1}
+171|3|top.agents$micro-planned
+171|3|top.agents$print:0|0|0
+171|3|top.agents$print:0|0|1
+171|3|top.agents$print:1|0|0
+172|0|$time:time_point() + 250_s + 868_ms + 891_us
+172|0|top$planned
+172|1|top.agents$planned
+172|2|top.agents.agent-0%0%2%0%0%0%0%0$print:moving to {0, 0}
+172|3|top.agents$micro-planned
+172|3|top.agents$print:0|0|0
+172|3|top.agents$print:0|1|0
+172|3|top.agents$print:1|0|0
+173|0|$time:time_point() + 257_s + 654_ms + 537_us
+173|0|top$planned
+173|1|top.agents$planned
+173|2|top.agents.agent-0%0%2%0%0%0%0%0$print:moving to {1, 0}
+173|3|top.agents$micro-planned
+173|3|top.agents$print:0|0|0
+173|3|top.agents$print:0|0|1
+173|3|top.agents$print:1|0|0
+174|0|$time:time_point() + 266_s + 198_ms + 918_us
+174|0|top$planned
+174|1|top.agents$planned
+174|2|top.agents.agent-0%0%2%0%0%0%1$print:inviting agent-0%0%2%0%0%0%1%0
+174|3|top.agents$micro-planned
+174|6|top$planned
+174|7|top.agents$planned
+174|8|top.agents.agent-0%0%2%0%0%0%1%0$print:arriving at {0, 0}
+174|9|top.agents$micro-planned
+174|9|top.agents$print:0|0|0
+174|9|top.agents$print:0|1|1
+174|9|top.agents$print:1|0|0
+175|0|$time:time_point() + 269_s + 238_ms + 849_us
+175|0|top$planned
+175|1|top.agents$planned
+175|2|top.agents.agent-0%0%2%0%0%0%1%0$print:inviting agent-0%0%2%0%0%0%1%0%0
+175|3|top.agents$micro-planned
+175|6|top$planned
+175|7|top.agents$planned
+175|8|top.agents.agent-0%0%2%0%0%0%1%0%0$print:arriving at {0, 0}
+175|9|top.agents$micro-planned
+175|11|top.agents$print:0|0|0
+175|11|top.agents$print:0|2|1
+175|11|top.agents$print:1|0|0
+176|0|$time:time_point() + 269_s + 621_ms + 801_us
+176|0|top$planned
+176|1|top.agents$planned
+176|2|top.agents.agent-0%0%2%0%0%0%1$print:moving to {-1, -2}
+176|3|top.agents$micro-planned
+176|4|top.agents$print:agent-0%0%2%0%0%0%1 departed after encountering 5 others
+176|4|top.agents$print:0|0|0
+176|4|top.agents$print:0|2|1
+176|4|top.agents$print:0|0|0
+177|0|$time:time_point() + 273_s + 274_ms + 524_us
+177|0|top$planned
+177|1|top.agents$planned
+177|2|top.agents.agent-0%0%2%0%0%0%1%0$print:moving to {1, 0}
+177|3|top.agents$micro-planned
+177|5|top.agents$print:0|0|0
+177|5|top.agents$print:0|1|2
+177|5|top.agents$print:0|0|0
+178|0|$time:time_point() + 273_s + 884_ms + 438_us
+178|0|top$planned
+178|1|top.agents$planned
+178|2|top.agents.agent-0%0%2%0%0%0%1%0%0$print:moving to {1, 0}
+178|3|top.agents$micro-planned
+178|7|top.agents$print:0|0|0
+178|7|top.agents$print:0|0|3
+178|7|top.agents$print:0|0|0
+179|0|$time:time_point() + 274_s + 819_ms + 702_us
+179|0|top$planned
+179|1|top.agents$planned
+179|2|top.agents.agent-0%0%2%0%0%0%1%0$print:moving to {1, 1}
+179|3|top.agents$micro-planned
+179|3|top.agents$print:0|0|1
+179|3|top.agents$print:0|0|2
+179|3|top.agents$print:0|0|0
+180|0|$time:time_point() + 285_s + 398_ms + 815_us
+180|0|top$planned
+180|1|top.agents$planned
+180|2|top.agents.agent-0%0%2%0%0%0%1%0%0$print:moving to {2, 0}
+180|3|top.agents$micro-planned
+180|4|top.agents$print:agent-0%0%2%0%0%0%1%0%0 departed after encountering 2 others
+180|4|top.agents$print:0|0|1
+180|4|top.agents$print:0|0|1
+180|4|top.agents$print:0|0|0
+181|0|$time:time_point() + 292_s + 450_ms + 511_us
+181|0|top$planned
+181|1|top.agents$planned
+181|2|top.agents.agent-0%0%2%0%0%0%1%0$print:moving to {1, 2}
+181|3|top.agents$micro-planned
+181|4|top.agents$print:agent-0%0%2%0%0%0%1%0 departed after encountering 2 others
+181|4|top.agents$print:0|0|0
+181|4|top.agents$print:0|0|1
+181|4|top.agents$print:0|0|0
+182|0|$time:time_point() + 304_s + 574_ms + 631_us
+182|0|top$planned
+182|1|top.agents$planned
+182|2|top.agents.agent-0%0%2%0%0%0%0%0$print:moving to {2, 0}
+182|3|top.agents$micro-planned
+182|4|top.agents$print:agent-0%0%2%0%0%0%0%0 departed after encountering 16 others
+182|4|top.agents$print:0|0|0
+182|4|top.agents$print:0|0|0
+182|4|top.agents$print:0|0|0
+183|0|$time:time_point() + 600_s
+183|0|top$finalization
+183|1|top.agents$finalization
+183|1|top.agents$macro-finalization
+183|1|top.agents#avg_acquaintances_output:7.47059
+183|2|top.avg_acquaintances$flow
