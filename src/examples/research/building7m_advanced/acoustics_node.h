@@ -97,11 +97,8 @@ inline duration acoustics_node::initialization_event()
 inline duration acoustics_node::unplanned_event(duration elapsed_dt)
 {
     if (sound_source_input.received()) {
-        const std::tuple<occupant_id, array1d<int64>, quantity<decltype(_g/_m/_s/_s)>>& sound_source = sound_source_input.value();
-        const auto& occ_id = std::get<0>(sound_source);
-        const auto& pos = std::get<1>(sound_source);
-        const auto& P = std::get<2>(sound_source);
-        S[occ_id] = std::make_pair(pos, P);
+        const auto& [occ_id, pos, P] = sound_source_input.value();
+        S[occ_id] = { pos, P };
     }
     planned_dt -= elapsed_dt;
     return planned_dt;

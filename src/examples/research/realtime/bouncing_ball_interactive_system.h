@@ -59,10 +59,7 @@ inline duration bouncing_ball_interactive_system::macro_initialization_update(ac
 inline void bouncing_ball_interactive_system::micro_planned_update(const int64& agent_id, duration elapsed_dt)
 {
     if (transmitted(prototype.X_output)) {
-        const auto& X = access(prototype.X_output);
-        x = std::get<0>(X);
-        v = std::get<1>(X);
-        a = std::get<2>(X);
+        const auto& [x, v, a] = access(prototype.X_output);
         motion_dt = 0_s;
     }
 }

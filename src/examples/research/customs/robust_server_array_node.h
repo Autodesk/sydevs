@@ -106,12 +106,11 @@ inline duration robust_server_array_node::macro_unplanned_event(duration elapsed
         }
     }
     else if (item_input.received()) {
-        const std::tuple<int64, int64, int64>& item_value = item_input.value();
+        const auto& [src_id, dst_id, item_id] = item_input.value();
         for (auto agent_iter = agent_begin(); agent_iter != agent_end(); ++agent_iter) {
-            access(prototype.item_input) = item_value;
+            access(prototype.item_input) = { src_id, dst_id, item_id };
             affect_agent(*agent_iter);
         }
-        int64 src_id = std::get<0>(item_value);
         auto acceptance_iter = std::remove_if(std::begin(acceptance_values_), 
                                               std::end(acceptance_values_), 
                                               [src_id](const std::pair<int64, int64>& acceptance_value){

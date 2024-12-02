@@ -83,11 +83,8 @@ inline duration thermodynamics_node::unplanned_event(duration elapsed_dt)
         TF = replace(TF, L == outdoor_code, T);
     }
     else if (heat_source_input.received()) {
-        const std::tuple<occupant_id, array1d<int64>, quantity<decltype(_K/_s)>>& heat_source = heat_source_input.value();
-        const auto& occ_id = std::get<0>(heat_source);
-        const auto& pos = std::get<1>(heat_source);
-        const auto& T_rate = std::get<2>(heat_source);
-        H[occ_id] = std::make_pair(pos, T_rate);
+        const auto& [occ_id, pos, T_rate] = heat_source_input.value();
+        H[occ_id] = { pos, T_rate };
     }
     planned_dt -= elapsed_dt;
     return planned_dt;
