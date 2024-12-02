@@ -134,8 +134,7 @@ inline duration acoustics_node::planned_event(duration elapsed_dt)
                 array1d<int64> pos({ 2 }, { ix, iy });
                 auto& Pxs = TLM(pos);
                 for (int64 idir = 0; idir < 4; ++idir) {
-                    auto dir = directions[idir];
-                    auto nbr_pos = pos + dir;
+                    auto nbr_pos = pos + directions[idir];
                     if ((nbr_pos(0) >= 0) && (nbr_pos(0) < nx) && (nbr_pos(1) >= 0) && (nbr_pos(1) < ny)) {
                         if (L(nbr_pos) == wall_code) {
                             auto& next_Pxs = next_TLM(pos);

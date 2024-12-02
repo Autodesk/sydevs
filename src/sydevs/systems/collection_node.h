@@ -275,7 +275,7 @@ private:
 // const iterator declaration
 
 template<typename AgentID, typename Node>
-class collection_node<AgentID, Node>::const_iterator : public std::iterator<std::bidirectional_iterator_tag, AgentID>
+class collection_node<AgentID, Node>::const_iterator
 {
 friend class collection_node<AgentID, Node>;
 public:
@@ -497,11 +497,7 @@ bool collection_node<AgentID, Node>::transmitted(const port<message, output, T>&
 
 template<typename AgentID, typename Node>
 template<typename T>
-#if _WIN32
-    typename collection_node<AgentID, Node>::flow_port_proxy<T> collection_node<AgentID, Node>::access(const port<flow, input, T>& prototype_port)
-#else
-    typename collection_node<AgentID, Node>::template flow_port_proxy<T> collection_node<AgentID, Node>::access(const port<flow, input, T>& prototype_port)
-#endif
+typename collection_node<AgentID, Node>::template flow_port_proxy<T> collection_node<AgentID, Node>::access(const port<flow, input, T>& prototype_port)
 {
     validate_prototype_port(prototype_port);
     return flow_port_proxy<T>(const_cast<port<flow, input, T>&>(prototype_port));
@@ -510,11 +506,7 @@ template<typename T>
     
 template<typename AgentID, typename Node>
 template<typename T>
-#if _WIN32
-    typename collection_node<AgentID, Node>::message_port_proxy<T> collection_node<AgentID, Node>::access(const port<message, input, T>& prototype_port)
-#else
-    typename collection_node<AgentID, Node>::template message_port_proxy<T> collection_node<AgentID, Node>::access(const port<message, input, T>& prototype_port)
-#endif
+typename collection_node<AgentID, Node>::template message_port_proxy<T> collection_node<AgentID, Node>::access(const port<message, input, T>& prototype_port)
 {
     validate_prototype_port(prototype_port);
     if (prototype_IO().message_input_port_index() != -1) {
@@ -630,7 +622,7 @@ inline void collection_node<AgentID, Node>::affect_agent(const AgentID& agent_id
         throw std::logic_error("Attempt to affect agent (" + agent.full_name() + "), " +
             "but none of the prototype's message input ports have been accessed");
     }
-    auto val = prototype_IO().message_input_port_value(port_index);
+    const auto& val = prototype_IO().message_input_port_value(port_index);
     if (!val) {
         throw std::logic_error("Attempt to affect agent (" + agent.full_name() + "), " +
             "but none of the prototype's message input ports have been assigned a value");
@@ -929,11 +921,7 @@ inline void collection_node<AgentID, Node>::adopt_component_print_flags(const sy
 
 template<typename AgentID, typename Node>
 template<typename T>
-#if _WIN32
-    inline typename collection_node<AgentID, Node>::flow_port_proxy<T>& collection_node<AgentID, Node>::flow_port_proxy<T>::operator=(const T& rhs)
-#else
-    inline typename collection_node<AgentID, Node>::template flow_port_proxy<T>& collection_node<AgentID, Node>::flow_port_proxy<T>::operator=(const T& rhs)
-#endif
+inline typename collection_node<AgentID, Node>::template flow_port_proxy<T>& collection_node<AgentID, Node>::flow_port_proxy<T>::operator=(const T& rhs)
 {
     external_interface_.assign_flow_input(port_index_, qualified_type<T>::copy(rhs));
     return *this;
@@ -942,11 +930,7 @@ template<typename T>
 
 template<typename AgentID, typename Node>
 template<typename T>
-#if _WIN32
-    inline typename collection_node<AgentID, Node>::flow_port_proxy<T>& collection_node<AgentID, Node>::flow_port_proxy<T>::operator=(const flow_port_proxy& rhs)
-#else
-    inline typename collection_node<AgentID, Node>::template flow_port_proxy<T>& collection_node<AgentID, Node>::flow_port_proxy<T>::operator=(const flow_port_proxy& rhs)
-#endif
+inline typename collection_node<AgentID, Node>::template flow_port_proxy<T>& collection_node<AgentID, Node>::flow_port_proxy<T>::operator=(const flow_port_proxy& rhs)
 {
     const pointer& val = rhs.external_interface_.flow_input_port_value(rhs.port_index_);
     external_interface_.assign_flow_input(port_index_, val);
@@ -967,11 +951,7 @@ inline collection_node<AgentID, Node>::flow_port_proxy<T>::flow_port_proxy(const
 
 template<typename AgentID, typename Node>
 template<typename T>
-#if _WIN32
-    inline typename collection_node<AgentID, Node>::message_port_proxy<T>& collection_node<AgentID, Node>::message_port_proxy<T>::operator=(const T& rhs)
-#else
-    inline typename collection_node<AgentID, Node>::template message_port_proxy<T>& collection_node<AgentID, Node>::message_port_proxy<T>::operator=(const T& rhs)
-#endif
+inline typename collection_node<AgentID, Node>::template message_port_proxy<T>& collection_node<AgentID, Node>::message_port_proxy<T>::operator=(const T& rhs)
 {
     external_interface_.set_message_input(port_index_, qualified_type<T>::copy(rhs));
     return *this;
@@ -980,11 +960,7 @@ template<typename T>
 
 template<typename AgentID, typename Node>
 template<typename T>
-#if _WIN32
-    inline typename collection_node<AgentID, Node>::message_port_proxy<T>& collection_node<AgentID, Node>::message_port_proxy<T>::operator=(const message_port_proxy& rhs)
-#else
-    inline typename collection_node<AgentID, Node>::template message_port_proxy<T>& collection_node<AgentID, Node>::message_port_proxy<T>::operator=(const message_port_proxy& rhs)
-#endif
+inline typename collection_node<AgentID, Node>::template message_port_proxy<T>& collection_node<AgentID, Node>::message_port_proxy<T>::operator=(const message_port_proxy& rhs)
 {
     const pointer& val = rhs.external_interface_.message_input_port_value(rhs.port_index_);
     external_interface_.set_message_input(port_index_, val);
