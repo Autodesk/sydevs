@@ -1,14 +1,12 @@
 # SyDEVS
 
-Multiscale Simulation and Systems Modeling Library
+This C++ library provides a framework for implementing complex systems simulation code in a modular, hierarchical fashion.
 
-| Windows | Linux/OSX |
-|---------|-----------|
-| [![Build status](https://ci.appveyor.com/api/projects/status/afe2i9b8h9nxfta4?svg=true)](https://ci.appveyor.com/project/sbreslav/sydevs) | [![Build status](https://travis-ci.org/Autodesk/sydevs.svg?branch=master)](https://travis-ci.org/Autodesk/sydevs) |
+[![Build status](https://ci.appveyor.com/api/projects/status/afe2i9b8h9nxfta4?svg=true)](https://ci.appveyor.com/project/sbreslav/sydevs)
 
 ## About
 
-This library provides a framework for implementing complex systems analysis and simulation code in a modular/hierarchical fashion. The framework combines three modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model), and [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming). The discrete event simulation aspect is based on [DEVS](https://en.wikipedia.org/wiki/DEVS), a well-regarded modeling formalism involving two types of models that correspond with the library's ***atomic*** and ***composite*** nodes. The library also includes ***collection*** nodes, which extend DEVS with agent-based modeling capabilities, and ***function*** nodes, which simply compute outputs from inputs. The atomic, composite, collection, and function nodes can communicate through flow ports as part of a dataflow programming network. With the exception of function nodes, they can also communicate in a DEVS-like fashion through message ports.
+The framework combines three modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model), and [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming). The discrete event simulation aspect is based on [DEVS](https://en.wikipedia.org/wiki/DEVS), a well-regarded modeling formalism involving two types of models that correspond with the library's ***atomic*** and ***composite*** nodes. The library also includes ***collection*** nodes, which extend DEVS with agent-based modeling capabilities, and ***function*** nodes, which simply compute outputs from inputs. The atomic, composite, collection, and function nodes can communicate through flow ports as part of a dataflow programming network. With the exception of function nodes, they can also communicate in a DEVS-like fashion through message ports.
 
 In addition to supporting multiple modeling paradigms, the SyDEVS library provides comprehensive and reusable Modern C++ implementations of multidimensional arrays, Standard International (SI) units, a multiscale time representation, and other technical computing elements.
 
@@ -16,9 +14,9 @@ The main SyDEVS website is at [https://autodesk.github.io/sydevs](https://autode
 
 ## Main Classes
 
-The library includes C++11/14 classes grouped into three main folders:
+The library includes Modern C++ classes grouped into three main folders:
 
-#### [`src/sydevs/core`](src/sydevs/core)
+### [`src/sydevs/core`](src/sydevs/core)
 
 This folder contains generic classes that may be useful for a variety of applications.
 
@@ -34,7 +32,7 @@ This folder contains generic classes that may be useful for a variety of applica
   - [`string_builder`](src/sydevs/core/string_builder.h) (related class): Faciliates value-to-string conversions.
 - [`timer`](src/sydevs/core/timer.h): Measures intervals of wall clock time.
 
-#### [`src/sydevs/time`](src/sydevs/time)
+### [`src/sydevs/time`](src/sydevs/time)
 
 The classes in this folder implement the multiscale time representation proposed by [Goldstein et al. (2017)](https://www.autodeskresearch.com/publications/multiscale-representation-simulated-time) that supports the recording and scheduling of events over any combination of short and long time scales. The classes below use 64-bit operations where possible despite accommodating extremely disparate scales.
 
@@ -43,7 +41,7 @@ The classes in this folder implement the multiscale time representation proposed
 - [`time_queue`](src/sydevs/time/time_queue.h): Supports the scheduling of future events.
 - [`time_cache`](src/sydevs/time/time_cache.h): Provides durations elapsed since past events.
 
-#### [`src/sydevs/systems`](src/sydevs/systems)
+### [`src/sydevs/systems`](src/sydevs/systems)
 
 This folder contains the elements from which dataflow + message-passing networks are constructed.
 
@@ -61,25 +59,23 @@ This folder contains the elements from which dataflow + message-passing networks
     - [`real_time_buffer`](src/sydevs/systems/real_time_buffer.h) (related class): A data structure which suggests event wallclock times to aid in the synchronization of a simulation's execution.
   - [`discrete_event_time`](src/sydevs/systems/discrete_event_time.h) (related class): Represents progress through a simulation, encapsulating both simulated time and a counter of events within a single point in simulated time.
 
-## Building
+## Intstructions
 
-#### Building on Windows (Visual Studio)
-* You will need [CMake](http://www.cmake.org/)
-* Make sure you have [Visual Studio 2015](https://www.visualstudio.com) or [Visual Studio 2017](https://www.visualstudio.com)
+### Using SyDEVS
+
+The best way to use SyDEVS in a simulation project is to include the [latest release](https://github.com/Autodesk/sydevs/releases) as an external library, as described in the [Getting Started](https://autodesk.github.io/sydevs/getting_started/) tutorial.
+
+### Building SyDEVS
+
+To build SyDEVS in this repo using [CMake](http://www.cmake.org/) and [Visual Studio 2022](https://www.visualstudio.com), follow the instructions below. 
+
 * `mkdir build`
 * `cd build/`
-* `cmake -G "Visual Studio 14 2015 Win64" ..` or `cmake -G "Visual Studio 15 2017 Win64" ..` or `cmake -G "Visual Studio 16 2019" -A x64 ..`
+* `cmake -G "Visual Studio 17 2022" -A x64 ..`
 * Open `build/SyDEVS.sln` in Visual Studio
 * Recommendation: In `Tools -> Options -> Text Editor -> C/C++ -> Tabs`, select `Insert spaces` with a `Tab size` and `Indent size` of `4`
 
-#### Building on Mac OS
-* You will need [CMake](http://www.cmake.org/)
-* `mkdir build`
-* `cd build/`
-* `cmake -G "Xcode" ..`
-* `xcodebuild -project SyDEVS.xcodeproj` or open the `.xcodeproj` file.
-
-#### Testing
+### Testing SyDEVS
 
 Unit and regression tests are run automatically during the build process.
 
@@ -87,19 +83,19 @@ The unit testing framework used in SyDEVS is [Catch2](https://github.com/catchor
 
 ## Documentation
 
-#### Website
+### Website
 
 Main SyDEVS website with Overview and Getting Started tutorial:
 
 - [https://autodesk.github.io/sydevs](https://autodesk.github.io/sydevs)
 
-#### HTML
+### API Reference
 
-Latest published version of the HTML documentation:
+Latest published version of the API documentation:
 
 - [https://autodesk.github.io/sydevs/doc/html/index.html](https://autodesk.github.io/sydevs/doc/html/index.html)
 
-To build or update the documentation files with [Doxygen](http://www.stack.nl/~dimitri/doxygen) make sure you are in the top level directory (where the `doxygen.config` is) and execute the following command:
+To build or update the documentation files with [Doxygen](https://www.doxygen.nl/) make sure you are in the top level directory (where the `doxygen.config` is) and execute the following command:
 
 - `doxygen doxygen.config`
 
@@ -110,7 +106,7 @@ This will build the documentation in the [`doc`](doc) directory. To open the doc
 
 You should update the documentation on a regular basis to keep it in sync with the code.
 
-#### PowerPoint
+### PowerPoint
 
 There are three PowerPoint documents located in the [`doc`](doc) folder:
 
@@ -118,7 +114,7 @@ There are three PowerPoint documents located in the [`doc`](doc) folder:
 - [`SyDEVS_Framework_Overview.pptx`](doc/SyDEVS_Framework_Overview.pptx): An overview of the systems modeling framework and related snippets of code.
 - [`SyDEVS_Building7m_Tutorial.pptx`](doc/SyDEVS_Building7m_Tutorial.pptx): A tutorial that challenges developers to enhance the [`building7m`](src/examples/demo/building7m) example.
 
-#### Examples
+### Examples
 
 Examples of SyDEVS-based simulations are found in the [`src/examples`](src/examples) directory.
 

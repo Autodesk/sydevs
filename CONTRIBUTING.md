@@ -14,12 +14,12 @@ To request a feature or report a bug, please open an issue. Also, feel free to e
 
 ## Submitting a pull request
 
-In general, contributors should develop on branches based off of `master` and pull requests should be made against `master`. To submit a pull request, follow the procedure below:
+In general, contributors should develop on branches based off of `main` and pull requests should be made against `main`. To submit a pull request, follow the procedure below:
 
 1. Fork and clone the repository.
-1. Create a new branch based on `master`: `git checkout -b <my-branch-name> master`.
+1. Create a new branch based on `main`: `git checkout -b <my-branch-name> main`.
 1. Make your changes, ensure the existing tests still pass; if needed add new tests and make sure they pass.
-1. Push to your fork and submit a pull request from your branch to `master`.
+1. Push to your fork and submit a pull request from your branch to `main`.
 
 Here are a few things you can do that will increase the likelihood that your pull request will be accepted:
 
