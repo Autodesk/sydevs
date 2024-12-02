@@ -179,7 +179,7 @@ target_link_libraries(workers SyDEVS-static)
 #
 # ------------------------------------------------------------------------------
 set(UNIT_TEST_DIR test/unit_tests)
-set(CATCH2_DIR ${UNIT_TEST_DIR}/catch2)
+set(CATCH2_DIR ${UNIT_TEST_DIR}/Catch2-2.13.9/single_include)
 include_directories(${UNIT_TEST_DIR})
 include_directories(${CATCH2_DIR})
 file(GLOB CATCH2_HDRS "${CATCH2_DIR}/*.h" "${CATCH2_DIR}/*.hpp")
