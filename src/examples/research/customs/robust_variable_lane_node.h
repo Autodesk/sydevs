@@ -122,13 +122,11 @@ inline duration robust_variable_lane_node::macro_unplanned_event(duration elapse
         }
     }
     else if (item_input.received()) {
-        const std::tuple<int64, int64, int64>& item_value = item_input.value();
+        const auto& [src_id, dst_id, item_id] = item_input.value();
         for (auto agent_iter = agent_begin(); agent_iter != agent_end(); ++agent_iter) {
-            access(prototype.item_input) = item_value;
+            access(prototype.item_input) = { src_id, dst_id, item_id };
             affect_agent(*agent_iter);
         }
-        int64 src_id = std::get<0>(item_value);
-        int64 dst_id = std::get<1>(item_value);
         ++item_counts_[dst_id];
         ++total_item_count_;
         registration_src_ids_.erase(src_id);
@@ -155,9 +153,8 @@ inline duration robust_variable_lane_node::micro_planned_event(const int64& agen
         acceptance_values_.push_back(acceptance_value);
     }
     else if (transmitted(prototype.item_output)) {
-        const std::tuple<int64, int64, int64>& item_value = access(prototype.item_output);
-        item_output.send(item_value);
-        int64 src_id = std::get<0>(item_value);
+        const auto& [src_id, dst_id, item_id] = access(prototype.item_output);
+        item_output.send({ src_id, dst_id, item_id });
         --item_counts_[src_id];
         --total_item_count_;
         if (item_counts_[src_id] == 0) {
