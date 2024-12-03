@@ -5,6 +5,8 @@ cmake_minimum_required(VERSION 3.14)
 project(SyDEVS)
 
 set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED On)
+set(CMAKE_CXX_EXTENSIONS Off)
 
 if(MSVC)
     add_definitions("/wd4244") # Hide type conversion warnings
@@ -13,12 +15,8 @@ if(MSVC)
     string(REGEX REPLACE "/Z[iI7]" "" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /Z7 /bigobj")
 else()
-    set(WARNING_FLAGS "-Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-sign-compare -Wno-missing-braces -Wno-ignored-attributes -Wignored-qualifiers -Woverloaded-virtual -Winline")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pedantic-errors -std=c++${CMAKE_CXX_STANDARD} ${WARNING_FLAGS}")
-    if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-	    # Replace g++ standard library with Clang standard library
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-    endif()
+    set(WARNING_FLAGS "-pedantic -Wall -Wcast-qual -Wctor-dtor-privacy -Werror -Wextra -Wignored-qualifiers -Winline -Wlogical-op -Wmissing-include-dirs -Wno-ignored-attributes -Wno-missing-braces -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wold-style-cast -Woverloaded-virtual -Wredundant-decls -Wshadow -Wstrict-null-sentinel")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++${CMAKE_CXX_STANDARD} ${WARNING_FLAGS}")
 endif(MSVC)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)

@@ -63,23 +63,37 @@ This folder contains the elements from which dataflow + message-passing networks
 
 ### Using SyDEVS
 
-The best way to use SyDEVS in a simulation project is to include the [latest release](https://github.com/Autodesk/sydevs/releases) as an external library, as described in the [Getting Started](https://autodesk.github.io/sydevs/getting_started/) tutorial.
+The recommended way to use SyDEVS in a simulation project is to include the [latest release](https://github.com/Autodesk/sydevs/releases) as an external library, as described in the [Getting Started](https://autodesk.github.io/sydevs/getting_started/) tutorial.
 
-### Building SyDEVS
+### Building SyDEVS using MSVC on Windows
 
-To build SyDEVS in this repo using [CMake](http://www.cmake.org/) and [Visual Studio 2022](https://www.visualstudio.com), follow the instructions below. 
+To build the SyDEVS examples and tests using [CMake](http://www.cmake.org/) and [Visual Studio 2022](https://www.visualstudio.com), follow the instructions below. 
 
+* Open a command prompt and navigate to the `sydevs` project directory.
 * `mkdir build`
 * `cd build/`
 * `cmake -G "Visual Studio 17 2022" -A x64 ..`
 * Open `build/SyDEVS.sln` in Visual Studio
 * Recommendation: In `Tools -> Options -> Text Editor -> C/C++ -> Tabs`, select `Insert spaces` with a `Tab size` and `Indent size` of `4`
 
+### Building SyDEVS using GCC on Windows
+
+To build the SyDEVS examples and tests using [CMake](http://www.cmake.org/) and [TDM-GCC](https://jmeubank.github.io/tdm-gcc/), follow the instructions below. 
+
+* Install the 64+32-bit MinGW-w64 edition of TDM-GCC.
+* Open a command prompt and navigate to the `sydevs` project directory.
+* `mkdir bin`
+* `cd bin/`
+* `cmake -G "MinGW Makefiles" ..`
+* `mingw32-make`
+
 ### Testing SyDEVS
 
 Unit and regression tests are run automatically during the build process.
 
 The unit testing framework used in SyDEVS is [Catch2](https://github.com/catchorg/Catch2). See the [documentation](https://github.com/catchorg/Catch2/tree/master/docs) for a tutorial and reference material. Catch2 is released under the Boost Software License 1.0.
+
+Note that the complete set of regression tests will only run if MSVC is used. If another compiler is used, the regression tests involving random distributions will be skipped, since different compilers are expected to generate different random samples.
 
 ## Documentation
 

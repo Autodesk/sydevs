@@ -27,7 +27,7 @@ void prediction_systems(const std::string& task, int64 upper_scale, int64 lower_
             {
                 auto now = std::chrono::system_clock::to_time_t(chrono_tp_0);
                 char buffer[26];
-#if _WIN32
+#if _MSC_VER
                 struct tm local_now;
                 localtime_s(&local_now, &now);
                 strftime(buffer, sizeof(buffer), "%c", &local_now);
@@ -71,7 +71,7 @@ void prediction_systems(const std::string& task, int64 upper_scale, int64 lower_
             {
                 auto now = std::chrono::system_clock::to_time_t(chrono_tp_1);
                 char buffer[26];
-#if _WIN32
+#if _MSC_VER
                 struct tm local_now;
                 localtime_s(&local_now, &now);
                 strftime(buffer, sizeof(buffer), "%c", &local_now);

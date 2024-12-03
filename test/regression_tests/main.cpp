@@ -32,7 +32,7 @@ int main(int argc, const char* argv[])
         error_codes.push_back(perform_regression_test("output_of_queueing.txt", &sydevs_examples::queueing));
         error_codes.push_back(perform_regression_test("output_of_workers.txt", &sydevs_examples::workers));
     }
-#ifdef _WIN32
+#ifdef _MSC_VER
     {
         // Perform regression tests involving non-portable random number distributions.
         error_codes.push_back(perform_regression_test("output_of_agentbased_systems.txt", &sydevs_examples::agentbased_systems));

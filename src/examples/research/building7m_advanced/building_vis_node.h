@@ -36,8 +36,6 @@ protected:
     // State Variables:
     duration frame_dt;                            // duration of simulated time between successive frames
     array2d<int64> L;                             // building layout
-    int64 nx;                                     // number of cells in the x dimension
-    int64 ny;                                     // number of cells in the y dimension
     int64 frame_index;                            // index of frame
     array2d<thermodynamic_temperature> TF;        // temperature field
     array2d<quantity<decltype(_g/_m/_s/_s)>> SF;  // sound field
@@ -67,8 +65,6 @@ inline duration building_vis_node::initialization_event()
 {
     frame_dt = frame_duration_input.value();
     L = building_layout_input.value().first;
-    nx = L.dims()[0];
-    ny = L.dims()[1];
     frame_index = -1;
     TF = array2d<thermodynamic_temperature>();
     SF = array2d<quantity<decltype(_g/_m/_s/_s)>>();

@@ -48,7 +48,7 @@ inline duration bouncing_ball_interactive_system::macro_initialization_update(ac
     v = 15000_mm/_s;
     a = -9810_mm/_s/_s;
     injection = -a;
-    get(prototype.X0_input) = std::make_tuple(x, v, a);
+    get(prototype.X0_input) = std::make_tuple(x, v, -a);
     create_agent(0);
     frame_dt = 100_ms;
     motion_dt = 0_s;
@@ -59,7 +59,7 @@ inline duration bouncing_ball_interactive_system::macro_initialization_update(ac
 inline void bouncing_ball_interactive_system::micro_planned_update(const int64& agent_id, duration elapsed_dt)
 {
     if (transmitted(prototype.X_output)) {
-        const auto& [x, v, a] = get(prototype.X_output);
+        std::tie(x, v, a) = get(prototype.X_output);
         motion_dt = 0_s;
     }
 }

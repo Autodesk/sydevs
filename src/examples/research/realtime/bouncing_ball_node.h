@@ -53,7 +53,8 @@ inline bouncing_ball_node::bouncing_ball_node(const std::string& node_name, cons
 
 inline duration bouncing_ball_node::initialization_event()
 {
-    const auto& [y, v, g] = X0_input.value();
+    std::tie(y, v, g) = X0_input.value();
+    print(g);
     if (y < 0_m) throw std::invalid_argument("y must be non-negative");
     if (g < 0_m/_s/_s) throw std::invalid_argument("g must be non-negative");
     if (y == 0_m && v > 0_m/_s) {
