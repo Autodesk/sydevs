@@ -1,12 +1,8 @@
 # SyDEVS
 
-This C++ library provides a framework for implementing complex systems simulation code in a modular, hierarchical fashion.
+The SyDEVS C++ library provides a framework for implementing complex systems simulation code in a modular and hierarchical fashion.
 
-[![Build status](https://ci.appveyor.com/api/projects/status/afe2i9b8h9nxfta4?svg=true)](https://ci.appveyor.com/project/sbreslav/sydevs)
-
-## About
-
-The framework combines three modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model), and [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming). The discrete event simulation aspect is based on [DEVS](https://en.wikipedia.org/wiki/DEVS), a well-regarded modeling formalism involving two types of models that correspond with the library's ***atomic*** and ***composite*** nodes. The library also includes ***collection*** nodes, which extend DEVS with agent-based modeling capabilities, and ***function*** nodes, which simply compute outputs from inputs. The atomic, composite, collection, and function nodes can communicate through flow ports as part of a dataflow programming network. With the exception of function nodes, they can also communicate in a DEVS-like fashion through message ports.
+The framework combines three modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model), and [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming). The discrete event simulation aspect is based on [DEVS](https://en.wikipedia.org/wiki/DEVS), a well-regarded modeling formalism involving two types of models that correspond with the ***atomic*** and ***composite*** nodes of SyDEVS. SyDEVS also includes ***collection*** nodes, which extend DEVS with agent-based modeling capabilities, and ***function*** nodes, for dataflow programming. Atomic, composite, collection, and function nodes communicate through flow ports as part of a dataflow programming network. Atomic, composite, and collection nodes also communicate in a DEVS-like fashion through message ports.
 
 In addition to supporting multiple modeling paradigms, the SyDEVS library provides comprehensive and reusable Modern C++ implementations of multidimensional arrays, Standard International (SI) units, a multiscale time representation, and other technical computing elements.
 
@@ -94,7 +90,7 @@ Unit and regression tests are run automatically during the build process.
 The unit testing framework used in SyDEVS is [Catch2](https://github.com/catchorg/Catch2). See the [documentation](https://github.com/catchorg/Catch2/tree/master/docs) for a tutorial and reference material. Catch2 is released under the Boost Software License 1.0.
 
 Note that the complete set of regression tests will only run if MSVC is used. If another compiler is used, the regression tests involving random distributions will be skipped, since different compilers are expected to generate different random samples.
-
+bin
 ## Documentation
 
 ### Website
