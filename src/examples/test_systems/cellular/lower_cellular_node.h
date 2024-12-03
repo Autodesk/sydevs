@@ -55,9 +55,9 @@ inline duration lower_cellular_node::macro_initialization_event()
         for (int64 col = 0; col < 2; ++col) {
             auto offset = array1d<int64>({2}, {row, col});
             auto cell_coords = coords + offset;
-            access(prototype.coords_input) = cell_coords;
+            get(prototype.coords_input) = cell_coords;
             invoke_agent(cell_coords);
-            cellspace_(offset) = access(prototype.flow_output);
+            cellspace_(offset) = get(prototype.flow_output);
         }
     }
     return duration::inf();

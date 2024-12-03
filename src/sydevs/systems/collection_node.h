@@ -97,16 +97,16 @@ protected:
     bool transmitted(const port<message, output, T>& prototype_port);  ///< Returns `true` if a message was transmitted by an agent on the port corresponding to `prototype_port`.
 
     template<typename T>
-    flow_port_proxy<T> access(const port<flow, input, T>& prototype_port);   ///< Returns a proxy of the flow input port `prototype_port`, allowing its value to be modified.
+    flow_port_proxy<T> get(const port<flow, input, T>& prototype_port);   ///< Returns a proxy of the flow input port `prototype_port`, allowing its value to be modified.
     
     template<typename T>
-    message_port_proxy<T> access(const port<message, input, T>& prototype_port);   ///< Returns a proxy of the message input port `prototype_port`, allowing its value to be modified.
+    message_port_proxy<T> get(const port<message, input, T>& prototype_port);   ///< Returns a proxy of the message input port `prototype_port`, allowing its value to be modified.
     
     template<typename T>
-    const T& access(const port<message, output, T>& prototype_port);  ///< Returns the value transmitted by an agent on the message output port corresponding to `prototype_port`.
+    const T& get(const port<message, output, T>& prototype_port);  ///< Returns the value transmitted by an agent on the message output port corresponding to `prototype_port`.
 
     template<typename T>
-    const T& access(const port<flow, output, T>& prototype_port);  ///< Return the value output by an agent on the flow output port corresponding to `prototype_port`.
+    const T& get(const port<flow, output, T>& prototype_port);  ///< Return the value output by an agent on the flow output port corresponding to `prototype_port`.
 
     /**
      * @brief Creates a new agent of type AgentNode.
@@ -497,7 +497,7 @@ bool collection_node<AgentID, Node>::transmitted(const port<message, output, T>&
 
 template<typename AgentID, typename Node>
 template<typename T>
-typename collection_node<AgentID, Node>::template flow_port_proxy<T> collection_node<AgentID, Node>::access(const port<flow, input, T>& prototype_port)
+typename collection_node<AgentID, Node>::template flow_port_proxy<T> collection_node<AgentID, Node>::get(const port<flow, input, T>& prototype_port)
 {
     validate_prototype_port(prototype_port);
     return flow_port_proxy<T>(const_cast<port<flow, input, T>&>(prototype_port));
@@ -506,7 +506,7 @@ typename collection_node<AgentID, Node>::template flow_port_proxy<T> collection_
     
 template<typename AgentID, typename Node>
 template<typename T>
-typename collection_node<AgentID, Node>::template message_port_proxy<T> collection_node<AgentID, Node>::access(const port<message, input, T>& prototype_port)
+typename collection_node<AgentID, Node>::template message_port_proxy<T> collection_node<AgentID, Node>::get(const port<message, input, T>& prototype_port)
 {
     validate_prototype_port(prototype_port);
     if (prototype_IO().message_input_port_index() != -1) {
@@ -523,7 +523,7 @@ typename collection_node<AgentID, Node>::template message_port_proxy<T> collecti
     
 template<typename AgentID, typename Node>
 template<typename T>
-const T& collection_node<AgentID, Node>::access(const port<message, output, T>& prototype_port)
+const T& collection_node<AgentID, Node>::get(const port<message, output, T>& prototype_port)
 {
     validate_prototype_port(prototype_port);
     if (prototype_port.port_index() != prototype_IO().message_output_index(0)) {
@@ -538,7 +538,7 @@ const T& collection_node<AgentID, Node>::access(const port<message, output, T>& 
 
 template<typename AgentID, typename Node>
 template<typename T>
-const T& collection_node<AgentID, Node>::access(const port<flow, output, T>& prototype_port)
+const T& collection_node<AgentID, Node>::get(const port<flow, output, T>& prototype_port)
 {
     validate_prototype_port(prototype_port);
     auto& val = prototype_IO().flow_output_port_value(prototype_port.port_index());

@@ -44,7 +44,7 @@ inline duration upper_cellular_node::macro_initialization_event()
     for (int64 row = 0; row < 2; ++row) {
         for (int64 col = 0; col < 2; ++col) {
             array1d<int64> coords({2}, {2*row, 2*col});
-            access(prototype.coords_input) = coords;
+            get(prototype.coords_input) = coords;
             create_agent(coords);
         }
     }
@@ -78,7 +78,7 @@ inline void upper_cellular_node::macro_finalization_event(duration elapsed_dt)
             array1d<int64> coords({2}, {2*row, 2*col});
             remove_agent(coords);
             cellspace[range().start_at(2*row).stop_before(2*row + 2)]
-                     [range().start_at(2*col).stop_before(2*col+ 2)] = access(prototype.cellspace);
+                     [range().start_at(2*col).stop_before(2*col+ 2)] = get(prototype.cellspace);
         }
     }
     for (int64 i = 0; i < 4; ++i) {

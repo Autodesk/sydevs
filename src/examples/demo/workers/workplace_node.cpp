@@ -36,8 +36,8 @@ duration workplace_node::macro_unplanned_event(duration elapsed_dt)
         int64 agent_id = arrival_input.value();
 
         // Create the worker agent.
-        access(prototype.work_dt_input) = work_dt;
-        access(prototype.break_dt_input) = break_dt;
+        get(prototype.work_dt_input) = work_dt;
+        get(prototype.break_dt_input) = break_dt;
         create_agent(agent_id);
     }
 
@@ -51,7 +51,7 @@ duration workplace_node::micro_planned_event(const int64& agent_id, duration ela
     // Handle the message output transmitted from the worker agent.
     if (transmitted(prototype.task_output)) {
         // Get the transmitted task.
-        const std::string& task = access(prototype.task_output);
+        const std::string& task = get(prototype.task_output);
 
         // Add or remove the agent from the set of workers on break.
         int64 break_dn = 0;
@@ -68,7 +68,7 @@ duration workplace_node::micro_planned_event(const int64& agent_id, duration ela
         // or resumed working.
         for (int64 i : workers_on_break) {
             if (i != agent_id) {
-                access(prototype.break_dn_input) = break_dn;
+                get(prototype.break_dn_input) = break_dn;
                 affect_agent(i);
             }
         }
