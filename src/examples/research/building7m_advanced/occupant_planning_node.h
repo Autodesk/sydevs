@@ -134,7 +134,7 @@ inline duration occupant_planning_node::planned_event(duration elapsed_dt)
     for (const auto& [occ_id, pos] : OP) {
         if (!all(OD[occ_id] == next_OD[occ_id])) {
             OD[occ_id] = next_OD[occ_id];
-            occupant_destination_output.send(std::make_pair(occ_id, OD[occ_id]));
+            occupant_destination_output.send({ occ_id, OD[occ_id] });
         }
     }
     change_flag = false;

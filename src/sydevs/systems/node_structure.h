@@ -146,7 +146,7 @@ inline const std::vector<std::pair<int64, int64>>& node_structure::message_inwar
 inline void node_structure::add_flow_inner_link(int64 src_node_index, int64 src_port_index, 
                                                 int64 dst_node_index, int64 dst_port_index)
 {
-    flow_inner_links_[std::make_pair(src_node_index, src_port_index)].emplace_back(dst_node_index, dst_port_index);
+    flow_inner_links_[{ src_node_index, src_port_index }].emplace_back(dst_node_index, dst_port_index);
 }
 
 
@@ -154,7 +154,7 @@ inline const std::vector<std::pair<int64, int64>>& node_structure::flow_inner_li
 {
     static const auto no_links = std::vector<std::pair<int64, int64>>();
     auto* links_ptr = &no_links;
-    auto links_iter = flow_inner_links_.find(std::make_pair(src_node_index, src_port_index));
+    auto links_iter = flow_inner_links_.find({ src_node_index, src_port_index });
     if (links_iter != std::end(flow_inner_links_)) {
         links_ptr = &(links_iter->second);
     }
@@ -165,7 +165,7 @@ inline const std::vector<std::pair<int64, int64>>& node_structure::flow_inner_li
 inline void node_structure::add_message_inner_link(int64 src_node_index, int64 src_port_index, 
                                                    int64 dst_node_index, int64 dst_port_index)
 {
-    message_inner_links_[std::make_pair(src_node_index, src_port_index)].emplace_back(dst_node_index, dst_port_index);
+    message_inner_links_[{ src_node_index, src_port_index }].emplace_back(dst_node_index, dst_port_index);
 }
 
 
@@ -173,7 +173,7 @@ inline const std::vector<std::pair<int64, int64>>& node_structure::message_inner
 {
     static const auto no_links = std::vector<std::pair<int64, int64>>();
     auto* links_ptr = &no_links;
-    auto links_iter = message_inner_links_.find(std::make_pair(src_node_index, src_port_index));
+    auto links_iter = message_inner_links_.find({ src_node_index, src_port_index });
     if (links_iter != std::end(message_inner_links_)) {
         links_ptr = &(links_iter->second);
     }
@@ -184,7 +184,7 @@ inline const std::vector<std::pair<int64, int64>>& node_structure::message_inner
 inline void node_structure::add_flow_outward_link(int64 src_node_index, int64 src_port_index, 
                                                   int64 dst_port_index)
 {
-    flow_outward_links_[std::make_pair(src_node_index, src_port_index)].emplace_back(dst_port_index);
+    flow_outward_links_[{ src_node_index, src_port_index }].emplace_back(dst_port_index);
 }
 
 
@@ -192,7 +192,7 @@ inline const std::vector<int64>& node_structure::flow_outward_links(int64 src_no
 {
     static const auto no_links = std::vector<int64>();
     auto* links_ptr = &no_links;
-    auto links_iter = flow_outward_links_.find(std::make_pair(src_node_index, src_port_index));
+    auto links_iter = flow_outward_links_.find({ src_node_index, src_port_index });
     if (links_iter != std::end(flow_outward_links_)) {
         links_ptr = &(links_iter->second);
     }
@@ -203,7 +203,7 @@ inline const std::vector<int64>& node_structure::flow_outward_links(int64 src_no
 inline void node_structure::add_message_outward_link(int64 src_node_index, int64 src_port_index, 
                                                      int64 dst_port_index)
 {
-    message_outward_links_[std::make_pair(src_node_index, src_port_index)].emplace_back(dst_port_index);
+    message_outward_links_[{ src_node_index, src_port_index }].emplace_back(dst_port_index);
 }
 
 
@@ -211,7 +211,7 @@ inline const std::vector<int64>& node_structure::message_outward_links(int64 src
 {
     static const auto no_links = std::vector<int64>();
     auto* links_ptr = &no_links;
-    auto links_iter = message_outward_links_.find(std::make_pair(src_node_index, src_port_index));
+    auto links_iter = message_outward_links_.find({ src_node_index, src_port_index });
     if (links_iter != std::end(message_outward_links_)) {
         links_ptr = &(links_iter->second);
     }

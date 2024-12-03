@@ -151,7 +151,7 @@ inline duration robust_queue_node::planned_event(duration elapsed_dt)
                 // There is space in the queue.
                 // Randomly select a source node from which to accept an item.
                 acceptance_src_id_ = sample_registered_src();
-                acceptance_output.send(std::make_pair(acceptance_src_id_, id_));
+                acceptance_output.send({ acceptance_src_id_, id_ });
             }
         }
     }

@@ -102,7 +102,7 @@ inline duration comfort_node::planned_event(duration elapsed_dt)
     for (const auto& [occ_id, pos] : OP) {
         if (OT[occ_id] != next_OT[occ_id]) {
             OT[occ_id] = next_OT[occ_id];
-            occupant_temperature_output.send(std::make_pair(occ_id, OT[occ_id]));
+            occupant_temperature_output.send({ occ_id, OT[occ_id] });
         }
     }
     change_flag = false;

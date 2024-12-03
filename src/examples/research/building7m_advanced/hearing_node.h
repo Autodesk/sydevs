@@ -99,7 +99,7 @@ inline duration hearing_node::planned_event(duration elapsed_dt)
         auto& occ_id = occ_pos.first;
         if (OS[occ_id] != next_OS[occ_id]) {
             OS[occ_id] = next_OS[occ_id];
-            occupant_sound_output.send(std::make_pair(occ_id, OS[occ_id]));
+            occupant_sound_output.send({ occ_id, OS[occ_id] });
         }
     }
     change_flag = false;

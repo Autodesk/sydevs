@@ -103,7 +103,7 @@ inline duration occupant_steering_node::planned_event(duration elapsed_dt)
 {
     OP = next_OP;
     for (const auto& [occ_id, pos] : OP) {
-        occupant_position_output.send(std::make_pair(occ_id, pos));
+        occupant_position_output.send({ occ_id, pos });
         if (OD.find(occ_id) != std::end(OD)) {
             if (!all(pos == OD[occ_id])) {
                 std::array<int64, 8> scores;

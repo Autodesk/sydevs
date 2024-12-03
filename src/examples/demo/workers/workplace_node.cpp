@@ -74,7 +74,7 @@ duration workplace_node::micro_planned_event(const int64& agent_id, duration ela
         }
 
         // Send the worker ID and new task as a message output.
-        change_output.send(std::make_pair(agent_id, task));
+        change_output.send({ agent_id, task });
     }
 
     // Wait indefinitely.

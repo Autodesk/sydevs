@@ -74,7 +74,7 @@ inline void building_info_node::flow_event()
         L(nx - 3, iy) = wall_code;
     }
 
-    building_layout_output.assign(std::make_pair(L, d));
+    building_layout_output.assign({ L, d });
     wall_resistance_output.assign(wall_R);
 }
 
