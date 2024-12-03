@@ -95,8 +95,7 @@ inline duration thermodynamics_node::planned_event(duration elapsed_dt)
 {
     // Add heat from point sources
     for (const auto& heat_source : H) {
-        const auto& pos = heat_source.second.first;
-        const auto& T_rate = heat_source.second.second;
+        const auto& [pos, T_rate] = heat_source.second;
         TF(pos) += T_rate*step_dt;
     }
 

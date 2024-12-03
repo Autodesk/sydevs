@@ -87,9 +87,7 @@ inline duration building_vis_node::unplanned_event(duration elapsed_dt)
         SF = sound_field_input.value();
     }
     else if (occupant_position_input.received()) {
-        const std::pair<occupant_id, array1d<int64>>& occ_pos = occupant_position_input.value();
-        auto occ_id = occ_pos.first;
-        auto pos = occ_pos.second;
+        const auto& [occ_id, pos] = occupant_position_input.value();
         OP[occ_id] = pos;
     }
     planned_dt -= elapsed_dt;

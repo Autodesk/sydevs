@@ -70,9 +70,7 @@ inline duration comfort_node::unplanned_event(duration elapsed_dt)
 {
     if (temperature_field_input.received()) {
         TF = temperature_field_input.value();
-        for (auto& occ_pos : OP) {
-            auto& occ_id = occ_pos.first;
-            auto& pos = occ_pos.second;
+        for (const auto& [occ_id, pos] : OP) {
             next_OT[occ_id] = TF(pos);
             if (OT[occ_id] != next_OT[occ_id]) {
                 change_flag = true;
@@ -80,9 +78,7 @@ inline duration comfort_node::unplanned_event(duration elapsed_dt)
         }
     }
     else if (occupant_position_input.received()) {
-        const std::pair<occupant_id, array1d<int64>>& occ_pos = occupant_position_input.value();
-        auto& occ_id = occ_pos.first;
-        auto& pos = occ_pos.second;
+        const auto& [occ_id, pos] = occupant_position_input.value();
         OP[occ_id] = pos;
         if (OT.find(occ_id) == std::end(OT)) {
             OT[occ_id] = thermodynamic_temperature();
@@ -103,8 +99,7 @@ inline duration comfort_node::unplanned_event(duration elapsed_dt)
 
 inline duration comfort_node::planned_event(duration elapsed_dt)
 {
-    for (auto& occ_pos : OP) {
-        auto& occ_id = occ_pos.first;
+    for (const auto& [occ_id, pos] : OP) {
         if (OT[occ_id] != next_OT[occ_id]) {
             OT[occ_id] = next_OT[occ_id];
             occupant_temperature_output.send(std::make_pair(occ_id, OT[occ_id]));

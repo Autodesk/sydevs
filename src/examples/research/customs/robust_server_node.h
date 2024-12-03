@@ -115,9 +115,7 @@ inline duration robust_server_node::unplanned_event(duration elapsed_dt)
         registered_src_ids_.insert(src_id);
     }
     else if (acceptance_input.received()) {
-        const std::pair<int64, int64>& acceptance_value = acceptance_input.value();
-        int64 src_id = acceptance_value.first;
-        int64 dst_id = acceptance_value.second;
+        const auto& [src_id, dst_id] = acceptance_input.value();
         // Node dst_id is accepting an item from node src_id.
         if (src_id == id_) {
             // Node dst_id is accepting an item from this node.

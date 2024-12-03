@@ -36,9 +36,7 @@ duration workplace_csv_output_node::unplanned_event(duration elapsed_dt)
     // Handle the message input.
     if (change_input.received()) {
         // Get the received change in a worker's task.
-        const auto& change = change_input.value();
-        int64 worker_id = change.first;
-        const std::string& task = change.second;
+        const auto& [worker_id, task] = change_input.value();
 
         // Update the flag indicating whether the worker is on break.
         break_flags[worker_id] = (task == "break");

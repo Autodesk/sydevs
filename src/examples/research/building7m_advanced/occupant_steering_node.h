@@ -75,9 +75,9 @@ inline occupant_steering_node::occupant_steering_node(const std::string& node_na
 inline duration occupant_steering_node::initialization_event()
 {
     L = building_layout_input.value().first;
+    d = building_layout_input.value().second.first;
     nx = L.dims()[0];
     ny = L.dims()[1];
-    d = building_layout_input.value().second.first;
     auto walking_speed = walking_speed_input.value();
     step_dt = (d/walking_speed).fixed_at(time_precision());
     OP = initial_positions_input.value();
@@ -91,9 +91,7 @@ inline duration occupant_steering_node::initialization_event()
 inline duration occupant_steering_node::unplanned_event(duration elapsed_dt)
 {
     if (occupant_destination_input.received()) {
-        const std::pair<occupant_id, array1d<int64>>& occ_dest_pos = occupant_destination_input.value();
-        auto& occ_id = occ_dest_pos.first;
-        auto& dest_pos = occ_dest_pos.second;
+        const auto& [occ_id, dest_pos] = occupant_destination_input.value();
         OD[occ_id] = dest_pos;
     }
     planned_dt -= elapsed_dt;
@@ -104,9 +102,7 @@ inline duration occupant_steering_node::unplanned_event(duration elapsed_dt)
 inline duration occupant_steering_node::planned_event(duration elapsed_dt)
 {
     OP = next_OP;
-    for (auto& occ_pos : OP) {
-        auto& occ_id = occ_pos.first;
-        auto& pos = occ_pos.second;
+    for (const auto& [occ_id, pos] : OP) {
         occupant_position_output.send(std::make_pair(occ_id, pos));
         if (OD.find(occ_id) != std::end(OD)) {
             if (!all(pos == OD[occ_id])) {

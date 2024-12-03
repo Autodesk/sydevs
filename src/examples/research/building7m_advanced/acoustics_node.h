@@ -76,11 +76,10 @@ inline duration acoustics_node::initialization_event()
     directions[3] = array1d<int64>({2}, {0, -1});
 
     L = building_layout_input.value().first;
-
-    nx = L.dims()[0];
-    ny = L.dims()[1];
     d = building_layout_input.value().second.first;
     h = building_layout_input.value().second.second;
+    nx = L.dims()[0];
+    ny = L.dims()[1];
     wall_alpha = wall_sound_absorption_input.value();
     floor_alpha = floor_sound_absorption_input.value();
     ceiling_alpha = ceiling_sound_absorption_input.value();
