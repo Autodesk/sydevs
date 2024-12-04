@@ -65,12 +65,11 @@ You should update the documentation on a regular basis to keep it in sync with t
 
 The [Main SyDEVS Website](https://autodesk.github.io/sydevs) includes an [Overview](https://autodesk.github.io/sydevs/overview.html), a [Getting Started](https://autodesk.github.io/sydevs/getting_started/) tutorial, a [User Manual](https://autodesk.github.io/sydevs/user_manual/), and the [API Reference](https://autodesk.github.io/sydevs/doc/html/) for the latest release.
 
-### PowerPoint
+### Slide Decks
 
-There are three PowerPoint documents located in the [`doc`](doc) folder:
+There are two PowerPoint slide decks located in the [`doc`](doc) folder:
 
 - [`SyDEVS_Introduction.pptx`](doc/SyDEVS_Introduction.pptx): An introduction to the theory, paradigm, and code associated with SyDEVS.
-- [`SyDEVS_Framework_Overview.pptx`](doc/SyDEVS_Framework_Overview.pptx): An overview of the systems modeling framework and related snippets of code.
 - [`SyDEVS_Building7m_Tutorial.pptx`](doc/SyDEVS_Building7m_Tutorial.pptx): A tutorial that challenges developers to enhance the [`building7m`](src/examples/demo/building7m) example.
 
 ### Examples
