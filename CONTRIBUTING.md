@@ -2,6 +2,16 @@
 
 We're delighted that you'd like to contribute to this project. Please review the guidelines below.
 
+## Contributor License Agreement
+
+Before contributing any code to this project, we kindly ask you to sign a Contributor License Agreement (CLA). We can not accept any pull request if a CLA has not been signed.
+
+- If you are contributing on behalf of yourself, the CLA signature is included as a part of the pull request process.
+
+- If you are contributing on behalf of your employer, please sign our [Corporate Contributor License](https://github.com/Autodesk/autodesk.github.io/releases/download/1.0/ADSK.Form.Corp.Contrib.Agmt.for.Open.Source.docx) Agreement. The document includes instructions on where to send the completed forms to. Once a signed form has been received, we can happily review and accept your pull requests.
+
+Contributors are expected to follow the [Contributor Covenant](CODE_OF_CONDUCT.md), which describes the code of conduct for Autodesk open source projects like this one.
+
 ## Communicating possible changes
 
 To request a feature or report a bug, please open an issue. Also, feel free to email the lead developer, Rhys Goldstein <rhys.goldstein@autodesk.com>, to discuss any of the following:
@@ -14,12 +24,12 @@ To request a feature or report a bug, please open an issue. Also, feel free to e
 
 ## Submitting a pull request
 
-In general, contributors should develop on branches based off of `master` and pull requests should be made against `master`. To submit a pull request, follow the procedure below:
+In general, contributors should develop on branches based off of `main` and pull requests should be made against `main`. To submit a pull request, follow the procedure below:
 
 1. Fork and clone the repository.
-1. Create a new branch based on `master`: `git checkout -b <my-branch-name> master`.
+1. Create a new branch based on `main`: `git checkout -b <my-branch-name> main`.
 1. Make your changes, ensure the existing tests still pass; if needed add new tests and make sure they pass.
-1. Push to your fork and submit a pull request from your branch to `master`.
+1. Push to your fork and submit a pull request from your branch to `main`.
 
 Here are a few things you can do that will increase the likelihood that your pull request will be accepted:
 

@@ -66,8 +66,7 @@ inline duration building_ui_node::initialization_event()
 {
     frame_index_ = -1;
     frame_dt_ = frame_duration_input.value().fixed_at(time_precision());
-    L_ = building_layout_input.value().first;
-    d_ = building_layout_input.value().second;
+    std::tie(L_, d_) = building_layout_input.value();
     TF_ = array2d<thermodynamic_temperature>();
     pos_ = array1d<int64>({2}, {-1, -1});
     planned_dt_ = 0_s;

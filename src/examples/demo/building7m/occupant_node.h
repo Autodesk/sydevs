@@ -68,10 +68,9 @@ inline occupant_node::occupant_node(const std::string& node_name, const node_con
 
 inline duration occupant_node::initialization_event()
 {
-    L = building_layout_input.value().first;
+    std::tie(L, d) = building_layout_input.value();
     nx = L.dims()[0];
     ny = L.dims()[1];
-    d = building_layout_input.value().second;
     T = initial_temperature_input.value();
     pos = initial_position_input.value();
     dest_pos = pos;

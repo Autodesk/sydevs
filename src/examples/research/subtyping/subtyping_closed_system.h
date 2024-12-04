@@ -42,7 +42,7 @@ inline duration subtyping_closed_system::macro_initialization_event()
 {
     int64 agent_id = 0;
     for (float64 y0 = 0.0; y0 < 5.0; ++y0) {
-        access(prototype.y0_input) = y0;
+        get(prototype.y0_input) = y0;
         create_agent<agent_derived_A_node>(agent_id);
         ++agent_id;
         create_agent<agent_derived_B_node>(agent_id);
@@ -67,7 +67,7 @@ inline duration subtyping_closed_system::micro_planned_event(const int64& agent_
 inline duration subtyping_closed_system::macro_planned_event(duration elapsed_dt)
 {
     for (int64 agent_id = 0; agent_id < 10; ++agent_id) {
-        access(prototype.x_input) = 5.0;
+        get(prototype.x_input) = 5.0;
         affect_agent(agent_id);
     }
     return 5_s;

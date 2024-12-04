@@ -76,11 +76,11 @@ inline duration robust_server_array_node::macro_initialization_event()
     acceptance_values_ = std::vector<std::pair<int64, int64>>();
 
     // Create the server agents.
-    access(prototype.mean_dt_input) = mean_dt_;
-    access(prototype.stdev_dt_input) = stdev_dt_;
+    get(prototype.mean_dt_input) = mean_dt_;
+    get(prototype.stdev_dt_input) = stdev_dt_;
     for (int64 i = 0; i < server_count_; ++i) {
         int64 server_id = id_ + i + 1;
-        access(prototype.id_input) = server_id;
+        get(prototype.id_input) = server_id;
         create_agent(server_id);
     }
 
@@ -94,24 +94,23 @@ inline duration robust_server_array_node::macro_unplanned_event(duration elapsed
     if (registration_input.received()) {
         int64 src_id = registration_input.value();
         for (auto agent_iter = agent_begin(); agent_iter != agent_end(); ++agent_iter) {
-            access(prototype.registration_input) = src_id;
+            get(prototype.registration_input) = src_id;
             affect_agent(*agent_iter);
         }
     }
     else if (acceptance_input.received()) {
         const std::pair<int64, int64>& acceptance_value = acceptance_input.value();
         for (auto agent_iter = agent_begin(); agent_iter != agent_end(); ++agent_iter) {
-            access(prototype.acceptance_input) = acceptance_value;
+            get(prototype.acceptance_input) = acceptance_value;
             affect_agent(*agent_iter);
         }
     }
     else if (item_input.received()) {
-        const std::tuple<int64, int64, int64>& item_value = item_input.value();
+        const auto& [src_id, dst_id, item_id] = item_input.value();
         for (auto agent_iter = agent_begin(); agent_iter != agent_end(); ++agent_iter) {
-            access(prototype.item_input) = item_value;
+            get(prototype.item_input) = { src_id, dst_id, item_id };
             affect_agent(*agent_iter);
         }
-        int64 src_id = std::get<0>(item_value);
         auto acceptance_iter = std::remove_if(std::begin(acceptance_values_), 
                                               std::end(acceptance_values_), 
                                               [src_id](const std::pair<int64, int64>& acceptance_value){
@@ -126,15 +125,15 @@ inline duration robust_server_array_node::macro_unplanned_event(duration elapsed
 inline duration robust_server_array_node::micro_planned_event(const int64& agent_id, duration elapsed_dt)
 {
     if (transmitted(prototype.registration_output)) {
-        int64 src_id = access(prototype.registration_output);
+        int64 src_id = get(prototype.registration_output);
         registration_output.send(src_id);
     }
     else if (transmitted(prototype.acceptance_output)) {
-        const std::pair<int64, int64>& acceptance_value = access(prototype.acceptance_output);
+        const std::pair<int64, int64>& acceptance_value = get(prototype.acceptance_output);
         acceptance_values_.push_back(acceptance_value);
     }
     else if (transmitted(prototype.item_output)) {
-        const std::tuple<int64, int64, int64>& item_value = access(prototype.item_output);
+        const std::tuple<int64, int64, int64>& item_value = get(prototype.item_output);
         item_output.send(item_value);
     }
     return !acceptance_values_.empty() ? 0_s : duration::inf();

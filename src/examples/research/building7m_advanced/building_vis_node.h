@@ -36,8 +36,6 @@ protected:
     // State Variables:
     duration frame_dt;                            // duration of simulated time between successive frames
     array2d<int64> L;                             // building layout
-    int64 nx;                                     // number of cells in the x dimension
-    int64 ny;                                     // number of cells in the y dimension
     int64 frame_index;                            // index of frame
     array2d<thermodynamic_temperature> TF;        // temperature field
     array2d<quantity<decltype(_g/_m/_s/_s)>> SF;  // sound field
@@ -67,8 +65,6 @@ inline duration building_vis_node::initialization_event()
 {
     frame_dt = frame_duration_input.value();
     L = building_layout_input.value().first;
-    nx = L.dims()[0];
-    ny = L.dims()[1];
     frame_index = -1;
     TF = array2d<thermodynamic_temperature>();
     SF = array2d<quantity<decltype(_g/_m/_s/_s)>>();
@@ -87,9 +83,7 @@ inline duration building_vis_node::unplanned_event(duration elapsed_dt)
         SF = sound_field_input.value();
     }
     else if (occupant_position_input.received()) {
-        const std::pair<occupant_id, array1d<int64>>& occ_pos = occupant_position_input.value();
-        auto occ_id = occ_pos.first;
-        auto pos = occ_pos.second;
+        const auto& [occ_id, pos] = occupant_position_input.value();
         OP[occ_id] = pos;
     }
     planned_dt -= elapsed_dt;

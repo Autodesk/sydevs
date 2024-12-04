@@ -71,7 +71,7 @@ inline duration parallel_queueing_node::macro_initialization_event()
     N = std::vector<int64>();
 
     // Add the first queue.
-    access(prototype.serv_dt_input) = serv_dt;  // Set the queueing node flow input value.
+    get(prototype.serv_dt_input) = serv_dt;  // Set the queueing node flow input value.
     create_agent(0);                            // Create the queueing node agent.
     N.push_back(0);                             // Record that the queueing node has no jobs.
 
@@ -101,7 +101,7 @@ inline duration parallel_queueing_node::macro_unplanned_event(duration elapsed_d
 
         // Add a new queue if needed and update the number of jobs in each queue.
         if (agent_id == int64(N.size())) {
-            access(prototype.serv_dt_input) = serv_dt;  // Set the queueing node flow input value.
+            get(prototype.serv_dt_input) = serv_dt;  // Set the queueing node flow input value.
             create_agent(agent_id);                     // Create the queueing node agent.
             N.push_back(1);                             // Record that the queueing node has one job.
         }
@@ -110,7 +110,7 @@ inline duration parallel_queueing_node::macro_unplanned_event(duration elapsed_d
         }
 
         // Send the received job ID to the selected queueing node.
-        access(prototype.job_id_input) = job_id;
+        get(prototype.job_id_input) = job_id;
         affect_agent(agent_id);
     }
 
@@ -124,7 +124,7 @@ inline duration parallel_queueing_node::micro_planned_event(const int64& agent_i
     // Handle the message output transmitted from the queueing node.
     if (transmitted(prototype.job_id_output)) {
         // Get the transmitted job ID.
-        int64 job_id = access(prototype.job_id_output);
+        int64 job_id = get(prototype.job_id_output);
 
         // Send the job ID as a message output.
         job_id_output.send(job_id);
@@ -154,7 +154,7 @@ inline void parallel_queueing_node::macro_finalization_event(duration elapsed_dt
     while (agent_count() > 0) {
         int64 agent_id = *agent_begin();
         remove_agent(agent_id);
-        idle_dt += access(prototype.idle_dt_output);
+        idle_dt += get(prototype.idle_dt_output);
     }
     idle_dt_output.assign(idle_dt);
 }

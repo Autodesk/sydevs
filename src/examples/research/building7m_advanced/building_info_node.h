@@ -90,7 +90,7 @@ inline void building_info_node::flow_event()
         L(ix_wall, iy) = wall_code;
     }
 
-    building_layout_output.assign(std::make_pair(L, std::make_pair(d, h)));
+    building_layout_output.assign({ L, {d, h} });
     wall_resistance_output.assign(wall_R);
     wall_sound_absorption_output.assign(wall_alpha);
     floor_sound_absorption_output.assign(floor_alpha);

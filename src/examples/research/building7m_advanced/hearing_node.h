@@ -66,9 +66,7 @@ inline duration hearing_node::unplanned_event(duration elapsed_dt)
 {
     if (sound_field_input.received()) {
         SF = sound_field_input.value();
-        for (auto& occ_pos : OP) {
-            auto& occ_id = occ_pos.first;
-            auto& pos = occ_pos.second;
+        for (const auto& [occ_id, pos] : OP) {
             next_OS[occ_id] = SF(pos);
             if (OS[occ_id] != next_OS[occ_id]) {
                 change_flag = true;
@@ -76,9 +74,7 @@ inline duration hearing_node::unplanned_event(duration elapsed_dt)
         }
     }
     else if (occupant_position_input.received()) {
-        const std::pair<occupant_id, array1d<int64>>& occ_pos = occupant_position_input.value();
-        auto& occ_id = occ_pos.first;
-        auto& pos = occ_pos.second;
+        const auto& [occ_id, pos] = occupant_position_input.value();
         OP[occ_id] = pos;
         if (OS.find(occ_id) == std::end(OS)) {
             OS[occ_id] = quantity<decltype(_g/_m/_s/_s)>();
@@ -103,7 +99,7 @@ inline duration hearing_node::planned_event(duration elapsed_dt)
         auto& occ_id = occ_pos.first;
         if (OS[occ_id] != next_OS[occ_id]) {
             OS[occ_id] = next_OS[occ_id];
-            occupant_sound_output.send(std::make_pair(occ_id, OS[occ_id]));
+            occupant_sound_output.send({ occ_id, OS[occ_id] });
         }
     }
     change_flag = false;

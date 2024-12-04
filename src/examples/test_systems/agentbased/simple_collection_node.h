@@ -76,8 +76,8 @@ inline duration simple_collection_node::macro_initialization_event()
     departure_count = 0;
 
     // Create the first agent.
-    access(prototype.avg_delay_dt_input) = avg_delay_dt;
-    access(prototype.invite_prob_input) = invite_prob;
+    get(prototype.avg_delay_dt_input) = avg_delay_dt;
+    get(prototype.invite_prob_input) = invite_prob;
     create_agent("agent-0");
 
     // Print the grid.
@@ -99,7 +99,7 @@ inline duration simple_collection_node::micro_planned_event(const std::string& a
     // Respond according to the active prototype message output port.
     if (transmitted(prototype.move_output)) {
         // The agent has assumed a new position on the grid.
-        const auto& new_pos = access(prototype.move_output);
+        const auto& new_pos = get(prototype.move_output);
 
         // The agent may have an outdated position on the grid; if so, erase it.
         auto agent_iter = agent_coords.find(agent_id);
@@ -114,9 +114,9 @@ inline duration simple_collection_node::micro_planned_event(const std::string& a
         if (std::abs(new_pos(0)) <= grid_extent && std::abs(new_pos(1)) <= grid_extent) {
             auto& neighbor_ids = grid(new_pos + grid_extent);
             for (const auto& neighbor_id : neighbor_ids) {
-                access(prototype.encounter_input) = neighbor_id;
+                get(prototype.encounter_input) = neighbor_id;
                 affect_agent(agent_id);
-                access(prototype.encounter_input) = agent_id;
+                get(prototype.encounter_input) = agent_id;
                 affect_agent(neighbor_id);
             }
             neighbor_ids.insert(agent_id);
@@ -124,7 +124,7 @@ inline duration simple_collection_node::micro_planned_event(const std::string& a
         }
         else {
             remove_agent(agent_id);
-            int64 acquaintances = access(prototype.acquaintances_output);
+            int64 acquaintances = get(prototype.acquaintances_output);
             print(agent_id + " departed after encountering " + tostring(acquaintances) + " others");
             total_acquaintances += acquaintances;
             ++departure_count;
@@ -135,9 +135,9 @@ inline duration simple_collection_node::micro_planned_event(const std::string& a
     }
     else if (transmitted(prototype.invite_output)) {
         // The agent has invited a new agent.
-        const auto& invitee_id = access(prototype.invite_output);
-        access(prototype.avg_delay_dt_input) = avg_delay_dt;
-        access(prototype.invite_prob_input) = invite_prob;
+        const auto& invitee_id = get(prototype.invite_output);
+        get(prototype.avg_delay_dt_input) = avg_delay_dt;
+        get(prototype.invite_prob_input) = invite_prob;
         create_agent(invitee_id);
     }
 

@@ -104,7 +104,7 @@ inline duration robust_variable_lane_node::macro_unplanned_event(duration elapse
     if (registration_input.received()) {
         int64 src_id = registration_input.value();
         for (auto agent_iter = agent_begin(); agent_iter != agent_end(); ++agent_iter) {
-            access(prototype.registration_input) = src_id;
+            get(prototype.registration_input) = src_id;
             affect_agent(*agent_iter);
         }
         registration_src_ids_.insert(src_id);
@@ -117,18 +117,16 @@ inline duration robust_variable_lane_node::macro_unplanned_event(duration elapse
     else if (acceptance_input.received()) {
         const std::pair<int64, int64>& acceptance_value = acceptance_input.value();
         for (auto agent_iter = agent_begin(); agent_iter != agent_end(); ++agent_iter) {
-            access(prototype.acceptance_input) = acceptance_value;
+            get(prototype.acceptance_input) = acceptance_value;
             affect_agent(*agent_iter);
         }
     }
     else if (item_input.received()) {
-        const std::tuple<int64, int64, int64>& item_value = item_input.value();
+        const auto& [src_id, dst_id, item_id] = item_input.value();
         for (auto agent_iter = agent_begin(); agent_iter != agent_end(); ++agent_iter) {
-            access(prototype.item_input) = item_value;
+            get(prototype.item_input) = { src_id, dst_id, item_id };
             affect_agent(*agent_iter);
         }
-        int64 src_id = std::get<0>(item_value);
-        int64 dst_id = std::get<1>(item_value);
         ++item_counts_[dst_id];
         ++total_item_count_;
         registration_src_ids_.erase(src_id);
@@ -147,17 +145,16 @@ inline duration robust_variable_lane_node::micro_planned_event(const int64& agen
 {
     remaining_lane_creation_dt_ -= elapsed_dt;
     if (transmitted(prototype.registration_output)) {
-        int64 src_id = access(prototype.registration_output);
+        int64 src_id = get(prototype.registration_output);
         registration_output.send(src_id);
     }
     else if (transmitted(prototype.acceptance_output)) {
-        const std::pair<int64, int64>& acceptance_value = access(prototype.acceptance_output);
+        const std::pair<int64, int64>& acceptance_value = get(prototype.acceptance_output);
         acceptance_values_.push_back(acceptance_value);
     }
     else if (transmitted(prototype.item_output)) {
-        const std::tuple<int64, int64, int64>& item_value = access(prototype.item_output);
-        item_output.send(item_value);
-        int64 src_id = std::get<0>(item_value);
+        const auto& [src_id, dst_id, item_id] = get(prototype.item_output);
+        item_output.send({ src_id, dst_id, item_id });
         --item_counts_[src_id];
         --total_item_count_;
         if (item_counts_[src_id] == 0) {
@@ -189,15 +186,15 @@ inline duration robust_variable_lane_node::macro_planned_event(duration elapsed_
                 done = true;
             }
         }
-        access(prototype.id_input) = lane_id;
-        access(prototype.capacity_input) = queue_capacity_;
-        access(prototype.mean_dt_input) = server_mean_dt_;
-        access(prototype.stdev_dt_input) = server_stdev_dt_;
+        get(prototype.id_input) = lane_id;
+        get(prototype.capacity_input) = queue_capacity_;
+        get(prototype.mean_dt_input) = server_mean_dt_;
+        get(prototype.stdev_dt_input) = server_stdev_dt_;
         create_agent(lane_id);
         lane_creation_output.send(lane_id);
         item_counts_[lane_id] = 0;
         for (int64 src_id : registration_src_ids_) {
-            access(prototype.registration_input) = src_id;
+            get(prototype.registration_input) = src_id;
             affect_agent(lane_id);
         }
         remaining_lane_creation_dt_ = duration::inf();

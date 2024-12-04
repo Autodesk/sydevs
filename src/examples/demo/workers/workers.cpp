@@ -8,10 +8,9 @@ void workers()
     bool output_to_file = false;
     bool print_timing_stats = false;
 
-    std::shared_ptr<std::fstream> os_ptr;
+    std::shared_ptr<std::ostream> os_ptr;
     if (output_to_file) {
-        os_ptr = std::make_shared<std::fstream>();
-        os_ptr->open("workers.csv", std::fstream::out);
+        os_ptr = std::make_shared<std::ofstream>("workers.csv");
     }
 
     try {
@@ -45,10 +44,6 @@ void workers()
     }
     catch (const std::exception& e) {
         std::cout << "OTHER ERROR: " << e.what() << std::endl;
-    }
-
-    if (output_to_file) {
-        os_ptr->close();
     }
 }
 

@@ -76,11 +76,10 @@ inline duration acoustics_node::initialization_event()
     directions[3] = array1d<int64>({2}, {0, -1});
 
     L = building_layout_input.value().first;
-
-    nx = L.dims()[0];
-    ny = L.dims()[1];
     d = building_layout_input.value().second.first;
     h = building_layout_input.value().second.second;
+    nx = L.dims()[0];
+    ny = L.dims()[1];
     wall_alpha = wall_sound_absorption_input.value();
     floor_alpha = floor_sound_absorption_input.value();
     ceiling_alpha = ceiling_sound_absorption_input.value();
@@ -97,11 +96,8 @@ inline duration acoustics_node::initialization_event()
 inline duration acoustics_node::unplanned_event(duration elapsed_dt)
 {
     if (sound_source_input.received()) {
-        const std::tuple<occupant_id, array1d<int64>, quantity<decltype(_g/_m/_s/_s)>>& sound_source = sound_source_input.value();
-        const auto& occ_id = std::get<0>(sound_source);
-        const auto& pos = std::get<1>(sound_source);
-        const auto& P = std::get<2>(sound_source);
-        S[occ_id] = std::make_pair(pos, P);
+        const auto& [occ_id, pos, P] = sound_source_input.value();
+        S[occ_id] = { pos, P };
     }
     planned_dt -= elapsed_dt;
     return planned_dt;
@@ -134,8 +130,7 @@ inline duration acoustics_node::planned_event(duration elapsed_dt)
                 array1d<int64> pos({ 2 }, { ix, iy });
                 auto& Pxs = TLM(pos);
                 for (int64 idir = 0; idir < 4; ++idir) {
-                    auto dir = directions[idir];
-                    auto nbr_pos = pos + dir;
+                    auto nbr_pos = pos + directions[idir];
                     if ((nbr_pos(0) >= 0) && (nbr_pos(0) < nx) && (nbr_pos(1) >= 0) && (nbr_pos(1) < ny)) {
                         if (L(nbr_pos) == wall_code) {
                             auto& next_Pxs = next_TLM(pos);

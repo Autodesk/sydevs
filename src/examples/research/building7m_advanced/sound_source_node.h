@@ -62,9 +62,7 @@ inline duration sound_source_node::initialization_event()
 inline duration sound_source_node::unplanned_event(duration elapsed_dt)
 {
     if (occupant_position_input.received()) {
-        const std::pair<occupant_id, array1d<int64>>& occ_pos = occupant_position_input.value();
-        auto& occ_id = occ_pos.first;
-        auto& pos = occ_pos.second;
+        const auto& [occ_id, pos] = occupant_position_input.value();
         next_OP[occ_id] = pos;
         if (OP.find(occ_id) == std::end(OP)) {
             OP[occ_id] = pos;
@@ -79,9 +77,7 @@ inline duration sound_source_node::unplanned_event(duration elapsed_dt)
 
 inline duration sound_source_node::planned_event(duration elapsed_dt)
 {
-    for (auto& occ_pos : next_OP) {
-        auto& occ_id = occ_pos.first;
-        auto& pos = occ_pos.second;
+    for (const auto& [occ_id, pos] : next_OP) {
         if (!all(pos == OP[occ_id])) {
             sound_source_output.send(std::make_tuple(occ_id, pos, walking_P));
         }

@@ -1,6 +1,7 @@
 #include <sydevs/core/arraynd.h>
 #include <chrono>
 #include <memory>
+#include <random>
 #include <iostream>
 #include <stdexcept>
 
@@ -203,11 +204,14 @@ int main(int argc, const char* argv[])
         auto obj_array_op = [](int64 m, int64 n, int64 p) -> pointer {
             auto* obj_arr_ptr = new array3d<float64>({m, n, p}, 0);
             auto& obj_arr = *obj_arr_ptr;
-            srand(10);
-            for (int64 a = 0; a < 1; ++a) {
-                int64 i = rand()%m;
-                int64 j = rand()%n;
-                int64 k = rand()%p;
+            std::minstd_rand rng(10);
+            std::uniform_int_distribution<int64> idist(0, m - 1);
+            std::uniform_int_distribution<int64> jdist(0, n - 1);
+            std::uniform_int_distribution<int64> kdist(0, p - 1);
+            for (int64 a = 0; a < 100; ++a) {
+                int64 i = idist(rng);
+                int64 j = jdist(rng);
+                int64 k = kdist(rng);
                 obj_arr({i, j, k}) = (n*k - p*j)/float64((m - i)*(n + 1)*(p + 1));
             }
             return pointer(obj_arr_ptr);
@@ -222,11 +226,14 @@ int main(int argc, const char* argv[])
                     }
                 }
             }
-            srand(10);
-            for (int64 a = 0; a < 1; ++a) {
-                int64 i = rand()%m;
-                int64 j = rand()%n;
-                int64 k = rand()%p;
+            std::minstd_rand rng(10);
+            std::uniform_int_distribution<int64> idist(0, m - 1);
+            std::uniform_int_distribution<int64> jdist(0, n - 1);
+            std::uniform_int_distribution<int64> kdist(0, p - 1);
+            for (int64 a = 0; a < 100; ++a) {
+                int64 i = idist(rng);
+                int64 j = jdist(rng);
+                int64 k = kdist(rng);
                 raw_arr[(i*n + j)*p + k] = (n*k - p*j)/float64((m - i)*(n + 1)*(p + 1));
             }
             return pointer(raw_arr, raw_array_deleter<float64>());
@@ -442,11 +449,14 @@ int main(int argc, const char* argv[])
             const auto* obj_arr_ptr = new array3d<float64>({m, n, p}, 7.0);
             const auto& obj_arr = *obj_arr_ptr;
             double x = 0.0;
-            srand(10);
-            for (int64 a = 0; a < 1; ++a) {
-                int64 i = rand()%m;
-                int64 j = rand()%n;
-                int64 k = rand()%p;
+            std::minstd_rand rng(10);
+            std::uniform_int_distribution<int64> idist(0, m - 1);
+            std::uniform_int_distribution<int64> jdist(0, n - 1);
+            std::uniform_int_distribution<int64> kdist(0, p - 1);
+            for (int64 a = 0; a < 100; ++a) {
+                int64 i = idist(rng);
+                int64 j = jdist(rng);
+                int64 k = kdist(rng);
                 x += obj_arr({i, j, k});
             }
             return pointer();
@@ -462,11 +472,14 @@ int main(int argc, const char* argv[])
                 }
             }
             double x = 0.0;
-            srand(10);
-            for (int64 a = 0; a < 1; ++a) {
-                int64 i = rand()%m;
-                int64 j = rand()%n;
-                int64 k = rand()%p;
+            std::minstd_rand rng(10);
+            std::uniform_int_distribution<int64> idist(0, m - 1);
+            std::uniform_int_distribution<int64> jdist(0, n - 1);
+            std::uniform_int_distribution<int64> kdist(0, p - 1);
+            for (int64 a = 0; a < 100; ++a) {
+                int64 i = idist(rng);
+                int64 j = jdist(rng);
+                int64 k = kdist(rng);
                 x += raw_arr[(i*n + j)*p + k];
             }
             return pointer();

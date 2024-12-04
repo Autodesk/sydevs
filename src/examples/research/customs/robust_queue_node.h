@@ -90,9 +90,7 @@ inline duration robust_queue_node::unplanned_event(duration elapsed_dt)
         registered_src_ids_.insert(src_id);
     }
     else if (acceptance_input.received()) {
-        const std::pair<int64, int64>& acceptance_value = acceptance_input.value();
-        int64 src_id = acceptance_value.first;
-        int64 dst_id = acceptance_value.second;
+        const auto& [src_id, dst_id] = acceptance_input.value();
         // Node dst_id is accepting an item from node src_id.
         if (src_id == id_) {
             // Node dst_id is accepting an item from this node.
@@ -109,10 +107,7 @@ inline duration robust_queue_node::unplanned_event(duration elapsed_dt)
         }
     }
     else if (item_input.received()) {
-        const std::tuple<int64, int64, int64>& item_value = item_input.value();
-        int64 src_id = std::get<0>(item_value);
-        int64 dst_id = std::get<1>(item_value);
-        int64 item_id = std::get<2>(item_value);
+        const auto& [src_id, dst_id, item_id] = item_input.value();
         // Node src_id is sending an item to node dst_id.
         // Record that an item at node src_id is being deregistered from this node.
         registered_src_ids_.erase(src_id);
@@ -156,7 +151,7 @@ inline duration robust_queue_node::planned_event(duration elapsed_dt)
                 // There is space in the queue.
                 // Randomly select a source node from which to accept an item.
                 acceptance_src_id_ = sample_registered_src();
-                acceptance_output.send(std::make_pair(acceptance_src_id_, id_));
+                acceptance_output.send({ acceptance_src_id_, id_ });
             }
         }
     }

@@ -93,7 +93,7 @@ private:
 };
 
 
-class time_sequence::const_iterator : public std::iterator<std::random_access_iterator_tag, const time_sequence::value_type, int64>
+class time_sequence::const_iterator
 {
 friend class time_sequence;
 public:
@@ -124,7 +124,7 @@ private:
     const_iterator(const time_sequence& ts, int64 pi, int64 ti);
 
     const time_sequence* ts_ptr_;
-    int64 pi_;
+    int64 qi_;
     time_sequence::value_type entry_;
 };
  

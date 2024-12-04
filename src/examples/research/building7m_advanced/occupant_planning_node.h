@@ -82,9 +82,9 @@ inline duration occupant_planning_node::initialization_event()
     directions[7] = array1d<int64>({ 2 }, { 1, -1 });
 
     L = building_layout_input.value().first;
+    d = building_layout_input.value().second.first;
     nx = L.dims()[0];
     ny = L.dims()[1];
-    d = building_layout_input.value().second.first;
     high_T = high_temperature_input.value();
 
     thermodynamic_temperature T0 = initial_temperature_input.value();
@@ -131,11 +131,10 @@ inline duration occupant_planning_node::unplanned_event(duration elapsed_dt)
 
 inline duration occupant_planning_node::planned_event(duration elapsed_dt)
 {
-    for (auto& occ_pos : OP) {
-        auto& occ_id = occ_pos.first;
+    for (const auto& [occ_id, pos] : OP) {
         if (!all(OD[occ_id] == next_OD[occ_id])) {
             OD[occ_id] = next_OD[occ_id];
-            occupant_destination_output.send(std::make_pair(occ_id, OD[occ_id]));
+            occupant_destination_output.send({ occ_id, OD[occ_id] });
         }
     }
     change_flag = false;

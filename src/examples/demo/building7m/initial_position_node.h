@@ -37,7 +37,7 @@ inline initial_position_node::initial_position_node(const std::string& node_name
 
 inline void initial_position_node::flow_event()
 {
-    array2d<int64> L = building_layout_input.value().first;
+    const auto& [L, d] = building_layout_input.value();
     int64 nx = L.dims()[0];
     int64 ny = L.dims()[1];
     array1d<int64> pos({2}, {0, 0});
