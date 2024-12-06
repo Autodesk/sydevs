@@ -20,23 +20,23 @@ The recommended way to use SyDEVS in a simulation project is to include the [lat
 
 To build the SyDEVS examples and tests using [CMake](http://www.cmake.org/) and [Visual Studio 2022](https://www.visualstudio.com), follow the instructions below. 
 
-* Open a command prompt and navigate to the `sydevs` project directory.
-* `mkdir build`
-* `cd build/`
-* `cmake -G "Visual Studio 17 2022" -A x64 ..`
-* Open `build/SyDEVS.sln` in Visual Studio
-* Recommendation: In `Tools -> Options -> Text Editor -> C/C++ -> Tabs`, select `Insert spaces` with a `Tab size` and `Indent size` of `4`
+1. Open a command prompt and navigate to the `sydevs` project directory.
+1. `mkdir build`
+1. `cd build/`
+1. `cmake -G "Visual Studio 17 2022" -A x64 ..`
+1. Open `build/SyDEVS.sln` in Visual Studio
+1. Recommendation: In `Tools -> Options -> Text Editor -> C/C++ -> Tabs`, select `Insert spaces` with a `Tab size` and `Indent size` of `4`
 
 ### Building SyDEVS using GCC on Windows
 
 To build the SyDEVS examples and tests using [CMake](http://www.cmake.org/) and [TDM-GCC](https://jmeubank.github.io/tdm-gcc/), follow the instructions below. 
 
-* Install the 64+32-bit MinGW-w64 edition of TDM-GCC.
-* Open a command prompt and navigate to the `sydevs` project directory.
-* `mkdir bin`
-* `cd bin/`
-* `cmake -G "MinGW Makefiles" ..`
-* `mingw32-make`
+1. Install the 64+32-bit MinGW-w64 edition of TDM-GCC.
+1. Open a command prompt and navigate to the `sydevs` project directory.
+1. `mkdir bin`
+1. `cd bin/`
+1. `cmake -G "MinGW Makefiles" ..`
+1. `mingw32-make`
 
 ### Testing SyDEVS
 
@@ -48,29 +48,33 @@ Note that the complete set of regression tests will only run if MSVC is used. If
 
 ### Generating the API documentation
 
-To build or update the documentation files with [Doxygen](https://www.doxygen.nl/), make sure you are in the top level directory (where the `doxygen.config` is) and execute the following command:
+To build or update the documentation files with [Doxygen](https://www.doxygen.nl/), make sure you are in the top level directory where [doxygen.config](doxygen.config) is located, and execute the following command:
 
-- `doxygen doxygen.config`
+* `doxygen doxygen.config`
 
 This will build the documentation in the [`doc`](doc) directory. To open the documentation:
 
-- `cd docs/html`
-- Open `index.html` in your web browser.
+1. `cd docs/html`
+1. Open `index.html` in your web browser.
 
 You should update the documentation on a regular basis to keep it in sync with the code.
+
+### Releasing a new version of SyDEVS
+
+When releasing a new version of SyDEVS, remember to perform the following steps:
+
+1. In [doxygen.config](doxygen.config), update the `PROJECT_NUMBER`.
+1. Ensure the change above is merged into the `main` branch of the repo.
+1. Create the new release.
+1. Generate the API documentation, and copy the contents of `doc/html`.
+1. Checkout the `gh-pages` branch of the repo.
+1. In the `gh-pages` branch, replace the contents of `doc/html` with the contents copied above.
 
 ## Documentation
 
 ### Website
 
 The [Main SyDEVS Website](https://autodesk.github.io/sydevs) includes an [Overview](https://autodesk.github.io/sydevs/overview.html), a [Getting Started](https://autodesk.github.io/sydevs/getting_started/) tutorial, a [User Manual](https://autodesk.github.io/sydevs/user_manual/), and the [API Reference](https://autodesk.github.io/sydevs/doc/html/) for the latest release.
-
-### Slide Decks
-
-There are two PowerPoint slide decks located in the [`doc`](doc) folder:
-
-- [`SyDEVS_Introduction.pptx`](doc/SyDEVS_Introduction.pptx): An introduction to the theory, paradigm, and code associated with SyDEVS.
-- [`SyDEVS_Building7m_Tutorial.pptx`](doc/SyDEVS_Building7m_Tutorial.pptx): A tutorial that challenges developers to enhance the [`building7m`](src/examples/demo/building7m) example.
 
 ### Examples
 
