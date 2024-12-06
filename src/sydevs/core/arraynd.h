@@ -112,15 +112,15 @@ namespace sydevs {
  *         // multidimensional array `other`.
  * ~~~
  *
- * Copying a multidimensional array shares the internal data by default. The
- * result of `operator[]` also shares data, and so does the `view` member
- * function. The `copy` member function performs a deep copy of a 
- * multidimensional array so that no data is shared.
+ * If the result of `operator[]` is assigned or copied to another array, that
+ * new array will continue to share data with the original. The same applies to
+ * the result of the `view` member function. The `copy` member function,
+ * however, ensures that the internal data is copied rather than shared.
  *
  * ~~~
  * auto arr = array2d<int64>({2, 3}, {0, 1, 2, 3, 4, 5});
  *
- * auto arr2 = arr;                    // Shares data.
+ * auto arr2 = arr;                    // Copies data.
  * auto arr3 = arr[range()][range()];  // Shares data.
  * auto arr4 = arr.view();             // Shares data.
  * auto arr5 = arr.copy();             // Copies data.
