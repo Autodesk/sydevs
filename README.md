@@ -52,10 +52,7 @@ To build or update the documentation files with [Doxygen](https://www.doxygen.nl
 
 * `doxygen doxygen.config`
 
-This will build the documentation in the [`doc`](doc) directory. To open the documentation:
-
-1. `cd docs/html`
-1. Open `index.html` in your web browser.
+This will build the documentation in the [`doc`](doc) directory. To view the documentation, go to `docs/html` and open `index.html` in your web browser.
 
 You should update the documentation on a regular basis to keep it in sync with the code.
 
