@@ -721,137 +721,363 @@ bool aligned(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
 
 
 template<typename T, int64 ndims>
-arraynd<T, ndims> operator+(const arraynd<T, ndims>& rhs)
+auto operator+(const arraynd<T, ndims>& rhs)
 {
-    return rhs.copy();
+    return arraynd<decltype(+(*rhs.data())), ndims>(rhs.dims(), [&rhs](const std::array<int64, ndims>& indices) {
+        return +rhs(indices);
+    });
 }
 
 
 template<typename T, int64 ndims>
-arraynd<T, ndims> operator-(const arraynd<T, ndims>& rhs)
+auto operator-(const arraynd<T, ndims>& rhs)
 {
-    return arraynd<T, ndims>(rhs.dims(), [&rhs](const std::array<int64, ndims>& indices) {
+    return arraynd<decltype(-(*rhs.data())), ndims>(rhs.dims(), [&rhs](const std::array<int64, ndims>& indices) {
         return -rhs(indices);
     });
 }
 
 
 template<typename T, int64 ndims>
-arraynd<T, ndims> operator+(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
+auto operator+(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
 {
     if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply + operator to multidimensional arrays with inconsistent dimensions");    
-    return arraynd<T, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+    return arraynd<decltype((*lhs.data()) + (*rhs.data())), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
         return lhs(indices) + rhs(indices);
     });
 }
 
 
-template<typename T, int64 ndims, typename U>
-arraynd<T, ndims> operator+(const arraynd<T, ndims>& lhs, const U& rhs)
-{
-    return arraynd<T, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) + rhs;
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-arraynd<T, ndims> operator+(const U& lhs, const arraynd<T, ndims>& rhs)
-{
-    return arraynd<T, ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs + rhs(indices);
-    });
-}
-
-
 template<typename T, int64 ndims>
-arraynd<T, ndims> operator-(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
+auto operator-(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
 {
     if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply - operator to multidimensional arrays with inconsistent dimensions");    
-    return arraynd<T, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+    return arraynd<decltype((*lhs.data()) - (*rhs.data())), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
         return lhs(indices) - rhs(indices);
     });
 }
 
 
-template<typename T, int64 ndims, typename U>
-arraynd<T, ndims> operator-(const arraynd<T, ndims>& lhs, const U& rhs)
-{
-    return arraynd<T, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) - rhs;
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-arraynd<T, ndims> operator-(const U& lhs, const arraynd<T, ndims>& rhs)
-{
-    return arraynd<T, ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs - rhs(indices);
-    });
-}
-
-
 template<typename T, int64 ndims>
-arraynd<T, ndims> operator*(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
+auto operator*(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
 {
     if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply * operator to multidimensional arrays with inconsistent dimensions");    
-    return arraynd<T, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+    return arraynd<decltype((*lhs.data()) * (*rhs.data())), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
         return lhs(indices)*rhs(indices);
     });
 }
 
 
-template<typename T, int64 ndims, typename U>
-arraynd<T, ndims> operator*(const arraynd<T, ndims>& lhs, const U& rhs)
-{
-    return arraynd<T, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices)*rhs;
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-arraynd<T, ndims> operator*(const U& lhs, const arraynd<T, ndims>& rhs)
-{
-    return arraynd<T, ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs*rhs(indices);
-    });
-}
-
-
 template<typename T, int64 ndims>
-arraynd<T, ndims> operator/(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
+auto operator/(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
 {
     if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply / operator to multidimensional arrays with inconsistent dimensions");    
-    return arraynd<T, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+    return arraynd<decltype((*lhs.data()) / (*rhs.data())), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
         return lhs(indices)/rhs(indices);
     });
 }
 
 
 template<typename T, int64 ndims, typename U>
-arraynd<T, ndims> operator/(const arraynd<T, ndims>& lhs, const U& rhs)
+auto operator+(const arraynd<T, ndims>& lhs, const U& rhs)
 {
-    return arraynd<T, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+    return arraynd<decltype((*lhs.data()) + rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) + rhs;
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator-(const arraynd<T, ndims>& lhs, const U& rhs)
+{
+    return arraynd<decltype((*lhs.data()) - rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) - rhs;
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator*(const arraynd<T, ndims>& lhs, const U& rhs)
+{
+    return arraynd<decltype((*lhs.data()) * rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices)*rhs;
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator/(const arraynd<T, ndims>& lhs, const U& rhs)
+{
+    return arraynd<decltype((*lhs.data()) / rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
         return lhs(indices)/rhs;
     });
 }
 
 
 template<typename T, int64 ndims, typename U>
-arraynd<T, ndims> operator/(const U& lhs, const arraynd<T, ndims>& rhs)
+auto operator+(const U& lhs, const arraynd<T, ndims>& rhs)
 {
-    return arraynd<T, ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+    return arraynd<decltype(lhs + (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs + rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator-(const U& lhs, const arraynd<T, ndims>& rhs)
+{
+    return arraynd<decltype(lhs - (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs - rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator*(const U& lhs, const arraynd<T, ndims>& rhs)
+{
+    return arraynd<decltype(lhs * (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs*rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator/(const U& lhs, const arraynd<T, ndims>& rhs)
+{
+    return arraynd<decltype(lhs / (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
         return lhs/rhs(indices);
     });
 }
 
 
-template<int64 ndims>
-arraynd<bool, ndims> operator!(const arraynd<bool, ndims>& arr)
+template<typename T, int64 ndims>
+auto operator<(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
 {
-    return arraynd<bool, ndims>(arr.dims(), [&arr](const std::array<int64, ndims>& indices) {
+    if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply < operator to multidimensional arrays with inconsistent dimensions");
+    return arraynd<decltype((*lhs.data()) < (*rhs.data())), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) < rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims>
+auto operator>(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
+{
+    if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply > operator to multidimensional arrays with inconsistent dimensions");
+    return arraynd<decltype((*lhs.data()) > (*rhs.data())), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) > rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims>
+auto operator<=(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
+{
+    if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply <= operator to multidimensional arrays with inconsistent dimensions");
+    return arraynd<decltype((*lhs.data()) <= (*rhs.data())), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) <= rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims>
+auto operator>=(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
+{
+    if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply >= operator to multidimensional arrays with inconsistent dimensions");
+    return arraynd<decltype((*lhs.data()) >= (*rhs.data())), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) >= rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims>
+auto operator==(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
+{
+    if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply == operator to multidimensional arrays with inconsistent dimensions");
+    return arraynd<decltype((*lhs.data()) == (*rhs.data())), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) == rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims>
+auto operator!=(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
+{
+    if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply != operator to multidimensional arrays with inconsistent dimensions");
+    return arraynd<decltype((*lhs.data()) != (*rhs.data())), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) != rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims>
+auto operator&&(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
+{
+    if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply && operator to multidimensional arrays with inconsistent dimensions");
+    return arraynd<decltype((*lhs.data()) && (*rhs.data())), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) && rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims>
+auto operator||(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
+{
+    if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply || operator to multidimensional arrays with inconsistent dimensions");
+    return arraynd<decltype((*lhs.data()) || (*rhs.data())), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) || rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator<(const arraynd<T, ndims>& lhs, const U& rhs)
+{
+    return arraynd<decltype((*lhs.data()) < rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) < rhs;
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator>(const arraynd<T, ndims>& lhs, const U& rhs)
+{
+    return arraynd<decltype((*lhs.data()) > rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) > rhs;
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator<=(const arraynd<T, ndims>& lhs, const U& rhs)
+{
+    return arraynd<decltype((*lhs.data()) <= rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) <= rhs;
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator>=(const arraynd<T, ndims>& lhs, const U& rhs)
+{
+    return arraynd<decltype((*lhs.data()) >= rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) >= rhs;
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator==(const arraynd<T, ndims>& lhs, const U& rhs)
+{
+    return arraynd<decltype((*lhs.data()) == rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) == rhs;
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator!=(const arraynd<T, ndims>& lhs, const U& rhs)
+{
+    return arraynd<decltype((*lhs.data()) != rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) != rhs;
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator&&(const arraynd<T, ndims>& lhs, const U& rhs)
+{
+    return arraynd<decltype((*lhs.data()) && rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) && rhs;
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator||(const arraynd<T, ndims>& lhs, const U& rhs)
+{
+    return arraynd<decltype((*lhs.data()) || rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) || rhs;
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator<(const U& lhs, const arraynd<T, ndims>& rhs)
+{
+    return arraynd<decltype(lhs < (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs < rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator>(const U& lhs, const arraynd<T, ndims>& rhs)
+{
+    return arraynd<decltype(lhs > (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs > rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator<=(const U& lhs, const arraynd<T, ndims>& rhs)
+{
+    return arraynd<decltype(lhs <= (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs <= rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator>=(const U& lhs, const arraynd<T, ndims>& rhs)
+{
+    return arraynd<decltype(lhs >= (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs >= rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator==(const U& lhs, const arraynd<T, ndims>& rhs)
+{
+    return arraynd<decltype(lhs == (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs == rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator!=(const U& lhs, const arraynd<T, ndims>& rhs)
+{
+    return arraynd<decltype(lhs != (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs != rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator&&(const U& lhs, const arraynd<T, ndims>& rhs)
+{
+    return arraynd<decltype(lhs && (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs && rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator||(const U& lhs, const arraynd<T, ndims>& rhs)
+{
+    return arraynd<decltype(lhs || (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs || rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims>
+auto operator!(const arraynd<T, ndims>& arr)
+{
+    return arraynd<decltype(!(*arr.data())), ndims>(arr.dims(), [&arr](const std::array<int64, ndims>& indices) {
         return !arr(indices);
     });
 }
@@ -884,230 +1110,6 @@ bool any(const arraynd<bool, ndims>& arr)
         return !disjunction;
     });
     return disjunction;
-}
-
-
-template<typename T, int64 ndims>
-arraynd<bool, ndims> operator<(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
-{
-    if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply < operator to multidimensional arrays with inconsistent dimensions");
-    return arraynd<bool, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) < rhs(indices);
-    });
-}
-
-
-template<typename T, int64 ndims>
-arraynd<bool, ndims> operator>(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
-{
-    if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply > operator to multidimensional arrays with inconsistent dimensions");
-    return arraynd<bool, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) > rhs(indices);
-    });
-}
-
-
-template<typename T, int64 ndims>
-arraynd<bool, ndims> operator<=(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
-{
-    if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply <= operator to multidimensional arrays with inconsistent dimensions");
-    return arraynd<bool, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) <= rhs(indices);
-    });
-}
-
-
-template<typename T, int64 ndims>
-arraynd<bool, ndims> operator>=(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
-{
-    if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply >= operator to multidimensional arrays with inconsistent dimensions");
-    return arraynd<bool, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) >= rhs(indices);
-    });
-}
-
-
-template<typename T, int64 ndims>
-arraynd<bool, ndims> operator==(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
-{
-    if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply == operator to multidimensional arrays with inconsistent dimensions");
-    return arraynd<bool, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) == rhs(indices);
-    });
-}
-
-
-template<typename T, int64 ndims>
-arraynd<bool, ndims> operator!=(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
-{
-    if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply != operator to multidimensional arrays with inconsistent dimensions");
-    return arraynd<bool, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) != rhs(indices);
-    });
-}
-
-
-template<int64 ndims>
-arraynd<bool, ndims> operator&&(const arraynd<bool, ndims>& lhs, const arraynd<bool, ndims>& rhs)
-{
-    if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply && operator to multidimensional arrays with inconsistent dimensions");
-    return arraynd<bool, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) && rhs(indices);
-    });
-}
-
-
-template<int64 ndims>
-arraynd<bool, ndims> operator||(const arraynd<bool, ndims>& lhs, const arraynd<bool, ndims>& rhs)
-{
-    if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply || operator to multidimensional arrays with inconsistent dimensions");
-    return arraynd<bool, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) || rhs(indices);
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-arraynd<bool, ndims> operator<(const arraynd<T, ndims>& lhs, const U& rhs)
-{
-    return arraynd<bool, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) < rhs;
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-arraynd<bool, ndims> operator>(const arraynd<T, ndims>& lhs, const U& rhs)
-{
-    return arraynd<bool, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) > rhs;
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-arraynd<bool, ndims> operator<=(const arraynd<T, ndims>& lhs, const U& rhs)
-{
-    return arraynd<bool, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) <= rhs;
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-arraynd<bool, ndims> operator>=(const arraynd<T, ndims>& lhs, const U& rhs)
-{
-    return arraynd<bool, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) >= rhs;
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-arraynd<bool, ndims> operator==(const arraynd<T, ndims>& lhs, const U& rhs)
-{
-    return arraynd<bool, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) == rhs;
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-arraynd<bool, ndims> operator!=(const arraynd<T, ndims>& lhs, const U& rhs)
-{
-    return arraynd<bool, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) != rhs;
-    });
-}
-
-
-template<int64 ndims>
-arraynd<bool, ndims> operator&&(const arraynd<bool, ndims>& lhs, const bool& rhs)
-{
-    return arraynd<bool, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) && rhs;
-    });
-}
-
-
-template<int64 ndims>
-arraynd<bool, ndims> operator||(const arraynd<bool, ndims>& lhs, const bool& rhs)
-{
-    return arraynd<bool, ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) || rhs;
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-arraynd<bool, ndims> operator<(const U& lhs, const arraynd<T, ndims>& rhs)
-{
-    return arraynd<bool, ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs < rhs(indices);
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-arraynd<bool, ndims> operator>(const U& lhs, const arraynd<T, ndims>& rhs)
-{
-    return arraynd<bool, ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs > rhs(indices);
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-arraynd<bool, ndims> operator<=(const U& lhs, const arraynd<T, ndims>& rhs)
-{
-    return arraynd<bool, ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs <= rhs(indices);
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-arraynd<bool, ndims> operator>=(const U& lhs, const arraynd<T, ndims>& rhs)
-{
-    return arraynd<bool, ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs >= rhs(indices);
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-arraynd<bool, ndims> operator==(const U& lhs, const arraynd<T, ndims>& rhs)
-{
-    return arraynd<bool, ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs == rhs(indices);
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-arraynd<bool, ndims> operator!=(const U& lhs, const arraynd<T, ndims>& rhs)
-{
-    return arraynd<bool, ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs != rhs(indices);
-    });
-}
-
-
-template<int64 ndims>
-arraynd<bool, ndims> operator&&(const bool& lhs, const arraynd<bool, ndims>& rhs)
-{
-    return arraynd<bool, ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs && rhs(indices);
-    });
-}
-
-
-template<int64 ndims>
-arraynd<bool, ndims> operator||(const bool& lhs, const arraynd<bool, ndims>& rhs)
-{
-    return arraynd<bool, ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs || rhs(indices);
-    });
 }
 
 
