@@ -289,14 +289,14 @@ public:
     quantity& operator*=(float64 rhs);   ///< Multiplies the `quantity` value by `rhs`.
     quantity& operator/=(float64 rhs);   ///< Divides the `quantity` value by `rhs`.
 
-    constexpr const quantity operator+() const;  ///< Returns a copy of the `quantity` value.
-    constexpr const quantity operator-() const;  ///< Returns the negation of the `quantity` value.
+    constexpr quantity operator+() const;  ///< Returns a copy of the `quantity` value.
+    constexpr quantity operator-() const;  ///< Returns the negation of the `quantity` value.
 
-    constexpr const quantity operator+(quantity rhs) const;  ///< Returns a new `quantity` value with `rhs` added.
-    constexpr const quantity operator-(quantity rhs) const;  ///< Returns a new `quantity` value with `rhs` subtracted.
+    constexpr quantity operator+(quantity rhs) const;  ///< Returns a new `quantity` value with `rhs` added.
+    constexpr quantity operator-(quantity rhs) const;  ///< Returns a new `quantity` value with `rhs` subtracted.
 
-    constexpr const quantity operator*(float64 rhs) const;  ///< Returns a new `quantity` value multiplied by `rhs`.
-    constexpr const quantity operator/(float64 rhs) const;  ///< Returns a new `quantity` value divided by `rhs`.
+    constexpr quantity operator*(float64 rhs) const;  ///< Returns a new `quantity` value multiplied by `rhs`.
+    constexpr quantity operator/(float64 rhs) const;  ///< Returns a new `quantity` value divided by `rhs`.
 
     template<typename U_>
     constexpr quantity<decltype(U()*U_())> operator*(quantity<U_> rhs) const;  ///< Returns the `quantity` value multiplied by `rhs`.
@@ -354,14 +354,14 @@ public:
     constexpr const quantity coarsened() const;                ///< Returns a new `quantity` value with the length precision maximized without losing precision.
     constexpr const quantity unfixed() const;                  ///< Returns a new `quantity` value with the length precision unfixed.
 
-    constexpr const quantity operator+() const;  ///< Returns a copy of the `quantity` value.
-    constexpr const quantity operator-() const;  ///< Returns the negation of the `quantity` value.
+    constexpr quantity operator+() const;  ///< Returns a copy of the `quantity` value.
+    constexpr quantity operator-() const;  ///< Returns the negation of the `quantity` value.
 
-    constexpr const quantity operator+(quantity rhs) const;  ///< Returns a new `quantity` value with `rhs` added.
-    constexpr const quantity operator-(quantity rhs) const;  ///< Returns a new `quantity` value with `rhs` subtracted.
+    constexpr quantity operator+(quantity rhs) const;  ///< Returns a new `quantity` value with `rhs` added.
+    constexpr quantity operator-(quantity rhs) const;  ///< Returns a new `quantity` value with `rhs` subtracted.
 
-    constexpr const quantity operator*(float64 rhs) const;  ///< Returns a new `quantity` value multiplied by `rhs`.
-    constexpr const quantity operator/(float64 rhs) const;  ///< Returns a new `quantity` value divided by `rhs`.
+    constexpr quantity operator*(float64 rhs) const;  ///< Returns a new `quantity` value multiplied by `rhs`.
+    constexpr quantity operator/(float64 rhs) const;  ///< Returns a new `quantity` value divided by `rhs`.
 
     template<typename U_>
     constexpr quantity<U_> operator*(quantity<U_> rhs) const;  ///< Returns the `quantity` value multiplied by `rhs`.
@@ -724,33 +724,33 @@ quantity<U>& quantity<U>::operator/=(float64 rhs)
 
 
 template<typename U>
-constexpr const quantity<U> quantity<U>::operator+() const
+constexpr quantity<U> quantity<U>::operator+() const
 {
     return quantity<U>(precision_, multiplier_, fixed_);
 }
 
 
-constexpr const quantity<no_units> quantity<no_units>::operator+() const
+constexpr quantity<no_units> quantity<no_units>::operator+() const
 {
     return quantity<no_units>(precision_, multiplier_, fixed_);
 }
 
 
 template<typename U>
-constexpr const quantity<U> quantity<U>::operator-() const
+constexpr quantity<U> quantity<U>::operator-() const
 {
     return quantity<U>(precision_, -multiplier_, fixed_);
 }
 
     
-constexpr const quantity<no_units> quantity<no_units>::operator-() const
+constexpr quantity<no_units> quantity<no_units>::operator-() const
 {
     return quantity<no_units>(precision_, -multiplier_, fixed_);
 }
 
     
 template<typename U>
-constexpr const quantity<U> quantity<U>::operator+(quantity rhs) const
+constexpr quantity<U> quantity<U>::operator+(quantity rhs) const
 {
     return fixed_ && rhs.fixed_ ? precision_ == rhs.precision_ ? quantity<U>(precision_, multiplier_ + rhs.multiplier_, int8(1)).autorounded() :
                                                                  quantity<U>() :
@@ -761,7 +761,7 @@ constexpr const quantity<U> quantity<U>::operator+(quantity rhs) const
 }
 
 
-constexpr const quantity<no_units> quantity<no_units>::operator+(quantity rhs) const
+constexpr quantity<no_units> quantity<no_units>::operator+(quantity rhs) const
 {
     return fixed_ && rhs.fixed_ ? precision_ == rhs.precision_ ? quantity<no_units>(precision_, multiplier_ + rhs.multiplier_, int8(1)).autorounded() :
                                                                  quantity<no_units>() :
@@ -773,7 +773,7 @@ constexpr const quantity<no_units> quantity<no_units>::operator+(quantity rhs) c
 
 
 template<typename U>
-constexpr const quantity<U> quantity<U>::operator-(quantity rhs) const
+constexpr quantity<U> quantity<U>::operator-(quantity rhs) const
 {
     return fixed_ && rhs.fixed_ ? precision_ == rhs.precision_ ? quantity<U>(precision_, multiplier_ - rhs.multiplier_, int8(1)).autorounded() :
                                                                  quantity<U>() :
@@ -784,7 +784,7 @@ constexpr const quantity<U> quantity<U>::operator-(quantity rhs) const
 }
 
 
-constexpr const quantity<no_units> quantity<no_units>::operator-(quantity rhs) const
+constexpr quantity<no_units> quantity<no_units>::operator-(quantity rhs) const
 {
     return fixed_ && rhs.fixed_ ? precision_ == rhs.precision_ ? quantity<no_units>(precision_, multiplier_ - rhs.multiplier_, int8(1)).autorounded() :
                                                                  quantity<no_units>() :
@@ -796,14 +796,14 @@ constexpr const quantity<no_units> quantity<no_units>::operator-(quantity rhs) c
 
 
 template<typename U>
-constexpr const quantity<U> quantity<U>::operator*(float64 rhs) const
+constexpr quantity<U> quantity<U>::operator*(float64 rhs) const
 {
     return fixed_ ? quantity<U>(precision_, multiplier_*rhs, int8(1)).autorounded() :
                     quantity<U>(precision_, multiplier_*rhs, int8(0)).autoscaled();
 }
 
 
-constexpr const quantity<no_units> quantity<no_units>::operator*(float64 rhs) const
+constexpr quantity<no_units> quantity<no_units>::operator*(float64 rhs) const
 {
     return fixed_ ? quantity<no_units>(precision_, multiplier_*rhs, int8(1)).autorounded() :
                     quantity<no_units>(precision_, multiplier_*rhs, int8(0)).autoscaled();
@@ -811,14 +811,14 @@ constexpr const quantity<no_units> quantity<no_units>::operator*(float64 rhs) co
 
 
 template<typename U>
-constexpr const quantity<U> quantity<U>::operator/(float64 rhs) const
+constexpr quantity<U> quantity<U>::operator/(float64 rhs) const
 {
     return fixed_ ? quantity<U>(precision_, multiplier_/rhs, int8(1)).autorounded() :
                     quantity<U>(precision_, multiplier_/rhs, int8(0)).autoscaled();
 }
 
 
-constexpr const quantity<no_units> quantity<no_units>::operator/(float64 rhs) const
+constexpr quantity<no_units> quantity<no_units>::operator/(float64 rhs) const
 {
     return fixed_ ? quantity<no_units>(precision_, multiplier_/rhs, int8(1)).autorounded() :
                     quantity<no_units>(precision_, multiplier_/rhs, int8(0)).autoscaled();
@@ -988,14 +988,14 @@ constexpr quantity<no_units>::operator float64() const
 
 
 template<typename U>
-constexpr const quantity<U> operator*(float64 lhs, quantity<U> rhs)
+constexpr quantity<U> operator*(float64 lhs, quantity<U> rhs)
 {
     return rhs*lhs;
 }
 
 
 template<typename U>
-constexpr const quantity<decltype(_1/U())> operator/(float64 lhs, quantity<U> rhs)
+constexpr quantity<decltype(_1/U())> operator/(float64 lhs, quantity<U> rhs)
 {
     return (quantity<no_units>(1)*lhs)/rhs;
 }
