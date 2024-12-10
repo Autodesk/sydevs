@@ -748,24 +748,6 @@ auto operator+(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
 }
 
 
-template<typename T, int64 ndims, typename U>
-auto operator+(const arraynd<T, ndims>& lhs, const U& rhs)
-{
-    return arraynd<decltype((*lhs.data()) + rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) + rhs;
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-auto operator+(const U& lhs, const arraynd<T, ndims>& rhs)
-{
-    return arraynd<decltype(lhs + (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs + rhs(indices);
-    });
-}
-
-
 template<typename T, int64 ndims>
 auto operator-(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
 {
@@ -776,48 +758,12 @@ auto operator-(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
 }
 
 
-template<typename T, int64 ndims, typename U>
-auto operator-(const arraynd<T, ndims>& lhs, const U& rhs)
-{
-    return arraynd<decltype((*lhs.data()) - rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices) - rhs;
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-auto operator-(const U& lhs, const arraynd<T, ndims>& rhs)
-{
-    return arraynd<decltype(lhs - (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs - rhs(indices);
-    });
-}
-
-
 template<typename T, int64 ndims>
 auto operator*(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
 {
     if (!aligned(lhs, rhs)) throw std::domain_error("Attempt to apply * operator to multidimensional arrays with inconsistent dimensions");    
     return arraynd<decltype((*lhs.data()) * (*rhs.data())), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
         return lhs(indices)*rhs(indices);
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-auto operator*(const arraynd<T, ndims>& lhs, const U& rhs)
-{
-    return arraynd<decltype((*lhs.data()) * rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs(indices)*rhs;
-    });
-}
-
-
-template<typename T, int64 ndims, typename U>
-auto operator*(const U& lhs, const arraynd<T, ndims>& rhs)
-{
-    return arraynd<decltype(lhs * (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
-        return lhs*rhs(indices);
     });
 }
 
@@ -833,10 +779,64 @@ auto operator/(const arraynd<T, ndims>& lhs, const arraynd<T, ndims>& rhs)
 
 
 template<typename T, int64 ndims, typename U>
+auto operator+(const arraynd<T, ndims>& lhs, const U& rhs)
+{
+    return arraynd<decltype((*lhs.data()) + rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) + rhs;
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator-(const arraynd<T, ndims>& lhs, const U& rhs)
+{
+    return arraynd<decltype((*lhs.data()) - rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices) - rhs;
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator*(const arraynd<T, ndims>& lhs, const U& rhs)
+{
+    return arraynd<decltype((*lhs.data()) * rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs(indices)*rhs;
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
 auto operator/(const arraynd<T, ndims>& lhs, const U& rhs)
 {
     return arraynd<decltype((*lhs.data()) / rhs), ndims>(lhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
         return lhs(indices)/rhs;
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator+(const U& lhs, const arraynd<T, ndims>& rhs)
+{
+    return arraynd<decltype(lhs + (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs + rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator-(const U& lhs, const arraynd<T, ndims>& rhs)
+{
+    return arraynd<decltype(lhs - (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs - rhs(indices);
+    });
+}
+
+
+template<typename T, int64 ndims, typename U>
+auto operator*(const U& lhs, const arraynd<T, ndims>& rhs)
+{
+    return arraynd<decltype(lhs * (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
+        return lhs*rhs(indices);
     });
 }
 
@@ -847,45 +847,6 @@ auto operator/(const U& lhs, const arraynd<T, ndims>& rhs)
     return arraynd<decltype(lhs / (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
         return lhs/rhs(indices);
     });
-}
-
-
-template<typename T, int64 ndims>
-auto operator!(const arraynd<T, ndims>& arr)
-{
-    return arraynd<decltype(!(*arr.data())), ndims>(arr.dims(), [&arr](const std::array<int64, ndims>& indices) {
-        return !arr(indices);
-    });
-}
-
-
-/**
- * @brief Returns `true` if all elements of `arr` are `true`.
- */
-template<int64 ndims>
-bool all(const arraynd<bool, ndims>& arr)
-{
-    bool conjunction = true;
-    arr.traverse([&conjunction](const std::array<int64, ndims>& indices, const bool& value) {
-        conjunction = (conjunction && value);
-        return conjunction;
-    });
-    return conjunction;
-}
-
-
-/**
- * @brief Returns `true` if any element of `arr` is `true`.
- */
-template<int64 ndims>
-bool any(const arraynd<bool, ndims>& arr)
-{
-    bool disjunction = false;
-    arr.traverse([&disjunction](const std::array<int64, ndims>& indices, const bool& value) {
-        disjunction = (disjunction || value);
-        return !disjunction;
-    });
-    return disjunction;
 }
 
 
@@ -1110,6 +1071,45 @@ auto operator||(const U& lhs, const arraynd<T, ndims>& rhs)
     return arraynd<decltype(lhs || (*rhs.data())), ndims>(rhs.dims(), [&lhs, &rhs](const std::array<int64, ndims>& indices) {
         return lhs || rhs(indices);
     });
+}
+
+
+template<typename T, int64 ndims>
+auto operator!(const arraynd<T, ndims>& arr)
+{
+    return arraynd<decltype(!(*arr.data())), ndims>(arr.dims(), [&arr](const std::array<int64, ndims>& indices) {
+        return !arr(indices);
+    });
+}
+
+
+/**
+ * @brief Returns `true` if all elements of `arr` are `true`.
+ */
+template<int64 ndims>
+bool all(const arraynd<bool, ndims>& arr)
+{
+    bool conjunction = true;
+    arr.traverse([&conjunction](const std::array<int64, ndims>& indices, const bool& value) {
+        conjunction = (conjunction && value);
+        return conjunction;
+    });
+    return conjunction;
+}
+
+
+/**
+ * @brief Returns `true` if any element of `arr` is `true`.
+ */
+template<int64 ndims>
+bool any(const arraynd<bool, ndims>& arr)
+{
+    bool disjunction = false;
+    arr.traverse([&disjunction](const std::array<int64, ndims>& indices, const bool& value) {
+        disjunction = (disjunction || value);
+        return !disjunction;
+    });
+    return disjunction;
 }
 
 
