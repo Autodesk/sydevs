@@ -1,0 +1,118 @@
+name: Build and Deploy SyDEVS
+
+on:
+  push:
+  pull_request:
+    branches:
+      - Rasheedat/ci
+
+jobs:
+  build:
+    runs-on: ${{ matrix.os }}
+
+    strategy:
+      matrix:
+        os: [ macos-latest]
+        vs_version: ['2019', '2022']
+        configuration: ['Release', 'Debug']
+
+    env:
+      MY_VS_VERSION: ${{ matrix.vs_version }}  # Visual Studio version for matrix
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v3  # Latest version
+
+    # Install dependencies on Linux (Ubuntu)
+    - name: Install CMake (Ubuntu/Linux)
+      if: runner.os == 'Linux'
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y cmake  # Install CMake using apt-get
+        cmake --version  # Verify CMake installation
+
+    # Install Visual Studio Build Tools for Windows
+    - name: Install Visual Studio Build Tools (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        # Install Visual Studio 2019 Build Tools if not installed
+        if (-Not (Test-Path "$env:ProgramFiles(x86)\Microsoft Visual Studio\2019\BuildTools")) {
+          Write-Host "Installing Visual Studio Build Tools 2019"
+          choco install visualstudio2019buildtools --yes
+        }
+
+        # Install Visual Studio 2022 Build Tools (latest version)
+        if (-Not (Test-Path "$env:ProgramFiles(x86)\Microsoft Visual Studio\2022\BuildTools")) {
+          Write-Host "Installing Visual Studio Build Tools 2022"
+          choco install visualstudio2022buildtools --yes
+        }
+
+    # Verify Visual Studio Installation (Windows)
+    - name: Verify Visual Studio Installation (Windows)
+      if: runner.os == 'Windows'
+      run: |
+        # Check if Visual Studio is installed using vswhere
+        vswhere -products * -requires Microsoft.Component.MSBuild -property installationPath
+
+    # Set up Visual Studio (Windows only)
+    - name: Set up Visual Studio (Windows only)
+      if: runner.os == 'Windows'
+      uses: microsoft/setup-msbuild@v1  # Latest MSBuild setup for Windows
+
+    # Install Xcode Command Line Tools for macOS
+    - name: Install Xcode Command Line Tools (macOS)
+      if: runner.os == 'macos'
+      run: |
+        xcode-select --install || true  # Install Command Line Tools
+
+    # Verify CMake and Xcode for macOS
+    - name: Verify CMake and Xcode (macOS)
+      if: runner.os == 'macos'
+      run: |
+        echo "Verifying Xcode installation"
+        xcode-select -p  # Verify Xcode installation
+        cmake --version  # Verify CMake installation
+        xcodebuild -version  # Verify Xcode version
+
+    # Create build directory
+    - name: Create build directory
+      run: mkdir build
+
+    # Update CMakeLists.txt to remove unused variable warning
+    - name: Update CMakeLists to remove unused variable warning
+      run: |
+        echo "Updating CMakeLists.txt to disable unused variable warning"
+        sed -i '' '/set(CMAKE_CXX_FLAGS/ s/$/ -Wno-unused-but-set-variable/' CMakeLists.txt
+        cat CMakeLists.txt  # Optional: to verify the changes
+
+    # Archive Artifacts
+    - name: Archive Artifacts
+      run: |
+        mkdir -p artifacts/lib artifacts/include/sydevs/core artifacts/include/sydevs/systems artifacts/include/sydevs/time
+        if [ -d src/sydevs/core ]; then
+          cp src/sydevs/core/*.h artifacts/include/sydevs/core || true
+        fi
+        if [ -d src/sydevs/systems ]; then
+          cp src/sydevs/systems/*.h artifacts/include/sydevs/systems || true
+        fi
+        if [ -d src/sydevs/time ]; then
+          cp src/sydevs/time/*.h artifacts/include/sydevs/time || true
+        fi
+        zip -r artifacts.zip artifacts
+
+    # Upload Artifacts
+    - name: Upload Artifacts
+      uses: actions/upload-artifact@v3  # Latest version for uploading artifacts
+      with:
+        name: artifact  # The name of the artifact
+        path: artifacts.zip  # Path to the archived artifacts.zip
+
+    # Deploy to Release
+    - name: Deploy to Release
+      if: startsWith(github.ref, 'refs/tags/')
+      run: |
+        TAG_NAME=$(echo $GITHUB_REF | sed 's/refs\/tags\///')
+        curl -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+        -X POST \
+        -d '{"tag_name": "$TAG_NAME", "target_commitish": "main", "name": "Release $TAG_NAME", "body": "Release for version $TAG_NAME", "draft": false, "prerelease": false}' \
+        https://api.github.com/repos/${{ github.repository }}/releases
