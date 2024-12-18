@@ -2,17 +2,20 @@ name: Build and Deploy
 
 on:
   push:
+    tags:
+      - 'v*'  # Ensure only tags trigger this workflow 
   pull_request:
     branches:
       - main
   workflow_dispatch:
+
 jobs:
   build:
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        cc: [gcc-12, clang-14] # Use supported versions available in Ubuntu repositories.
+        cc: [gcc-12, clang-14]  # Supported compilers in Ubuntu repositories.
 
     steps:
     - name: Checkout repository
@@ -32,8 +35,8 @@ jobs:
           export CC=clang-14
           export CXX=clang++-14
         fi
-        # Install CMake
-        sudo apt-get install -y cmake
+        # Install additional dependencies
+        sudo apt-get install -y cmake doxygen graphviz
 
     - name: Configure with CMake
       run: |
@@ -46,16 +49,54 @@ jobs:
         cd build
         make
 
-    -  name: Archive artifacts
-       run: |
-          mkdir -p artifacts/lib artifacts/include/sydevs/core artifacts/include/sydevs/systems artifacts/include/sydevs/time
-          if [[ -d src/sydevs/core ]]; then
-            cp src/sydevs/core/*.h artifacts/include/sydevs/core || true
-          fi
-          if [[ -d src/sydevs/systems ]]; then
-            cp src/sydevs/systems/*.h artifacts/include/sydevs/systems || true
-          fi
-          if [[ -d src/sydevs/time ]]; then
-            cp src/sydevs/time/*.h artifacts/include/sydevs/time || true
-          fi
-          zip -r artifacts.zip artifacts
+    - name: Generate Documentation
+      if: github.event_name == 'push' || github.ref == 'refs/tags/*'
+      run: |
+        if [ -f doxygen.config ]; then
+          (cat doxygen.config; echo "PROJECT_NUMBER=${{ github.ref_name }}") | doxygen -
+        fi
+
+    - name: Archive Artifacts
+      run: |
+        # Create artifact directories
+        mkdir -p artifacts/lib artifacts/include/sydevs/core artifacts/include/sydevs/systems artifacts/include/sydevs/time
+        # Copy headers
+        if [[ -d src/sydevs/core ]]; then
+          cp src/sydevs/core/*.h artifacts/include/sydevs/core || true
+        fi
+        if [[ -d src/sydevs/systems ]]; then
+          cp src/sydevs/systems/*.h artifacts/include/sydevs/systems || true
+        fi
+        if [[ -d src/sydevs/time ]]; then
+          cp src/sydevs/time/*.h artifacts/include/sydevs/time || true
+        fi
+        # Copy compiled libraries
+        if [[ -d build ]]; then
+          cp build/libSyDEVS* artifacts/lib || true
+        fi
+        mkdir -p $(dirname "SyDEVS-${{ github.ref }}-${{ matrix.cc }}.zip")
+        # Create final archive
+        zip -r SyDEVS-${{ github.ref }}-${{ matrix.cc }}.zip artifacts
+
+    - name: Package Documentation
+      if: github.event_name == 'push' || github.ref == 'refs/tags/*'
+      run: |
+        if [ -d doc/html ]; then
+          zip -r SyDEVS-${{ github.ref }}_api-reference.zip doc/html
+        fi
+
+    # Step 3: Create GitHub Release for the Compiler
+    - name: Create GitHub Release (Compiler-specific)
+      uses: svenstaro/upload-release-action@v2
+      with:
+        repo_token: ${{ secrets.GITHUB_TOKEN }}
+        file: SyDEVS-${{ github.ref }}-${{ matrix.cc }}.zip  # Unique filename with version and compiler
+        asset_name: SyDEVS_Release_${{ github.ref }}-${{ matrix.cc }}.zip  # Unique filename with version and compiler
+        tag: ${{ github.ref }}  # Use tag name as version
+        overwrite: false  # Prevent overwriting if asset already exists
+        body: "Release for SyDEVS version ${{ github.ref }} using compiler ${{ matrix.cc }}"
+
+    # Step 4: Deploy Documentation
+    - name: Deploy Documentation
+      if: github.event_name == 'push' || github.ref == 'refs/tags/*'
+      run: bash scripts/deploy_docs.sh
