@@ -1,5 +1,7 @@
 # SyDEVS
 
+[![Build and Deploy SyDEVS](https://github.com/Autodesk/sydevs/actions/workflows/ci.yml/badge.svg)](https://github.com/Autodesk/sydevs/actions/workflows/ci.yml)
+
 The SyDEVS C++ library provides a framework for implementing complex systems simulation code in a modular and hierarchical fashion.
 
 The framework combines three modeling paradigms: [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model), and [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming). The discrete event simulation aspect is based on [DEVS](https://en.wikipedia.org/wiki/DEVS), a well-regarded modeling formalism involving two types of models that correspond with the ***atomic*** and ***composite*** nodes of SyDEVS. SyDEVS also includes ***collection*** nodes, which extend DEVS with agent-based modeling capabilities, and ***function*** nodes, for dataflow programming. Atomic, composite, collection, and function nodes communicate through flow ports as part of a dataflow programming network. Atomic, composite, and collection nodes also communicate in a DEVS-like fashion through message ports.
@@ -70,7 +72,7 @@ When releasing a new version of SyDEVS, remember to perform the following steps:
 
 ### Website
 
-The [Main SyDEVS Website](https://autodesk.github.io/sydevs) includes an [Overview](https://autodesk.github.io/sydevs/overview.html), a [Getting Started](https://autodesk.github.io/sydevs/getting_started/) tutorial, a [User Manual](https://autodesk.github.io/sydevs/user_manual/), and the [API Reference](https://autodesk.github.io/sydevs/doc/html/) for the latest release.
+The [main SyDEVS website](https://autodesk.github.io/sydevs) includes an [Overview](https://autodesk.github.io/sydevs/overview.html), a [Getting Started](https://autodesk.github.io/sydevs/getting_started/) tutorial, a [User Manual](https://autodesk.github.io/sydevs/user_manual/), and the [API Reference](https://autodesk.github.io/sydevs/doc/html/) for the latest release.
 
 ### Examples
 
