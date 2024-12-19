@@ -17,14 +17,12 @@ sydevs-tutorial/
 
 This is the project you will use for the Getting Started tutorial.
 
-Now download and extract a **Source code** archive from a recent SyDEVS release at [github.com/Autodesk/sydevs/releases](https://github.com/Autodesk/sydevs/releases).
-
-In the extracted package should be folder with a name similar to **sydevs-0.6.7** (the version number may be different). Copy this folder into **external** folder of your project. Except for the version number, the resulting directory structure should be as follows.
+Now select a recent SyDEVS release from [github.com/Autodesk/sydevs/releases](https://github.com/Autodesk/sydevs/releases), and download and extract the **SyDEVS-v0.7** package (the version number may be different). Copy this folder into **external** folder of your project. Except for the version number, the resulting directory structure should be as follows.
 ```
 sydevs-tutorial/
     build/
     external/
-        sydevs-0.6.7/
+        SyDEVS-v0.7/
             doc/
             scripts/
             src/
@@ -54,27 +52,23 @@ Now we need to specify the rules for building the project. In the project folder
 ################################################################################
 # CMake File for SyDEVS Tutorial
 ################################################################################
-cmake_minimum_required(VERSION 3.4)
+cmake_minimum_required(VERSION 3.14)
 project(SyDEVS-Tutorial)
-set(SYDEVS_VERSION 0.6.7)
+set(SYDEVS_VERSION v0.7)
 
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
-set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD 17)
+set(CMAKE_CXX_STANDARD_REQUIRED On)
+set(CMAKE_CXX_EXTENSIONS Off)
 
 if(MSVC)
     add_definitions("/wd4244") # Hide type conversion warnings
     add_compile_options(/MP)
-    add_compile_options(/std=c++${CMAKE_CXX_STANDARD})
+	add_compile_options(/std:c++${CMAKE_CXX_STANDARD})    
     string(REGEX REPLACE "/Z[iI7]" "" CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG}")
     set(CMAKE_CXX_FLAGS_DEBUG "${CMAKE_CXX_FLAGS_DEBUG} /Z7 /bigobj")
 else()
-    set(WARNING_FLAGS "-Wall -Wextra -Wno-unused-variable -Wno-unused-parameter -Wno-sign-compare -Wno-missing-braces -Wignored-qualifiers -Woverloaded-virtual -Winline")
-    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -pedantic-errors -std=c++${CMAKE_CXX_STANDARD} ${WARNING_FLAGS}")
-    if(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
-	    # Replace g++ standard library with Clang standard library
-        set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -stdlib=libc++")
-    endif()
-    add_compile_options(-std=c++14)
+    set(WARNING_FLAGS "-pedantic -Wall -Wcast-qual -Wctor-dtor-privacy -Werror -Wextra -Wignored-qualifiers -Winline -Wlogical-op -Wmissing-include-dirs -Wno-ignored-attributes -Wno-missing-braces -Wno-sign-compare -Wno-unused-parameter -Wno-unused-variable -Wold-style-cast -Woverloaded-virtual -Wredundant-decls -Wshadow -Wstrict-null-sentinel")
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++${CMAKE_CXX_STANDARD} ${WARNING_FLAGS}")
 endif(MSVC)
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
@@ -86,7 +80,7 @@ include_directories(src)
 #   SyDEVS Library
 #
 # ------------------------------------------------------------------------------
-set(SYDEVS_DIR external/sydevs-${SYDEVS_VERSION})
+set(SYDEVS_DIR external/SyDEVS-${SYDEVS_VERSION})
 include_directories(${SYDEVS_DIR}/src)
 
 set(CORE_DIR ${SYDEVS_DIR}/src/sydevs/core)
@@ -132,14 +126,10 @@ target_link_libraries(setting_up SyDEVS-static)
 Now it's time to build and test the project to make sure everything is set up properly.
 
 1. If you do not already have CMake, [download](http://www.cmake.org/) and install it.
-2. Open a Command Prompt and navigate into the **sydevs-tutorial/build** folder.
-3. Run CMake specifying the path `..`, which indicates that **CMakeLists.txt** is one level above the **build** folder. Use the appropriate command, possibly one of the following (on Windows, be sure to specify "Win64"):
-  - `cmake -G "Visual Studio 15 2017 Win64" ..`
-  - `cmake -G "Visual Studio 14 2015 Win64" ..`
-  - `cmake -G "Xcode" ..`
-  - `cmake ..` (on Mac/Unix, to produce a Makefile)
-4. Build your project (e.g. open the project or solution file using [Visual Studio](https://www.visualstudio.com/vs/), [MSBuild](https://msdn.microsoft.com/en-us/library/dd393574.aspx), or [Xcode](https://developer.apple.com/xcode/), or run the command `make` to use the Makefile).
-5. Find and run the **setting_up** executable (e.g. in the **build**, **build/Debug** or **build/Release** folder).
+1. Open a Command Prompt and navigate into the **sydevs-tutorial/build** folder.
+1. Run CMake specifying the path `..` using the appropriate command for your compilers. Use `cmake -G "Visual Studio 17 2022" -A x64 ..` for Visual Studio 2022 and use `cmake -G "MinGW Makefiles" ..` for TDM-GCC.
+1. Build your project. For Visual Studio 2022, open the solution file and build the project. For TDM-GCC, run the command `mingw32-make`.
+1. Find and run the **setting_up** executable. It should be in either the **build**, the **build/Debug**, or the **build/Release** directory.
 
 You should see the following output:
 

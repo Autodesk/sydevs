@@ -6,6 +6,6 @@ var classsydevs_1_1systems_1_1interactive__system =
     [ "~interactive_system", "classsydevs_1_1systems_1_1interactive__system.html#a6a7f4f32ec58e722bae81f3f89612b90", null ],
     [ "interactive_system", "classsydevs_1_1systems_1_1interactive__system.html#a2f34a2b2c36b26099e914a81e6a8ebf5", null ],
     [ "acquire_interaction_data", "classsydevs_1_1systems_1_1interactive__system.html#ae2621633ecd191861c14c66775909322", null ],
-    [ "frame_index", "classsydevs_1_1systems_1_1interactive__system.html#a5b12623c2f570b5ac1064ff2170485d4", null ],
-    [ "planned_duration", "classsydevs_1_1systems_1_1interactive__system.html#a425619a0cc1ec73a3f7e3fb176984489", null ]
+    [ "frame_index", "classsydevs_1_1systems_1_1interactive__system.html#a7b279fba89a176c27458f72d2c038361", null ],
+    [ "planned_duration", "classsydevs_1_1systems_1_1interactive__system.html#a94f6ab4e7ed891320534dfe854ee1aeb", null ]
 ];

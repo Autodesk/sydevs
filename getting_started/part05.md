@@ -109,7 +109,7 @@ The `waveform_integrator_node` is an example of node that can accept an input me
     planned_dt -= elapsed_dt;
 ```
 
-This line basically states that the duration remaining until the next event (`planned_event`) is whatever it was at the previous event, minus the time elapsed since that past event (`elapsed_dt`). In otherwords, the absolute time of the next scheduled event remains unchanged.
+This line basically states that the duration remaining until the next event (`planned_event`) is whatever it was at the previous event, minus the time elapsed since that past event (`elapsed_dt`). In other words, the absolute time of the next scheduled event remains unchanged.
 
 The actual numerical integration is performed by the line...
 

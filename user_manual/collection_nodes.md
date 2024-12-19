@@ -1,7 +1,7 @@
 | [Prev](composite_nodes.html) | [User Manual -- Table of Contents](index.html) | [Next](simulations.html) |
 # Collection Nodes
 
-The ***collection node*** contains an arbtrary number of agents, which are instances of the same type of node. This contrasts with the composite node, which contains a fixed number of instances of different types of nodes. To define a collection node, the modeler must specify the agent type and implement handlers for five types of events. Four of these event types are similar to those of the atomic node, but are prefixed with "macro": the macro initialization event, the macro unplanned event, the macro planned event, and the macro finalization event. The fifth type of event is the micro planned event. The collection node has a variety of uses, but its primary purpose is to support agent-based modeling.
+The ***collection node*** contains an arbitrary number of agents, which are instances of the same type of node. This contrasts with the composite node, which contains a fixed number of instances of different types of nodes. To define a collection node, the modeler must specify the agent type and implement handlers for five types of events. Four of these event types are similar to those of the atomic node, but are prefixed with "macro": the macro initialization event, the macro unplanned event, the macro planned event, and the macro finalization event. The fifth type of event is the micro planned event. The collection node has a variety of uses, but its primary purpose is to support agent-based modeling.
 
 ![Collection Node](../doc/images/sydevs_collection_node.png "SyDEVS collection node")
 
@@ -128,7 +128,7 @@ inline duration parallel_queueing_node::macro_initialization_event()
     N = std::vector<int64>();
 
     // Add the first queue.
-    access(prototype.serv_dt_input) = serv_dt;  // Set the queueing node flow input value.
+    get(prototype.serv_dt_input) = serv_dt;  // Set the queueing node flow input value.
     create_agent(0);                            // Create the queueing node agent.
     N.push_back(0);                             // Record that the queueing node has no jobs.
 
@@ -137,7 +137,7 @@ inline duration parallel_queueing_node::macro_initialization_event()
 }
 ```
 
-Creating an agent involves two steps. First, the flow input ports are supplied to a pre-defined instance named `prototype`, which can be regarded as a proxy agent that doesn't directly take part in the simulation. The flow input values are supplied by applying the `access` function to the prototype's ports, and assigning directly to the result. The second step is to call `create_agent` with the ID of the new agent as an argument. An agent with the specified ID is then created using the values assigned to the prototype's flow input ports. This triggers an initialization event in the new agent node.
+Creating an agent involves two steps. First, the flow input ports are supplied to a pre-defined instance named `prototype`, which can be regarded as a proxy agent that doesn't directly take part in the simulation. The flow input values are supplied by applying the `get` function to the prototype's ports, and assigning directly to the result. The second step is to call `create_agent` with the ID of the new agent as an argument. An agent with the specified ID is then created using the values assigned to the prototype's flow input ports. This triggers an initialization event in the new agent node.
 
 It is possible to create multiple agents in this fashion. In that case, each of the prototype's flow input ports can be left unchanged if the agents have the same parameter value, or the flow input ports can be assigned new values if the agents have different parameters. It is also possible to send messages to agents or remove agents during the macro initialization event. These operations are demonstrated below for other types of event handlers.
 
@@ -171,7 +171,7 @@ inline duration parallel_queueing_node::macro_unplanned_event(duration elapsed_d
 
         // Add a new queue if needed and update the number of jobs in each queue.
         if (agent_id == int64(N.size())) {
-            access(prototype.serv_dt_input) = serv_dt;  // Set the queueing node flow input value.
+            get(prototype.serv_dt_input) = serv_dt;  // Set the queueing node flow input value.
             create_agent(agent_id);                     // Create the queueing node agent.
             N.push_back(1);                             // Record that the queueing node has one job.
         }
@@ -180,7 +180,7 @@ inline duration parallel_queueing_node::macro_unplanned_event(duration elapsed_d
         }
 
         // Send the received job ID to the selected queueing node.
-        access(prototype.job_id_input) = job_id;
+        get(prototype.job_id_input) = job_id;
         affect_agent(agent_id);
     }
 
@@ -189,7 +189,7 @@ inline duration parallel_queueing_node::macro_unplanned_event(duration elapsed_d
 }
 ```
 
-Sending a message to an agent involves two steps. First, the message input ports are supplied to the prototype using the `access` function. Only a single message input port should be assigned in this manner. The second step is to call `affect_agent` with the ID as an argument. The message supplied to the prototype is then transferred to the identified agent, triggering an unplanned event in that agent. The prototype's message input port is then reset, allowing new messages to be sent using either the same port or a different message input port.
+Sending a message to an agent involves two steps. First, the message input ports are supplied to the prototype using the `get` function. Only a single message input port should be assigned in this manner. The second step is to call `affect_agent` with the ID as an argument. The message supplied to the prototype is then transferred to the identified agent, triggering an unplanned event in that agent. The prototype's message input port is then reset, allowing new messages to be sent using either the same port or a different message input port.
 
 As with all event handlers, it is possible create, send messages to, or remove agents, as many times as desired. Agent removal is demonstrated in the example of the macro finalization event handler.
 
@@ -199,7 +199,7 @@ In the event that a macro unplanned event is scheduled to occur at the same time
 
 The `micro_planned_event` function is triggered by a message output value sent by one of the collection node's agents. It is the only event triggered by an agent ("micro" refers to the agent level; "macro" refers to the level of the encompassing collection node). It is invoked automatically with the ID of the agent that sent the message (`agent_id`), and the elapsed duration since the previous event. The micro planned event handler can send messages out of the collection node's message output ports. It returns the planned duration until the next planned event.
 
-Similar to macro unplanned events, there is usually an `if`...`else if` structure that checks which message input port is the one that received the message. The message value is then extracted from the corresponding port of the prototype instance. These operations make use of the bool-valued function `transmitted`, and the function `access`.
+Similar to macro unplanned events, there is usually an `if`...`else if` structure that checks which message input port is the one that received the message. The message value is then extracted from the corresponding port of the prototype instance. These operations make use of the bool-valued function `transmitted`, and the function `get`.
 
 Below is the micro planned event handler from [parallel_queueing_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/queueing/parallel_queueing_node.h). Observe the use of the port member function `send` to send a message out of the collection node.
 
@@ -209,7 +209,7 @@ inline duration parallel_queueing_node::micro_planned_event(const int64& agent_i
     // Handle the message output transmitted from the queueing node.
     if (transmitted(prototype.job_id_output)) {
         // Get the transmitted job ID.
-        int64 job_id = access(prototype.job_id_output);
+        int64 job_id = get(prototype.job_id_output);
 
         // Send the job ID as a message output.
         job_id_output.send(job_id);
@@ -257,13 +257,13 @@ inline void parallel_queueing_node::macro_finalization_event(duration elapsed_dt
     while (agent_count() > 0) {
         int64 agent_id = *agent_begin();
         remove_agent(agent_id);
-        idle_dt += access(prototype.idle_dt_output);
+        idle_dt += get(prototype.idle_dt_output);
     }
     idle_dt_output.assign(idle_dt);
 }
 ```
 
-Removing an agent in a macro finalization event is only necessary if the agent's flow output port values need to be accessed. All unremoved agent node instances will be destructed regardless soon after the finalization event completes. Agents are removed by applying the `remove_agent` function to the ID of the agent. It is subsequently possible to obtain the removed agent's flow output values by applying the `access` function to each of the flow output ports on the prototype.
+Removing an agent in a macro finalization event is only necessary if the agent's flow output port values need to be accessed. All unremoved agent node instances will be destructed regardless soon after the finalization event completes. Agents are removed by applying the `remove_agent` function to the ID of the agent. It is subsequently possible to obtain the removed agent's flow output values by applying the `get` function to each of the flow output ports on the prototype.
 
 Macro finalization events can create and send messages to agents, if needed.
 
@@ -280,7 +280,7 @@ inline duration subtyping_closed_system::macro_initialization_event()
 {
     int64 agent_id = 0;
     for (float64 y0 = 0.0; y0 < 5.0; ++y0) {
-        access(prototype.y0_input) = y0;
+        get(prototype.y0_input) = y0;
         create_agent<agent_derived_A_node>(agent_id);
         ++agent_id;
         create_agent<agent_derived_B_node>(agent_id);

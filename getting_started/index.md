@@ -15,11 +15,11 @@ Step-by-Step Guide to Modeling and Simulation with SyDEVS
 
 ## New to C++?
 
-You will need a C++ compiler that implements the C++14 standard. A list of free compilers and a tutorial are available on the [Standard C++ Foundation's getting started page](https://isocpp.org/get-started). SyDEVS has been tested successfully with Visual C++ 2015 and 2017, the Gnu Compiler Collection, and Clang.
+You will need a C++ compiler that implements the C++17 standard. This tutorial will assume you are running Windows and using either [Visual Studio 2022](https://www.visualstudio.com) or a recent version of the 64+32-bit MinGW-w64 edition of [TDM-GCC](https://jmeubank.github.io/tdm-gcc/), though other compilers should also work.
 
 You may also want to [download CMake](https://cmake.org/) and install it. Although experienced C++ programmers will be able to compile the examples in the tutorial without CMake, the step-by-step instructions assume the use of this free, cross-platform build configuration tool.
 
-**Optional:** If you want to get through the tutorial as quickly as possible, download and extract [this archive](/sydevs/doc/downloads/sydevs-tutorial-v0.6.7.zip). It has all the folders and source files created as if you had already completed Parts 1 through 6 of the tutorial, so that all you have to do is build the examples. However, to get the full learning experience, it is recommended that you start from scratch and complete each step yourself.
+**Optional:** If you want to get through the tutorial as quickly as possible, download and extract [this archive](/sydevs/doc/downloads/sydevs-tutorial-v0.7.zip). It has all the folders and source files created as if you had already completed Parts 1 through 6 of the tutorial, so that all you have to do is build the examples. However, to get the full learning experience, it is recommended that you start from scratch and complete each step yourself.
 
 | [***Continue to Part 1***](part01.html) |
 

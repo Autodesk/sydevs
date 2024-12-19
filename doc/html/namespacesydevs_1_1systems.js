@@ -21,5 +21,27 @@ var namespacesydevs_1_1systems =
     [ "real_time_simulation", "classsydevs_1_1systems_1_1real__time__simulation.html", "classsydevs_1_1systems_1_1real__time__simulation" ],
     [ "simulation", "classsydevs_1_1systems_1_1simulation.html", "classsydevs_1_1systems_1_1simulation" ],
     [ "statistic_node", "classsydevs_1_1systems_1_1statistic__node.html", "classsydevs_1_1systems_1_1statistic__node" ],
-    [ "system_node", "classsydevs_1_1systems_1_1system__node.html", "classsydevs_1_1systems_1_1system__node" ]
+    [ "system_node", "classsydevs_1_1systems_1_1system__node.html", "classsydevs_1_1systems_1_1system__node" ],
+    [ "data_goal", "namespacesydevs_1_1systems.html#add51536d479991dea5779172e185bacc", [
+      [ "input", "namespacesydevs_1_1systems.html#add51536d479991dea5779172e185baccaa43c1b0aa53a0c908810c06ab1ff3967", null ],
+      [ "output", "namespacesydevs_1_1systems.html#add51536d479991dea5779172e185bacca78e6221f6393d1356681db398f14ce6d", null ]
+    ] ],
+    [ "data_mode", "namespacesydevs_1_1systems.html#a1852ea7ca1d57fd679e01369acb054b8", [
+      [ "flow", "namespacesydevs_1_1systems.html#a1852ea7ca1d57fd679e01369acb054b8acff5497121104c2b8e0cb41ed2083a9b", null ],
+      [ "message", "namespacesydevs_1_1systems.html#a1852ea7ca1d57fd679e01369acb054b8a78e731027d8fd50ed642340b7c9a63b3", null ]
+    ] ],
+    [ "data_goal_from_string", "namespacesydevs_1_1systems.html#acbb38ce2a68442030fef244a8669c6b7", null ],
+    [ "data_mode_from_string", "namespacesydevs_1_1systems.html#a8131505648a34fcc1241cf4570d2ce2b", null ],
+    [ "int64_from_data_goal", "namespacesydevs_1_1systems.html#a7051406ddac71bcba2207d89bf0fdcd9", null ],
+    [ "int64_from_data_mode", "namespacesydevs_1_1systems.html#a52a6474ef3ec62540d4a511946d3ea2c", null ],
+    [ "string_from_data_goal", "namespacesydevs_1_1systems.html#a1662f027c1db345bd2749650f7df28f4", null ],
+    [ "string_from_data_mode", "namespacesydevs_1_1systems.html#a7b959464efebc2d19b1143e14b11cfc7", null ],
+    [ "data_goal_strings", "namespacesydevs_1_1systems.html#a4f7630d7ddd0bdcd29abc121e660eba3", null ],
+    [ "data_goals", "namespacesydevs_1_1systems.html#a362ca2c8c2a768d6956b1a9aaa8551c9", null ],
+    [ "data_mode_strings", "namespacesydevs_1_1systems.html#aca7876cb4915b2bcc040773caab155af", null ],
+    [ "data_modes", "namespacesydevs_1_1systems.html#a0cd48b77ea8a7ea1e4de1c91eb3c2229", null ],
+    [ "flow", "namespacesydevs_1_1systems.html#ae7637830de560f2e9cceec0f745c9443", null ],
+    [ "input", "namespacesydevs_1_1systems.html#ad0d79287f2ae06535c27abf4bddcaba6", null ],
+    [ "message", "namespacesydevs_1_1systems.html#a513831e81fbcc46ebd89113153cb782f", null ],
+    [ "output", "namespacesydevs_1_1systems.html#a90d7a22c39ca9f9cdb404e4b3f04caba", null ]
 ];

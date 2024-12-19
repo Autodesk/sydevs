@@ -13,7 +13,7 @@ The overall directory structure should now be as follows.
 
 ```
 sydevs-tutorial/
-    bin/
+    build/
         ...
     external/
         ...

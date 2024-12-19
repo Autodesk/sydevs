@@ -14,7 +14,7 @@ The ***function node*** represents a single function that reads a set of input v
 
 The ***composite node*** integrates other nodes by linking their ports. There are initialization and finalization links, which form a dataflow programming graph. There are also simulation links, which direct messages and support discrete event simulation.
 
-The ***collection node*** contains an arbtrary number of instances of the same type of node, supporting agent-based modeling.
+The ***collection node*** contains an arbitrary number of instances of the same type of node, supporting agent-based modeling.
 
 ## Example
 
@@ -76,10 +76,11 @@ Also see an example of a function node ([plus_node.h](https://github.com/Autodes
 
 ## Theoretical Basis
 
-SyDEVS is heavily influenced by the [Discrete Event System Specification (DEVS)](https://en.wikipedia.org/wiki/DEVS), a set of conventions developed in the 1970s that allow essentially any simulation model to be specified using a common set of mathematical elements. The atomic and composite nodes of SyDEVS, which support [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), are similar to the atomic and coupled models of the classic version of DEVS. The function nodes of SyDEVS extend the original theory to accommodate [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming). The collection nodes improve support for [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model).
+SyDEVS is an implementation of Symmetric DEVS, a variant of the classic [Discrete Event System Specification (DEVS)](https://en.wikipedia.org/wiki/DEVS) formalism. DEVS is a set of conventions developed in the 1970s that allow essentially any simulation model to be specified using a common set of mathematical elements. The atomic and composite nodes of SyDEVS, which support [discrete event simulation](https://en.wikipedia.org/wiki/Discrete_event_simulation), are similar to the atomic and coupled models of the classic version of DEVS. The function nodes of SyDEVS extend the original formalism to accommodate [dataflow programming](https://en.wikipedia.org/wiki/Dataflow_programming). The collection nodes of SyDEVS further extend the formalism to support [agent-based modeling](https://en.wikipedia.org/wiki/Agent-based_model).
 
-## Related Articles
+For in-depth information on the theory and principles underlying SyDEVS, see the following resources:
 
+- [Making Simulation Core Scale with SyDEVS (52-minute YouTube video)](https://www.youtube.com/watch?v=HWlk6JplGG8) by Rhys Goldstein. This talk (a) introduces systems modeling with examples of human-building interaction, (b) illustrates how the common form employed by SyDEVS accommodates physics solvers, data-driven models, agent-based models, and other types of simulation models, and (c) discusses the implications of simulation frameworks like SyDEVS for research areas such as surrogate modeling, high-performance computing, and visual programming. The recording is part of Greg Bronevetsky's [Modeling Talk Series](https://www.youtube.com/playlist?list=PLR85n_30XpJQzviQY5zzVhM5xxHBxpWo_).
 - [A Symmetric Formalism for Discrete Event Simulation with Agents](https://www.research.autodesk.com/publications/a-symmetric-formalism-for-discrete-event-simulation-with-agents) ([PDF](doc/downloads/Goldstein__Symmetric_Formalism__2018-08-03_1100.pdf)) by Goldstein et al., 2018: This paper presents Symmetric DEVS, the variant of DEVS on which SyDEVS is based. Symmetric DEVS extends discrete event simulation with elements of dataflow programming and agent-based modeling. Also see *Agent-Based Modeling with Symmetric DEVS* ([PPTX](doc/downloads/AgentBasedSyDEVS_Tutorial.pptx)), a tutorial on the Symmetric DEVS formalism.
 - [Multiscale Representation of Simulated Time (open access)](https://journals.sagepub.com/eprint/mIKXDU2UtbJUjPZ8kupv/full) by Goldstein et al., 2017: Standard representations of time based on integers or floating-point numbers have serious drawbacks that limit the ability of most frameworks to handle models with dramatically different timescales. The multiscale time representation proposed in this paper is implemented in SyDEVS, allowing models with varying levels of time precision to coexist while keeping rounding errors bounded.
 - [Designing DEVS Visual Interfaces for End-User Programmers](https://www.research.autodesk.com/publications/designing-devs-visual-interfaces-for-end-user-programmers) ([PDF](doc/downloads/Maleki__Designing_DEVS__2015-08-13.pdf)) by Maleki et al., 2015: SyDEVS is largely based on the visual programming interfaces proposed in this paper. Although there is currently no graphical modeling tool accompanying the framework, the same node-based models presented visually in the paper can be implemented directly in C++ using the SyDEVS library. Also, the manner in which DEVS is expressed in SyDEVS is largely based on the conventions and terminology proposed in the paper.
@@ -94,5 +95,4 @@ SyDEVS is heavily influenced by the [Discrete Event System Specification (DEVS)]
 - [PowerDEVS](https://sourceforge.net/projects/powerdevs/) (C++) developed at the National University of Rosario
 - [PythonPDEVS](http://msdl.cs.mcgill.ca/projects/DEVS/PythonPDEVS) (Python) by the [MSDL](http://msdl.cs.mcgill.ca/) at McGill University and the University of Antwerp
 - [Quartz](https://github.com/RomainFranceschini/quartz) (Crystal) by Romain Franceschini, University of Corsica
-- [Virtual Laboratory Environment](http://www.vle-project.org/) (C++)
-- [XSY](https://code.google.com/archive/p/x-s-y/) (Python)
+- [xDEVS](https://github.com/iscar-ucm/xdevs) (C, C++, C#, Go, Java, Python, and Rust) by José Luis Risco-Martín et al.

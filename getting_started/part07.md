@@ -5,7 +5,7 @@ You've now compiled and executed a number of SyDEVS simulations, and learned the
 
 Download and open the SyDEVS Building7m Tutorial ([PPTX](https://autodesk.github.io/sydevs/doc/downloads/SyDEVS_Building7m_Tutorial.pptx), [PDF](https://autodesk.github.io/sydevs/doc/downloads/SyDEVS_Building7m_Tutorial.pdf)).
 
-This resource first describes the `building7m` example that you incoporated into your project in [Part 6](part06.html):
+This resource first describes the `building7m` example that you incorporated into your project in [Part 6](part06.html):
 
 1. The `weather_node` produces a sequence of outdoor temperatures that rise and fall in a sinewave pattern.
 2. The `thermodynamics_node` computes the temperature at each 20cm x 20cm grid cell over time, accounting for the thermal resistance of building walls.
@@ -36,6 +36,6 @@ The final page gives a set of instructions:
   - Re-run after changing the frame duration parameter value from `duration::inf()` to `30_s`. 
 5. Implement at least the first 3 enhancements, and ideally all 5.
 
-Follow these intructions and complete at least the first three enhancements. Enhancements 1-3 will improve your understanding of SyDEVS as well as your confidence in using the framework. The last two enhancements should also be instructive, but rather than focussing on SyDEVS they require you to source other C++ libraries.
+Follow these instructions and complete at least the first three enhancements. Enhancements 1-3 will improve your understanding of SyDEVS as well as your confidence in using the framework. The last two enhancements should also be instructive, but rather than focusing on SyDEVS they require you to source other C++ libraries.
 
 That's it! Once you've completed the SyDEVS Building7m Tutorial, continue exploring the resources listed on the [SyDEVS webpage](/sydevs/) and [GitHub repo](https://github.com/Autodesk/sydevs), and ***start using SyDEVS!***

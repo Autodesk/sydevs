@@ -12,7 +12,7 @@ You should now have the following directory structure.
 
 ```
 sydevs-examples/
-    bin/
+    build/
         ...
     external/
         ...

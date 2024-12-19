@@ -96,7 +96,7 @@ Below is the flow event handler from [initial_position_node.h](https://github.co
 ```cpp
 inline void initial_position_node::flow_event()
 {
-    array2d<int64> L = building_layout_input.value().first;
+    const auto& [L, d] = building_layout_input.value();
     int64 nx = L.dims()[0];
     int64 ny = L.dims()[1];
     array1d<int64> pos({2}, {0, 0});

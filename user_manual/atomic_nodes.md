@@ -129,15 +129,15 @@ By convention, flow input and message input ports usually have names that end in
 Note that every port has a data type, which must be a SyDEVS qualified type. The library includes a set of core types that are qualified by default. These are listed below.
 
 ```cpp
-bool         // boolean, `true` or `false`
-int64        // 64-bit signed integer
-float64      // 64-bit floating-point number (`double`)
-std::string  // standard library string
+bool     // boolean, `true` or `false`
+int64    // 64-bit signed integer
+float64  // 64-bit floating-point number (`double`)
 
 quantity<U>        // base-1000 amount of any Standard International (SI) unit `U`
 identity<U>        // encapsulated 64-bit integer with a generic unit `U`
 arraynd<T, ndims>  // multidimensional array of data type `T` and `ndims` dimensions
 
+std::string        // standard library string
 std::pair<T1, T2>  // standard library pair of values of data types `T1` and `T2`
 std::tuple<...>    // standard library tuple of values of the specified data types
 std::vector<T>     // standard library vector of values of data type `T`
@@ -147,9 +147,11 @@ std::map<T>        // standard library map of values of data type `T`
 std::shared_ptr<T>  // standard library shared pointer to value of data type `T`
 ```
 
-The first 4 qualified types are standard C++ data types.
+The first 3 qualified types are primitive C++ data types.
 
 The next 3 qualified types are elements of the SyDEVS library. See the [quantity](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1quantity.html#details), [identity](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1identity.html#details), and [arraynd](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1arraynd.html#details) class references for more details.
+
+The remaining qualified types are elements of the C++ standard library.
 
 Some of the qualified types include a template parameter specifying another data type (`T`, `T1`, `T2`). These data types must also be qualified types, with one exception. The exception is `std::shared_ptr<T>`, for which `T` can be any C++ data type. The catch is that `std::shared_ptr<T>` will transfer data by reference instead of performing a deep copy. If a reference is passed between nodes, it may introduce a communication channel that bypasses the nodes' ports. This can lead to bugs.
 
@@ -330,7 +332,7 @@ The `weather_node` class found in [weather_node_node.h](https://github.com/Autod
 
 The `thermodynamics_node` class found in [thermodynamics_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/thermodynamics_node.h) is an example of an atomic node that maintains a fixed time step between output messages regardless of when it receives input messages.
 
-The `occupant_node` class found in [occupant_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/occupant_node.h) provides an example of stocasticity, where a simulated individual performs a random walk within a building.
+The `occupant_node` class found in [occupant_node.h](https://github.com/Autodesk/sydevs/blob/master/src/examples/demo/building7m/occupant_node.h) provides an example of stochasticity, where a simulated individual performs a random walk within a building.
 
 | [***Continue to Function Nodes***](function_nodes.html) |
 

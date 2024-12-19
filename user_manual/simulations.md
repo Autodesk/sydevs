@@ -41,10 +41,9 @@ Simulations are instantiated with three arguments: the duration of the simulatio
         simulation<parallel_queueing_closed_system> sim(2_min, 0, std::cout);
 ```
 
-It is possible to supply specific start and end times instead of a total simulation duration. See the [simulation constructor reference](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1systems_1_1simulation.html#acca4a2e7f23f9ef5426e230393f07471).
+It is possible to supply specific start and end times instead of a total simulation duration. See the [simulation class template reference](https://autodesk.github.io/sydevs/doc/html/classsydevs_1_1systems_1_1simulation.html).
 
 Note that there is no danger in using a random seed of 0. The seed is transformed via a series of operations into a sequence of random numbers that are used to initialize the Mersenne Twister 19937 generator. The seeding algorithm can be found in [node_context.cpp](https://github.com/Autodesk/sydevs/blob/master/src/sydevs/systems/node_context.cpp).
-
 
 ## Simulation Configuration
 
