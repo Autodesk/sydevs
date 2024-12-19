@@ -60,10 +60,9 @@ You should update the documentation on a regular basis to keep it in sync with t
 
 When releasing a new version of SyDEVS, remember to perform the following steps:
 
-1. In [doxygen.config](doxygen.config), update the `PROJECT_NUMBER`.
-1. Ensure the change above is merged into the `main` branch of the repo.
 1. Create the new release.
-1. Generate the API documentation, and copy the contents of `doc/html`.
+1. Wait for the package `SyDEVS-[version].zip` to appear as a release asset.
+1. Unzip the package and copy the contents of `doc/html`.
 1. Checkout the `gh-pages` branch of the repo.
 1. In the `gh-pages` branch, replace the contents of `doc/html` with the contents copied above.
 
