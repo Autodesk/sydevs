@@ -17,25 +17,22 @@ jobs:
     runs-on: ${{ matrix.os }}
 
     steps:
-    # Step 1: Checkout repository
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    # Step 2: Setup build tools based on OS
-    - name: Setup Build Tools on Windows
+    - name: Setup Windows Build 
       if: runner.os == 'Windows'
       run: choco install visualstudio2022buildtools --yes
       shell: powershell
-    - name: Install Dependencies (Ubuntu)
+
+    - name: Setup Linux Build
       if: runner.os == 'Linux'
       run: sudo apt-get update && sudo apt-get install -y build-essential cmake
 
-    # Step 3: Configure build environment
     - name: Configure Build
       run: cmake -S . -B build
       shell: bash
 
-    # Step 4: Build project
     - name: Build Project
       run: cmake --build build --config Release --parallel
       shell: bash
@@ -46,20 +43,17 @@ jobs:
     if: startsWith(github.ref, 'refs/tags/')
 
     steps:
-    # Step 1: Checkout repository
     - name: Checkout Repository
       uses: actions/checkout@v3
 
-    # Step 2: Prepare release package
-    - name: Prepare Artifacts
+    - name: Prepare Release Package
       run: |
         sudo apt-get install -y doxygen
         (cat doxygen.config; echo "PROJECT_NUMBER=${{ github.ref_name }}") | doxygen -
         zip -r SyDEVS-${{ github.ref_name }}.zip doc src CMakeLists.txt CODE_OF_CONDUCT.md CONTRIBUTING.md doxygen.config LICENSE.md README.md
       shell: bash
 
-    # Step 3: Deploy release package
-    - name: Create GitHub Release
+    - name: Upload Release Package
       uses: svenstaro/upload-release-action@v2
       with:
         repo_token: ${{ secrets.GITHUB_TOKEN }}
