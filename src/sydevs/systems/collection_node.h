@@ -186,6 +186,9 @@ protected:
     const_iterator agent_begin();                ///< Returns an iterator pointing to the oldest agent.
     const_iterator agent_end();                  ///< Returns an iterator pointing beyond the newest agent.
 
+protected:
+    const node_context& internal_context();  ///< Returns a representation of the internal context, which is also the external context of any component nodes.
+
 private:
     node_structure& internal_structure();
     node_interface& prototype_IO() const;
@@ -782,6 +785,13 @@ inline typename collection_node<AgentID, Node>::const_iterator collection_node<A
 }
 
     
+template<typename AgentID, typename Node>
+inline const node_context& collection_node<AgentID, Node>::internal_context()
+{
+    return const_cast<const node_context&>(internal_context_);
+}
+
+
 template<typename AgentID, typename Node>
 inline node_structure& collection_node<AgentID, Node>::internal_structure()
 {
